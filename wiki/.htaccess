@@ -1,0 +1,6 @@
+AuthUserFile /home/ubuntu/.htpasswd
+AuthName "Please Log In"
+AuthType Basic
+require valid-user
+
+
