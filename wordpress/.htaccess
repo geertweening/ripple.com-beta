@@ -1,8 +1,3 @@
-AuthUserFile /home/ubuntu/.htpasswd
-AuthName "Please Log In"
-AuthType Basic
-require valid-user
-
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
@@ -14,3 +9,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /wordpress/index.php [L]
 </IfModule>
 # END WordPress
+
