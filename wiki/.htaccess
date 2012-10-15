@@ -4,3 +4,4 @@ AuthType Basic
 require valid-user
 
 
+RewriteRule ^/?wiki(/.*)?$ %{DOCUMENT_ROOT}/wiki/index.php [L]
