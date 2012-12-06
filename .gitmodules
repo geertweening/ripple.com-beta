@@ -1,3 +1,8 @@
 [submodule "client"]
 	path = client
-	url = https://github.com/jedmccaleb/nc-client.git
+	url = https://github.com/rippleFoundation/ripple-client.git
+
+[submodule "wordpress/wp-content/themes"]
+path=wordpress/wp-content/themes
+url=https://github.com/jedmccaleb/ripple-theme.git
+
