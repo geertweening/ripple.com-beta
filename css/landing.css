@@ -374,7 +374,208 @@ article{
 	margin-bottom: 60px;
 }
 
+/*-----------------------------------------------------------------------------------*/
+/*	HOME PAGE 
+/*-----------------------------------------------------------------------------------*/
 
+/* Banner ----------------------------------------------------*/ 
+
+.banner-holder{
+	background: url(../img/banner-bg.png) repeat-x;
+	height: 423px;
+	width: 100%;
+}
+
+.banner-holder .bg-holder{
+	background: url(../img/map-bg.png) center center no-repeat;	
+	height: 100%;
+	width: 100%;
+}
+
+.banner-holder .bg-holder .wrapper{
+	height: 100%;
+}
+
+.banner-holder .tagline{
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	width: 960px;
+	font-family: 'OpenSansRegular';
+	font-size: 50px;
+	line-height: 1.3em;
+	color: #fff;
+	text-align: center;
+	display: block;
+	text-shadow: 0px 0px 14px rgba(0, 0, 0, .5);
+}
+
+.banner-holder .call-to-action{
+	position: absolute;
+	top:205px;
+	left: 368px; /* 960 / 2 - 224 / 2*/
+}
+
+.banner-holder .call-to-action:hover{
+	-webkit-transform: scale(1.05); 
+	-moz-transform: scale(1.05); 
+	-o-transform: scale(1.05); 
+	transform: scale(1.05);
+}
+
+/* Main buttons ----------------------------------------------------*/ 
+
+.main-buttons{
+	display: block;
+	background: url(../img/home-hor-line.png) bottom center no-repeat;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	margin-bottom: 40px;
+}
+
+.main-buttons li{
+	display: block;
+	float: left;
+}
+
+.main-buttons a{
+	display: block;
+	width: 240px;
+	height: 100px;
+	margin-left: 70px;
+}
+
+
+
+.main-buttons li.bitcoin a{
+	background: url(../img/button-bitcoin.png) no-repeat ;
+}
+
+.main-buttons li.bitcoin a:hover{
+	background-position: 0px -100px;
+}
+
+.main-buttons li.bitcoin a:active{
+	background-position: 0px -200px;
+}
+
+.main-buttons li.merchants a{
+	background: url(../img/button-mer.png) no-repeat;
+}
+
+.main-buttons li.merchants a:hover{
+	background-position: 0px -100px;
+}
+
+.main-buttons li.merchants a:active{
+	background-position: 0px -200px;
+}
+
+.main-buttons li.developers a{
+	background: url(../img/button-dev.png) no-repeat;
+}
+
+.main-buttons li.developers a:hover{
+	background-position: 0px -100px;
+}
+
+.main-buttons li.developers a:active{
+	background-position: 0px -200px;
+}
+
+.slide-h1 
+{
+	font-family:  'OpenSansLight','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;
+	line-height: 1.3em;
+	margin: 0 0;
+	font-size: 36px;
+	color: #173847;	
+}
+
+
+/* HOME SLIDES ----------------------------------------------------*/
+
+#slides{
+	
+}
+
+
+#slides .slides_container {
+	width: 426px;
+	margin-right: 60px;
+	overflow:hidden;
+	float:right;
+	position:relative;
+	display:block;
+}
+
+#slides .slides_container div{
+	height: 500px;
+}
+
+#slides .slides_container p,
+#slides .slides_container h1{
+	width: 386px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#slides .pagination {
+	width:300px;
+	min-height: 338px;
+	float:left;
+	margin-left: 100px;
+	background:  url(../img/home-ver-line.png) no-repeat top right;
+}
+
+#slides .pagination li {
+	margin-bottom: 15px;
+}
+
+#slides .pagination li a {
+	display: block;
+	overflow: hidden;
+	line-height: 45px;
+	font-family: 'OpenSansLight';
+	color: #444;
+	text-decoration: none;
+}
+
+#slides .pagination li a span {
+	display: block;
+	float: left;
+	line-height: 45px;
+	padding-top: 20px;
+}
+
+#slides .pagination li a i{
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+	line-height: 45px;
+	width: 43px;
+	height: 45px;
+	background: url(../img/slider-bullets.png) no-repeat 0px 0px;
+}
+
+#slides .pagination li a i.two{ background-position-y: -60px; }
+
+#slides .pagination li a i.three{ background-position-y: -120px; }
+
+#slides .pagination li a i.four{ background-position-y: -180px; }
+
+#slides .pagination li a i.five{ background-position-y: -240px; }
+
+#slides .pagination li a i.six{ background-position-y: -300px; }
+
+#slides .pagination li a:hover i{
+	background-position-x: -61px;	
+}
+
+#slides .pagination li.current i ,
+#slides .pagination li.current a:hover i {
+	background-position-x: -121px;	
+}
 
 /*-----------------------------------------------------------------------------------*/
 /*	FAQ
@@ -523,6 +724,25 @@ footer .bottom{
 	text-align: center;
 	padding-top: 20px;
 	border-top: 1px solid #697f88;
+}
+
+.box {
+    width: 620px;
+    margin: 0 auto 10px;
+    padding: 5px 30px 10px;
+    border-radius: 5px;
+    color: #2d2d2d;
+}
+.email {
+    margin: 0;
+    text-align: center;
+}
+.small {
+    font-size: 12px;
+}
+#hiring {
+    text-align: center;
+    color: #fff;
 }
 
 
