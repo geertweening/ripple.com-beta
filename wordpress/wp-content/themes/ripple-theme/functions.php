@@ -99,6 +99,7 @@ function load_js_scripts() {
     	wp_enqueue_script('modernizr', JSPATH . "modernizr.js", array('jquery'), false, true );
 		wp_enqueue_script('mediaqueries', JSPATH . 'css3-mediaqueries.js', array('jquery'), false, true );
 		wp_enqueue_script('scrollto', JSPATH . 'jQuery.ScrollTo.js', array('jquery'), false, true );
+		wp_enqueue_script('scrollspy', JSPATH . 'jquery-scrollspy.js', array('jquery'), false, true );
 		wp_enqueue_script('waypoints', JSPATH . 'waypoints.js', array('jquery'), false, true );
 		wp_enqueue_script('slides', JSPATH . 'slides.js', array('jquery'), false, true );
 		

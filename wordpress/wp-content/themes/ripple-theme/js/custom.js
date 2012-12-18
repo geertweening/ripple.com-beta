@@ -91,9 +91,21 @@ jQuery(document).ready(function($) {
 			}
 		);
 	});
-	
-	
-	
+
+  // Scroll Spy
+
+  $('section').each(function(i) {
+    var position = $(this).position();
+    $(this).scrollspy({
+      min: position.top,
+      max: position.top + $(this).height(),
+      onEnter: function(element, position) {
+        $("#subnav-icons li").removeClass('active');
+        $("#subnav-icons ." + $(element).find('.anchor').attr('id')).addClass('active');
+      }
+    });
+  });
+
 }); // jquery
 
 
