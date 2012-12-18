@@ -13,6 +13,8 @@
 		<div class="wrapper cf">
    		
 			<?php the_post() ?>
+			
+			<?php get_template_part('includes/subnav-howitworks') ?>
 		
 			<!-- Content area -->
 			<div class="content-area">
