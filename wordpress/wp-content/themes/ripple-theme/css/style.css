@@ -27,8 +27,11 @@ body .title {
 	margin: 0 0;
 }
 
-.what_title a
-{
+.what_title {
+margin-bottom: 12px;
+}
+
+.what_title a {
   color: #5B5B5B;
 }
 
