@@ -332,7 +332,7 @@ header{
 .content-area{
 	padding-top: 30px;
 }
-.content-area.howitworks {
+.howitworks .content-area {
     padding-top: 0;
     padding-bottom: 50px;
 }
@@ -412,7 +412,7 @@ article{
 
 /* Main buttons ----------------------------------------------------*/ 
 
-.home .main-buttons{
+.main-buttons{
 	display: block;
 	background: url(../img/home-hor-line.png) bottom center no-repeat;
 	padding-top: 30px;
@@ -420,12 +420,28 @@ article{
 	margin-bottom: 40px;
 }
 
-.home .main-buttons li{
+.howitworks .main-buttons {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    background-position: top;
+}
+
+.howitworks .main-buttons a{
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.main-buttons li{
 	display: block;
 	float: left;
 }
 
-.home .main-buttons a{
+.main-buttons a{
 	display: block;
 	width: 240px;
 	height: 100px;
@@ -434,39 +450,39 @@ article{
 
 
 
-.home .main-buttons li.bitcoin a{ 
+.main-buttons li.bitcoin a{
 	background: url(../img/button-bitcoin.png) no-repeat ;
 }
 
-.home .main-buttons li.bitcoin a:hover{ 
+.main-buttons li.bitcoin a:hover{
 	background-position: 0px -100px;
 }
 
-.home .main-buttons li.bitcoin a:active{ 
+.main-buttons li.bitcoin a:active{
 	background-position: 0px -200px;
 }
 
-.home .main-buttons li.merchants a{ 
+.main-buttons li.merchants a{
 	background: url(../img/button-mer.png) no-repeat;
 }
 
-.home .main-buttons li.merchants a:hover{ 
+.main-buttons li.merchants a:hover{
 	background-position: 0px -100px;
 }
 
-.home .main-buttons li.merchants a:active{ 
+.main-buttons li.merchants a:active{
 	background-position: 0px -200px;
 }
 
-.home .main-buttons li.developers a{
+.main-buttons li.developers a{
 	background: url(../img/button-dev.png) no-repeat;
 }
 
-.home .main-buttons li.developers a:hover{ 
+.main-buttons li.developers a:hover{
 	background-position: 0px -100px;
 }
 
-.home .main-buttons li.developers a:active{ 
+.main-buttons li.developers a:active{
 	background-position: 0px -200px;
 }
 
@@ -572,6 +588,39 @@ article{
 	
 }
 
+/*-----------------------------------------------------------------------------------*/
+/*	How it works
+/*-----------------------------------------------------------------------------------*/
+
+.howitworks .call-to-action {
+    padding-top: 50px;
+    border-top: 1px solid #d9d9d9;
+}
+
+.howitworks .bg {
+    background: #fff;
+}
+
+.howitworks .call-to-action a {
+    width: 224px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.howitworks .call-to-action a:hover img{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.howitworks .find-more {
+    margin: 50px 0 0 0;
+    text-align: center;
+    font-size: 12px;
+    color: #5b5b5b;
+}
 
 
 /*-----------------------------------------------------------------------------------*/

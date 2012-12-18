@@ -10,14 +10,14 @@
 	<?php get_template_part('includes/subnav-howitworks') ?>
 	
 	<!-- MAIN -->
-	<div id="main">
+	<div id="main" class="howitworks">
 		<!-- WRAPPER -->
 		<div class="wrapper cf">
    		
 			<?php the_post() ?>
 		
 			<!-- Content area -->
-			<div class="content-area howitworks">
+			<div class="content-area">
 				<div class="entry-content">
 <!--					--><?php //the_content() ?>
                     <h3 class="title"><a id="technical-summary">Technical Summary</a></h3>
@@ -74,12 +74,29 @@
                             <a href="#">Check out the ripple code.</a>
                         </div>
                     </div>
-				</div>
+                </div>
 			</div>
 		    <!-- ENDS content area -->
 		
 		</div>
 		<!-- ENDS WRAPPER -->
+
+        <div class="call-to-action">
+            <div class="bg">
+                <a href="#">
+                    <img src="<?php bloginfo('template_directory'); ?>/img/call-to-action.png" alt="Start Ripple">
+                </a>
+            </div>
+        </div>
+
+        <div class="find-more">Find out more about ripple</div>
+
+        <ul class="main-buttons">
+            <li class="bitcoin"><a href="#"></a></li>
+            <li class="merchants"><a href="#"></a></li>
+            <li class="developers"><a href="#"></a></li>
+        </ul>
+
 	</div>
 	<!-- ENDS MAIN -->
 
