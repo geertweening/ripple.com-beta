@@ -119,3 +119,34 @@
 .entry-content .wp-link-pages {
   margin-top: 20px;
 }
+
+
+.entry-content .block {
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.entry-content .block h4 {
+    margin-top: 1em;
+}
+.entry-content .text {
+    width: 400px;
+}
+.entry-content .block .left {
+    float: left;
+}
+.entry-content .block .right {
+    float: right;
+}
+
+.entry-content .window-title {
+    text-align: center;
+    font-size: 22px;
+}
+.entry-content .window {
+    border-radius: 5px;
+    /*border: 1px solid #5B5B5B;*/
+    box-shadow: 0 -2px 2px #9c9c9c;
+    background: #fff;
+    padding: 30px;
+    margin: 15px 100px;
+}
