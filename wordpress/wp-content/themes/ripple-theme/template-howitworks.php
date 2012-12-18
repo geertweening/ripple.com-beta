@@ -6,7 +6,8 @@
 ?>
 
 <?php get_header() ?>
-	
+<?php get_template_part('includes/header') ?>
+	<?php get_template_part('includes/subnav-howitworks') ?>
 	<!-- MAIN -->
 	<div id="main">
 		<!-- WRAPPER -->
@@ -14,7 +15,7 @@
    		
 			<?php the_post() ?>
 			
-			<?php get_template_part('includes/subnav-howitworks') ?>
+			
 		
 			<!-- Content area -->
 			<div class="content-area">
