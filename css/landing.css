@@ -415,17 +415,21 @@ article{
 	text-shadow: 0px 0px 14px rgba(0, 0, 0, .5);
 }
 
-.banner-holder .call-to-action{
+.banner-holder .call-to-action {
 	position: absolute;
 	top:205px;
 	left: 368px; /* 960 / 2 - 224 / 2*/
+  background: url(../img/start.png);
+  width: 221px;
+  height: 64px;
 }
 
-.banner-holder .call-to-action:hover{
-	-webkit-transform: scale(1.05); 
-	-moz-transform: scale(1.05); 
-	-o-transform: scale(1.05); 
-	transform: scale(1.05);
+.banner-holder .call-to-action:hover {
+  background-position: 0 64px;
+}
+
+.banner-holder .call-to-action span {
+  display: none;
 }
 
 /* Main buttons ----------------------------------------------------*/ 
