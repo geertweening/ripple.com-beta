@@ -4,7 +4,7 @@
 @import url('entry-content.css');
 
 body {
-  font-family:  'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family:  'OpenSansRegular';
   font-size: 16px;
   line-height: 1.5em;
   background:  url(../img/bg-gray.png) top center;
