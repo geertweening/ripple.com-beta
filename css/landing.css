@@ -16,7 +16,7 @@ body p {
 }
 
 body h1,
-body h2, 
+body h2,
 body h3,
 body h4,
 body h5,
@@ -103,6 +103,11 @@ blockquote{
 	margin: 0;
 	color: #5b5b5b;
 	margin-bottom: 21px;
+}
+
+#slides a {
+  color: #4983B2;
+  font-size: 12px;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -428,8 +433,7 @@ article{
 .main-buttons{
 	display: block;
 	background: url(../img/home-hor-line.png) bottom center no-repeat;
-	padding-top: 30px;
-	padding-bottom: 20px;
+	padding: 30px 0 20px;
 	margin-bottom: 40px;
 }
 
@@ -521,12 +525,15 @@ article{
 }
 
 #slides .pagination {
+  padding: 0;
 	width:300px;
 	min-height: 338px;
 	float:left;
 	margin-left: 100px;
 	background:  url(../img/home-ver-line.png) no-repeat top right;
+  list-style-type: none;
 }
+
 
 #slides .pagination li {
 	margin-bottom: 15px;
