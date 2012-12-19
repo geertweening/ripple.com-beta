@@ -218,13 +218,7 @@ header{
 	width: 28px;
 	height: 30px;
 	background: url(../img/sprite2.png) no-repeat;
-    background-position-x: -2px;
 	opacity: 1;
-}
-
-
-#subnav-icons li a:hover{
-	background-position-x: -30px;
 }
 
 #subnav-icons li.one-target:after,
@@ -281,15 +275,27 @@ header{
 }
 
 #subnav-icons li.technical-summary a{
-    background-position-y: 0;
+    background-position: -2px 0;
+}
+
+#subnav-icons li.technical-summary a:hover{
+    background-position: -30px 0;
 }
 
 #subnav-icons li.virtual-currency a{
-    background-position-y: -30px;
+    background-position: -2px -30px;
+}
+
+#subnav-icons li.virtual-currency a:hover{
+    background-position: -30px -30px;
 }
 
 #subnav-icons li.the-open-platform a{
-    background-position-y: -60px;
+    background-position: -2px -60px;
+}
+
+#subnav-icons li.the-open-platform a:hover{
+    background-position: -30px -60px;
 }
 
 #subnav-icons li.start{
