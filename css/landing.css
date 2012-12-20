@@ -579,24 +579,35 @@ article{
 	background: url(../img/slider-bullets.png) no-repeat 0px 0px;
 }
 
-#slides .pagination li a i.two{ background-position-y: -60px; }
+#slides .pagination li a i.one{ background-position: 0 0; }
+#slides .pagination li a:hover i.one{ background-position: -61px 0; }
+#slides .pagination li.current i.one{ background-position: -121px 0; }
+#slides .pagination li.current a:hover i.one{ background-position: -121px 0; }
 
-#slides .pagination li a i.three{ background-position-y: -120px; }
+#slides .pagination li a i.two{ background-position: 0 -60px; }
+#slides .pagination li a:hover i.two{ background-position: -61px -60px; }
+#slides .pagination li.current i.two{ background-position: -121px -60px; }
+#slides .pagination li.current a:hover i.two{ background-position: -121px -60px; }
 
-#slides .pagination li a i.four{ background-position-y: -180px; }
+#slides .pagination li a i.three{ background-position: 0 -120px; }
+#slides .pagination li a:hover i.three{ background-position: -61px -120px; }
+#slides .pagination li.current i.three{ background-position: -121px -120px; }
+#slides .pagination li.current a:hover i.three{ background-position: -121px -120px; }
 
-#slides .pagination li a i.five{ background-position-y: -240px; }
+#slides .pagination li a i.four{ background-position: 0 -180px; }
+#slides .pagination li a:hover i.four{ background-position: -61px -180px; }
+#slides .pagination li.current i.four{ background-position: -121px -180px; }
+#slides .pagination li.current a:hover i.four{ background-position: -121px -180px; }
 
-#slides .pagination li a i.six{ background-position-y: -300px; }
+#slides .pagination li a i.five{ background-position: 0 -240px; }
+#slides .pagination li a:hover i.five{ background-position: -61px -240px; }
+#slides .pagination li.current i.five{ background-position: -121px -240px; }
+#slides .pagination li.current a:hover i.five{ background-position: -121px -240px; }
 
-#slides .pagination li a:hover i{
-	background-position-x: -61px;	
-}
-
-#slides .pagination li.current i ,
-#slides .pagination li.current a:hover i {
-	background-position-x: -121px;	
-}
+#slides .pagination li a i.six{ background-position: 0 -300px; }
+#slides .pagination li a:hover i.six{ background-position: -61px -300px; }
+#slides .pagination li.current i.six{ background-position: -121px -300px; }
+#slides .pagination li.current a:hover i.six{ background-position: -121px -300px; }
 
 /*-----------------------------------------------------------------------------------*/
 /*	FAQ
