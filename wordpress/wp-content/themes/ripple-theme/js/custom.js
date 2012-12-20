@@ -92,19 +92,48 @@ jQuery(document).ready(function($) {
 		);
 	});
 
-  // Scroll Spy
+  /**
+   * ScrollSpy
+   */
+  if ($('section').length)
+  {
+    var $firstSectionIcon = $("#subnav-icons li.icon:first");
+    var $lastSectionIcon = $("#subnav-icons li.icon:last");
 
-  $('section').each(function(i) {
-    var position = $(this).position();
-    $(this).scrollspy({
-      min: position.top,
-      max: position.top + $(this).height(),
-      onEnter: function(element, position) {
-        $("#subnav-icons li").removeClass('active');
-        $("#subnav-icons ." + $(element).find('.anchor').attr('id')).addClass('active');
+    var absoluteMin = $('section:first').position().top;
+    var absoluteMax = $('section:last').position().top;
+
+    // Deactivates all icons
+    function resetSubnavIcons() {
+      $("#subnav-icons li").removeClass('active');
+    }
+
+    // Actual scroll spy
+    $('section').each(function(i) {
+      var self = $(this);
+      var position = $(this).position();
+
+      self.scrollspy({
+        min: position.top,
+        max: position.top + $(this).height(),
+        onEnter: function(element, position) {
+          resetSubnavIcons();
+          $("#subnav-icons ." + $(element).find('.anchor').attr('id')).addClass('active');
+        }
+      });
+    });
+
+    // Fast scroll issue fix
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > absoluteMax) {
+        resetSubnavIcons();
+        $lastSectionIcon.addClass('active');
+      } else if($(window).scrollTop() < absoluteMin) {
+        resetSubnavIcons();
+        $firstSectionIcon.addClass('active');
       }
     });
-  });
+  }
 
 }); // jquery
 
