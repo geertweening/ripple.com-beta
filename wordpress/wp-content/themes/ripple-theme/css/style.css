@@ -298,6 +298,38 @@ header{
     background-position: -30px -60px;
 }
 
+#subnav-icons li.simple a{
+    background-position: -2px -90px;
+}
+
+#subnav-icons li.simple a:hover{
+    background-position: -30px -90px;
+}
+
+#subnav-icons li.truly-open a{
+    background-position: -2px -120px;
+}
+
+#subnav-icons li.truly-open a:hover{
+    background-position: -30px -120px;
+}
+
+#subnav-icons li.global a{
+    background-position: -2px -150px;
+}
+
+#subnav-icons li.global a:hover{
+    background-position: -30px -150px;
+}
+
+#subnav-icons li.freeish a{
+    background-position: -2px -180px;
+}
+
+#subnav-icons li.freeish a:hover{
+    background-position: -30px -180px;
+}
+
 #subnav-icons li.start{
 	float: right;
 	margin-right: 0px;
