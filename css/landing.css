@@ -112,9 +112,10 @@ blockquote{
 
 .tag_line {
 position:relative;
-  top: -50px;
-  color: white;
+  top: 20px;
+  color: black;
   text-align: center;
+  font-family: 'OpenSansBold';
 }
 
 .understand {
