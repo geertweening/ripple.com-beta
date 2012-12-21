@@ -409,7 +409,7 @@ article{
 .banner-holder{
 	background: url(../img/banner-bg.png) repeat-x;
 	height: 423px;
-	width: 100%;
+    min-width: 960px;
 }
 
 .banner-holder .bg-holder{
@@ -533,6 +533,11 @@ article{
 
 
 /* HOME SLIDES ----------------------------------------------------*/
+
+#slides {
+    width: 960px;
+    overflow: hidden;
+}
 
 #slides .slide {
     position: relative;
