@@ -534,26 +534,28 @@ article{
 
 /* HOME SLIDES ----------------------------------------------------*/
 
-#slides{
-	
+#slides .slide {
+    position: relative;
+    width: 426px;
+    float: left;
+    margin: 0 0 0 70px;
 }
-
-
-#slides .slides_container {
+#slides .slide ul {
+    margin: 0;
+}
+#slides .rs-carousel-runner {
 	width: 426px;
 	margin-right: 60px;
-	overflow:hidden;
-	float:right;
-	position:relative;
-	display:block;
 }
 
-#slides .slides_container div{
+#slides .rs-carousel-runner .rs-carousel-item {
 	height: 500px;
+    width: 426px;
+    list-style-type: none;
 }
 
-#slides .slides_container p,
-#slides .slides_container h1{
+#slides .rs-carousel-runner p,
+#slides .rs-carousel-runner h1{
 	width: 386px;
 	margin-left: 20px;
 	margin-right: 20px;
@@ -599,6 +601,8 @@ article{
 	height: 45px;
 	background: url(../img/slider-bullets.png) no-repeat 0px 0px;
 }
+
+#slides .pagination li a{ outline:0; }
 
 #slides .pagination li a i.one{ background-position: 0 0; }
 #slides .pagination li a:hover i.one{ background-position: -61px 0; }

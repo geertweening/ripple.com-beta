@@ -5,17 +5,37 @@ jQuery(document).ready(function($) {
 	/*	Slides
 	/*-----------------------------------------------------------------------------------*/
 	
-	$('#slides').slides({
+	/*$('#slides').slides({
 		preload: true,
 		preloadImage: 'img/loading.gif',
 		effect: 'slide, slide',
 		crossfade: true,
-		slideSpeed: 200,
-		fadeSpeed: 500,
+		slideSpeed: 2000,
+		fadeSpeed: 2000,
 		generateNextPrev: false,
 		generatePagination: false
-	});
-	
+	});*/
+
+  /*-----------------------------------------------------------------------------------*/
+  /*	Carousel
+  /*-----------------------------------------------------------------------------------*/
+
+  var carousel = $('#slides').carousel({
+    pagination: false,
+    nextPrevActions: false
+  });
+
+  $('#slides .pagination li').mouseenter(function(){
+    var id = $(this).find('a').attr('href');
+    $('#slides .pagination li').removeClass('current');
+    $(this).addClass('current');
+    carousel.carousel('goToItem', $('#' + id));
+  });
+
+  $('#slides .pagination a').click(function(e){
+    e.preventDefault();
+  });
+
 	/*-----------------------------------------------------------------------------------*/
 	/*	Sticky Menu
 	/*-----------------------------------------------------------------------------------*/
@@ -54,42 +74,6 @@ jQuery(document).ready(function($) {
 	$('#subnav li').click(function(){
 		$('#subnav li').removeClass('active');
 		$(this).addClass('active');
-	});
-	
-	/*-----------------------------------------------------------------------------------*/
-	/*	Waypoints
-	/*-----------------------------------------------------------------------------------*/
-	
-	var sections = $('article');
-	var navigation_links = $('#subnav-icons li');
-	
-	
-	sections.waypoint({
-		handler: function(event, direction){
-			
-			var active_section;
-			active_section = $(this);
-			if(direction === "up") active_section = active_section.prev();
-			
-			var active_link = $('#subnav-icons a[href="#' + active_section.attr("id") + '"]');
-			active_link = $('#subnav-icons li.' + active_section.attr("id") );
-			
-			navigation_links.removeClass('active');
-			active_link.addClass('active');
-		},
-		offset: 70
-	});
-	
-	// Scrollto
-	
-	navigation_links.click(function(event){
-		$.scrollTo(
-			$(this).children('a').attr("href"),
-			{
-				duration: 600,
-				offset: {'left':0, 'top':-70}
-			}
-		);
 	});
 
   // Scroll Spy
