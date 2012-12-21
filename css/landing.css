@@ -110,6 +110,20 @@ blockquote{
   font-size: 12px;
 }
 
+.tag_line {
+position:relative;
+  top: -50px;
+  color: white;
+  text-align: center;
+}
+
+.understand {
+margin-right: 80px;
+margin-left: 80px;
+}
+
+
+
 /*-----------------------------------------------------------------------------------*/
 /*	GENERAL
 /*-----------------------------------------------------------------------------------*/
@@ -619,56 +633,6 @@ article{
 
 .faq-item{
 	
-}
-
-/*-----------------------------------------------------------------------------------*/
-/*	Page Footer
-/*-----------------------------------------------------------------------------------*/
-
-.page-footer .call-to-action {
-    padding-top: 50px;
-    border-top: 1px solid #d9d9d9;
-}
-
-.page-footer .bg {
-    background: #fff;
-}
-
-.page-footer .call-to-action a {
-    width: 224px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.page-footer .call-to-action a:hover img{
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -o-transform: scale(1.05);
-    transform: scale(1.05);
-}
-
-.page-footer .find-more {
-    margin: 50px 0 0 0;
-    text-align: center;
-    font-size: 12px;
-    color: #5b5b5b;
-}
-
-.page-footer .main-buttons {
-    padding-top: 30px;
-    padding-bottom: 20px;
-    margin-bottom: 50px;
-    width: 930px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    background-position: top;
-}
-
-.page-footer .main-buttons a{
-    margin-left: 35px;
-    margin-right: 35px;
 }
 
 
