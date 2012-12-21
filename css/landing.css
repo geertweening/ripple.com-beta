@@ -438,7 +438,7 @@ article{
 
 .banner-holder .call-to-action {
 	position: absolute;
-	top:205px;
+	top:200px;
 	left: 368px; /* 960 / 2 - 224 / 2*/
   background: url(../img/start.png);
   width: 221px;
