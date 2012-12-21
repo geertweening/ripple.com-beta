@@ -122,6 +122,13 @@ margin-right: 80px;
 margin-left: 80px;
 }
 
+.four_table td {
+  padding: 20px;
+}
+
+.four_table a {
+  font-family: 'OpenSansLight';
+}
 
 
 /*-----------------------------------------------------------------------------------*/
