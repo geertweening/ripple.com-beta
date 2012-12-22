@@ -123,6 +123,10 @@ margin-right: 80px;
 margin-left: 80px;
 }
 
+.four_table {
+  width: 100%;
+}
+
 .four_table td {
   padding: 20px;
 }
