@@ -152,7 +152,7 @@ margin-left: 80px;
 /*-----------------------------------------------------------------------------------*/
 
 header{
-	
+    background: #fff;
 }
 
 #logo{
@@ -419,7 +419,7 @@ article{
 }
 
 .banner-holder .bg-holder{
-	background: url(../img/map-bg.png) center center no-repeat;	
+	background: url(../img/map-bg.png) center center no-repeat;
 	height: 100%;
 	width: 100%;
 }

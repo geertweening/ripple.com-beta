@@ -96,7 +96,7 @@ body {
     background: -o-linear-gradient(top, #bdccdb 0%,#7087a8 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top, #bdccdb 0%,#7087a8 100%); /* IE10+ */
     background: linear-gradient(to bottom, #bdccdb 0%,#7087a8 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bdccdb', endColorstr='#7087a8',GradientType=0 ); /* IE6-9 */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bdccdb', endColorstr='#7087a8',GradientType=0 ); *//* IE6-9 */
     font: 18px 'OpenSansLight';
 }
 a {
