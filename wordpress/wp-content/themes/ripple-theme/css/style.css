@@ -602,6 +602,9 @@ article{
     padding: 30px;
     margin: 15px 100px;
 }
+.entry-content .fiftyfifty {
+    width: 50%;
+}
 
 .start {
     width: 100px !important;
