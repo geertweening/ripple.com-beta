@@ -1,5 +1,5 @@
 @import url('normalize.css');
-@import url('main.css');
+@import url('boilerplate.css');
 @import url('fonts.css');
 @import url('entry-content.css');
 
@@ -15,16 +15,90 @@ body p {
   margin-bottom: 21px;
 }
 
-body h1,
-body h2, 
-body h3,
-body h4,
-body h5,
-body h6
-body .title {
-	font-family:  'OpenSansLight','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;
-	line-height: 1.3em;
-	margin: 0 0;
+/* this is a page or section title */
+h1 {
+    font-family: "OpenSans-Light", "Open Sans Light",
+    "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    color:#444444;
+    font-size: 36px;
+    text-align:left;
+    font-weight: 100;
+    letter-spacing: -1px;
+    padding-bottom:.5cm;
+}
+
+/* this is a section title to be used if a page title is already used
+on the page and we need something. */
+h2 {
+    font-family: "OpenSans-Light", "Open Sans Light",
+    "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    color:#555555;
+    font-size: 28px;
+    text-align:left;
+    font-weight: 100;
+    letter-spacing: 0px;
+}
+
+
+/* this is a sub-title it is for the short paragraph under the title
+(the orange one) */
+h3 {
+    font-family: "OpenSans-Light", "Open Sans Light",
+    "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    color:#F19D24;
+    font-size:18px;
+    text-align: left;
+    font-weight: 100
+}
+
+/* this is for the heading of a smaller section */
+h4 {
+    font-family: "OpenSans-Light", "Open Sans Light", "HelveticaNeue",
+    "Helvetica Neue ", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #666666;
+    font-size: 18px;
+    text-align:left;
+    font-weight: 100;
+}
+
+h5 {
+    font-family: "OpenSans-Light", "Open Sans Light", "HelveticaNeue",
+    "Helvetica Neue ", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color:#666666;
+    font-size: 16px;
+}
+
+/* body text */
+p {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    color:#666666;
+    font-size:14px;
+    text-align: left;
+    line-height:1.75;
+}
+
+/* warning text */
+.warning {
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    color:#CC3333;
+    font-size:14px;
+    text-align: left;
+    line-height:1.75;
+}
+
+/* bolded text */
+.p3 {
+    font-family: "HelveticaNeue-bold", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    color:#333333;
+    font-size:14px;
+    text-align: left;
+    line-height:1.75;
 }
 
 .what_title {
