@@ -1,7 +1,6 @@
 @import url('normalize.css');
-@import url('main.css');
+@import url('boilerplate.css');
 @import url('fonts.css');
-@import url('entry-content.css');
 
 body {
   font-family:  'OpenSansRegular';
