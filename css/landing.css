@@ -399,33 +399,6 @@ header{
 	margin-top: 5px;
 }
 
-#subnav-icons li.start a{
-	display: block;
-	background: url(../img/start-bg.png) center center;
-	height: auto;
-	width: auto;
-	line-height: 25px;
-	font-size: 12px;
-	color: #fff;
-	text-decoration: none;
-	opacity: 1;
-	padding: 0px 25px 0px 25px;
-	border: 1px solid #223e49;
-
-	-webkit-box-shadow: 0px 2px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0px 2px 2px rgba(0,0,0,.2);
-	box-shadow: 0px 2px 2px rgba(0,0,0,.2);
-
-
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius:  3px;
-}
-
-#subnav-icons li.start a:hover{
-	color: #f3dd33;
-}
-
 /*-----------------------------------------------------------------------------------*/
 /*	MAIN
 /*-----------------------------------------------------------------------------------*/
