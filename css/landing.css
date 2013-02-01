@@ -526,6 +526,7 @@ article{
     text-align: center;
     line-height: 50px;
     border: 1px solid #333768;
+    text-shadow: 0 -1px 1px #272727;
 
     font-family: OpenSansRegular;
     font-weight: bold;
