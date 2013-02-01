@@ -39,7 +39,15 @@ px      68    160    252    344    436    528    620    712    */
 	  margin-bottom: 40px;
 	  padding-right: 20px;
 	}
-	
+
+    .entry-content .block img {
+        max-width: 300px;
+    }
+
+    .entry-content .block .text {
+        width: 400px;
+    }
+
 	/* TABLET SLIDES ----------------------------------------------------*/ 
 	
 	#slides .slides_container {
