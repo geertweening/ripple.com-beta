@@ -23,6 +23,19 @@ h1 {
     padding-bottom:.5cm;
 }
 
+/* this is a page or section title */
+h3 {
+    font-family: "OpenSans-Light", "Open Sans Light",
+    "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    color:#444444;
+    font-size: 36px;
+    text-align:left;
+    font-weight: 100;
+    letter-spacing: -1px;
+    padding-bottom:.5cm;
+}
+
 /* this is a section title to be used if a page title is already used
 on the page and we need something. */
 h2 {
@@ -39,7 +52,7 @@ h2 {
 
 /* this is a sub-title it is for the short paragraph under the title
 (the orange one) */
-h3 {
+h6 {
     font-family: "OpenSans-Light", "Open Sans Light",
     "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
