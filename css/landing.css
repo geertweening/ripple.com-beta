@@ -19,12 +19,20 @@ h1 {
     font-family: "OpenSans-Light", "Open Sans Light",
     "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
-    color:#444444;
+    color: #444444;
     font-size: 36px;
     text-align:left;
     font-weight: 100;
     letter-spacing: -1px;
     padding-bottom:.5cm;
+}
+
+.heading-desc {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 2.2;
 }
 
 /* this is a section title to be used if a page title is already used
@@ -115,8 +123,8 @@ margin-bottom: 12px;
 
 .title {
     text-transform: uppercase;
-  border-bottom: 1px solid #173847;
-  padding-bottom: 8px;
+    border-bottom: 1px solid #173847;
+    padding-bottom: 8px;
     margin-top: 70px !important;
     margin-bottom: 70px !important;
 }
@@ -183,12 +191,13 @@ blockquote{
   font-size: 12px;
 }
 
-.tag_line {
-position:relative;
-  top: 20px;
-  color: black;
-  text-align: center;
-  font-family: 'OpenSansBold';
+.learn-more {
+    text-align: right;
+}
+.learn-more a {
+    text-align: right;
+    color: #4983B2;
+    font-size: 12px;
 }
 
 .understand {
@@ -220,6 +229,21 @@ margin-left: 80px;
 	position: relative;
 }
 
+.wrapper hr {
+    margin: 10px 0 80px;
+}
+
+.section-image {
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    height: 6px;
+    display: block;
+    background: url(../img/home-hor-line.png) bottom center no-repeat;
+}
+
 /*-----------------------------------------------------------------------------------*/
 /*	HEADER
 /*-----------------------------------------------------------------------------------*/
@@ -238,10 +262,15 @@ header{
 	display: block;
 	float: none;
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 229px;
+	width: 400px;
+    text-align: center;
+}
+
+#logo .slogan {
+    font-family: OpenSansRegular;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -568,8 +597,8 @@ article{
 .main-buttons{
 	display: block;
 	background: url(../img/home-hor-line.png) bottom center no-repeat;
-	padding: 30px 0 20px;
-	margin-bottom: 40px;
+	padding: 10px 0 20px;
+	margin-bottom: 20px;
 }
 
 .main-buttons li{
@@ -641,9 +670,8 @@ article{
 
 #slides .slide {
     position: relative;
-    width: 426px;
+    width: 560px;
     float: left;
-    margin: 0 0 0 70px;
 }
 #slides .slide ul {
     margin: 0;
@@ -654,7 +682,8 @@ article{
 }
 
 #slides .rs-carousel-runner .rs-carousel-item {
-	height: 500px;
+    padding: 0 60px 0 70px;
+	height: 380px;
     width: 426px;
     list-style-type: none;
 }
@@ -805,32 +834,63 @@ article{
 	padding-bottom: 5px;
 }
 
+/*-----------------------------------------------------------------------------------*/
+/*	Footer
+/*-----------------------------------------------------------------------------------*/
 
-.box {
-    width: 620px;
-    margin: 0 auto 10px;
-    padding: 5px 30px 10px;
-    border-radius: 5px;
-    color: #2d2d2d;
+footer {
+    margin: 50px 0 0 0;
+    font-family: Helvetica;
+    background: #0d4259;
 }
-.email {
+footer a {
+    color: #9d9d9d;
+    padding: 0 4px;
+    font-family: Helvetica;
+}
+footer hr {
     margin: 0;
-    text-align: center;
+    border-top: 1px solid #305d71;
+    background: none;
 }
-.small {
-    font-size: 12px;
+footer a:hover {
+    text-decoration: underline;
 }
-#hiring {
+footer .wrapper {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+footer ul {
+    list-style-type: none;
+}
+footer ul.links {
+    display: inline-block;
+    width: 100%;
+    list-style-type: none;
+    font-size: 14px;
+    margin: 30px 0 150px;
+}
+footer ul.links > li {
+    float: left;
+    width: 150px;
+    margin: 0 100px 0 0;
+}
+footer .title {
+    display: block;
+    margin: 0 0 10px !important;
+    padding: 4px !important;
+    color: #fff;
+    border-bottom: 2px solid #819ba7;
+    text-transform: capitalize;
+}
+footer ul {
+    margin: 0;
+    padding: 0;
+}
+footer .copy {
     text-align: center;
     color: #fff;
+    font-size: 12px;
+    padding: 10px;
 }
-
-
-
-
-
-
-
-
-
-
