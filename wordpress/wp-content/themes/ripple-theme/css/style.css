@@ -23,6 +23,14 @@ h1 {
     padding-bottom:.5cm;
 }
 
+.heading-desc {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 2.2;
+}
+
 /* this is a page or section title */
 h3 {
     font-family: "OpenSans-Light", "Open Sans Light",
@@ -155,9 +163,24 @@ blockquote{
 /*-----------------------------------------------------------------------------------*/
 
 .wrapper{
-	width: 960px;
-	margin: 0 auto;
-	position: relative;
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.wrapper hr {
+    margin: 10px 0 80px;
+}
+
+.section-image {
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    height: 6px;
+    display: block;
+    background: url(../img/home-hor-line.png) bottom center no-repeat;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -169,19 +192,24 @@ header{
 }
 
 #logo{
-	float: left;
-	margin-top: 20px;
-	margin-bottom: 20px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .home #logo{
-	display: block;
-	float: none;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 229px;
+    display: block;
+    float: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    text-align: center;
+}
+
+#logo .slogan {
+    font-family: OpenSansRegular;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -805,17 +833,17 @@ footer .wrapper {
 footer ul {
     list-style-type: none;
 }
-footer ul.links {
+footer ul.widget-cols {
     display: inline-block;
     width: 100%;
     list-style-type: none;
     font-size: 14px;
     margin: 30px 0 150px;
 }
-footer ul.links > li {
+footer ul.widget-cols > li {
     float: left;
-    width: 150px;
-    margin: 0 100px 0 0;
+    width: 200px;
+    margin: 0 40px 0 0;
 }
 footer .title {
     display: block;

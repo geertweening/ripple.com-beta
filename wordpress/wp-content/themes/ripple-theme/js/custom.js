@@ -1,21 +1,26 @@
 // Jquery with no conflict
 jQuery(document).ready(function($) {
 
-	/*-----------------------------------------------------------------------------------*/
-	/*	Slides
-	/*-----------------------------------------------------------------------------------*/
-	
-	$('#slides').slides({
-		preload: true,
-		preloadImage: 'img/loading.gif',
-		effect: 'slide, slide',
-		crossfade: true,
-		slideSpeed: 200,
-		fadeSpeed: 500,
-		generateNextPrev: false,
-		generatePagination: false
-	});
-	
+  /*-----------------------------------------------------------------------------------*/
+  /*	Carousel
+   /*-----------------------------------------------------------------------------------*/
+
+  var carousel = $('#slides').carousel({
+    pagination: false,
+    nextPrevActions: false
+  });
+
+  $('#slides .pagination li').mouseenter(function(){
+    var id = $(this).find('a').attr('href');
+    $('#slides .pagination li').removeClass('current');
+    $(this).addClass('current');
+    carousel.carousel('goToItem', $('#' + id));
+  });
+
+  $('#slides .pagination a').click(function(e){
+    e.preventDefault();
+  });
+
 	/*-----------------------------------------------------------------------------------*/
 	/*	Sticky Menu
 	/*-----------------------------------------------------------------------------------*/
@@ -31,7 +36,7 @@ jQuery(document).ready(function($) {
 		// If scrolled down more than the header's height
 		if( $(window).scrollTop() > aboveHeight ){
 			
-			// if yes, add ÒfixedÓ class to the <nav>
+			// if yes, add ï¿½fixedï¿½ class to the <nav>
 	        // add padding top to the #content 
             // (value is same as the height of the nav)
             
@@ -40,7 +45,7 @@ jQuery(document).ready(function($) {
 		}else{
 			
 			// when scroll up or less than aboveHeight,
-            // remove the ÒfixedÓ class, and the padding-top
+            // remove the ï¿½fixedï¿½ class, and the padding-top
                
             $('#subnav').removeClass('fixed').next().css('padding-top', '0');
 		}
@@ -62,7 +67,6 @@ jQuery(document).ready(function($) {
 	
 	var sections = $('article');
 	var navigation_links = $('#subnav-icons li');
-	
 	
 	sections.waypoint({
 		handler: function(event, direction){

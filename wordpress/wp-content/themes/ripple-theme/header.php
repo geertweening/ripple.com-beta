@@ -11,7 +11,7 @@
 		<!-- CSS -->
         <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/style.css">
         <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/responsive.css">
-        <!-- ENDS CSS -->
+    <!-- ENDS CSS -->
         <script src="/js/modernizr-2.6.1.min.js"></script>
         
         <?php /* Always have wp_head() just before the closing </head> */ wp_head() ?>

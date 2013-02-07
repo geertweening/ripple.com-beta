@@ -13,10 +13,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="css/jquery.rs.carousel.css">
-    <link rel="stylesheet" href="css/landing.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/style.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/jquery.rs.carousel.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/landing.css">
+
+    <script src="<?php echo get_template_directory_uri() ?>/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="home">
 <!--[if lt IE 7]>
@@ -29,7 +31,7 @@
 <header>
     <div class="wrapper clearfix">
         <div id="logo" class="clearfix">
-            <a href="index.html"><img src="img/logo-home.png" /></a>
+            <a href="index.html"><img src="<?php echo get_template_directory_uri() ?>/img/logo-home.png" /></a>
             <div class="slogan">The world's open payment network</div>
         </div>
     </div>
@@ -77,28 +79,28 @@
                 <ul class="rs-carousel-runner">
                     <li class="rs-carousel-item" id="slideSimple">
                         <p class="slide-h1">Ripple is Simple</p>
-                        <a href="/about-ripple"><img src="img/simple.png"></a>
+                        <a href="/about-ripple"><img src="<?php echo get_template_directory_uri() ?>/img/simple.png"></a>
 
                         <p>Think online cash. No profiles to make. No forms for personal info. Unlike other payment systems, ripple does
                             not need or want your personal data.</p>
                     </li>
                     <li class="rs-carousel-item" id="slideFree">
                         <p class="slide-h1">Don't spend to send</p>
-                        <a href="/about-ripple"><img src="img/freeish.png"></a>
+                        <a href="/about-ripple"><img src="<?php echo get_template_directory_uri() ?>/img/freeish.png"></a>
 
                         <p>Ripple is not technically free, because for security reasons each transaction costs the
                             equivalent of 1/100th of a cent. But it's still practically free. </p>
                     </li>
                     <li class="rs-carousel-item" id="slideGlobal">
                         <p class="slide-h1">Anywhere, instantly</p>
-                        <a href="/about-ripple"><img src="img/global.png"></a>
+                        <a href="/about-ripple"><img src="<?php echo get_template_directory_uri() ?>/img/global.png"></a>
 
                         <p>Wherever there is internet, there is ripple. So your money can reach your mom in Mexico, your
                             friend in Thailand, or that developer you hired in Bangladesh. In pesos, baht, or taka.</p>
                     </li>
                     <li class="rs-carousel-item" id="slideFlexible">
                         <p class="slide-h1">Ripple is Open</p>
-                        <a href="/about-ripple"><img src="img/open.png"></a>
+                        <a href="/about-ripple"><img src="<?php echo get_template_directory_uri() ?>/img/open.png"></a>
 
                         <p>Ripple is open.
                             <ul>
@@ -123,7 +125,7 @@
             truly open. No one owns it. Anyone can use it. It’s open source, so anyone can build on top of it.
         </p>
         <div class="section-image">
-            <img src="img/how.png" alt="How does it work?" title="How does it work?" />
+            <img src="<?php echo get_template_directory_uri() ?>/img/how.png" alt="How does it work?" title="How does it work?" />
         </div>
         <p class="learn-more"><a href="/how-ripple-works/">Learn More</a></p>
 
@@ -135,64 +137,12 @@
             transactions within your network, act as your own paypal, or buy and sell currency.
         </p>
         <div class="section-image">
-            <img src="img/advanced.png" alt="Advanced uses of ripple" title="Advanced uses of ripple" />
+            <img src="<?php echo get_template_directory_uri() ?>/img/advanced.png" alt="Advanced uses of ripple" title="Advanced uses of ripple" />
         </div>
         <p class="learn-more"><a href="/working-with-ripple/">Learn More</a></p>
     </div>
 
 </div>
+<!-- ENDS main -->
 
-<footer>
-    <div class="wrapper">
-        <ul class="links">
-            <li>
-                <ul>
-                    <li><a href="/bitcoiners/">Bitcoiners</a></li>
-                    <li><a href="/merchants/">Merchants</a></li>
-                    <li><a href="/faq/">Frequently asked questions</a></li>
-                </ul>
-            </li>
-            <li>
-                <!--<span class="title">Resources</span>-->
-                <ul>
-                    <li><a href="/network-architecture/">Network Architecture</a></li>
-                    <li><a href="/credentials/">Credentials</a></li>
-                    <li><a href="/terms/">Terms of use</a></li>
-                    <li><a href="/privacy-policy/">Privacy Policy</a></li>
-                </ul>
-            </li>
-            <li>
-                <!--<span class="title">Resources</span>-->
-                <ul>
-                    <li><a href="/about-us/">About us</a></li>
-                    <li><a href="/jobs/">Jobs</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                    <li><a href="/examples/graph.html">Live network graph</a></li>
-                </ul>
-            </li>
-            <li>
-                <!--<span class="title">Resources</span>-->
-                <ul>
-                    <li><a href="/developers/">Developers</a></li>
-                    <li><a href="https://github.com/rippleFoundation/ripple-client">Source code</a></li>
-                    <li><a href="/wiki/">Wiki</a></li>
-                    <li><a href="/bug-bounty/">Bug bounty</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <hr />
-
-    <div class="copy">&copy; 2012 Ripple</div>
-</footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-<script src="js/jQuery.ScrollTo.js"></script>
-<script src="js/vendor/jquery.ui.widget.js"></script>
-<script src="js/jquery.rs.carousel.js"></script>
-<script src="js/custom.js"></script>
-
-</body>
-</html>
+<?php get_footer() ?>
