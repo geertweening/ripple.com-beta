@@ -879,8 +879,8 @@ footer ul.links {
 }
 footer ul.links > li {
     float: left;
-    width: 150px;
-    margin: 0 100px 0 0;
+    width: 200px;
+    margin: 0 20px;
 }
 footer .title {
     display: block;
