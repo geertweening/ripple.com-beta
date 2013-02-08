@@ -102,13 +102,11 @@
                         <p class="slide-h1">Ripple is Open</p>
                         <a href="/about-ripple"><img src="<?php echo get_template_directory_uri() ?>/img/open.png"></a>
 
-                        <p>Ripple is open.
-                            <ul>
-                                <li>Anyone can use it.</li>
-                                <li>No one owns it.</li>
-                                <li>The software is open source.</li>
-                            </ul>
-                        </p>
+                        <ul>
+                            <li>Anyone can use it.</li>
+                            <li>No one owns it.</li>
+                            <li>The software is open source.</li>
+                        </ul>
                     </li>
                 </ul>
 
