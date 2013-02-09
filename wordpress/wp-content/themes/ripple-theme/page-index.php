@@ -132,7 +132,7 @@
         <h1>Advanced uses of ripple</h1>
         <p class="heading-desc">Many prefer the simplest use of ripple, but others may be interested in the rich
             possibilities it provides for getting more involved. See how you can use ripple to facilitate more
-            transactions within your network, act as your own paypal, or buy and sell currency.
+            transactions within your network, or buy and sell currency.
         </p>
         <div class="section-image">
             <img src="<?php echo get_template_directory_uri() ?>/img/advanced.png" alt="Advanced uses of ripple" title="Advanced uses of ripple" />
