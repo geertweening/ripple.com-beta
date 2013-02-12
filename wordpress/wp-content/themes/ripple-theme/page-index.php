@@ -14,9 +14,9 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/style.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/landing.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/responsive.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/jquery.rs.carousel.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/landing.css">
 
     <script src="<?php echo get_template_directory_uri() ?>/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>

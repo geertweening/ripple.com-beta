@@ -832,12 +832,6 @@ footer hr {
     border-top: 1px solid #83b2c4;
     background: none;
 }
-
-footer .wrapper {
-    width: 960px;
-    margin: 0 auto;
-    position: relative;
-}
 footer ul {
     list-style-type: none;
 }

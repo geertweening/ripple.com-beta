@@ -224,13 +224,13 @@
 }
 
 #slides .pagination {
-  padding: 0;
-	width:300px;
-	min-height: 338px;
-	float:left;
-	margin-left: 100px;
-	background:  url(../img/home-ver-line.png) no-repeat top right;
-  list-style-type: none;
+    padding: 0;
+    width:300px;
+    min-height: 338px;
+    float:left;
+    margin-left: 100px;
+    background:  url(../img/home-ver-line.png) no-repeat top right;
+    list-style-type: none;
 }
 
 
