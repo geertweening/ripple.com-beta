@@ -11,6 +11,14 @@ px      68    160    252    344    436    528    620    712    */
 	.wrapper{
 		width: 712px;
 	}
+    .wrapper h1,
+    .wrapper h2,
+    .wrapper h3,
+    .wrapper h4,
+    .wrapper h5,
+    .wrapper p {
+        padding: 10px;
+    }
 	
 	/* TABLET NAVIGATION ----------------------------------------------------*/ 
 	
@@ -25,13 +33,21 @@ px      68    160    252    344    436    528    620    712    */
 	}
 	
 	/* TABLET SUBNAVIGATION ----------------------------------------------------*/ 
-	
+
+    #subnav {
+        min-width: 712px;
+    }
+
 	#subnav-icons li {
 		margin-right: 40px;
 	}
+
+    #subnav-icons li.start-li {
+        padding: 0 10px;
+    }
 	
-	/* TABLET MAIN ----------------------------------------------------*/ 
-	
+	/* TABLET MAIN ----------------------------------------------------*/
+
 	.content-area-left {
 	  width: 480px;
 	  margin-left: 0px;
@@ -122,4 +138,16 @@ px      68    160    252    344    436    528    620    712    */
 		margin-right: 20px;
 	}
 
+    .learn-more {
+        margin: 0 10px;
+    }
+
+    footer {
+        min-width: 712px;
+        /*width: 100%;*/
+    }
+
+    footer ul.widget-cols > li {
+        width: 140px;
+    }
 }

@@ -288,6 +288,7 @@ header{
 	height: 30px;
 	background: url(../img/sprite2.png) no-repeat;
 	opacity: 1;
+    text-decoration: none;
 }
 
 #subnav-icons li.one-target:after,
