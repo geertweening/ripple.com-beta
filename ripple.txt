@@ -1,6 +1,6 @@
 
 [address]
-rNsJKf3kaxvFvR8RrDi9P3LBk2Zp6VL8mp
+r3kmLJN5D28dHuH8vZNUZpMC43pEHpaocV
 
 [validation_public_key]
 n9KPnVLn7ewVzHvn218DcEYsnWLzKerTDwhpofhk4Ym1RUq4TeGw
@@ -9,14 +9,13 @@ n9KPnVLn7ewVzHvn218DcEYsnWLzKerTDwhpofhk4Ym1RUq4TeGw
 ripple.com
 
 [ips]
-23.21.167.100
-23.23.201.55
-107.21.116.214
+23.21.167.100 51235
+23.23.201.55 51235
+107.21.116.214 51235
 
 
 [validators]
 n9KPnVLn7ewVzHvn218DcEYsnWLzKerTDwhpofhk4Ym1RUq4TeGw
 n9LFzWuhKNvXStHAuemfRKFVECLApowncMAM5chSCL9R5ECHGN4V
 n94rSdgTyBNGvYg8pZXGuNt59Y5bGAZGxbxyvjDaqD9ceRAgD85P
-n94365hzFKrkgCULeJwczs3kwzpri3KVHkfhUWGT4MjmbEbC5xBy
 redstem.com
