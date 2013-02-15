@@ -7,10 +7,18 @@ cols    1     2      3      4      5      6      7      8
 px      68    160    252    344    436    528    620    712    */
 
 @media only screen and  (max-width: 991px) {
-	
+
 	.wrapper{
 		width: 712px;
 	}
+    .wrapper h1,
+    .wrapper h2,
+    .wrapper h3,
+    .wrapper h4,
+    .wrapper h5,
+    .wrapper p {
+        padding: 10px;
+    }
 	
 	/* TABLET NAVIGATION ----------------------------------------------------*/ 
 	
@@ -25,13 +33,21 @@ px      68    160    252    344    436    528    620    712    */
 	}
 	
 	/* TABLET SUBNAVIGATION ----------------------------------------------------*/ 
-	
+
+    #subnav {
+        min-width: 712px;
+    }
+
 	#subnav-icons li {
 		margin-right: 40px;
 	}
+
+    #subnav-icons li.start-li {
+        padding: 0 10px;
+    }
 	
-	/* TABLET MAIN ----------------------------------------------------*/ 
-	
+	/* TABLET MAIN ----------------------------------------------------*/
+
 	.content-area-left {
 	  width: 480px;
 	  margin-left: 0px;
@@ -48,20 +64,45 @@ px      68    160    252    344    436    528    620    712    */
         width: 400px;
     }
 
-	/* TABLET SLIDES ----------------------------------------------------*/ 
-	
-	#slides .slides_container {
-		margin-right: 0px;
-	}
+	/* TABLET SLIDES ----------------------------------------------------*/
 
-	#slides .pagination {
-		width:280px;
-		margin-left: 0px;
-	}
+    #slides {
+        width: 712px;
+    }
+
+    #slides .slide {
+        width: 420px;
+    }
+    #slides .rs-carousel-runner {
+        width: 380px;
+        margin-right: 60px;
+    }
+
+    #slides .rs-carousel-runner .rs-carousel-item {
+        padding: 0 30px 0 30px;
+        width: 360px;
+    }
+
+    #slides .rs-carousel-runner p,
+    #slides .rs-carousel-runner h1{
+        width: 330px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    #slides .rs-carousel-runner img {
+        width: 360px;
+    }
+
+    #slides .pagination {
+        width: 250px;
+        margin-left: 20px;
+    }
 	
 	/* TABLET BANNER ----------------------------------------------------*/ 
-	
-	
+
+    .banner-holder {
+        min-width: 712px;
+    }
 	.banner-holder .tagline{
 		width: 712px;
 		font-size: 40px;
@@ -97,4 +138,16 @@ px      68    160    252    344    436    528    620    712    */
 		margin-right: 20px;
 	}
 
+    .learn-more {
+        margin: 0 10px;
+    }
+
+    footer {
+        min-width: 712px;
+        /*width: 100%;*/
+    }
+
+    footer ul.widget-cols > li {
+        width: 140px;
+    }
 }

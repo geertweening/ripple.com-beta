@@ -51,6 +51,7 @@
     line-height: 50px;
     border: 1px solid #333768;
     text-shadow: 0 -1px 1px #272727;
+    text-decoration: none;
 
     font-family: OpenSansRegular;
     font-weight: bold;
@@ -224,13 +225,13 @@
 }
 
 #slides .pagination {
-  padding: 0;
-	width:300px;
-	min-height: 338px;
-	float:left;
-	margin-left: 100px;
-	background:  url(../img/home-ver-line.png) no-repeat top right;
-  list-style-type: none;
+    padding: 0;
+    width:300px;
+    min-height: 338px;
+    float:left;
+    margin-left: 100px;
+    background:  url(../img/home-ver-line.png) no-repeat top right;
+    list-style-type: none;
 }
 
 

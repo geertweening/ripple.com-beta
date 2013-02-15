@@ -14,9 +14,9 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/style.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/landing.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/responsive.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/jquery.rs.carousel.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/landing.css">
 
     <script src="<?php echo get_template_directory_uri() ?>/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -132,7 +132,7 @@
         <h1>Advanced uses of ripple</h1>
         <p class="heading-desc">Many prefer the simplest use of ripple, but others may be interested in the rich
             possibilities it provides for getting more involved. See how you can use ripple to facilitate more
-            transactions within your network, act as your own paypal, or buy and sell currency.
+            transactions within your network, or buy and sell currency.
         </p>
         <div class="section-image">
             <img src="<?php echo get_template_directory_uri() ?>/img/advanced.png" alt="Advanced uses of ripple" title="Advanced uses of ripple" />
