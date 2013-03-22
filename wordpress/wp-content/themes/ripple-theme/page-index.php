@@ -31,7 +31,7 @@
 <header>
     <div class="wrapper clearfix">
         <div id="logo" class="clearfix">
-            <a href="index.html"><img src="<?php echo get_template_directory_uri() ?>/img/logo-home.png" /></a>
+            <a href="/"><img src="<?php echo get_template_directory_uri() ?>/img/logo-home.png" /></a>
             <div class="slogan">The world's open payment network</div>
         </div>
     </div>
