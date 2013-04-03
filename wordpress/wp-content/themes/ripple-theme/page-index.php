@@ -66,16 +66,11 @@
 <div id="main">
     <div class="wrapper clearfix">
 
-		<h3>Sign up for News about Ripple</h3>
-		<p class="heading-desc">
-			<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-			<div id="mc_embed_signup">
-			<form action="http://opencoin.us4.list-manage.com/subscribe/post?u=245dbc1c47849f034390dc5bf&amp;id=706ebe5aff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-				<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-			</form>
-			</div>
-		</p>
+		<p class="heading-desc" style="margin-bottom: 10px; font-size: 16pt; ">Sign up for News</p>
+		<form action="http://opencoin.us4.list-manage.com/subscribe/post?u=245dbc1c47849f034390dc5bf&amp;id=706ebe5aff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
+			<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+		</form>
 
         <h1>What is ripple?</h1>
         <p class="heading-desc">Simple, global, open, and practically free. ripple is an open source person to person payment network</p>
