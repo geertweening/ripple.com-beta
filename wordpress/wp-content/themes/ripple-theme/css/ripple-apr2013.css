@@ -1,11 +1,17 @@
 header {
   width: 100%;
   position: fixed;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #bed3eb;
   background: #fff;
   clear: both;
   z-index: 9999;
-  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 0px rgba(52, 106, 169, 0.09999999999999998);
+}
+h6 {
+  margin: 0;
+}
+p {
+  font-size: 16px;
 }
 #logo {
   padding-left: 20px;
@@ -21,16 +27,16 @@ footer {
   float: left;
 }
 #main {
-  padding-top: 85px;
+  margin-top: 85px;
 }
 #nav-wallet {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 5px;
+  padding: 5px 15px;
   background-color: #346aa9;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
 }
 #nav-wallet:hover {
@@ -43,14 +49,22 @@ footer {
 }
 .menu-top-menu-container ul li {
   float: left;
-  margin-left: 15px;
+  margin-left: 55px;
   font-family: 'OpenSansLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   text-transform: lowercase;
 }
 .menu-top-menu-container ul li a {
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+.menu-top-menu-container ul li.current-menu-item a {
+  background: #346aa9;
+  color: #fff;
+}
+.menu-top-menu-container ul li a {
   text-decoration: none;
-  color: #111;
+  color: #346aa9;
 }
 .home #main {
   padding-top: 55px;
@@ -62,15 +76,19 @@ footer {
   border: 1px solid #346aa9;
   position: absolute;
   top: 200px;
-  left: 205px;
-  width: 500px;
+  left: 20%;
+  width: 60%;
   color: #fff;
   border-radius: 5px;
-  padding: 25px;
 }
 #email-collect h2 {
+  text-align: center;
   color: #fff;
   margin: 0 0 15px 0;
+  padding: 15px;
+}
+#email-collect form {
+  padding: 15px 0 25px;
 }
 #email-collect input[type="email"] {
   font-size: 26px;
@@ -110,7 +128,13 @@ footer {
   height: 180px;
   line-height: 180px;
 }
+footer {
+  background: #346aa9;
+  box-shadow: none;
+  border-top: 1px solid #1c395b;
+}
 .widget-block h4.heading {
   color: #fff;
   border-bottom-color: #fff;
+  margin: 0;
 }
