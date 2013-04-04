@@ -27,7 +27,7 @@ footer {
   float: left;
 }
 #main {
-  margin-top: 85px;
+  margin-top: 105px;
 }
 #nav-wallet {
   position: fixed;
@@ -43,7 +43,7 @@ footer {
   background-color: #22456e;
 }
 .menu-top-menu-container {
-  float: right;
+  float: left;
   padding-top: 30px;
   padding-right: 180px;
 }
@@ -67,7 +67,6 @@ footer {
   color: #346aa9;
 }
 .home #main {
-  padding-top: 55px;
   min-height: auto;
 }
 #email-collect {
@@ -127,6 +126,41 @@ footer {
   vertical-align: middle;
   height: 180px;
   line-height: 180px;
+}
+.blog-posts {
+  float: left;
+  width: 67%;
+  margin-right: 3%;
+}
+.blog-posts p {
+  font-size: 16px;
+}
+.blog-posts a {
+  color: #346aa9;
+}
+.blog-posts .entry-title {
+  margin: 15px 0 0 0;
+}
+.blog-posts .entry-title a {
+  color: #346aa9;
+}
+#sidebar {
+  float: left;
+  width: 30%;
+  padding-top: 15px;
+}
+#sidebar .block {
+  border: 0;
+  padding: 0;
+}
+#sidebar .block h6 {
+  color: #346aa9;
+  font-size: 26px;
+  padding-bottom: 15px;
+}
+#sidebar .block a {
+  color: #346aa9;
+  font-size: 16px;
 }
 footer {
   background: #346aa9;

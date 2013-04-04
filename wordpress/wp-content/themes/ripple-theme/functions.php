@@ -128,6 +128,13 @@ if ( function_exists('register_sidebar') ){
 		'after_widget' => '</li>',
 		'before_title' => '<h6 class="heading">',
 		'after_title' => '</h6>',	));
+
+	register_sidebar(array(
+		'name' => 'Blog Sidebar',
+		'before_widget' => '<li class="block">',
+		'after_widget' => '</li>',
+		'before_title' => '<h6 class="heading">',
+		'after_title' => '</h6>',	));
 	
 	
 	register_sidebar(array(
@@ -193,8 +200,15 @@ if ( function_exists( 'register_nav_menus' ) ) {
   	register_nav_menus(
   		array(
   		  'top_menu' => 'Top Navigation',
+  		  'top_mini_menu' => 'Top Mini Navigation',
   		)
   	);
 }
+
+//change excerpts more string
+function new_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 
