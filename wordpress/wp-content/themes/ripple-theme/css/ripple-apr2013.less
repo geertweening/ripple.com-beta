@@ -1,0 +1,147 @@
+@blue:#346AA9;
+@green:#a5c800;
+
+header{
+    width:100%;
+    position: fixed;
+   	border-bottom:1px solid #eee;
+   	background:#fff;
+   	clear:both;
+   	z-index: 9999;
+   	box-shadow: 5px 0 5px rgba(0,0,0,0.1);
+}
+
+#logo{
+    padding-left: 20px;
+}
+
+.banner-holder{
+	margin-top: 85px;
+	min-width:100%;
+	float:left;
+}
+
+#main, footer{
+	width:100%;
+	float:left;
+}
+
+#main{
+	padding-top: 85px;
+}
+
+#nav-wallet{
+	position: fixed;
+	top:0;
+	right:0;
+	padding: 5px;
+	background-color:@blue;
+	color: #fff;
+	font-size:12px;
+	text-decoration: none;
+	&:hover{
+		background-color: darken(@blue,15%);
+	}
+}
+
+.menu-top-menu-container{
+    float:right;
+    padding-top: 30px;
+    padding-right: 180px;
+}
+
+.menu-top-menu-container ul li{
+    float:left;
+    margin-left:15px;
+    font-family:  'OpenSansLight','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 22px;
+    text-transform: lowercase;
+}
+
+.menu-top-menu-container ul li a{
+    text-decoration: none;
+    color: #111;
+}
+
+//home page styling
+
+.home #main{
+	padding-top: 55px;
+	min-height: auto;
+}
+
+#email-collect{
+	text-align: center;
+	background-color: fadeout(@blue,20%);
+	border:1px solid @blue;
+	position: absolute;
+	top:200px;
+	left:205px;
+	width:500px;
+	color: #fff;
+	border-radius: 5px;
+	padding:25px;
+	h2{
+		color:#fff;
+		margin:0 0 15px 0;
+	}
+	input{
+		&[type="email"]{
+			font-size:26px;
+			padding: 5px;
+			border-radius:5px;
+			border:1px solid @blue;
+		}
+		&[type="submit"]{
+			font-size:22px;
+			padding:8px;
+			background:@green;
+			border: 1px solid darken(@green,5%);
+			color:#fff;
+			border-radius:5px;
+		}
+	}
+}
+
+
+
+#ripple-features{
+	li{
+		width:24%;
+		float:left;
+		margin-right: 1%;
+		h1{
+			text-align: center;
+			margin: 0;
+		}
+		img{
+			width:100%;
+		}
+
+		&#simple{
+			img{
+				width:75%;
+			}
+		}
+		&#open{
+			img{
+				width:60%;
+			}
+		}
+
+		.feature-image{
+			text-align: center;
+			vertical-align: middle;
+			height:180px;
+			line-height: 180px;
+		}
+	}
+}
+
+//footer widgets
+.widget-block{
+	h4.heading{
+		color:#fff;
+		border-bottom-color:#fff;
+	}
+}

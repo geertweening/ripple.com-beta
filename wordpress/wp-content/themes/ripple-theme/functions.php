@@ -189,4 +189,12 @@ function ansimuz_menu(){
 	));
 }
 
+if ( function_exists( 'register_nav_menus' ) ) {
+  	register_nav_menus(
+  		array(
+  		  'top_menu' => 'Top Navigation',
+  		)
+  	);
+}
+
 
