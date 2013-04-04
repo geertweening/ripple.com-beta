@@ -28,6 +28,7 @@ footer {
 }
 #main {
   margin-top: 105px;
+  min-height: 500px;
 }
 #nav-wallet {
   position: fixed;
@@ -58,7 +59,8 @@ footer {
   padding: 5px 15px;
   border-radius: 5px;
 }
-.menu-top-menu-container ul li.current-menu-item a {
+.menu-top-menu-container ul li.current-menu-item a,
+.menu-top-menu-container ul li.current_page_parent a {
   background: #346aa9;
   color: #fff;
 }
@@ -87,16 +89,16 @@ footer {
   margin: 0 0 15px 0;
   padding: 15px;
 }
-#email-collect form {
+#mc-embedded-subscribe-form {
   padding: 15px 0 25px;
 }
-#email-collect input[type="email"] {
+#mc-embedded-subscribe-form input[type="email"] {
   font-size: 26px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #346aa9;
 }
-#email-collect input[type="submit"] {
+#mc-embedded-subscribe-form input[type="submit"] {
   font-size: 22px;
   padding: 8px;
   background: #a5c800;
@@ -127,6 +129,29 @@ footer {
   vertical-align: middle;
   height: 180px;
   line-height: 180px;
+}
+#wallet {
+  background: #fff;
+  padding: 25px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(52, 106, 169, 0.19999999999999996);
+}
+#wallet h2 {
+  font-size: 40px;
+  color: #a5c800;
+  text-align: center;
+}
+#wallet h3 {
+  color: #346aa9;
+  font-size: 22px;
+  text-align: center;
+}
+#wallet p {
+  text-align: center;
+}
+#wallet p a {
+  color: #346aa9;
 }
 .blog-posts {
   float: left;

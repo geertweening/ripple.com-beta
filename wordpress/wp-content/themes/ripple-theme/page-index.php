@@ -10,10 +10,10 @@
             <!--start email call to action-->
             <div class="tagline">The world's truly open payment network</div>
             <div id="email-collect">
-                <form>
-                    <h2>sign up to receive the latest ripple news</h2>
-                    <input type="email" />
-                    <input type="submit" />
+                <h2>sign up to recieve the latest ripple news</h2>
+                <form action="http://opencoin.us4.list-manage.com/subscribe/post?u=245dbc1c47849f034390dc5bf&amp;id=706ebe5aff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
                 </form>
             </div>
         </div>

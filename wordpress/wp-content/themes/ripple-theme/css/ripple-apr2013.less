@@ -36,6 +36,7 @@ p{
 
 #main{
 	margin-top: 105px;
+	min-height:500px;
 }
 
 #nav-wallet{
@@ -68,7 +69,7 @@ p{
     	padding:5px 15px;
     	border-radius: 5px;
     }
-    &.current-menu-item a{
+    &.current-menu-item a, &.current_page_parent a{
     	background:@blue;
     	color: #fff;
 
@@ -104,9 +105,10 @@ p{
 		margin:0 0 15px 0;
 		padding:15px;
 	}
-	form{
-		padding:15px 0 25px;
-	}
+}
+
+#mc-embedded-subscribe-form{
+	padding:15px 0 25px;
 	input{
 		&[type="email"]{
 			font-size:26px;
@@ -156,6 +158,32 @@ p{
 			vertical-align: middle;
 			height:180px;
 			line-height: 180px;
+		}
+	}
+}
+
+//wallet
+
+#wallet{
+	background: #fff;
+	padding:25px;
+	text-align: center;
+	border-radius: 15px;
+	box-shadow:0 0 15px fadeout(@blue,80%);
+	h2{
+		font-size:40px;
+		color:@green;
+		text-align: center;
+	}
+	h3{
+		color:@blue;
+		font-size: 22px;
+		text-align: center;
+	}
+	p{
+		text-align: center;
+		a{
+			color:@blue;
 		}
 	}
 }
