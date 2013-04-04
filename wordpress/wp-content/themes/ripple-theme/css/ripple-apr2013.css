@@ -67,6 +67,7 @@ footer {
   color: #346aa9;
 }
 .home #main {
+  margin-top: 55px;
   min-height: auto;
 }
 #email-collect {
@@ -140,9 +141,11 @@ footer {
 }
 .blog-posts .entry-title {
   margin: 15px 0 0 0;
+  font-size: 30px;
 }
 .blog-posts .entry-title a {
   color: #346aa9;
+  text-decoration: none;
 }
 #sidebar {
   float: left;
