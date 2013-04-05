@@ -86,11 +86,11 @@ footer {
 #email-collect h2 {
   text-align: center;
   color: #fff;
-  margin: 0 0 15px 0;
+  margin: 5px 0 15px 0;
   padding: 15px;
 }
 #mc-embedded-subscribe-form {
-  padding: 15px 0 25px;
+  padding: 0px 0 25px;
 }
 #mc-embedded-subscribe-form input[type="email"] {
   font-size: 26px;
@@ -178,11 +178,12 @@ footer {
   padding-top: 15px;
 }
 #sidebar .block {
+  background-color: #fff;
   border: 0;
-  padding: 0;
+  padding: 15px;
 }
 #sidebar .block h6 {
-  color: #346aa9;
+  color: #a5c800;
   font-size: 26px;
   padding-bottom: 15px;
 }
