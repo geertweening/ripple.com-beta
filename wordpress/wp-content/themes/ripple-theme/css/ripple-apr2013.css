@@ -21,6 +21,13 @@ h3 {
 .entry-content a {
   color: #346aa9;
 }
+h5 {
+  font-size: 30px;
+  font-weight: 300;
+  color: #346aa9;
+  margin: 25px 0 15px;
+  line-height: 1.25em;
+}
 h6 {
   margin: 5px 0 15px;
   color: #d97500;
@@ -99,6 +106,7 @@ footer {
   border-radius: 5px;
 }
 #email-collect h2 {
+  font-size: 26px;
   text-align: center;
   color: #fff;
   margin: 5px 0 15px 0;
@@ -139,6 +147,9 @@ footer {
 #ripple-features li#open img {
   width: 60%;
 }
+#ripple-features li#instant img {
+  width: 70%;
+}
 #ripple-features li .feature-image {
   text-align: center;
   vertical-align: middle;
@@ -146,9 +157,6 @@ footer {
   line-height: 180px;
 }
 .page-id-828 h5 {
-  font-size: 30px;
-  font-weight: 300;
-  color: #346aa9;
   margin-top: 55px;
   margin-bottom: 15px;
   float: left;
@@ -280,7 +288,8 @@ footer {
     height: 80%;
   }
   #ripple-features li#simple img,
-  #ripple-features li#open img {
+  #ripple-features li#open img,
+  #ripple-features li#instant img {
     width: auto;
     height: 90%;
   }
