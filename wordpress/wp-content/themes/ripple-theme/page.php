@@ -20,6 +20,7 @@
 				<div class="entry-content">
 					<?php the_content() ?>
 				</div>
+				<?php edit_post_link(); ?>
 			</div>
 		    <!-- ENDS content area -->
 		
