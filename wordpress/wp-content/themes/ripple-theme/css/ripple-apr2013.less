@@ -1,4 +1,5 @@
 @blue:#346AA9;
+@darkblue:#253A4F;
 @green:#a5c800;
 @orange:#d97500;
 
@@ -77,7 +78,6 @@ p{
 .menu-top-menu-container{
     float:left;
     padding-top: 30px;
-    padding-right: 180px;
 }
 
 .menu-top-menu-container ul li{
@@ -112,8 +112,8 @@ p{
 
 #email-collect{
 	text-align: center;
-	background-color: fadeout(@blue,20%);
-	border:1px solid @blue;
+	background-color: fadeout(@darkblue,20%);
+	border:1px solid @darkblue;
 	position: absolute;
 	top:200px;
 	left:20%;
@@ -189,7 +189,10 @@ p{
 		font-size:30px;
 		font-weight: 300;
 		color: @blue;
-		margin-top: 75px;
+		margin-top: 55px;
+		margin-bottom: 15px;
+		float:left;
+		width:100%;
 	}
 }
 
@@ -204,6 +207,7 @@ p{
 		margin-bottom: 25px;
 		font-size:30px;
 		font-weight:300;
+		text-shadow:0 1px 0 darken(@blue,20%);
 	}
 	form{
 		input{
@@ -213,6 +217,12 @@ p{
 			}
 		}
 	}
+}
+
+.dev-feature{
+	width:45%;
+	float:left;
+	margin:0 2.5%;
 }
 
 //wallet
@@ -297,5 +307,146 @@ footer{
 		color:#fff;
 		border-bottom-color:#fff;
 		margin:0;
+	}
+}
+
+//responsive
+@media (max-width: 768px) {
+	.menu-top-menu-container{
+		padding-right: 0;
+	}
+	.menu-top-menu-container ul li{
+		font-size: 18px;
+		margin-left: 15px;
+	}
+
+	.banner-holder{
+		.tagline{
+			position:relative;
+			top:15%;
+			font-size:30px;
+		}
+	}
+
+	#email-collect{
+		position: relative;
+		top:20%;
+		h2{
+			font-size: 20px;
+			margin-bottom: 0;
+		}
+		input{
+			&[type="email"]{
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	#ripple-features{
+		li{
+			width:47%;
+			.feature-image{
+				img{
+					width: auto;
+					height: 80%;
+				}
+			}
+			&#simple, &#open{
+				img{
+					width:auto;
+					height:90%;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.wrapper{
+		width:100%;
+	}
+
+	.content-area, .blog-posts{
+		padding:0 15px;
+	}
+	#logo{
+		padding-left: 5px;
+		img{
+			width:80px;
+			float:left;
+		}
+	}
+	.menu-top-menu-container{
+		padding-top: 20px;
+		float:left;
+	}
+	.menu-top-menu-container ul li{
+		font-size: 14px;
+		a{
+			padding:5px;
+		}
+	}
+
+	.home #main{
+		margin-top:40px;
+	}
+
+	#main{
+		margin-top: 80px;
+	}
+
+	.banner-holder{
+		margin-top:40px;
+		.tagline{
+			width:100%;
+		}
+	}
+
+	#email-collect{
+		width:90%;
+		left:5%;
+	}
+	#ripple-features{
+		li{
+			width:100%;
+			.feature-image{
+				img{
+					width: auto;
+					height: 80%;
+				}
+			}
+			&#simple, &#open{
+				img{
+					width:auto;
+					height:90%;
+				}
+			}
+		}
+	}
+
+	.page-id-828{
+		.dev-feature{
+			width:100%;
+		}
+	}
+
+	.blog-posts{
+		width:95%;
+	}
+
+	#sidebar{
+		width:100%;
+	}
+
+	.page table{
+		colgroup{
+			col{
+				width:100% !important;
+			}
+		}
+	}
+
+	footer ul.widget-cols > li {
+		width:100%;
 	}
 }
