@@ -1,5 +1,6 @@
 @blue:#346AA9;
 @green:#a5c800;
+@orange:#d97500;
 
 header{
     width:100%;
@@ -11,12 +12,32 @@ header{
    	box-shadow: 0 5px 0px fadeout(@blue,90%);
 }
 
-h6{
+h3,h4,h5{
 	margin:0;
 }
 
+h3{
+	color:@blue;
+}
+
+.page h4{
+	line-height: 1.8em;
+}
+
+.entry-content{
+	a{
+		color: @blue;
+	}
+}
+
+h6{
+	margin:5px 0 15px;
+	color: @orange;
+	font-size: 26px;
+}
+
 p{
-	font-size:16px;
+	font-size:17px;
 }
 
 #logo{
@@ -118,7 +139,7 @@ p{
 		}
 		&[type="submit"]{
 			font-size:22px;
-			padding:8px;
+			padding:8px 15px 5px;
 			background:@green;
 			border: 1px solid darken(@green,5%);
 			color:#fff;
@@ -131,9 +152,9 @@ p{
 
 #ripple-features{
 	li{
-		width:24%;
+		width:22%;
 		float:left;
-		margin-right: 1%;
+		margin-right: 3%;
 		h1{
 			text-align: center;
 			margin: 0;
@@ -158,6 +179,38 @@ p{
 			vertical-align: middle;
 			height:180px;
 			line-height: 180px;
+		}
+	}
+}
+
+//dev page
+.page-id-828{
+	h5{
+		font-size:30px;
+		font-weight: 300;
+		color: @blue;
+		margin-top: 75px;
+	}
+}
+
+#dev-email{
+	margin: 25px 0;
+	background:@blue;
+	padding:25px 25px 15px;
+	border-radius: 15px;
+	h5{
+		color:#fff;
+		margin-top:0;
+		margin-bottom: 25px;
+		font-size:30px;
+		font-weight:300;
+	}
+	form{
+		input{
+			&[type="email"]{
+				margin-right: 5px;
+				float:left;
+			}
 		}
 	}
 }

@@ -7,11 +7,27 @@ header {
   z-index: 9999;
   box-shadow: 0 5px 0px rgba(52, 106, 169, 0.09999999999999998);
 }
-h6 {
+h3,
+h4,
+h5 {
   margin: 0;
 }
+h3 {
+  color: #346aa9;
+}
+.page h4 {
+  line-height: 1.8em;
+}
+.entry-content a {
+  color: #346aa9;
+}
+h6 {
+  margin: 5px 0 15px;
+  color: #d97500;
+  font-size: 26px;
+}
 p {
-  font-size: 16px;
+  font-size: 17px;
 }
 #logo {
   padding-left: 20px;
@@ -100,16 +116,16 @@ footer {
 }
 #mc-embedded-subscribe-form input[type="submit"] {
   font-size: 22px;
-  padding: 8px;
+  padding: 8px 15px 5px;
   background: #a5c800;
   border: 1px solid #90af00;
   color: #fff;
   border-radius: 5px;
 }
 #ripple-features li {
-  width: 24%;
+  width: 22%;
   float: left;
-  margin-right: 1%;
+  margin-right: 3%;
 }
 #ripple-features li h1 {
   text-align: center;
@@ -129,6 +145,29 @@ footer {
   vertical-align: middle;
   height: 180px;
   line-height: 180px;
+}
+.page-id-828 h5 {
+  font-size: 30px;
+  font-weight: 300;
+  color: #346aa9;
+  margin-top: 75px;
+}
+#dev-email {
+  margin: 25px 0;
+  background: #346aa9;
+  padding: 25px 25px 15px;
+  border-radius: 15px;
+}
+#dev-email h5 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 30px;
+  font-weight: 300;
+}
+#dev-email form input[type="email"] {
+  margin-right: 5px;
+  float: left;
 }
 #wallet {
   background: #fff;
