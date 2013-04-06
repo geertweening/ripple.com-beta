@@ -162,6 +162,9 @@ footer {
   float: left;
   width: 100%;
 }
+.page-id-828 h4 {
+  margin-bottom: 25px;
+}
 #dev-email {
   margin: 25px 0;
   background: #346aa9;
@@ -207,6 +210,9 @@ footer {
 }
 #wallet p a {
   color: #346aa9;
+}
+.blog h3 {
+  padding-top: 30px;
 }
 .blog-posts {
   float: left;
