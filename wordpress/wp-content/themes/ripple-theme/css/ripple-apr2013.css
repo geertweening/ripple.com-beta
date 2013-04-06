@@ -228,6 +228,7 @@ footer {
 .blog-posts .entry-title {
   margin: 15px 0 0 0;
   font-size: 30px;
+  line-height: 1.25em;
 }
 .blog-posts .entry-title a {
   color: #346aa9;
@@ -317,13 +318,20 @@ footer {
   }
   .menu-top-menu-container {
     padding-top: 20px;
-    float: left;
+    float: right;
   }
   .menu-top-menu-container ul li {
-    font-size: 14px;
+    font-size: 12px;
+    margin: 0 3px;
   }
   .menu-top-menu-container ul li a {
     padding: 5px;
+  }
+  #nav-wallet {
+    top: 0px;
+    font-size: 11px;
+    padding: 0px 3px;
+    line-height: 1.25em;
   }
   .home #main {
     margin-top: 40px;
@@ -336,10 +344,14 @@ footer {
   }
   .banner-holder .tagline {
     width: 100%;
+    font-size: 26px;
   }
   #email-collect {
     width: 90%;
     left: 5%;
+  }
+  #email-collect form input {
+    width: 90%;
   }
   #ripple-features li {
     width: 100%;
@@ -356,6 +368,31 @@ footer {
   .page-id-828 .dev-feature {
     width: 100%;
   }
+  .page-id-828 h5 {
+    margin-top: 15px;
+  }
+  #dev-email {
+    text-align: center;
+    padding: 5px;
+  }
+  #dev-email h5 {
+    font-size: 22px;
+    margin-bottom: 5px;
+    float: none;
+    padding: 15px 0;
+    margin: 0;
+  }
+  #dev-email form input {
+    width: 90%;
+    text-align: center;
+    float: none !important;
+  }
+  #dev-email form input[type="email"] {
+    margin-bottom: 5px;
+  }
+  #dev-email form input[type="submit"] {
+    margin-left: 0;
+  }
   .blog-posts {
     width: 95%;
   }
@@ -364,6 +401,9 @@ footer {
   }
   .page table colgroup col {
     width: 100% !important;
+  }
+  footer {
+    min-width: 100%;
   }
   footer ul.widget-cols > li {
     width: 100%;

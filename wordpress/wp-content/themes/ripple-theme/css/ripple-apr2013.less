@@ -286,6 +286,7 @@ p{
 	.entry-title{
 		margin:15px 0 0 0;
 		font-size: 30px;
+		line-height: 1.25em;
 		a{
 			color:@blue;
 			text-decoration: none;
@@ -398,13 +399,21 @@ footer{
 	}
 	.menu-top-menu-container{
 		padding-top: 20px;
-		float:left;
+		float:right;
 	}
 	.menu-top-menu-container ul li{
-		font-size: 14px;
+		font-size: 12px;
+		margin:0 3px;
 		a{
 			padding:5px;
 		}
+	}
+
+	#nav-wallet{
+		top:0px;
+		font-size:11px;
+		padding:0px 3px;
+		line-height: 1.25em;
 	}
 
 	.home #main{
@@ -419,12 +428,18 @@ footer{
 		margin-top:40px;
 		.tagline{
 			width:100%;
+			font-size:26px;
 		}
 	}
 
 	#email-collect{
 		width:90%;
 		left:5%;
+		form{
+			input{
+				width:90%;
+			}
+		}
 	}
 	#ripple-features{
 		li{
@@ -449,6 +464,35 @@ footer{
 			width:100%;
 		}
 
+		h5{
+			margin-top: 15px;
+		}
+
+	}
+
+	#dev-email{
+		text-align: center;
+		padding:5px;
+		h5{
+			font-size:22px;
+			margin-bottom: 5px;
+			float:none;
+			padding:15px 0;
+			margin:0;
+		}
+		form{
+			input{
+				width:90%;
+				text-align: center;
+				float:none !important;
+				&[type="email"]{
+					margin-bottom: 5px;
+				}
+				&[type="submit"]{
+					margin-left: 0;
+				}
+			}
+		}
 	}
 
 	.blog-posts{
@@ -465,6 +509,9 @@ footer{
 				width:100% !important;
 			}
 		}
+	}
+	footer{
+		min-width:100%;
 	}
 
 	footer ul.widget-cols > li {
