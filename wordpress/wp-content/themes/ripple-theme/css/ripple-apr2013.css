@@ -261,6 +261,9 @@ footer {
   box-shadow: none;
   border-top: 1px solid #1c395b;
 }
+footer ul.widget-cols {
+  margin-bottom: 50px;
+}
 .widget-block h4.heading {
   color: #fff;
   border-bottom-color: #fff;
