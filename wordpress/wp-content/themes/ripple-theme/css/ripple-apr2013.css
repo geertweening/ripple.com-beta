@@ -211,6 +211,9 @@ footer {
 #wallet p a {
   color: #346aa9;
 }
+#wallet h4 {
+  text-align: center;
+}
 .blog h3 {
   padding-top: 30px;
 }
