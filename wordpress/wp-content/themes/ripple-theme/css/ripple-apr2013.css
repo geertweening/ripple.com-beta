@@ -14,6 +14,7 @@ h5 {
 }
 h3 {
   color: #346aa9;
+  line-height: 1.25em;
 }
 .page h4 {
   line-height: 1.8em;
@@ -60,7 +61,7 @@ footer {
   padding: 5px 15px;
   background-color: #346aa9;
   color: #fff;
-  font-size: 14px;
+  font-size: 18px;
   text-decoration: none;
 }
 #nav-wallet:hover {
@@ -213,6 +214,7 @@ footer {
 }
 #wallet h4 {
   text-align: center;
+  font-size: 20px;
 }
 .blog h3 {
   padding-top: 30px;
@@ -229,7 +231,7 @@ footer {
   color: #346aa9;
 }
 .blog-posts .entry-title {
-  margin: 15px 0 0 0;
+  margin: 8px 0 0 0;
   font-size: 30px;
   line-height: 1.25em;
 }
@@ -269,13 +271,32 @@ footer ul.widget-cols {
   border-bottom-color: #fff;
   margin: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
+  #logo {
+    clear: none;
+    width: 90px;
+  }
+  #logo img {
+    width: 100%;
+    float: left;
+  }
   .menu-top-menu-container {
     padding-right: 0;
+    padding-top: 20px;
   }
   .menu-top-menu-container ul li {
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 15px;
+  }
+  .menu-top-menu-container ul li a {
+    padding: 5px;
+  }
+  #nav-wallet {
+    font-size: 16px;
+    padding: 5px;
+  }
+  .banner-holder {
+    margin-top: 55px;
   }
   .banner-holder .tagline {
     position: relative;
@@ -306,8 +327,11 @@ footer ul.widget-cols {
     width: auto;
     height: 90%;
   }
+  .entry-content .block .text {
+    width: auto;
+  }
 }
-@media (max-width: 480px) {
+@media (max-width: 720px) {
   .wrapper {
     width: 100%;
   }
@@ -317,9 +341,10 @@ footer ul.widget-cols {
   }
   #logo {
     padding-left: 5px;
+    width: 100px;
   }
   #logo img {
-    width: 80px;
+    width: 100%;
     float: left;
   }
   .menu-top-menu-container {
@@ -327,7 +352,7 @@ footer ul.widget-cols {
     float: right;
   }
   .menu-top-menu-container ul li {
-    font-size: 12px;
+    font-size: 13px;
     margin: 0 3px;
   }
   .menu-top-menu-container ul li a {
@@ -335,7 +360,7 @@ footer ul.widget-cols {
   }
   #nav-wallet {
     top: 0px;
-    font-size: 11px;
+    font-size: 12px;
     padding: 0px 3px;
     line-height: 1.25em;
   }
@@ -398,6 +423,21 @@ footer ul.widget-cols {
   }
   #dev-email form input[type="submit"] {
     margin-left: 0;
+  }
+  #wallet h2 {
+    margin: 15px 0;
+  }
+  #wallet h3 {
+    font-size: 18px;
+  }
+  #wallet input {
+    width: 90%;
+  }
+  #wallet input[type="email"] {
+    margin-bottom: 15px;
+  }
+  #wallet h4 {
+    font-size: 16px;
   }
   .blog-posts {
     width: 95%;
