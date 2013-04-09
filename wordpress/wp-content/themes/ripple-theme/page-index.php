@@ -13,7 +13,7 @@
                 <h2>sign up to get your spot when we open to all</h2>
                 <form action="http://opencoin.us4.list-manage.com/subscribe/post?u=245dbc1c47849f034390dc5bf&amp;id=706ebe5aff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
                     <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
-                    <input type="submit" value="Get your Spot!" name="subscribe" id="mc-embedded-subscribe" class="button">
+                    <input type="submit" value="Sign Up!" name="subscribe" id="mc-embedded-subscribe" class="button">
                 </form>
             </div>
         </div>
@@ -38,7 +38,7 @@
                 <div class="feature-image"><img src="<?php echo get_site_url() ?>/wp-content/uploads/2013/01/what4.png" /></div>
                 <p>Say goodbye to 2-3% fees. Your money should belong to you.</p>
             </li>
-            <li id="open"><h1>truly open</h1>
+            <li id="open"><h1>open</h1>
                 <div class="feature-image"><img src="<?php echo get_site_url() ?>/wp-content/uploads/2012/12/open.png" /></div>
                 <p>No restrictions, minimum fees or penalties. You are in control.</p>
             </li>
