@@ -15,7 +15,8 @@
 			<?php the_content(); ?>
 		<?php else: ?>
 			<?php the_excerpt(); ?>
+			<a href="<?php the_permalink(); ?>">read more</a>
 		<?php endif ?>
-		<a href="<?php the_permalink(); ?>">read more</a>
+		
 	</div><!-- .entry-summary -->
 </article><!-- #post-<?php the_ID(); ?> -->
