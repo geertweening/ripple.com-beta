@@ -189,6 +189,10 @@ footer {
   float: left;
   margin: 0 2.5%;
 }
+.dev-feature .dev-logo {
+  height: 100px;
+  line-height: 100px;
+}
 #wallet {
   background: #fff;
   padding: 25px;
@@ -239,6 +243,10 @@ footer {
   color: #346aa9;
   text-decoration: none;
 }
+.blog-posts article ul li {
+  list-style-type: disc;
+  padding: 3px 0;
+}
 #sidebar {
   float: left;
   width: 30%;
@@ -252,11 +260,25 @@ footer {
 #sidebar .block h6 {
   color: #a5c800;
   font-size: 26px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 #sidebar .block a {
   color: #346aa9;
   font-size: 16px;
+}
+#sidebar #email-collect {
+  background: none;
+  border: 0;
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+}
+#sidebar #email-collect input {
+  width: 90%;
+}
+#sidebar #email-collect input[type="email"] {
+  margin-bottom: 15px;
 }
 footer {
   background: #346aa9;

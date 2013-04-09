@@ -240,6 +240,10 @@ p{
 	width:45%;
 	float:left;
 	margin:0 2.5%;
+	.dev-logo{
+		height:100px;
+		line-height: 100px;
+	}
 }
 
 //wallet
@@ -298,6 +302,15 @@ p{
 			text-decoration: none;
 		}
 	}
+
+	article{
+		ul{
+			li{
+				list-style-type:disc;
+				padding:3px 0;
+			}
+		}
+	}
 }
 
 #sidebar{
@@ -311,13 +324,29 @@ p{
 		h6{
 			color:@green;
 			font-size: 26px;
-			padding-bottom: 15px;
+			padding-bottom: 5px;
 		}
 		a{
 			color:@blue;
 			font-size: 16px;
 		}
 	}
+	#email-collect{
+		background:none;
+		border:0;
+		position: relative;
+		top:auto;
+		left:auto;
+		width:100%;
+		input{
+			width:90%;
+			&[type="email"]{
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+
 }
 
 //footer
