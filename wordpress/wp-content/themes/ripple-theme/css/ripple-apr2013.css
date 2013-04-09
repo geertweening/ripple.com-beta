@@ -224,7 +224,8 @@ footer {
   text-align: center;
   font-size: 20px;
 }
-.blog h3 {
+.blog h3,
+.single h3 {
   padding-top: 30px;
 }
 .blog-posts {
