@@ -12,7 +12,7 @@
         </div>
         <!-- ENDS BOTTOM -->
 
-        <div class="copy">&copy; 2012 Ripple</div>
+        <div class="copy">&copy; <?php the_time('Y'); ?> Ripple</div>
       </footer>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
