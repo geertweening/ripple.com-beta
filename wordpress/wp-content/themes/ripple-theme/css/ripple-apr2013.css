@@ -188,14 +188,22 @@ footer {
   margin-right: 5px;
   float: left;
 }
-.dev-feature {
+.dev-feature,
+.mer-feature {
   width: 45%;
   float: left;
   margin: 0 2.5%;
 }
-.dev-feature .dev-logo {
+.dev-feature .dev-logo,
+.mer-feature .dev-logo {
   height: 100px;
   line-height: 100px;
+}
+.mer-feature {
+  height: 350px;
+}
+.mer-feature .mer-img {
+  height: 200px;
 }
 #wallet {
   background: #fff;
@@ -452,6 +460,14 @@ footer ul.widget-cols {
   }
   #dev-email form input[type="submit"] {
     margin-left: 0;
+  }
+  .mer-feature {
+    width: 100%;
+    margin: 0;
+    height: auto;
+  }
+  .mer-feature .mer-img {
+    height: auto;
   }
   #wallet h2 {
     margin: 15px 0;
