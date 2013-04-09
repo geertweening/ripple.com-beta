@@ -83,7 +83,10 @@ define('WP_DEBUG', false);
 /**
  * No editing from Wordpress 
  */
-define ('DISALLOW_FILE_EDIT', true);
+//BEGIN Better WP Security
+define( 'DISALLOW_FILE_EDIT', true );
+define( 'BWPS_FILECHECK', true );
+//END Better WP Security
 
 /* That's all, stop editing! Happy blogging. */
 
