@@ -7,10 +7,14 @@ header {
   z-index: 9999;
   box-shadow: 0 5px 0px rgba(52, 106, 169, 0.09999999999999998);
 }
+h1,
+h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   margin: 0;
+  line-height: 1.25em;
 }
 h3 {
   color: #346aa9;
@@ -229,7 +233,8 @@ footer {
   margin-right: 3%;
 }
 .blog-posts p {
-  font-size: 16px;
+  font-size: 17px;
+  margin: 15px 0;
 }
 .blog-posts a {
   color: #346aa9;
@@ -238,6 +243,7 @@ footer {
   margin: 8px 0 0 0;
   font-size: 30px;
   line-height: 1.25em;
+  padding-bottom: 0;
 }
 .blog-posts .entry-title a {
   color: #346aa9;
