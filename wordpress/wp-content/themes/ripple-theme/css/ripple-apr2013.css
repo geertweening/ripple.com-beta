@@ -375,33 +375,40 @@ footer ul.widget-cols {
   .wrapper {
     width: 100%;
   }
+  header {
+    position: absolute;
+  }
   .content-area,
   .blog-posts {
     padding: 0 15px;
   }
   #logo {
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding-left: 5px;
-    width: 90px;
+    width: 80px;
   }
   #logo img {
     width: 100%;
     float: left;
   }
   .menu-top-menu-container {
-    padding-top: 20px;
-    float: right;
+    padding-top: 0;
+    width: 100%;
+    border-top: 1px solid #ccc;
   }
   .menu-top-menu-container ul li {
-    font-size: 12px;
-    margin: 0 1px;
+    font-size: 14px;
+    margin: 5px 5px;
   }
   .menu-top-menu-container ul li a {
-    padding: 3px;
+    padding: 0px 10px;
   }
   #nav-wallet {
+    position: absolute;
     top: 0px;
     font-size: 12px;
-    padding: 0px 3px;
+    padding: 7px 15px 8px;
     line-height: 1.25em;
   }
   .home #main {
