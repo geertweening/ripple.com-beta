@@ -10,7 +10,7 @@
             <!--start email call to action-->
             <div class="tagline">The world's first open payment network</div>
             <div id="email-collect">
-                <h2>sign up to get your spot when we open to all</h2>
+                <h2>Get in early for exciting oncoming Ripple updates</h2>
                 <form action="http://opencoin.us4.list-manage.com/subscribe/post?u=245dbc1c47849f034390dc5bf&amp;id=706ebe5aff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
                     <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
                     <input type="submit" value="Sign Up!" name="subscribe" id="mc-embedded-subscribe" class="button">
