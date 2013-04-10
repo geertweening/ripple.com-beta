@@ -381,7 +381,7 @@ footer ul.widget-cols {
   }
   #logo {
     padding-left: 5px;
-    width: 100px;
+    width: 90px;
   }
   #logo img {
     width: 100%;
@@ -392,11 +392,11 @@ footer ul.widget-cols {
     float: right;
   }
   .menu-top-menu-container ul li {
-    font-size: 13px;
-    margin: 0 3px;
+    font-size: 12px;
+    margin: 0 1px;
   }
   .menu-top-menu-container ul li a {
-    padding: 5px;
+    padding: 3px;
   }
   #nav-wallet {
     top: 0px;
@@ -467,6 +467,7 @@ footer ul.widget-cols {
   .mer-feature {
     width: 100%;
     margin: 0;
+    min-height: auto;
     height: auto;
   }
   .mer-feature .mer-img {
