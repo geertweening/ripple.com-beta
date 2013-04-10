@@ -10,6 +10,8 @@ body {
   color: #5b5b5b;
 }
 
+
+
 /* this is a page or section title */
 h1 {
     font-family: "OpenSans-Light", "Open Sans Light",
@@ -197,17 +199,6 @@ header{
     margin-bottom: 20px;
 }
 
-.home #logo{
-    display: block;
-    float: none;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
-    text-align: center;
-}
-
 #logo .slogan {
     font-family: OpenSansRegular;
 }
@@ -312,7 +303,6 @@ header{
 	background: url(../img/hover.png) repeat-x;
 	color: #173847;
 }
-
 /*-----------------------------------------------------------------------------------*/
 /*	Subnavigation
 /*-----------------------------------------------------------------------------------*/

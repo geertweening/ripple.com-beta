@@ -6,8 +6,6 @@
 ?>
 
 <?php get_header() ?>
-
-	<?php get_template_part('includes/subnav-empty') ?>
 	
 	<!-- MAIN -->
 	<div id="main">
@@ -22,6 +20,7 @@
 				<div class="entry-content">
 					<?php the_content() ?>
 				</div>
+				<?php edit_post_link(); ?>
 			</div>
 		    <!-- ENDS content area -->
 		
