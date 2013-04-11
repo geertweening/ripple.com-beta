@@ -26,6 +26,9 @@ h3 {
 .entry-content a {
   color: #346aa9;
 }
+.entry-content p {
+  margin: 0 0 15px 0;
+}
 h5 {
   font-size: 30px;
   font-weight: 300;
