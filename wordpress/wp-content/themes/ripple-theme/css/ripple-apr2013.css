@@ -256,10 +256,15 @@ footer {
   font-size: 30px;
   line-height: 1.25em;
   padding-bottom: 0;
+  clear: both;
 }
 .blog-posts .entry-title a {
   color: #346aa9;
   text-decoration: none;
+}
+.blog-posts .entry-date {
+  display: block;
+  padding-bottom: 5px;
 }
 .blog-posts article ul li {
   list-style-type: disc;
@@ -297,6 +302,23 @@ footer {
 }
 #sidebar #email-collect input[type="email"] {
   margin-bottom: 15px;
+}
+.press-by {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #d97500;
+  color: #fff;
+  padding: 0px 3px;
+  float: left;
+  clear: both;
+  font-size: 12px;
+}
+.post-type-archive-press .entry-title {
+  font-size: 25px;
+}
+.post-type-archive-press article {
+  margin-bottom: 25px;
 }
 footer {
   background: #346aa9;

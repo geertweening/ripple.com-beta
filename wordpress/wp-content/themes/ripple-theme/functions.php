@@ -211,4 +211,81 @@ function new_excerpt_more( $more ) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+// Register Custom Post Type
+function custom_post_type() {
+	$labels = array(
+		'name'                => _x( 'Press', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Press', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Press', 'text_domain' ),
+		'parent_item_colon'   => __( '', 'text_domain' ),
+		'all_items'           => __( 'All Press Items', 'text_domain' ),
+		'view_item'           => __( 'View Press', 'text_domain' ),
+		'add_new_item'        => __( 'Add New Press Item', 'text_domain' ),
+		'add_new'             => __( 'New Press Item', 'text_domain' ),
+		'edit_item'           => __( 'Edit Press Item', 'text_domain' ),
+		'update_item'         => __( 'Update Press Item', 'text_domain' ),
+		'search_items'        => __( 'Search Press', 'text_domain' ),
+		'not_found'           => __( 'No Press Item Found', 'text_domain' ),
+		'not_found_in_trash'  => __( 'No press found in Trash', 'text_domain' ),
+	);
+
+	$args = array(
+		'label'               => __( 'press', 'text_domain' ),
+		'description'         => __( 'Press items', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => '',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+	);
+
+	register_post_type( 'press', $args );
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'custom_post_type', 0 );
+
+// As of WP 3.1.1 addition of classes for css styling to parents of custom post types doesn't exist.
+// We want the correct classes added to the correct custom post type parent in the wp-nav-menu for css styling and highlighting, so we're modifying each individually...
+// The id of each link is required for each one you want to modify
+// Place this in your WordPress functions.php file
+
+function remove_parent_classes($class)
+{
+  // check for current page classes, return false if they exist.
+	return ($class == 'current_page_item' || $class == 'current_page_parent' || $class == 'current_page_ancestor'  || $class == 'current-menu-item') ? FALSE : TRUE;
+}
+
+function add_class_to_wp_nav_menu($classes)
+{
+     switch (get_post_type())
+     {
+     	case 'press':
+     		// we're viewing a custom post type, so remove the 'current_page_xxx and current-menu-item' from all menu items.
+     		$classes = array_filter($classes, "remove_parent_classes");
+
+     		// add the current page class to a specific menu item (replace ###).
+     		if (in_array('menu-item-592', $classes))
+     		{
+     		   $classes[] = 'current_page_parent';
+         }
+     		break;
+
+      // add more cases if necessary and/or a default
+     }
+	return $classes;
+}
+add_filter('nav_menu_css_class', 'add_class_to_wp_nav_menu');
+
 
