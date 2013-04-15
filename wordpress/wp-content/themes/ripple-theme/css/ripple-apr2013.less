@@ -31,6 +31,9 @@ h3{
 	a{
 		color: @blue;
 	}
+	p{
+		margin: 0 0 15px 0;
+	}
 }
 
 h5{
@@ -307,10 +310,16 @@ p{
 		font-size: 30px;
 		line-height: 1.25em;
 		padding-bottom: 0;
+		clear:both;
 		a{
 			color:@blue;
 			text-decoration: none;
 		}
+	}
+
+	.entry-date{
+		display:block;
+		padding-bottom: 5px;
 	}
 
 	article{
@@ -357,6 +366,27 @@ p{
 	}
 
 
+}
+
+//press
+.press-by{
+	display:block;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background: @orange;
+	color: #fff;
+	padding:0px 3px;
+	float:left;
+	clear:both;
+	font-size:12px;
+}
+.post-type-archive-press{
+	.entry-title{
+		font-size:25px;
+	}
+	article{
+		margin-bottom: 25px;
+	}
 }
 
 //footer

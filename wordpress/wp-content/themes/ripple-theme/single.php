@@ -2,7 +2,7 @@
 	<div id="main">
 		<div class="wrapper">
 			<!-- start blog posts column -->
-			<h3>the Ripple blog</h3>
+			<h3>The Ripple Blog</h3>
 			<div class="blog-posts">
 				<?php if (have_posts()) : ?>
 					<?php while ( have_posts() ) : the_post(); ?>
