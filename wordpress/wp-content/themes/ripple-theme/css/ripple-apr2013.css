@@ -37,12 +37,15 @@ h5 {
   line-height: 1.25em;
 }
 h6 {
-  margin: 5px 0 15px;
+  margin: 5px 0 5px;
   color: #d97500;
   font-size: 26px;
 }
 p {
   font-size: 17px;
+}
+.wrapper {
+  padding-top: 30px;
 }
 #logo {
   padding-left: 20px;
@@ -235,10 +238,6 @@ footer {
   text-align: center;
   font-size: 20px;
 }
-.blog h3,
-.single h3 {
-  padding-top: 30px;
-}
 .blog-posts {
   float: left;
   width: 67%;
@@ -246,7 +245,7 @@ footer {
 }
 .blog-posts p {
   font-size: 17px;
-  margin: 15px 0;
+  margin: 5px 0 15px 0;
 }
 .blog-posts a {
   color: #346aa9;
@@ -262,13 +261,36 @@ footer {
   color: #346aa9;
   text-decoration: none;
 }
+.blog-posts h6 {
+  font-size: 22px;
+}
 .blog-posts .entry-date {
   display: block;
-  padding-bottom: 5px;
 }
 .blog-posts article ul li {
   list-style-type: disc;
   padding: 3px 0;
+}
+.blog-posts article .alignright {
+  float: right;
+  padding: 0 0 0 15px;
+}
+.blog-posts article .alignleft {
+  float: left
+			padding:0 15px 0 0;
+}
+.blog-posts article em {
+  font-weight: 500;
+}
+.single-post h1.entry-title {
+  font-size: 42px;
+}
+.single-post h4 {
+  color: #d97500;
+  font-size: 36px;
+}
+.single-post h5 {
+  margin: 0;
 }
 #sidebar {
   float: left;
@@ -288,6 +310,9 @@ footer {
 #sidebar .block a {
   color: #346aa9;
   font-size: 16px;
+}
+#sidebar .block ul li {
+  padding: 0 0 10px 0;
 }
 #sidebar #email-collect {
   background: none;
@@ -312,7 +337,9 @@ footer {
   padding: 0px 3px;
   float: left;
   clear: both;
-  font-size: 12px;
+  font-size: 11px;
+  margin-top: 5px;
+  line-height: 1.5em;
 }
 .post-type-archive-press .entry-title {
   font-size: 25px;
@@ -334,6 +361,19 @@ footer ul.widget-cols {
   margin: 0;
 }
 @media (max-width: 1023px) {
+  .wrapper h1,
+  .wrapper h2,
+  .wrapper h3,
+  .wrapper h4,
+  .wrapper h5,
+  .wrapper h6,
+  .wrapper h7 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .wrapper p {
+    padding: 0;
+  }
   #logo {
     clear: none;
     width: 90px;
@@ -522,6 +562,17 @@ footer ul.widget-cols {
   }
   .blog-posts {
     width: 95%;
+  }
+  .single-post h1.entry-title {
+    font-size: 30px;
+  }
+  .single-post p .alignright,
+  .single-post p .alignleft {
+    float: none;
+    padding: 0;
+  }
+  .single-post h6 {
+    font-size: 20px;
   }
   #sidebar {
     width: 100%;
