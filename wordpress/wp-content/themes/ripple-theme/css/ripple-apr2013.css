@@ -360,6 +360,13 @@ footer ul.widget-cols {
   border-bottom-color: #fff;
   margin: 0;
 }
+.widget-block ul li {
+  line-height: 1.25em;
+  margin: 8px 0;
+}
+.widget-block ul li a {
+  padding: 0;
+}
 @media (max-width: 1023px) {
   .wrapper h1,
   .wrapper h2,
