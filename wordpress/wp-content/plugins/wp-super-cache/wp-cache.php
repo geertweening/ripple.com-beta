@@ -3,13 +3,13 @@
 Plugin Name: WP Super Cache
 Plugin URI: http://ocaoimh.ie/wp-super-cache/
 Description: Very fast caching plugin for WordPress.
-Version: 1.3
+Version: 1.3.1
 Author: Donncha O Caoimh
 Author URI: http://ocaoimh.ie/
 */
 
 /*  Copyright 2005-2006  Ricardo Galli Granada  (email : gallir@uib.es)
-    Copyright 2007-2012 Donncha O Caoimh (http://ocaoimh.ie/) and many others.
+    Copyright 2007-2013 Donncha Ó Caoimh (http://ocaoimh.ie/) and many others.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -3132,7 +3132,7 @@ function supercache_admin_bar_render() {
 				'id' => 'delete-cache',
 				'title' => __( 'Delete Cache', 'wp-super-cache' ),
 				'meta' => array( 'title' => __( 'Delete cache of the current page', 'wp-super-cache' ) ),
-				'href' => wp_nonce_url( admin_url( 'index.php?action=delcachepage&path=' . urlencode( $_SERVER[ 'REQUEST_URI' ] ) ), 'delete-cache' )
+				'href' => wp_nonce_url( admin_url( 'index.php?action=delcachepage&path=' . urlencode( preg_replace( '/[ <>\'\"\r\n\t\(\)]/', '', $_SERVER[ 'REQUEST_URI' ] ) ) ), 'delete-cache' )
 				) );
 }
 add_action( 'wp_before_admin_bar_render', 'supercache_admin_bar_render' );
