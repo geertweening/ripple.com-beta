@@ -39,7 +39,7 @@
                 <p>Say goodbye to 2-3% fees. Your money should belong to you.</p>
             </li>
             <li id="open"><h1>open</h1>
-                <div class="feature-image"><img src="<?php echo get_site_url() ?>/wp-content/uploads/2012/12/open.png" /></div>
+                <div class="feature-image"><img src="<?php echo get_site_url() ?>/wp-content/themes/ripple-theme/img/icon-open.png" /></div>
                 <p>No restrictions, minimum fees or penalties. You are in control.</p>
             </li>
         </ul>
