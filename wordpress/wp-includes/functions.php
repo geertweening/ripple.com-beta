@@ -1082,6 +1082,7 @@ function do_robots() {
 		$path = ( !empty( $site_url['path'] ) ) ? $site_url['path'] : '';
 		$output .= "Disallow: $path/wp-admin/\n";
 		$output .= "Disallow: $path/wp-includes/\n";
+    $output .= "Disallow: $path/claim/\n";
 	}
 
 	echo apply_filters('robots_txt', $output, $public);
