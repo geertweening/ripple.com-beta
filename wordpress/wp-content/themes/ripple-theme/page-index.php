@@ -8,8 +8,7 @@
     <div class="bg-holder">
         <div class="wrapper clearfix">
             <!--start email call to action-->
-            <div class="tagline">The world's first open payment network</div>
-            
+            <div class="tagline">The future of payments</div>
         </div>
     </div>
 </div>

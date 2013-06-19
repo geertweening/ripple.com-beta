@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/style.css">
         <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/landing.css">
         <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/responsive.css">
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/ripple-apr2013.css">
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/ripple-jun2013.css">
     <!-- ENDS CSS -->
         <script src="/js/modernizr-2.6.1.min.js"></script>
         
