@@ -3,7 +3,7 @@
 Plugin Name: Duo Two-Factor Authentication
 Plugin URI: http://wordpress.org/extend/plugins/duo-wordpress/
 Description: This plugin enables Duo two-factor authentication for WordPress logins.
-Version: 1.4.2
+Version: 1.5.3
 Author: Duo Security
 Author URI: http://www.duosecurity.com
 License: GPL2
@@ -35,9 +35,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
        
         $username = $user->user_login;
 
-        $request_sig = Duo::signRequest($ikey, $skey, $username);
+        $duo_time = duo_get_time();
+        $request_sig = Duo::signRequest($ikey, $skey, $username, $duo_time);
 
-        $exptime = time() + 3600; // let the duo login form expire within 1 hour
+        $exptime = $duo_time + 3600; // let the duo login form expire within 1 hour
 ?>
     <html>
         <head>
@@ -115,10 +116,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
             $sig = wp_hash($_POST['u'] . $_POST['exptime']);
             $expire = intval($_POST['exptime']);
 
-            if (wp_hash($_POST['uhash']) == wp_hash($sig) && time() < $expire) {
+            $duo_time = duo_get_time();
+            if (wp_hash($_POST['uhash']) == wp_hash($sig) && $duo_time < $expire) {
                 $user = get_user_by('login', $_POST['u']);
 
-                if ($user->user_login == Duo::verifyResponse(duo_get_option('duo_skey'), $_POST['sig_response'])) {
+                if ($user->user_login == Duo::verifyResponse(duo_get_option('duo_skey'), $_POST['sig_response'], $duo_time)) {
                     return $user;
                 }
             } else {
@@ -379,6 +381,99 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
         return $links;
     }
 
+    /* Get Duo's system time.
+     * If that fails then use server system time
+     */
+    function duo_get_time() {
+        $time = NULL;
+        if (!extension_loaded('openssl')) {
+            //fall back to local time
+            error_log('SSL is disabled. Can\'t fetch Duo server time.');
+        }
+        else {
+            $duo_url = 'https://' . duo_get_option('duo_host') . '/auth/v2/ping';
+            $cert_file = dirname(__FILE__) . '/duo_web/ca_certs.pem';
+            if( ini_get('allow_url_fopen') ) {
+                $time =  duo_get_time_fopen($duo_url, $cert_file);
+            } 
+            else if(in_array('curl', get_loaded_extensions())){
+                $time = duo_get_time_curl($duo_url, $cert_file);
+            }
+            else{
+                $time = duo_get_time_WP_HTTP($duo_url);
+            }
+        }
+
+        //if all fails, use local time
+        $time = ($time != NULL ? $time : time());
+        return $time;
+    }
+
+    function duo_get_time_fopen($duo_url, $cert_file){
+        $context = stream_context_create(
+            array(
+                'http'=>array(
+                    "method" => "GET"
+                ),
+                'ssl'=>array(
+                    'allow_self_signed'=>false,
+                    'verify_peer'=>true,
+                    'cafile'=>$cert_file
+                )
+            )
+        );
+
+        $response = json_decode(file_get_contents($duo_url, false, $context), true);
+        if (!$response){
+            return NULL;
+        }
+        $time = (int)$response['response']['time'];
+        
+        return $time;
+    }
+
+    function duo_get_time_curl($duo_url, $cert_file) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $duo_url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($ch, CURLOPT_CAINFO, $cert_file);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $response =json_decode(curl_exec($ch), true);
+        curl_close ($ch);
+        if (!$response){
+            return NULL;
+        }
+        $time = (int)$response['response']['time'];
+        return $time;
+    }
+
+    // Uses Worpress HTTP, problem is that we can't specify our SSL cert here.
+    // Servers with out of date root certs may fail.
+    function duo_get_time_WP_HTTP($duo_url){
+        if(!class_exists('WP_Http')){
+            include_once(ABSPATH . WPINC . '/class-http.php');
+        }
+
+        $args = array(
+            'method'      =>    'GET',
+            'blocking'    =>    true,
+            'sslverify'   =>    true,
+        );
+        $response = wp_remote_get($duo_url, $args);
+        if(is_wp_error($response)){
+            $error_message = $response->get_error_message();
+            error_log("Could not fetch Duo server time: $error_message");
+            return NULL;
+        }
+        else {
+            $body = json_decode(wp_remote_retrieve_body($response), true);
+            $time = (int)$body['response']['time'];
+            return $time;
+        }
+    }
+
     /*-------------XML-RPC Features-----------------*/
     
     if(duo_get_option('duo_xmlrpc', 'off') == 'off') {
@@ -395,9 +490,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
         // Custom fields in network settings
         add_filter('wpmu_options', 'duo_mu_options');
         add_filter('update_wpmu_options', 'duo_update_mu_options');
-
-        
-
     }
     else {
         add_action('admin_menu', 'duo_add_page');
