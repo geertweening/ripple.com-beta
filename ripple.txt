@@ -16,10 +16,7 @@ ripple.com
 23.23.201.55 51235
 
 [validators]
-n9KPnVLn7ewVzHvn218DcEYsnWLzKerTDwhpofhk4Ym1RUq4TeGw    
-n9LFzWuhKNvXStHAuemfRKFVECLApowncMAM5chSCL9R5ECHGN4V 
-n94rSdgTyBNGvYg8pZXGuNt59Y5bGAZGxbxyvjDaqD9ceRAgD85P    
+n9KPnVLn7ewVzHvn218DcEYsnWLzKerTDwhpofhk4Ym1RUq4TeGw
+n9LFzWuhKNvXStHAuemfRKFVECLApowncMAM5chSCL9R5ECHGN4V
+n94rSdgTyBNGvYg8pZXGuNt59Y5bGAZGxbxyvjDaqD9ceRAgD85P
 n9LeQeDcLDMZKjx1TZtrXoLBLo5q1bR1sUQrWG7tEADFU6R27UBp
-
-[federation_url]
-http://opencoin.com/federation/
