@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ripple Account/TX Info</title>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/identity.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div id="container" class="lit">
+    <h1>Ripple Info Tool</h1>
+    <p>This is a debug tool for printing raw information about an account or a transaction.</p>
+    <form id="account-entry">
+      <fieldset>
+        <input id="target" type="text" required
+               placeholder="Ripple address or transaction ID"
+               class="input-xxlarge"><br>
+        <span class="help-block"><small>Try an account like <em>r9kiSEUEw6iSCNksDVKf9k3AyxjW3r1qPf</em>.</small></span>
+        <button class="btn">Get info</button>
+      </fieldset>
+    </form>
+    <div id="result">
+      <h2>Result</h2>
+      <div id="progress" class="progress">
+        <div class="bar"></div>
+      </div>
+      <div id="error" class="alert alert-error"></div>
+      <ul id="links" class="nav nav-pills">
+        <li><a id="permalink" href="#" target="_blank">Permalink</a></li>
+        <li><a id="graphlink" href="#" target="_blank">Graph</a></li>
+        <li><a id="datalink" href="#" target="_blank">Client</a></li>
+      </ul>
+      <div class="alert alert-info">
+        <strong>Tip:</strong> This page features intelligent copy/paste. Any
+        nodes you expand will be copied, any that you don't expand will show up
+        as a little <code>/* */</code> comment in your copy/pasted text.
+      </div>
+      <div class="group group-tx">
+        <h3>tx</h3>
+        <ul class="tools nav nav-pills">
+          <li><a class="tx-expand">expand all</a></li>
+          <li><a class="tx-collapse">collapse all</a></li>
+        </ul>
+        <pre id="tx_info" class="json"></pre>
+        <ul class="tools nav nav-pills">
+          <li><a class="tx-expand">expand all</a></li>
+          <li><a class="tx-collapse">collapse all</a></li>
+        </ul>
+      </div>
+      <div class="group group-account">
+        <h3>account_info</h3>
+        <pre id="account_info" class="json"></pre>
+        <h3>account_lines</h3>
+        <ul class="tools nav nav-pills">
+          <li><a class="account-lines-expand">expand all</a></li>
+          <li><a class="account-lines-collapse">collapse all</a></li>
+        </ul>
+        <pre id="account_lines" class="json"></pre>
+        <ul class="tools nav nav-pills">
+          <li><a class="account-lines-expand">expand all</a></li>
+          <li><a class="account-lines-collapse">collapse all</a></li>
+        </ul>
+        <h3>account_tx (last 20)</h3>
+        <ul class="tools nav nav-pills">
+          <li><a class="account-tx-expand-tx">expand tx</a></li>
+          <li><a class="account-tx-expand">expand all</a></li>
+          <li><a class="account-tx-collapse">collapse all</a></li>
+          <li><a class="account-tx-more">next 20</a></li>
+          <li><a class="account-tx-back">prev 20</a></li>
+        </ul>
+        <pre id="account_tx" class="json"></pre>
+        <ul class="tools nav nav-pills">
+          <li><a class="account-tx-expand-tx">expand tx</a></li>
+          <li><a class="account-tx-expand">expand all</a></li>
+          <li><a class="account-tx-collapse">collapse all</a></li>
+          <li><a class="account-tx-more">next 20</a></li>
+          <li><a class="account-tx-back">prev 20</a></li>
+        </ul>
+        <h3>account_offers</h3>
+        <ul class="tools nav nav-pills">
+          <li><a class="account-offers-expand">expand all</a></li>
+          <li><a class="account-offers-collapse">collapse all</a></li>
+        </ul>
+        <pre id="account_offers" class="json"></pre>
+        <ul class="tools nav nav-pills">
+          <li><a class="account-offers-expand">expand all</a></li>
+          <li><a class="account-offers-collapse">collapse all</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/async/1.22/async.min.js"></script>
+<script type="text/javascript" src="js/es5-shim.js"></script>
+<script type="text/javascript" src="js/ripple.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>

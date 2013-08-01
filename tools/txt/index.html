@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ripple.txt Checker</title>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/identity.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div id="container" class="lit">
+    <h1>Check your ripple.txt</h1>
+    <p>If you're a nexus or a business accepting ripple payments, you may have been
+      recommended to <a href="https://ripple.com/wiki/Ripple.txt">set up a
+      ripple.txt</a> for your domain.</p>
+    <p>This tool allows you to verify that your ripple.txt is syntactically
+      correct and deployed properly.</p>
+    <form id="domain-entry">
+      <fieldset>
+        <input id="domain" type="text" required
+               placeholder="Domain name, e.g.example.com"
+               pattern="^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$"><br>
+        <button class="btn">Verify ripple.txt</button>
+      </fieldset>
+    </form>
+    <div id="result">
+      <h2>Result</h2>
+      <ul id="log">
+      </ul>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/async/1.22/async.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>
