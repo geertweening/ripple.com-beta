@@ -15,7 +15,8 @@
 <body>
   <div id="container" class="lit">
     <h1>Ripple Info Tool</h1>
-    <p>This is a debug tool for printing raw information about an account or a transaction.</p>
+    <p>This is a debug tool for printing raw information about an account, a
+    transaction (by hash) or a ledger (by sequence number).</p>
     <form id="account-entry">
       <fieldset>
         <input id="target" type="text" required
@@ -91,6 +92,20 @@
         <ul class="tools nav nav-pills">
           <li><a class="account-offers-expand">expand all</a></li>
           <li><a class="account-offers-collapse">collapse all</a></li>
+        </ul>
+      </div>
+      <div class="group group-ledger">
+        <h3>ledger</h3>
+        <ul class="tools nav nav-pills">
+          <li><a class="ledger-expand-tx">expand tx</a></li>
+          <li><a class="ledger-tx-expand">expand all</a></li>
+          <li><a class="ledger-tx-collapse">collapse all</a></li>
+        </ul>
+        <pre id="ledger_info" class="json"></pre>
+        <ul class="tools nav nav-pills">
+          <li><a class="ledger-tx-expand-tx">expand tx</a></li>
+          <li><a class="ledger-tx-expand">expand all</a></li>
+          <li><a class="ledger-tx-collapse">collapse all</a></li>
         </ul>
       </div>
     </div>

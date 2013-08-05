@@ -1,5 +1,6 @@
 jQuery(function ($) {
-  var reTxId = /^[0-9A-Fa-f]{64}$/;
+  var reTxId = /^[0-9A-Fa-f]{64}$/,
+      reLedgerSeq = /^[0-9]+$/;
 
   var txOffset = 0,
       txCount = 0,
@@ -16,7 +17,8 @@ jQuery(function ($) {
   remote.once('connected', function () {
     var target = location.hash.slice(1);
     if (ripple.UInt160.from_json(target).is_valid() ||
-        reTxId.exec(target)) {
+        reTxId.exec(target) ||
+        reLedgerSeq.exec(target)) {
       $('#target').val(target);
       fetchTarget(target);
     }
@@ -107,6 +109,26 @@ jQuery(function ($) {
         $("#progress .bar").css("width", "100%");
         $("#progress").fadeOut();
       });
+    } else if (reLedgerSeq.exec(target)) {
+      $("#result > .group-ledger").show();
+
+      // Ledger
+      $("#progress .bar").css("width", "10%");
+      remote.request_ledger(undefined, { transactions: true, expand: true })
+        .ledger_index(+target)
+        .on('success', function (result) {
+          $("#progress .bar").css("width", "100%");
+          $("#progress").fadeOut();
+          console.log('ledger', result.ledger);
+          format(result.ledger, $("#ledger_info"));
+        })
+        .on('error', function (err) {
+          console.log(err);
+          handleError(err);
+          $("#progress .bar").css("width", "100%");
+          $("#progress").fadeOut();
+        })
+        .request();
     } else if (reTxId.exec(target)) {
       $("#result > .group-tx").show();
 
@@ -191,6 +213,20 @@ jQuery(function ($) {
     $("#account_offers .expanded").removeClass("expanded");
   });
 
+  $('.ledger-expand-tx').click(function () {
+    $("#ledger_info .expanded").removeClass("expanded");
+    $("#ledger_info").find("> ul > li").addClass("expanded").find("> ul > li").addClass("expanded").find("> ul > li span.name:contains(tx)").parent().addClass("expanded");
+  });
+
+  $('.ledger-expand').click(function () {
+    $("#ledger_info .expanded").removeClass("expanded");
+    $("#ledger_info").find("ul > li").addClass("expanded");
+  });
+
+  $('.ledger-collapse').click(function () {
+    $("#ledger_info .expanded").removeClass("expanded");
+  });
+
   $('pre.json').delegate(".toggle", "click", function (evt) {
     console.log(this);
     $(this).parent().toggleClass("expanded");
@@ -209,6 +245,8 @@ jQuery(function ($) {
 
       if (err.error_message) {
         $("#error").show().text(err.error_message);
+      } else if (err.error) {
+        $("#error").show().text(err.error);
       } else {
         $("#error").show().text(err.toString());
       }
