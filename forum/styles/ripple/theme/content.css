@@ -420,6 +420,11 @@ p.author {
 	line-height: 140%;
 	overflow: hidden;
 	width: 100%;
+  opacity: 0.5;
+}
+
+.signature:hover {
+  opacity: 1;
 }
 
 dd .signature {

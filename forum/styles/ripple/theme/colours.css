@@ -328,6 +328,18 @@ a.topictitle:active {
 	color: #336BAB;
 }
 
+/* Post body author line */
+.postbody p.author {
+  color: #777;
+}
+
+.postbody p.author a,
+.postbody p.author a:visited,
+.postbody p.author a:active,
+.postbody p.author a:hover {
+	color: #6F9BCD;
+}
+
 /* Post body links */
 .postlink {
 	color: #336BAB;
@@ -498,6 +510,7 @@ dl.faq dt {
 
 /* Post signature */
 .signature {
+  color: #999;
 	border-top-color: #E4E4E4;
 }
 
