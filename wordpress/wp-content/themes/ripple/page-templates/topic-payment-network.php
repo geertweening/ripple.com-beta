@@ -8,7 +8,7 @@ get_header('targets'); ?>
 		<header class="guide-header">
 			<div class="wrapper">
 				<h1 class="entry-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>/topic-directory"><span class="muted">Topic:</span></a>  <?php the_title(); ?><br>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>topic-directory"><span class="muted">Topic:</span></a>  <?php the_title(); ?><br>
 				</h1>
 				<?php if ( have_posts() ) : ?>
 

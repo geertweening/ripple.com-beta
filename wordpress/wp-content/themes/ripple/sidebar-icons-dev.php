@@ -19,7 +19,7 @@
 				</aside>
 
 				<aside class="col-lg-3">
-					<a href="">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#peer-to-peer">
 					<div class="icons p2p">
 					</div>
 				    	<h4 class="icons-title">Peer-to-Peer</h4>

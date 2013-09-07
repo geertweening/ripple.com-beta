@@ -8,7 +8,7 @@ get_header('targets'); ?>
 		<header class="guide-header">
 			<div class="wrapper">
 				<h1 class="entry-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>/guide-directory"><span class="muted">Ripple Guides</span></a><br>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>guide-directory"><span class="muted">Ripple Guides</span></a><br>
 					<?php the_title(); ?>
 				</h1>
 			</div>
