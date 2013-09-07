@@ -86,7 +86,7 @@
 							</div> -->
 
 							<div class="col-sm-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/" class="thumbnail boxed">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/" class="thumbnail boxed">
 									<p><strong>Learn about the Ripple Payment Network.</strong><br>
 										A new standard in transactions.
 									</p>
@@ -94,7 +94,7 @@
 							</div>
 
 							<div class="col-sm-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>/distributed-fx/" class="thumbnail boxed">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/" class="thumbnail boxed">
 									<p><strong>Discover Ripple’s Distributed Currency Exchange.</strong><br>
 										 A universal translator for money.
 									</p>
@@ -102,7 +102,7 @@
 							</div>
 			 
 							<div class="col-sm-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/" class="thumbnail boxed">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/" class="thumbnail boxed">
 									<p><strong>Explore the Ripple Transaction Protocol (RTXP):</strong><br>
 									   The protocol that makes Ripple possible.
 									</p>
