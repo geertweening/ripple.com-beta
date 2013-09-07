@@ -77,12 +77,7 @@
 					<p>Because so many currencies and payments flow through Ripple, there is a constant demand for liquidity. This creates a fantastic opportunity for <a href="<?php echo esc_url( home_url( '/' ) ); ?>/partners/">market makers</a> to turn a profit and provide a valuable service.</p>
 				</section>
 
-				<section class="guide-section">
-					<h5 id="how-to-guides-and-resources">HOW-TO GUIDES & RESOURCES</h5>
-				</section>
-
-				<section class="guide-section">
-					<h5 id="how-to-guides">HOW TO GUIDES</h5>					
+				<section class="guide-section">				
 					<?php include (TEMPLATEPATH . '/inc/how-to-guides.php' ); ?>
 				</section> 
 

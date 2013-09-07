@@ -63,8 +63,7 @@
 					<h5 id="distribution">Distribution</h5>
 					<p>How do you get XRP? Easy. You can either buy XRP or get them for free. Remember, it only takes a few XRP to activate your account and access the full power of the Ripple <a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/">payment network</a>.</p>
 				</section>
-				<section class="guide-section">
-					<h5 id="how-to-guides">HOW TO GUIDES</h5>					
+				<section class="guide-section">			
 					<?php include (TEMPLATEPATH . '/inc/how-to-guides.php' ); ?>
 				</section> 
 		</div>

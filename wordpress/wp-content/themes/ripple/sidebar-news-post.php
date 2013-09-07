@@ -11,7 +11,7 @@
       <?php
 	  $the_query = new WP_Query(array(
 		'category_name' => 'blog',
-		'posts_per_page' => 3,
+		'posts_per_page' => 2,
 		));
 	  
 	while ( $the_query->have_posts() ) :

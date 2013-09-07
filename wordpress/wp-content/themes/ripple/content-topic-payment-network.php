@@ -93,8 +93,7 @@
 					<h5 id="bridge-payments">Bridge Payments</h5>
 					<p>A bridge payment is a payment sent from the Ripple network to an external account. For example, using the Bitcoin Bridge, payments can be sent from Ripple to any Bitcoin account. Other bridges are being developed, including an email bridge, a SMS bridge, and a bank-account bridge. Ultimately, bridge payments will allow Ripple users to send money to any kind of account.</p>
 				</section>
-				<section class="guide-section">
-					<h5 id="how-to-guides">HOW TO GUIDES</h5>					
+				<section class="guide-section">			
 					<?php include (TEMPLATEPATH . '/inc/how-to-guides.php' ); ?>
 				</section> 
 		</div>

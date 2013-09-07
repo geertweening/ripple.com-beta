@@ -100,12 +100,7 @@
 					<p>Ripple’s dynamic scalability system allows the network to process transactions and trades even under extreme load. When the network is flooded with transactions, RTXP automatically increases the XRP security cost. Users can choose to pay the increased cost or wait for the network load to return to normal. Typically, the increased security cost will be trivial to normal users, but anyone deliberately attempting to flood the network will be forced to stop their attack.</p>
 				</section>
 
-				<section class="guide-section">
-					<h5 id="resources-guides">RESOURCES/ GUIDES</h5>
-				</section>
-
-				<section class="guide-section">
-					<h5 id="how-to-guides">HOW TO GUIDES</h5>					
+				<section class="guide-section">				
 					<?php include (TEMPLATEPATH . '/inc/how-to-guides.php' ); ?>
 				</section> 
 				
