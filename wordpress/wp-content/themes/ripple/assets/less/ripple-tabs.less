@@ -1,0 +1,103 @@
+// Tab Styles
+// Tabs Navigation
+#tab {
+    .clearfix();
+}
+.tabs-navigation {
+    .clearfix;
+    .diagonal_lines_pattern;
+    border-bottom: 18px solid @blue;
+    z-index: 1000;
+}
+.tabs-navigation ul {
+    margin: 0 auto;
+    width: 90%;
+}
+.tabs-navigation ul li {
+    text-align: center;
+    width: 33.3333%;
+    float: left;
+}
+.tab-content {
+    min-height: 280px;
+}
+.tabs-navigation ul li {
+    float: left;
+    margin-bottom: 0;
+    position: relative;
+    text-align: center;
+    width: 33.33%;
+}
+.tabs-navigation ul li a {
+    color: #3372AD;
+    float: left;
+    outline: 0 none;
+    padding: 26px 26px 24px;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+// Tabs Navigation Active/Hover States
+.tabs-navigation ul li.active a {
+    font-weight: bold;
+}
+.tabs-navigation li.active a .caret, .tabs-navigation li a:hover .caret {
+    display: inline;
+    position: absolute;
+}
+.tabs-navigation li a .caret {
+    display: none;
+}
+// Size and Position Tab Navigation Caret
+.tabs-navigation .caret {
+    border-bottom: 14px solid @blue;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: medium none;
+    left: 0;
+    margin: 32px auto 0;
+    position: absolute;
+    right: 0;
+    z-index: 0;
+}
+// Tab Pane
+.tab-pane-heading {
+    margin-bottom: 13px;
+}
+// Tab Pane Section
+.tab-pane section {
+    padding: 34px 0 55px;
+    border-bottom: 1px solid #EFEFEF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+}
+// Tab Pane Post
+.tab-pane .post {
+    margin: 0 auto;
+    padding: 10px 0 30px;
+    text-align: left;
+    width: 90%;
+}
+.tab-pane .post .img-wrap {
+    margin: 18px 39px 20px 0;
+}
+.tab-pane .post p {
+    line-height: 28px;
+}
+.tab-pane .post .icon-file-text {
+    font-size: 31px;
+    position: absolute;
+    top: -5px;
+    left: 2px;
+    text-decoration: none;
+}
+.post-footer {
+    position: relative;
+}
+.tab-pane .post-footer a {
+    color: #3372AD;
+    padding-left:43px;
+}
+.tab-pane .thumbnail.boxed {
+    min-height: 155px;
+}
+

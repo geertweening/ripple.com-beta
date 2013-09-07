@@ -1,0 +1,1097 @@
+//
+// Wordpress
+// --------------------------------------------------
+// Structral Wraps
+body {
+    position: relative;
+}
+.wrapper {
+    margin: 0 auto;
+    width: 960px;
+    padding: 0 10px;
+    .clearfix;
+}
+#main {
+    padding-top: 90px;
+}
+// Center a div with this:
+.centered {
+    float: none;
+    margin: 0 auto;
+    position: relative;
+}
+// Colors
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+// Accent colors
+// -------------------------
+@blue:                  #3372AD;
+@blueDark:              #0064cd;
+@blueLight:             #99b8d6;
+@blueLighter:           #f0f7fb;
+@babyBlue:              #99b8d6;
+@green:                 #ccffcc;
+.green {
+    background-color: @green;
+}
+@red:                   #9d261d;
+@yellow:                #ffff97;
+@orange:                #f89406;
+@pink:                  #c3325f;
+@purple:                #7a43b6;
+@white:                 #ffffff;
+@gray-white:            #e7e7e7;
+@very-dark-gray:        #383838;
+.very-dark-gray {
+    color: @very-dark-gray;
+}
+@green:                 #A4F49F;
+@blue:                  #3372AD;
+.blue {
+    color: @blue;
+}
+.blue-light {
+    color:  lighten(@blue, 10%);
+}
+.blue:hover, .blue:focus {
+    .blue-light;
+}
+// Link Color 
+.link-color {
+    color:  lighten(@blue, 10%);
+}
+a {
+    text-decoration: underline;
+    color: inherit;
+}
+a:hover, a:focus {
+    color: lighten(@link-color, 20%);
+}
+a:hover .link-color, a:focus .link-color {
+    text-decoration: underline;
+    color:  lighten(@blue, 10%);
+}
+// Hover/Focus State for Link-Color
+li:hover .link-color, li:focus .link-color {
+    text-decoration: underline;
+}
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+#translucent {
+  .background(@color: @white, @alpha: 1) {
+    background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  }
+  .border(@color: @white, @alpha: 1) {
+    border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+    .background-clip(padding-box);
+  }
+  .color(@color: @white, @alpha: 1) {
+    color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  }
+}
+// Give a div light background color, border bottom and some box shadow
+.shaded {
+    background: #F7F7F7;
+}
+// Boxed Thumbnail
+.boxed {
+    background-color: #F8F8F8;
+    border-color: rgba(0, 0, 0, 0);
+    border-radius: 0 0 0 0;
+    min-height: 120px;
+    padding: 16px 20px 6px;
+}
+// Boxed Icon Styles
+.boxed [class^="icon-"], .boxed [class*=" icon-"] {
+    padding-right: 9px;
+}
+// Strong Color
+b, strong {
+    color: #383838;
+    font-weight: bold;
+}
+a.boxed:hover, a.boxed:focus {
+    border-color: lightgray;
+}
+// Add border bottom to a div
+.border-bottom {
+    border-bottom: 2px solid #C9C9C9;
+}
+// Typography Styles
+ul, ol, ul li, ol li, ul li ul {
+    line-height: 22px;
+    margin: 0;
+}
+ul.menu {
+    list-style: none;
+}
+list-margin-bottom {
+    margin: 0 0 8px;
+}
+dt {
+    float: left;
+    margin-right: 7px;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+// Span Base Font
+.base-font {
+    font-family: @font-family-sans-serif;
+}
+// Text Styles
+// used on icon widget titles...
+h3 {
+    font-family: @secondary-font-family; 
+}
+h4 {
+    color: #606060;
+    font-family: 'HelveticaNeueLTStd-Ex', Helvetica, Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+}
+h5 {
+    color: #E7E7E7;
+}
+p {
+    line-height: 30px; //Line hieght based off protocol page 
+}
+// Utilities
+.underline {
+    border-bottom: 1px solid @gray-lighter;
+}
+small {
+    font-size: 63%;
+}
+.overflow {
+    overflow-x: scroll;
+}
+// Icon a:hover/focus 
+a:hover [class^="icon-"], a:focus [class*=" icon-"] {
+    text-decoration: none;
+}
+// Link Color Padding Left 
+.link-color [class^="icon-"], .link-color [class*=" icon-"] {
+    padding-left: 7px;
+}
+// Header Styles
+.site-header {
+    background: none repeat scroll 0 0 white;
+    border-bottom: 4px solid #CCDAEA;
+    padding-top: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+.site-header .pull-right > p {
+    margin: 10px 0;
+}
+header .wrapper {
+    position: relative;
+}
+// Logo 
+h1.logo {
+    float: left;
+    margin: 17px auto 15px;
+    width: 140px;
+}
+// Targets Header Styles
+// ===============================
+// Header Navigation
+.navigation-menu {
+    .clearfix;  
+    height: 29px;
+}
+nav.header-navigation {
+    float: left;
+    margin: 30px 3.65% 0;
+    width: 38%;
+}
+nav.header-navigation ul li {
+    display: inline;
+    float: left;
+    text-align: center;
+    width: 33.3333%;
+}
+nav.header-navigation ul li a {
+    float: left;
+    font-family: 'Open Sans', 'HelveticaNeueLTStd-UltLt', Helvetica, Arial, sans-serif;
+    text-align: center;
+    width: 60%;
+    text-decoration: none;
+}
+// Header Navigation Hover/Active/Focus States
+nav.header-navigation ul li.current_page_item a, nav.header-navigation ul li a:hover, nav.header-navigation ul li a:focus {
+    border-bottom: 7px solid @blue;
+    color: @blue;
+    font-weight: bold;
+}
+// Dashboard 
+.dashboard {
+    float: right;
+    width: 34%;
+}
+.dashboard a:hover, .dashboard a:focus {
+    color: inherit;
+}
+// Transaction Feed
+.transaction-feed {
+    background: none repeat scroll 0 0 #F8F8F8;
+    float: left;
+    font-size: 1rem;
+    min-height: 66px;
+    padding: 10px 6% 0;
+    text-align: center;
+    width: 69%;
+}
+.transaction-feed:hover, .transaction-feed:focus {
+    // border: 1px  #D3D3D3;
+    // transition: all 0.2s ease-in-out 0s;
+}
+.transaction-feed p {
+    margin-bottom: 8px;
+}
+.transaction-feed p.underline {
+    line-height: 17px;
+    margin-bottom: -1px;
+}
+// Wallet
+.wallet {
+    float: left;
+    margin-left: 25px;
+}
+// Wallet Button
+button.btn-wallet {
+    background-color: transparent;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+    color: #2f72af;
+    font-size: 11px;
+    padding: 24px 20px;
+    text-shadow: none;
+}
+// Wallet Button Hover
+button.btn-wallet:hover {
+    background: @blue;
+    color: @white;
+}
+// btn Primary Overides
+.btn-primary {
+    border-radius: 0;
+}
+// Target Banner
+.banner {
+    padding: 5.1% 0 9%;
+    height: 490px;
+}
+.banner {
+    #gradient > .horizontal-three-colors(@gray-darker, #56554e, 50%, @gray-darker);
+    border-bottom: 2px solid #807d77;
+}
+.banner h2 {
+    color: @gray-white;
+    margin: 0 auto 6%;
+    text-align: center;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+h1.banner-callout {
+    color: #e7e7e7;
+    margin: 73px auto 6%;
+    text-align: center;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+// Banner Thumbnail
+.partners .banner.content-area {
+    
+}
+.banner .thumbnail {
+    border-color: transparent;
+    box-shadow: 0 0 1px rgba(102, 102, 102, 0.99) inset;
+    text-align: center;
+    #translucent > .background(@white, .1); 
+}
+.banner .thumbnail > p {
+    color: @yellow;
+}
+.thumbnail small {
+    #translucent > .color(@yellow, 0.5);
+}
+.banner .thumbnail > p.large {
+    color: white;
+    font-size: 2.4rem;
+    font-weight: 300;
+}
+.banner a.thumbnail:hover, .banner a.thumbnail:focus, .banner a.thumbnail:hover, .banner a.thumbnail:focus {
+    border-color: transparent;
+    text-decoration: none;
+}
+ .banner a,  .banner a:hover,  .banner a:focus,  .banner a:active {
+    text-decoration: none;
+ }
+.banner .thumbnail [class^="icon-"], .banner .thumbnail [class*=" icon-"] {
+    top: -14px;
+    position: relative;
+}
+// Circles
+.banner .icon-circle.icon-light {
+    color: @green;
+    font-size: 7px;
+    position: absolute;
+}
+.banner .circle {
+    border: 1px solid @gray-lighter;
+    border-radius: 30px 30px 30px 30px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    width: 50px;
+}
+.icon-circle.icon-light {
+    color: @green;
+    font-size: 7px;
+    position: absolute;
+}
+.circle {
+    border: 1px solid @gray-lighter;
+    border-radius: 30px 30px 30px 30px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    width: 50px;
+}
+// Widget Area Styles
+h3.widget-heading {
+    color: #4E4E4E;
+    font-weight: lighter;
+    margin: 20px auto;
+}
+h4.widget-title {
+    margin-bottom: 20px;
+    min-height: 40px;
+}
+.widget-area a {
+    color: #BCBCBC;
+    text-decoration: none;
+}
+.widget-area .post a:hover, .widget-area .post a:focus, .widget-area .post a:active {
+    color: @link-color;
+    text-decoration: underline;
+}
+.widget-area h4 a  {
+    color: #606060;
+}
+.widget-area h4 a:hover, .widget-area h4 a:focus  {
+    text-decoration: underline;
+}
+// No padding on tabs 
+#secondary.user-tabs.widget-area {
+    padding: 0;
+}
+// Additional Margins and Padding for #tertiary adn #quaternary
+.devs #tertiary.widget-area, .devs #quaternary.widget-area  {
+    padding: 47px 0 120px;// based off dev page
+}
+// User Tertiary Styles
+.users #tertiary.widget-area {
+    padding: 21px 0 49px;
+}
+.users #tertiary h3.widget-heading {
+    font-family: 'HelveticaNeueLTStd-UltLt',Helvetica,Arial,sans-serif;
+    font-size: 27px;
+    margin-bottom: 45px;
+}
+.users #tertiary .icon-stack {
+    margin-top: 12px;
+}
+.users #tertiary .icon-stack .icon-stack-base {
+    font-size: 3.5em;
+}
+.users #tertiary .base-font {
+    font-weight: bold;
+    padding: 17px;
+}
+.users #tertiary ul li {
+    line-height: 25px;
+    margin-bottom: 20px;
+    margin-left: 57px;
+}
+#tertiary h3, #quaternary h3 {
+    margin: 0 auto 29px;
+}
+#tertiary p, #quaternary p {
+    margin: 0 auto 22px;
+}
+#tertiary img, #quaternary img {
+    margin: 0 auto 26px;
+}
+#tertiary h3.widget-heading, #quaternary h3.widget-heading {
+    margin: 37px auto;
+}
+// Users Quinary
+.users #quinary h3.widget-heading {
+    font-size: 28px;
+    margin: 15px auto 77px;
+}
+// Sidebar Icon Styles
+// User-tabs Styles
+.user-tabs {
+    padding-top: 0;
+}
+// Home Template Styles
+// ===============================
+#video-area.wrapper {
+    padding: 0;
+}
+// Callout Styles
+.entry-content.callout h1 {
+    color: #3372AD;
+    font-size: 70px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+.video-splash .entry-content {
+    margin: 9% auto 14%;
+}
+// Video Play Button Styles
+.play-button-circle {
+    background: @white;
+    border: 1px solid @gray-lighter;
+    border-radius: 30px 30px 30px 30px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    width: 50px;
+}
+.play-button-circle [class^="icon-"], .play-button-circle [class*=" icon-"] {
+    background-position: center center;
+    font-size: 29px;
+    margin: 10px 15px 0;
+    position: absolute;
+    vertical-align: middle;
+}
+// Video Splash Navigation Styles
+.diagonal_lines_pattern {
+    background-image: -webkit-linear-gradient(left bottom, @blueLighter 0%, @blueLighter 25%, @white 25%, @white 50%, @blueLighter 50%, @blueLighter 75%, @white 75%);
+    background-image: -moz-linear-gradient(left bottom, @blueLighter 0%, @blueLighter 25%, @white 25%, @white 50%, @blueLighter 50%, @blueLighter 75%, @white 75%);
+    background-image: -o-linear-gradient(left bottom, @blueLighter 0%, @blueLighter 25%, @white 25%, @white 50%, @blueLighter 50%, @blueLighter 75%, @white 75%);
+    background-image: -ms-linear-gradient(left bottom, @blueLighter 0%, @blueLighter 25%, @white 25%, @white 50%, @blueLighter 50%, @blueLighter 75%, @white 75%);
+    background-image: linear-gradient(left bottom, @blueLighter 0%, @blueLighter 25%, @white 25%, @white 50%, @blueLighter 50%, @blueLighter 75%, @white 75%);
+    background-size: 10px 10px;
+    border-bottom: 14px solid @blue;
+}
+.video-splash-navigation {
+    .diagonal_lines_pattern;
+    .clearfix;
+}
+.video-splash-navigation .menu-main-container {
+    margin: 0 auto;
+    width: 90%;
+}
+.video-splash-navigation .menu-main-container li {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+}
+.video-splash-navigation .menu-main-container li a {
+    float: left;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+}
+.video-splash-navigation .menu-main-container li a:hover {
+    #translucent > .background(@blueLight, 0.5);
+    color: @white;
+}
+// Post Area Styles
+.post-area {
+    .clearfix;
+}
+.post-area h3 {
+    border-bottom: 1px solid @gray-lighter;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.post-content p {
+    line-height: 27px; // Based off protocol page
+}
+#tertiary .post-content p, #quaternary .post-content p {
+    margin-bottom: 0px;
+}
+// Post Styles
+#tertiary.news-post.widget-area, #quaternary.news-post.widget-area {
+    padding-bottom: 48px;
+}
+article.post {
+    .clearfix;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: left;
+    width: 90%;
+    border-bottom: 1px solid #f5f5f5;
+}
+article.post:nth-last-child(1) {
+    border-bottom: medium none;
+}
+article.page {
+    padding-bottom: 45px;
+}
+article.post footer a {
+    color: #3372AD;
+}
+.post-area-heading {
+    width: 90%;
+    padding: 30px;
+}
+a.readmore {
+    color: #4274ae;
+}
+// Featured Quotes Styles
+.featured-quotes {
+    background: #ececec;
+    border-bottom: 1px solid #b7b7b7;
+    padding: 32px 0 34px;
+    margin-bottom: 0;
+}
+.featured-quotes-columns {
+    margin: 0 auto;
+    width: 90%;
+}
+.featured-quotes p {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 15px;
+}
+.featured-quotes .img-wrap {
+    background-repeat: no-repeat;
+    background-image: url("../img/sprites-featured.png");
+    height: 40px;
+    margin: 0 auto;
+    position: relative;
+}
+.bloomberg {
+    background-position: 0 0;
+    width: 120px;
+}
+.salon {
+    background-position: 0 -38px;
+    width: 116px;
+}
+.gigaom {
+    background-position: 0 -75px;
+    width: 124px;
+}
+.reuters {
+    background-position: 0 -117px;
+    width: 124px;
+}
+// Footer Links
+.site-footer {
+}
+.footer-wrapper {
+    background: @gray-light;
+}
+ul.footer-links {
+    .clearfix;
+    border-bottom: 1px solid #CFCFCF;
+    margin: 0 auto 10px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+.footer-links > li {
+    float: left;
+    width: 17%;
+    a {
+        color: #dbdbdb;
+        text-decoration: none;
+    }
+}
+.footer-links li ul li {
+    list-style: none;
+}
+.footer-links > li:nth-child(1) {
+    line-height: 26px;
+    width: 49%;
+}
+.site-info > p {
+    color: #CFCFCF;
+    text-align: center;
+}
+// Guide Page Styles
+// Guide Content Area
+body .guide {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.guide .content-area {
+    padding-top: 48px;
+}
+// Sticky Guide Nav
+// Guide-nav Affix
+.guide-nav.affix-top {
+    // background: @pink;
+    width: 240px;
+}
+.guide-nav.affix {
+    top: 123px;
+    width: 240px;
+}
+.guide-nav.affix-bottom {
+    // background: @red;
+    position: absolute;
+    width: 240px;
+}
+h5.nav-heading {
+    color: #686868;
+    margin-top: 21px;
+}
+// .Nav Styles
+.nav > li {
+    line-height: 18px;
+}
+.nav li a {
+    color: #346aa9;
+    padding: 5px 15px;
+    text-decoration: none;
+}
+.nav > li.active  {
+    background-color: #CCCCCC;
+    text-decoration: none;
+}
+// Guide Section
+// Reposition For Guide-nav
+section.guide-section {
+    margin-top: -104px;
+}
+.guide-section h5 {
+    color: #383838;
+    font-size: 22px;
+    padding-top: 111px;
+    margin-bottom: 23px;
+}
+.guide-section h6 {
+    color: #383838;
+    font-size: 22px;
+}
+.guide-section p {
+    line-height: 24px;
+}
+.guide-section ul {
+    margin: 0 0 10px 30px;
+}
+// Active State
+.nav > li.active, .nav > li > a:hover, .nav > li > a:focus {
+    background-color: #EAF1F7;
+}
+.nav > li.active a {
+    color: blue-light;
+}
+// Add Margin Bottom before the footer 
+.scrollspy-area {
+    margin-bottom: 110px;
+// background: @blueLight;
+}
+// Guide Page Styles
+// Guide Header 
+.guide-header {
+    background: @blue;
+}
+// Guide Entry Title
+.guide-header .entry-title {
+    color: #FFFFFF;
+    font-size: 44px;
+    font-weight: 700;
+    margin: 42px 0 61px;
+}
+// Guide Thumbnail
+.guide .thumbnail {
+    min-height: 230px;
+    margin-bottom: 30px;
+}
+// Muted
+.entry-title .muted {
+    color: @babyBlue;
+    font-size: 22px;
+    font-weight: 300;
+}
+// Topic Page Styles
+body .topic-page {
+    font-family: 'HelveticaNeueLTStd-UltLt', Helvetica, Arial, sans-serif;
+}
+.topic-page {
+    margin-bottom: 233px;
+}
+.entry-title a {
+    text-decoration: none;
+}
+.entry-title a {
+text-decoration: none;
+}
+.topic .guide-header {
+    background: #4a4a4c;
+    padding-bottom: 58px;
+}
+.topic .guide-header .entry-title .muted {
+    color: #78797b;
+    font-weight: bold;
+    font-size: 31px;
+}
+.topic .guide-header .entry-title {
+    font-weight: bold;
+    color: #a1a3a6;
+    margin-top: 76px;
+    font-size: 32px;
+    margin-bottom: 29px;
+}
+.topic guide-header .entry-title .muted {
+    color: #78797b;
+    font-weight: bold;
+    font-size: 32px;
+}
+.entry-content .topic-header {
+    color: #ffffff;
+    font-size: 45px;
+    letter-spacing: 1.5px;
+    .secondary-font-family;
+    border-bottom: 2px solid #a5a5a6;
+    padding-bottom: 29px;
+    margin-bottom: 29px;
+}
+.topic .entry-content p {
+    color: #ffffff;
+    .secondary-font-family;
+    line-height: 29px;
+}
+// Directory Page Styles
+.directory .content-area {
+    padding: 21px 42px;
+}
+.directory a {
+    color: #4a6aa8;
+    text-decoration: none;
+}
+.directory a:hover, .directory a:focus, .directory a:active {
+    text-decoration: underline;
+}
+h6.directory-heading {
+    color: #4a6aa8;
+    border-bottom: 2px solid #b3b3b3;
+    padding-bottom: 11px;
+    font-weight: normal;
+    font-size: 14px;
+}
+.directory li {
+    line-height: 30px;
+}
+.directory .col-sm-2 {
+    margin-left: 100px;
+    min-height: 620px;
+    width: 225px;
+}
+.directory .col-sm-2:nth-child(1), .directory .col-sm-2:nth-child(4) {
+    margin-left: 0;
+}
+// Single Post Styles
+article.post.single-post {
+    width: 50%;
+}
+.entry-meta {
+    font-size: 16px;
+    line-height: 1.6875;
+    font-weight: 400;
+    margin-bottom: 3px;
+}
+h1.entry-title {
+    margin-top: 0px;
+}
+// Comments Area
+.comments-area {
+    width: 50%;
+    margin: 0 auto;
+    padding: 15px 30px;
+}
+#comment {
+    width: 100%;
+}
+// Hide the code area
+.comments-area code {
+    display: none;
+}
+.form-allowed-tags {
+    display: none;
+}
+// Hide pagination
+#nav-below {
+    display: none;
+}
+
+// Guide Directory Page Styles
+/* Large desktop */
+@media (min-width: 1200px) { 
+// body.custom-background {
+//     background-color: @purple !important;
+// }
+.wrapper {
+    width: 1140px;
+}
+// Large Desktop Logo 
+h1.logo {
+    float: left;
+    margin: 17px auto;
+    width: 160px;
+}
+// Large Desktop Header Navigation
+nav.header-navigation {
+    margin: 30px 3.65% 0;
+}
+.dashboard {
+    width: 39%;
+}
+.transaction-feed {
+    width: 77%;
+}
+// Large Desktop Guide Nav
+.guide-nav.affix-top, 
+.guide-nav.affix,
+.guide-nav.affix-bottom {
+    width: 358px;
+}
+.entry-header {
+    // background: @green
+}
+// Large Desktop Directory
+.directory .col-sm-2 {
+    margin-left: 100px;
+    min-height: 620px;
+    width: 285px;
+}
+.directory .col-sm-2:nth-child(1), .directory .col-sm-2:nth-child(4) {
+    margin-left: 0;
+}
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+// body.custom-background {
+//     background-color: @blue !important;
+// }
+.wrapper {
+    width: 755px;
+}
+// Tablet Header Navigation
+.dashboard {
+    width: 35%;
+}
+.transaction-feed {
+    font-size: 0.94rem;
+    width: 59.8%;
+    min-height: 70px;
+    height: 70px;
+}
+
+button.btn-wallet {
+    padding: 27px 22px;
+}
+// Tablet Footer Links
+.footer-links > li:nth-child(1) {
+    line-height: 26px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.footer-links > li {
+    width: 33.3%;
+}
+// Banner Tablet 
+.banner h2 {
+    margin: 0 auto 7%;
+}
+// Tablet Guide Nav
+.entry-header {
+    // background: @blueLighter
+}
+// Tablet Directory Page Styles
+.directory .col-sm-2 {
+    margin-left: 63px;
+    min-height: 660px;
+    width: 27%;
+}
+ }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+// body.custom-background {
+//     background-color: @green !important;
+// }
+body {
+    font-size: 13px;
+    padding: 0;
+}
+.wrapper {
+    width: 440px;
+}
+// Mobile Landscape Header
+h1.logo {
+    float: left;
+    margin: 5px 5px 40px 0;
+    width: 100px;
+}
+nav.header-navigation {
+    bottom: 0;
+    float: left;
+    height: 28px;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+}
+.dashboard {
+    float: right;
+    margin-bottom: 34px;
+    width: 304px;
+}
+.transaction-feed {
+    float: left;
+    padding: 0 22px;
+    text-align: center;
+    width: 66%;
+}
+button.btn-wallet {
+    padding: 24px 23px;
+}
+// Mobile Landscape Footer 
+.footer-links > li:nth-child(1) {
+    line-height: 26px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.footer-links > li {
+    width: 33.3%;
+}
+// Landscape Mobile Banner Styles
+.partners .banner {
+    padding: 5.1% 0 9%;
+    height: auto;
+}
+// Banner Thumbnail on Mobile
+.banner .thumbnail {
+    margin-bottom: 30px;
+}
+.banner h2 {
+    margin: 2% auto 11%;
+}
+// Thumbnail Boxed on Mobile
+.thumbnail.boxed {
+    margin-bottom: 20px;
+}
+// Hide tab caret on Mobiles
+.tabs-navigation .caret {
+    display: none!important;
+}
+// Active State for Tabs on Landscape
+.tabs-navigation ul li.active a {
+    #translucent > .background(@blueLight, 0.5);
+    color: @white;
+}
+// Landscape Guide Nav
+.guide-nav.affix-top, 
+.guide-nav.affix,
+.guide-nav.affix-bottom {
+    width: 140px;
+}
+.entry-header {
+    // background: @yellow
+}
+// Mobile Landscape Directory Pages Styles
+.directory .col-sm-2 {
+    margin: 0 auto;
+    min-height: 620px;
+    width: auto;
+}
+ }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+body {
+    font-size: 12px;
+}
+.wrapper {
+    width: auto;
+}
+// Mobile Header Navigation
+h1.logo {
+    float: none;
+    margin: 0 auto 9px;
+    width: 53%;
+}
+.dashboard {
+    float: none;
+    margin: 0 auto 11px;
+    width: 100%;
+}
+.transaction-feed {
+    font-size: 75%;
+    width: 100%;
+}
+.wallet {
+    float: none;
+    margin-left: 0;
+}
+button.btn-wallet {
+    margin-left: 0;
+    padding: 24px 23px;
+    width: 100%;
+}
+nav.header-navigation {
+    bottom: auto;
+    float: none;
+    height: 30px;
+    position: relative;
+    width: 100%;
+}
+// Mobile Entry Content
+.entry-content.callout h1 {
+    font-size: 6rem;
+}
+article.post {
+    padding: 30px 0;
+    width: 100%;
+}
+// Mobile Footer Links
+.footer-wrapper {
+    padding: 20px;
+}
+.footer-links > li {
+    float: none;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.site-header {
+    position: relative;
+}
+#main {
+    padding-top: 0;
+}
+// Mobile Guide Nav
+.entry-header {
+    // background: @orange
+}
+// Guide Nav Mobile
+.guide-nav.affix-top,
+.guide-nav.affix,
+.guide-nav.affix-bottom.guide-nav {
+    position: relative;
+    width: 100%;
+    top: 0;    
+}
+// Override column size on scrollspy-area
+.scrollspy-area {
+    width: 100%;
+}
+// Center Image on Mobile Topic Pages  
+.topic-page .post-thumbnail {
+    margin: 0 auto 30px;
+    width: 290px;
+}
+}
