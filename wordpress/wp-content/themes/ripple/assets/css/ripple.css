@@ -3852,6 +3852,9 @@ a.list-group-item.active > .badge,
     font-size: 63px;
   }
 }
+.post-footer {
+  display: none;
+}
 body {
   position: relative;
 }
@@ -4691,7 +4694,6 @@ body .topic-page {
 }
 .topic .entry-content p {
   color: #ffffff;
-  font-family: 'HelveticaNeueLTStd-UltLt', Helvetica, Arial, sans-serif;
   line-height: 29px;
 }
 .directory .content-area {
