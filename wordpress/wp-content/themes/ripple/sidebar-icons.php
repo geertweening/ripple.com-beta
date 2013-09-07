@@ -8,7 +8,7 @@
 	<div id="secondary" class="front widget-area" role="complementary">
 		<div class="tab-pane fade active in" >
 	  		<div class="wrapper">
-	    		<h3>Send money to anyone, anywhere, in any currency.</h3>
+	    		<h3>Check out some of the great features Ripple has for users.</h3>
 				<aside class="col-lg-3">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#fast-payment-network">
 						<div class="thumbnail-img fast">	

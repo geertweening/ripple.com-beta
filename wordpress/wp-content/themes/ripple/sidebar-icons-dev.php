@@ -8,9 +8,9 @@
 	<div id="secondary" class="tab-pane widget-area text-center shaded" role="complementary">
   		<section>
 	  		<div class="wrapper">
-	    		<h3>Check out some of the great features ripple has for developers.</h3>
+	    		<h3>Check out some of the great features Ripple has for developers.</h3>
 				<aside class="col-lg-3">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/#powerful-apis">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#powerful-apis">
 						<div class="icons open">	
 						</div>
 						<h4 class="icons-title">Open Source <br> <span class="small">(coming soon)</span></h4>
@@ -28,7 +28,7 @@
 				</aside>
 
 				<aside class="col-lg-3">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/#micropayments">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#micropayments">
 						<div class="icons micro">	
 						</div>
 					    <h4 class="icons-title">Micropayments</h4>
@@ -37,7 +37,7 @@
 				</aside>
 
 				<aside class="col-lg-3">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/#open-source-coming-soon">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#open-source-coming-soon">
 						<div class="icons powerful">	
 						</div>
 				    	<h4 class="icons-title">Powerful and open APIs</h4>

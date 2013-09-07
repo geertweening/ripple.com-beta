@@ -9,7 +9,7 @@
 		<div class="tab-pane fade active in">
 			<section class="shaded">
 		  		<div class="wrapper">
-		    		<h3 class="widget-heading">Send money to anyone, anywhere, in any currency.</h3>
+		    		<h3 class="widget-heading">Check out some of the great features Ripple has for users.</h3>
 					<aside class="col-sm-3">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#fast">
 							<div class="icons fast">	

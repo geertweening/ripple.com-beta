@@ -3,7 +3,7 @@
 		    		<div class="wrapper">
 		      			<h3 class="tab-pane-heading">E-commerce, evolved.</h3>
 						<aside class="col-lg-3">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/#fast">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#fast">
 								<div class="icons fast">	
 								</div>
 						    	<h4 class="icons-title">Fast</h4>
@@ -12,7 +12,7 @@
 						</aside>
 
 						<aside class="col-lg-3">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/#no-merchant-fees">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#no-merchant-fees">
 							<div class="icons free">
 							</div>
 						    	<h4 class="icons-title">Free</h4>
@@ -21,7 +21,7 @@
 						</aside>
 
 						<aside class="col-lg-3">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/#irreversible">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#irreversible">
 								<div class="icons irreversible">	
 								</div>
 							    <h4 class="icons-title">Irreversible</h4>
@@ -30,7 +30,7 @@
 						</aside>
 
 						<aside class="col-lg-3">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>/distributed-fx/#currency-choice">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/#currency-choice">
 								<div class="icons choice">	
 								</div>
 						    	<h4 class="icons-title">Currency Choice</h4>
@@ -60,7 +60,7 @@
 				<section>
 					
 					<div class="wrapper">
-			        	<h3 class="widget-heading text-center">Receive Ripple payments at your website.</h3>
+			        	<h3 class="widget-heading text-center">Learn more about Ripple.</h3>
 			        	<div class="col-10 centered">
 
 							<div class="col-sm-4">

@@ -11,7 +11,7 @@
 				<ul id="tab" class="list-unstyled">
 					<li class="active"><a href="#gateways" data-toggle="tab">Gateways<span class="caret"></span></a></li>
 					<li class=""><a href="#merchants" data-toggle="tab">Merchants<span class="caret"></span></a></li>
-					<li class=""><a href="#marketmakers" data-toggle="tab">Makers<span class="caret"></span></a></li>
+					<li class=""><a href="#marketmakers" data-toggle="tab">Traders<span class="caret"></span></a></li>
 				</ul>
 			</div><!-- .wrapper -->
 		</div><!-- .nav-tabs -->

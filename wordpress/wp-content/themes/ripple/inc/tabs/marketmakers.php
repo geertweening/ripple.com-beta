@@ -21,7 +21,7 @@
 						</aside>
 
 						<aside class="col-lg-3">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>/distributed-fx/#everyone-is-a-market-maker">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/#everyone-is-a-market-maker">
 								<div class="icons global">	
 								</div>
 							    <h4 class="icons-title">Accessible</h4>
@@ -30,7 +30,7 @@
 						</aside>
 
 						<aside class="col-lg-3">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>/distributed-fx/#capture-the-spread">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/#capture-the-spread">
 								<div class="icons capture">	
 								</div>
 						    	<h4 class="icons-title">Capture the Spread</h4>
@@ -75,15 +75,15 @@
 						</article>
 					</div><!-- .wrapper--> 
 					<div class="wrapper">
-			        	<h3 class="widget-heading text-center">Trade on the world’s first distributed currency exchange.</h3>
+			        	<h3 class="widget-heading text-center">Learn more about Ripple.</h3>
 			        	<div class="col-10 centered">
 
-			        		<div class="col-sm-4">
+			        		<!-- <div class="col-sm-4">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>/guide-to-currency-trading-on-the-ripple-network/" class="thumbnail boxed">
 									<p><strong>Read the Guide to Currency Trading on the Ripple Network</strong><br>
 									</p>
 								</a>
-							</div>
+							</div> -->
 
 							<div class="col-sm-4">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/" class="thumbnail boxed">
