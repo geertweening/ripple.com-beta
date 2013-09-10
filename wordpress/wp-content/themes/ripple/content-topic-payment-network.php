@@ -17,7 +17,7 @@
 				</section>
 				<section class="guide-section">
 					<h5 id="peer-to-peer">Peer-to-Peer</h5>
-					<p>XRP transactions are automatically processed by a global network of computers running the <a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#peer-to-peer">Ripple transaction protocol.</a></p>
+					<p>XRP transactions are automatically processed by a global network of computers running the <a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/#peer-to-peer">Ripple transaction protocol.</a></p>
 				</section>
 				<section class="guide-section">
 					<h5 id="cross-currency-payments">Cross-Currency Payments</h5>
@@ -34,13 +34,13 @@
  				</section>
  				<section class="guide-section">
 					<h5 id="tiny-fees">Tiny Fees</h5>
-					<p>Ripple is designed to be the cheapest payment system on the Internet. Payments made using XRP, <a href="<?php echo esc_url( home_url( '/' ) ); ?>currency">the native currency of the Ripple network</a>, are free except for <a href="<?php echo esc_url( home_url( '/' ) ); ?>currency/#xrp-security-system">a tiny security cost</a>. Other currencies -- US dollars, euros, yuan, etc. -- can be sent within the network at rates far cheaper than those offered by traditional payment providers.</p>
+					<p>Ripple is designed to be the cheapest payment system on the Internet. Payments made using XRP, <a href="<?php echo esc_url( home_url( '/' ) ); ?>/currency">the native currency of the Ripple network</a>, are free except for <a href="<?php echo esc_url( home_url( '/' ) ); ?>/currency/#xrp-security-system">a tiny security cost</a>. Other currencies -- US dollars, euros, yuan, etc. -- can be sent within the network at rates far cheaper than those offered by traditional payment providers.</p>
 				</section>
 				<section class="guide-section">
 					<h5 id="what-makes-ripple-so-much-cheaper-than-traditional-payment-systems"></h5>
 					<div class="thumbnail centered">
 						<h6>What makes Ripple so much cheaper than traditional payment systems?</h6>
-						<p>most payment systems are controlled by for-profit organizations that charge buyers and sellers for the privilege of making payments. In contrast, the Ripple payment network is controlled by a free <a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/">Internet protocol</a> that can be used by anyone.</p>
+						<p>most payment systems are controlled by for-profit organizations that charge buyers and sellers for the privilege of making payments. In contrast, the Ripple payment network is controlled by a free <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/">Internet protocol</a> that can be used by anyone.</p>
 					</div>
 				</section>
 				<section class="guide-section">
@@ -53,7 +53,7 @@
 				</section>
 				<section class="guide-section">
 					<h5 id="irreversible">Irreversible</h5>
-					<p>Because Ripple payments are processed automatically by the <a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/">Ripple protocol</a>, they cannot be reversed by any third-party. In that way, Ripple payments are a lot like cash.</p>
+					<p>Because Ripple payments are processed automatically by the <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/">Ripple protocol</a>, they cannot be reversed by any third-party. In that way, Ripple payments are a lot like cash.</p>
 				</section>
 				<section class="guide-section">
 					<h5 id="gateways">Gateways</h5>
@@ -74,7 +74,7 @@
 					<h5 id="gateway-guides-and-resources"></h5>
 					<div class="thumbnail centered">
 					<h6>Gateway guides and resources</h6>
-					<p>Learn more about gateways in this step-by-step Guide to Finding A Ripple Gateway or by visiting <a href="http://www.xrpga.org/index.html">The International Ripple Business Association</a>. If you’re interested in becoming a gateway or integrating Ripple into your business, please visit our <a href="<?php echo esc_url( home_url( '/' ) ); ?>partners/">Partners page</a>.</p>
+					<p>Learn more about gateways in this step-by-step Guide to Finding A Ripple Gateway or by visiting <a href="http://www.xrpga.org/index.html">The International Ripple Business Association</a>. If you’re interested in becoming a gateway or integrating Ripple into your business, please visit our <a href="<?php echo esc_url( home_url( '/' ) ); ?>/partners/">Partners page</a>.</p>
 					</div>
 				</section>
 				<section class="guide-section">
@@ -84,7 +84,7 @@
 				</section>
 				<section class="guide-section">
 					<h5 id="a-federated-network">A Federated Network</h5>
-					<p>Ripple was invented to help unify the many disconnected parts of the financial system into a single federated system. Because <a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/">the Ripple protocol</a> is shared, independent businesses and their customer bases become interconnected on the same payment network. As this federated network expands, its utility and value grows. Friction disappears. Efficiency rises. Payments becomes cheaper and faster. Commerce accelerates. Prosperity grows. This is the promise of a federated payment network.</p>
+					<p>Ripple was invented to help unify the many disconnected parts of the financial system into a single federated system. Because <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/">the Ripple protocol</a> is shared, independent businesses and their customer bases become interconnected on the same payment network. As this federated network expands, its utility and value grows. Friction disappears. Efficiency rises. Payments becomes cheaper and faster. Commerce accelerates. Prosperity grows. This is the promise of a federated payment network.</p>
 					<div class="thumbnail centered">
 						<p>Email is an example of a federated system. Because email providers all use SMTP, Gmail customers can send emails to Yahoo customers simply by specifying the domain “@yahoo.com.” It wasn’t always so easy. In the early days of the internet, a CompuServe customer could only send emails to other CompuServe customers. Fortunately, the adoption of SMTP created a federated email system. Today, the idea of a non-federated email system seems absurd.</p>
 					</div>

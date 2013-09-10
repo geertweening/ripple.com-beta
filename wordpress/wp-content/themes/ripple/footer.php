@@ -16,7 +16,7 @@
 			<div class="wrapper">
 				<ul class="footer-links list-unstyled">	
 					<li>
-						<a href="#"><h5>From the Blog</h5></a>
+						<h5><a href="<?php echo esc_url( home_url( '/' ) ); ?>blog">From the Blog</a></h5>
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links1', 'container' => false ) ); ?>	
 					</li>

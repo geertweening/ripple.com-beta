@@ -9,7 +9,7 @@
 		<p class="entry-meta">
 			<?php the_date('M j, y'); ?>
 		</p><!-- .entry-meta -->
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h2 class="blog-title"><?php the_title(); ?></h2>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

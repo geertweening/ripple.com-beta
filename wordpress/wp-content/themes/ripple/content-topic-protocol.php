@@ -45,8 +45,8 @@
 							<li>Payments can only be authorized by account holders</li>
 							<li>No individuals, institutions, or third-parties have special access to the network</lI>
 							<li>A distributed system with no single point of weakness or attack</li>
-							<li>Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#dynamic-scalability">dynamic scalability</a> protects the network from downtime and lag even during times of extreme load</li>
-							<li>Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>currency/#xrp-security-system">XRP security system</a> prevents DDoS and other attempts at network interference. </li>
+							<li>Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/#dynamic-scalability">dynamic scalability</a> protects the network from downtime and lag even during times of extreme load</li>
+							<li>Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>/currency/#xrp-security-system">XRP security system</a> prevents DDoS and other attempts at network interference. </li>
 						</ul>
 					</div>
  				</section>

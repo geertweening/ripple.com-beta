@@ -48,7 +48,7 @@
 							</div>
 							<div class="col-lg-9">
 								<h3 class="post-title">Market Makers in the Ripple network.</h3>
-								<p>Ripple offers endless opportunities for market makers. Dollars, shekels, pesos, yuan—payments and currencies of all kinds move across the Ripple <a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network">payment network</a>. This creates constant demand for market makers on Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/">distributed currency exchange</a>. So whether you’re a day trader or a dedicated Forex business, come explore Ripple’s revolutionary <a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/#direct-fx">Direct FX</a>, and see how providing liquidity can produce new profits.</p>
+								<p>Ripple offers endless opportunities for market makers. Dollars, shekels, pesos, yuan—payments and currencies of all kinds move across the Ripple <a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network">payment network</a>. This creates constant demand for market makers on Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>/distributed-fx/">distributed currency exchange</a>. So whether you’re a day trader or a dedicated Forex business, come explore Ripple’s revolutionary <a href="<?php echo esc_url( home_url( '/' ) ); ?>/distributed-fx/#direct-fx">Direct FX</a>, and see how providing liquidity can produce new profits.</p>
 								<footer class="post-footer">
 									<a href="#"><i class="icon-file-text"></i>  Read our Market Maker white paper</a>
 								</footer>
@@ -69,7 +69,7 @@
 								<li>Download <a href="#">Market Makers in Ripple’s Distributed Currency Exchange</a>.</li>
 								<li>Read the <a href="https://ripple.com/blog/how-to-currency-trades-on-the-ripple-network/">Guide to Currency Trading on the Ripple Network.</a> </li>
 								<li>Learn about the Ripple<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/distributed-fx/">Payment Network.</a> A new standard in transactions.</li>
-								<li>Explore the <a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/">Ripple Transaction Protocol (RTXP).</a> The protocol that makes Ripple possible.</li>
+								<li>Explore the <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/">Ripple Transaction Protocol (RTXP).</a> The protocol that makes Ripple possible.</li>
 							</ul>
 							</div>
 						</article>
@@ -79,7 +79,7 @@
 			        	<div class="col-10 centered">
 
 			        		<!-- <div class="col-sm-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>guide-to-currency-trading-on-the-ripple-network/" class="thumbnail boxed">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>/guide-to-currency-trading-on-the-ripple-network/" class="thumbnail boxed">
 									<p><strong>Read the Guide to Currency Trading on the Ripple Network</strong><br>
 									</p>
 								</a>

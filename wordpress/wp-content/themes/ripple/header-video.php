@@ -24,6 +24,7 @@
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="wrapper">
+			<div id="home-page-logo" class="centered"><img alt="Ripple Logo" src="<?php bloginfo('template_url'); ?>/assets/img/logo.png"></div>
 			<div id="wallet" class="wallet pull-right">
 				<a href="https://ripple.com/client/">
 					<button type="button" class="btn-wallet">Wallet</button>

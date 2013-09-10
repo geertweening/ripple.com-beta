@@ -4163,6 +4163,7 @@ h1.banner-callout {
   border-color: transparent;
   box-shadow: 0 0 1px rgba(102, 102, 102, 0.99) inset;
   text-align: center;
+  min-height: 120px;
   background-color: rgba(255, 255, 255, 0.1);
 }
 .banner .thumbnail > p {
@@ -4298,6 +4299,14 @@ h4.widget-title {
 }
 .user-tabs {
   padding-top: 0;
+}
+#home-page-logo {
+  width: 14%;
+  float: left;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 7px auto;
 }
 #video-area.wrapper {
   padding: 0;
@@ -4469,6 +4478,7 @@ article.page {
 }
 article.post footer a {
   color: #3372AD;
+  text-decoration: none;
 }
 .post-area-heading {
   width: 90%;
@@ -4476,6 +4486,27 @@ article.post footer a {
 }
 a.readmore {
   color: #4274ae;
+  text-decoration: none;
+}
+.blog article {
+  padding-bottom: 72px;
+  padding-top: 73px;
+  width: 50%;
+}
+h2.blog-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+.blog-title > a,
+.entry-header a {
+  color: inherit;
+  text-decoration: none;
+}
+.blog-title > a:hover,
+.blog-title > a:focus,
+.entry-header a:hover,
+.entry-header a:focus {
+  text-decoration: underline;
 }
 .featured-quotes {
   background: #ececec;
@@ -4731,9 +4762,9 @@ article.post.single-post {
   width: 50%;
 }
 .entry-meta {
-  font-size: 16px;
-  line-height: 1.6875;
+  font-size: 11px;
   font-weight: 400;
+  line-height: 1.6875;
   margin-bottom: 3px;
 }
 h1.entry-title {
@@ -4906,6 +4937,14 @@ h1.entry-title {
   }
   .wrapper {
     width: auto;
+  }
+  #home-page-logo {
+    width: 39%;
+    float: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 8px;
   }
   h1.logo {
     float: none;
@@ -5557,7 +5596,7 @@ bottom right of the visualization */
   position: absolute;
   cursor: help;
   right: 20px;
-  bottom: 35px;
+  bottom: 11px;
   color: rgba(220, 220, 220, 0.5);
 }
 #explanation:hover,
@@ -5658,13 +5697,6 @@ bottom right of the visualization */
 }
 h2.callout {
   margin-bottom: 50px;
-}
-#explanation {
-  position: relative;
-  right: 20px;
-  bottom: 35px;
-  color: rgba(220, 220, 220, 0.5);
-  margin-right: -50px;
 }
 .tooltip-inner {
   background-color: rgba(0, 0, 0, 0.5);

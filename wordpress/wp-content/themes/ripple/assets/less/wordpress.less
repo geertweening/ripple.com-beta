@@ -313,6 +313,7 @@ h1.banner-callout {
     border-color: transparent;
     box-shadow: 0 0 1px rgba(102, 102, 102, 0.99) inset;
     text-align: center;
+    min-height: 120px;
     #translucent > .background(@white, .1); 
 }
 .banner .thumbnail > p {
@@ -444,6 +445,14 @@ h4.widget-title {
 }
 // Home Template Styles
 // ===============================
+#home-page-logo {
+    width: 14%;
+    float: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 7px auto;
+}
 #video-area.wrapper {
     padding: 0;
 }
@@ -543,6 +552,7 @@ article.page {
 }
 article.post footer a {
     color: #3372AD;
+    text-decoration: none;
 }
 .post-area-heading {
     width: 90%;
@@ -550,6 +560,24 @@ article.post footer a {
 }
 a.readmore {
     color: #4274ae;
+    text-decoration: none;
+}
+// Blog Page Styles
+.blog article {
+    padding-bottom: 72px;
+    padding-top: 73px;
+    width: 50%;
+}
+h2.blog-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+.blog-title > a, .entry-header a {
+    color: inherit;
+    text-decoration: none;
+}
+.blog-title > a:hover, .blog-title > a:focus, .entry-header a:hover, .entry-header a:focus {
+    text-decoration: underline;
 }
 // Featured Quotes Styles
 .featured-quotes {
@@ -731,7 +759,7 @@ body .topic-page {
     text-decoration: none;
 }
 .entry-title a {
-text-decoration: none;
+    text-decoration: none;
 }
 .topic .guide-header {
     background: #4a4a4c;
@@ -801,9 +829,9 @@ article.post.single-post {
     width: 50%;
 }
 .entry-meta {
-    font-size: 16px;
-    line-height: 1.6875;
+    font-size: 11px;
     font-weight: 400;
+    line-height: 1.6875;
     margin-bottom: 3px;
 }
 h1.entry-title {
@@ -829,7 +857,6 @@ h1.entry-title {
 #nav-below {
     display: none;
 }
-
 // Guide Directory Page Styles
 /* Large desktop */
 @media (min-width: 1200px) { 
@@ -1020,6 +1047,15 @@ body {
 }
 .wrapper {
     width: auto;
+}
+// Home Page Mobile Style
+#home-page-logo {
+    width: 39%;
+    float: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 8px;
 }
 // Mobile Header Navigation
 h1.logo {

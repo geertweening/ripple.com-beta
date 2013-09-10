@@ -12,7 +12,7 @@
         <div class="entry-content">
             <!-- Begin Callout Box -->
               <div class="col-sm-4">
-                <a href="#" class="thumbnail">
+                <div class="thumbnail">
                     <span class="icon-stack">
                         <i class="circle icon-stack-base"></i>
                         <i class="icon-circle icon-light"></i>
@@ -24,11 +24,11 @@
                 <p class="large">
                     <span class="num_transactions"></span>
                 </p>
-                </a>
+                </div>
               </div>
               <!-- Begin Callout Box -->
               <div class="col-sm-4">
-                <a href="#" class="thumbnail">
+                <div class="thumbnail">
                     <span class="icon-stack">
                         <i class="circle icon-stack-base"></i>
                         <i class="icon-circle icon-light"></i>
@@ -39,11 +39,11 @@
                  <p class="large">
                     <span class="volume_traded"></span>
                  </p>
-                </a>
+                </div>
               </div>
               <!-- Begin Callout Box -->
               <div class="col-sm-4">
-                <a href="#" class="thumbnail">
+                <div class="thumbnail">
                     <span class="icon-stack">
                         <i class="circle icon-stack-base"></i>
                         <i class="icon-circle icon-light"></i>
@@ -52,7 +52,7 @@
                  <p class="large">
                     <span class="num_accounts"></span>
                  </p>
-                </a>
+                </div>
               </div>
         </div><!-- .entry-content -->
 </article><!-- #post-## -->

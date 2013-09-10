@@ -2,12 +2,12 @@
 /**
  * The News Post Sidebar.
  *
- * @package Space-Rocket
+ * @packageRipple
  */
 ?>
 	<div id="tertiary" class="news-post widget-area" role="complementary">
 		<div class="wrapper">
-			<h3 class="post-area-heading">From our blog</h3>
+			<h3 class="post-area-heading"><a href="<?php echo esc_url( home_url( '/' ) ); ?>blog">From our blog</a></h3>
       <?php
 	  $the_query = new WP_Query(array(
 		'category_name' => 'blog',
