@@ -1,3 +1,4 @@
 /forum/cache/*.php
 /forum/config.php
+/wordpress/wp-config.php
 /wp-content/themes/ripple/assets/json/rippleChartsApiData.json
