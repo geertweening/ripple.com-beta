@@ -2,4 +2,5 @@
 /forum/config.php
 /wordpress/wp-config.php
 /wordpress/.htaccess
+/wordpress/wp-content/uploads/*
 /wp-content/themes/ripple/assets/json/rippleChartsApiData.json
