@@ -21,17 +21,17 @@
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links1', 'container' => false ) ); ?>	
 					</li>
 					<li>
-						<h5>Learn More</h5>
+						<h5>Ripple</h5>
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links2', 'container' => false ) ); ?>	
 					</li>
 					<li>
-						<h5>Technical</h5>
+						<h5>Topics</h5>
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links3', 'container' => false ) ); ?>	
 					</li>
 					<li>
-						<h5>Partners</h5>
+						<h5>Guides</h5>
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links4', 'container' => false ) ); ?>	
 					</li>

@@ -42,10 +42,9 @@
 				</section>
 				<section class="guide-section">
 					<h5 id="what-is-a-finacial-transaction">What is a financial transaction?</h5> 
-					<p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next.</p>
 				</section>
 				<section class="guide-section">
-				<h5 id="physical-vs-virtual-transactions">Physical vs. Virtual Transactions</h5> 
+				<h5 id="physical-vs-virtual-transactions"></h5> 
 					<table class="table table-bordered">
 						<thead>
 								<tr>

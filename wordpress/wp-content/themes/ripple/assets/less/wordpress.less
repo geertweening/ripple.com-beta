@@ -558,9 +558,43 @@ article.post footer a {
     width: 90%;
     padding: 30px;
 }
+.post footer.entry-meta {
+    font-weight: 400;
+    line-height: 1.6875;
+    margin-bottom: 3px;
+    position: relative;
+}
 a.readmore {
     color: #4274ae;
     text-decoration: none;
+}
+a.readmore:after {
+    content: ">";
+    padding-left: 2px;
+    position: absolute;
+    top: 1px;
+}
+// submit button
+.comment-form #submit {
+    background: none repeat scroll 0 0 #5D5C5D;
+}
+.comment-form #submit {
+    background: none repeat scroll 0 0 #B7B7B7;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF !important;
+    display: inline-block;
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.6875;
+    max-width: 100%;
+    padding: 0.57143em 1.42857em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease 0s;
 }
 // Blog Page Styles
 .blog article {
@@ -578,6 +612,9 @@ h2.blog-title {
 }
 .blog-title > a:hover, .blog-title > a:focus, .entry-header a:hover, .entry-header a:focus {
     text-decoration: underline;
+}
+.post footer.entry-meta a:hover {
+    text-decoration: none;
 }
 // Featured Quotes Styles
 .featured-quotes {
@@ -636,6 +673,7 @@ ul.footer-links {
 .footer-links > li {
     float: left;
     width: 17%;
+    padding: 0 1%;
     a {
         color: #dbdbdb;
         text-decoration: none;
@@ -695,12 +733,12 @@ h5.nav-heading {
 // Guide Section
 // Reposition For Guide-nav
 section.guide-section {
-    margin-top: -104px;
+    margin-top: -124px;
 }
 .guide-section h5 {
     color: #383838;
     font-size: 22px;
-    padding-top: 111px;
+    padding-top: 124px;
     margin-bottom: 23px;
 }
 .guide-section h6 {
@@ -713,6 +751,7 @@ section.guide-section {
 .guide-section ul {
     margin: 0 0 10px 30px;
 }
+
 // Active State
 .nav > li.active, .nav > li > a:hover, .nav > li > a:focus {
     background-color: #EAF1F7;
@@ -742,6 +781,7 @@ section.guide-section {
     min-height: 230px;
     margin-bottom: 30px;
 }
+
 // Muted
 .entry-title .muted {
     color: @babyBlue;
@@ -827,12 +867,6 @@ h6.directory-heading {
 // Single Post Styles
 article.post.single-post {
     width: 50%;
-}
-.entry-meta {
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 1.6875;
-    margin-bottom: 3px;
 }
 h1.entry-title {
     margin-top: 0px;

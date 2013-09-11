@@ -10,28 +10,10 @@ get_header('targets'); ?>
 				<h1 class="entry-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>topic-directory"><span class="muted">Topic:</span></a> <?php the_title(); ?><br>
 				</h1>
-				<?php if ( have_posts() ) : ?>
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
-
-				<?php ripple_content_nav( 'nav-below' ); ?>
-
-				<?php else : ?>
-
-					<?php get_template_part( 'no-results', 'index' ); ?>
-
-				<?php endif; ?>
+				<div class="entry-content">
+					<h2 class="topic-header">A universal protocol for money</h2>
+					<p>The Internet is only as powerful as its protocols. HTTP produced the World Wide Web. SMTP gave us email. RTXP (the Ripple Transaction Protocol) creates a payment network that automatically processes payments, currency exchange, and other financial transactions. RTXP can be used, modified, and implemented by anyone for free. Developers can use RTXP to build real-money applications. Businesses can integrate RTXP to add advanced functionality. RTXP is more than a payment system -- it’s the next stage in the evolution of the Internet.</p>
+				</div>
 			</div>
 		</header><!-- .entry-header -->
 

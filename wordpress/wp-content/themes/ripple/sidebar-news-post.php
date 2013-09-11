@@ -26,7 +26,9 @@
 					<p class="news-meta"><?php the_time(get_option('date_format')); ?></p>
 					<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 					<?php the_excerpt(); ?>
-					<a class="readmore" href="<?php echo get_permalink(); ?>"> Read More</a>
+					<footer class="entry-meta">
+						<a class="readmore" href="<?php echo get_permalink(); ?>"> Read More</a>
+					</footer>
 			</div>
 		</article> 
 	<?php

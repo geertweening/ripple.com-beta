@@ -10,28 +10,10 @@ get_header('targets'); ?>
 				<h1 class="entry-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>topic-directory"><span class="muted">Topic:</span></a>  <?php the_title(); ?><br>
 				</h1>
-				<?php if ( have_posts() ) : ?>
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
-
-				<?php ripple_content_nav( 'nav-below' ); ?>
-
-				<?php else : ?>
-
-					<?php get_template_part( 'no-results', 'index' ); ?>
-
-				<?php endif; ?>
+				<div class="entry-content">
+					<h2 class="topic-header">A universal translator for money</h2>
+						<p>Trading currencies has never been so easy. Ripple’s distributed currency exchange allows anyone to trade currencies on a global network. Trades are peer-to-peer, automatic, and have no fees or added margins. The result is complete currency choice: you can hold, send, and receive whatever currency you prefer.</p>
+				</div>
 			</div>
 		</header><!-- .entry-header -->
 

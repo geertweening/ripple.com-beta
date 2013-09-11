@@ -16,8 +16,8 @@
 				<section class="guide-section">
 					<h5 id="xrp-keeps-ripple-secure">XRP Keeps Ripple Secure</h5>
 					<ol>
-						<li>Each user must have a small Account Reserve of ??? XRP in their Ripple Wallet in order to activate their account.</li>
-						<li>Each user must have a small Action Reserve of ??? XRP in their Ripple Wallet in order to make transactions.</li>
+						<li>Each user must have a small Account Reserve of 50 XRP in their Ripple Wallet in order to activate their account.</li>
+						<li>Each user must have a small Action Reserve of 12.5 XRP in their Ripple Wallet in order to make transactions.</li>
 						<li>Each transaction on Ripple costs a tiny fraction of XRP, as a security cost to prevent people from abusing the system.</li>
 					</ol>
 					<p>it takes only a minimal amount of XRP to activate your account and begin using the Ripple network: the required reserves are equivalent to less than a dollar, and the security cost for each transaction is about 1/1000th of a cent.  These features have a negligible impact on regular users, but their cumulative effect prevents bots or spammers from overloading the network with automatic transaction requests or new accounts.</p>

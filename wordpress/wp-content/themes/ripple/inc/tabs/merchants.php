@@ -48,7 +48,9 @@
 							</div>
 							<div class="col-lg-9">
 								<h3 class="post-title">Merchants in the Ripple network.</h3>
-									<p>A Ripple gateway is any business that provides access to the Ripple network. Gateways can be banks, money service businesses, marketplaces, or any financial institution. Businesses that become gateways create advanced financial functionality for their customers and generate new revenue streams. The gateway service is configurable and free. Applications are diverse. Integration takes days.</p>
+									<p>Ripple is a powerful new payment solution that saves merchants time and money.</p> 
+									<p>Traditional online payments are outdated, slow, and expensive. Merchants pay billions in transaction fees and service subscriptions. Currency exchange rates are high. Payment processing takes days or weeks. Chargebacks and fraud cut into the bottom line.</p>
+									<p>Ripple payments are irreversible, processed in seconds, have zero fees of any kind, and are automatically converted to any currency at no extra charge. Ripple payments are free to use and can be easily added as a payment option.</p>
 								<footer class="post-footer">
 									<a href="#"><i class="icon-file-text"></i>Read our merchant white paper</a>
 								</footer>
