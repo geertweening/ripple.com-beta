@@ -21,7 +21,7 @@
 							</aside>
 
 							<aside class="col-lg-3">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network#cross-currency-payments">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network#cross-currency-payments">
 									<div class="icons choice">	
 									</div>
 								    <h4 class="icons-title">Cross Currency</h4>
@@ -30,7 +30,7 @@
 							</aside>
 
 							<aside class="col-lg-3">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network#no-merchant-fees">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network#no-merchant-fees">
 									<div class="icons free">	
 									</div>
 							    	<h4 class="icons-title">Change what you want</h4>
@@ -72,7 +72,7 @@
 								</div>
 				 
 								<div class="col-sm-4">
-									<a href="<?php echo esc_url( home_url( '/' ) ); ?>/payment-network/" class="thumbnail boxed">
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/" class="thumbnail boxed">
 										<p><strong>Learn about the Ripple Payment Network:</strong><br>
 											A new standard in transactions.
 										</p>
@@ -80,7 +80,7 @@
 								</div>
 				 
 								<div class="col-sm-4">
-									<a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/" class="thumbnail boxed">
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/" class="thumbnail boxed">
 										<p><strong>Explore the Ripple Transaction Protocol (RTXP):</strong><br>
 										   The protocol that makes Ripple possible.
 										</p>

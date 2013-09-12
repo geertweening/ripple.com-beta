@@ -40,12 +40,12 @@
 
  				<section class="guide-section">
 					<h5 id="global-marketplace">Global Marketplace</h5>
-					<p>For the first time, everyone has access to a global currency market without restrictions or fees. You can place orders of any size, in any currency, and the <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol">Ripple protocol</a> automatically matches buyers and sellers.</p>
+					<p>For the first time, everyone has access to a global currency market without restrictions or fees. You can place orders of any size, in any currency, and the <a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol">Ripple protocol</a> automatically matches buyers and sellers.</p>
 				</section>
 
 				<section class="guide-section">
 					<h5 id="secure">Secure</h5>
-					<p>Because Ripple is a distributed system, it has no single point of weakness or attack, and no one has special access to the network. As a result it is protected from the price-manipulation associated with traditional currency exchanges. As further safeguards, the <a href="<?php echo esc_url( home_url( '/' ) ); ?>/currency/#xrp-security-system">XRP security system</a> prevents the network from abuse, and the dynamic scalability system allows the network to process exchange orders even under extreme load.</p>
+					<p>Because Ripple is a distributed system, it has no single point of weakness or attack, and no one has special access to the network. As a result it is protected from the price-manipulation associated with traditional currency exchanges. As further safeguards, the <a href="<?php echo esc_url( home_url( '/' ) ); ?>currency/#xrp-security-system">XRP security system</a> prevents the network from abuse, and the dynamic scalability system allows the network to process exchange orders even under extreme load.</p>
 				</section>
 
 				<section class="guide-section">
@@ -74,7 +74,7 @@
 
 				<section class="guide-section">
 					<h5 id="capture-the-spread">Capture the Spread</h5>
-					<p>Because so many currencies and payments flow through Ripple, there is a constant demand for liquidity. This creates a fantastic opportunity for <a href="<?php echo esc_url( home_url( '/' ) ); ?>/partners/">market makers</a> to turn a profit and provide a valuable service.</p>
+					<p>Because so many currencies and payments flow through Ripple, there is a constant demand for liquidity. This creates a fantastic opportunity for <a href="<?php echo esc_url( home_url( '/' ) ); ?>partners/">market makers</a> to turn a profit and provide a valuable service.</p>
 				</section>
 
 				<section class="guide-section">				
