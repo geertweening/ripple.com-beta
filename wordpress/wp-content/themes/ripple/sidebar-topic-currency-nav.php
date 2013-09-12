@@ -14,7 +14,7 @@
 				<li><a href="#no-counterparty-risk">No Counterparty Risk</a></li>
 				<li><a href="#no-fees">No Fees</a></li>
 				<li><a href="#xrp-security-system">XRP Security System</a></li>
-				<li><a href="#xrp-fixes-a-flaw-in-the-internet">XRP fixes a flaw in the Internet</a></li>
+				<li><a href="#xrp-fixes-a-flaw-in-the-internet">XRP Fixes a Flaw in the Internet</a></li>
 				<li><a href="#xrp-reserves">XRP Reserves</a></li>
 				<li><a href="#the-two-types-of-xrp-reserves">The Two Types of XRP Reserves</a></li>
 				<li><a href="#pathway-independent">Pathway Independent</a></li>

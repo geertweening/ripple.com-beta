@@ -16,7 +16,7 @@
 				<li><a href="#cross-Currency-payments">Cross-Currency Payments</a></li>
 				<li><a href="#global-marketplace">Global Marketplace</a></li>
 				<li><a href="#secure">Secure</a></li>
-				<li><a href="#everyone-is-a-market-maker">Everyone Is A Market Maker</a></li>
+				<li><a href="#everyone-is-a-market-maker">Everyone is a Market Maker</a></li>
 				<li><a href="#accelerated-global-economy">Accelerated Global Economy</a></li>
 				<li><a href="#capture-the-spread">Capture the Spread</a></li>
 				<li><a href="#how-to-guides">HOW TO GUIDES</a></li>

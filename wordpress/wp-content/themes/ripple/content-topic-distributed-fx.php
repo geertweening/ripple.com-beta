@@ -10,27 +10,27 @@
 
 				<section class="guide-section">
 					<h5 id="direct-fx">Direct FX</h5>
-					<p>Currency trades on Ripple are direct and peer-to-peer. Trade are automatically processed by the Ripple protocol. There are no brokers, middlemen, or intermediaries.</p> 
+					<p>Currency trades on Ripple are direct and peer-to-peer. Trades are automatically processed by the Ripple protocol. There are no brokers, middlemen, or intermediaries.</p> 
 				</section>
 				<section class="guide-section">
 					<h5 id="no-fees">No Fees</h5>
-					<p>No fees or added margins. One buyer, one seller, one price -- the way a trade should be..</p>
+					<p>No fees or added margins. One buyer, one seller, one price -- the way a trade should be.</p>
 				</section>
 
 				<section class="guide-section">
 					<h5 id="all-currencies">All Currencies</h5>
-					<p>Ripple is the only currency exchange that allows trading in all currencies. National currencies, virtual currencies, commodities, frequent flier miles, mobile minutes, and more—any unit of value can be traded. 
+					<p>Ripple is the only currency exchange that allows trading in all currencies. National currencies, virtual currencies, commodities, frequent flier miles, mobile minutes, and more — any unit of value can be traded. 
 					</p>
 				</section>
 
 				<section class="guide-section">
 					<h5 id="instant-processing">Instant Processing</h5>
-					<p>The Ripple protocol automatically matches the best available exchange orders and instantly processing the exchange.</p>
+					<p>The Ripple protocol automatically matches the best available exchange orders and instantly processes the exchange.</p>
 				</section>
 
 				<section class="guide-section">
 					<h5 id="currency-choice">Currency Choice</h5>
-					<p>Ripple gives you complete currency choice: you can hold, trade, send and receive any currency you want, all without brokers, intermediaries, or fees. It is a Forex marketplace unlike anything that has ever existed.</p>
+					<p>Ripple gives you complete currency choice: you can hold, trade, send, and receive any currency you want, all without brokers, intermediaries, or fees. It is a Forex marketplace unlike anything that has ever existed.</p>
 				</section>
 
 				<section class="guide-section">
@@ -49,7 +49,7 @@
 				</section>
 
 				<section class="guide-section">
-					<h5 id="everyone-is-a-market-maker">Everyone Is A Market Maker</h5>
+					<h5 id="everyone-is-a-market-maker">Everyone Is a Market Maker</h5>
 					<p>Whether you’re a professional currency trader, simply seeking to diversify your currency assets, a consumer making an international purchase, or a tourist travelling abroad -- everyone has direct access to a global currency marketplace.</p>
 				</section>
 
@@ -60,7 +60,7 @@
 
 				<section class="guide-section">
 					<h5 id="smart-contracts-coming-soon">Smart Contracts (coming soon)</h5>
-					<p>Ripple smart contracts is a scripting language built into RTXP that allows complex financial instruments to be fully automated. Subscriptions, escrow, auctions, crowd-funding, and more -- the possibilities of smart contracts are limitless.</p>
+					<p>Ripple Smart Contracts is a scripting language built into RTXP that allows complex financial instruments to be fully automated. Subscriptions, escrow, auctions, crowd-funding, and more -- the possibilities of smart contracts are limitless.</p>
 						<blockquote>“Contracts makes Ripple extensible. It lets other developers come in and add completely new features to the Ripple network.  It’s every engineer’s dream to work on a component like this.” <br>
 						<cite title="Quote from Stefan Thomas, CTO at OpenCoin"> —Stefan Thomas, CTO at OpenCoin </cite> 
 						</blockquote>

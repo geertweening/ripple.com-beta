@@ -34,13 +34,13 @@
  				<section class="guide-section">
 					<h5 id="xrp-fixes-a-flaw-in-the-internet"></h5>
 					<div class="thumbnail centered">
-						<h6>XRP fixes a flaw in the Internet.</h6>
-						<p>One weakness with the design of the Internet is that it allows an unlimited number of requests. As a result, web servers can be overloaded by malicious Denial of Service attacks. These attacks are a constant logistical challenge and cost businesses billions of dollars. The inventors of Ripple wanted to protect the Ripple network from these attacks and created the XRP security cost -- a tiny cost for transactions that only impacts abusive users. If the Internet charged a similar security cost, it would be a much safer system.</p>
+						<h6>XRP Fixes a Flaw in the Internet.</h6>
+						<p>One weakness with the design of the Internet is that it allows an unlimited number of requests. As a result, web servers can be overloaded by malicious Denial of Service attacks. These attacks are a constant logistical challenge and cost businesses billions of dollars. The inventors of Ripple wanted to protect the Ripple network from these attacks and created the XRP security cost — a tiny cost for transactions that only impacts abusive users. If the Internet charged a similar security cost, it would be a much safer system.</p>
 					</div>
 				</section>
 				<section class="guide-section">
 					<h5 id="xrp-reserves">XRP Reserves</h5>
-					<p>Another security measure is the XRP reserve system. The XRP reserve is a minimum amount of XRP needed for actions that requires network resources. These XRP reserves are negligible for any normal user, the equivalent of less than dollar. However attempts to overload the network with excessive actions becomes too costly.</p>
+					<p>Another security measure is the XRP reserve system. The XRP reserve is a minimum amount of XRP needed for actions that requires network resources. These XRP reserves are negligible for any normal user, the equivalent of less than dollar. However attempts to overload the network with excessive actions  become more costly.</p>
 				</section>
 				<section class="guide-section">
 					<h5 id="the-two-types-of-xrp-reserves">The Two Types of XRP Reserves</h5>

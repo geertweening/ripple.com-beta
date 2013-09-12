@@ -26,7 +26,7 @@
 								<td><p class="text-center"><strong>“Which gateway should I use?”</p></td>
 							</tr>
 							<tr>
-								<td><i class=" icon-ok"></i><strong>Reliability:</strong> As with any business, you should research the reputation and user experience of each gateway..</td>
+								<td><i class=" icon-ok"></i><strong>Reliability:</strong> As with any business, you should research the reputation and user experience of each gateway.</td>
 							</tr>
 							<tr>
 								<td><i class=" icon-ok"></i><strong>Currency options:</strong> Different gateways issue different currencies. Select ones that allow for your preferred currencies.</td>
@@ -39,7 +39,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<p>Some gateways are members of the International Ripple Business Association, which is working towards unified procedures for establishing trustworthy and secure services for Ripple customers. These currently include:</p>
+					<p>Some gateways are members of the <a href="http://www.xrpga.org/">International Ripple Business</a> Association, which is working towards unified procedures for establishing trustworthy and secure services for Ripple customers. These currently include:</p>
 					<div class="row">
 
   						<div class="col-sm-3">
@@ -51,7 +51,7 @@
 	  									<dt>Location:</dt>
 	  									<dd>U.S.</dd>
 	  									<dt>Currencies:</dt>
-	  									<dd>U.S.D</dd>
+	  									<dd>USD</dd>
 									</dl>
 								</div>
     						</div>
@@ -143,7 +143,7 @@
 				</section>
 
 				<section class="guide-section">
-				<h5 id="transferring-money-into-your-ripple-wallet">Transferring money into your Ripple Wallet:</h5> 
+				<h5 id="transferring-money-into-your-ripple-wallet">Transferring Money Into Your Ripple Wallet:</h5> 
 					<p>After you’re set up at a gateway, you can send money to your Ripple Wallet.</p>
 					<p>First, log in to your Wallet and click on the Advanced tab and Trust page. You will need to create a “trust limit” with the gateway for an amount equal to the amount being sent to your Wallet.</p>
 					<p>For example, if you deposit $1000 at Bitstamp, you need to create a trust line of at least $1000 to Bitstamp, so that it can deposit $1000 into your Ripple Wallet.</p> 
@@ -152,7 +152,7 @@
 					<img alt="Bitstamp’s Interface Example" src="<?php bloginfo('template_url'); ?>/assets/img/bitstamp-screenshot.png">
 				</section>
 				<section class="guide-section overflow">
-				<h5 id="transferring-money-from-your-ripple-wallet">Transferring money from your Ripple Wallet:</h5>
+				<h5 id="transferring-money-from-your-ripple-wallet"> Transferring Money From Your Ripple Wallet:</h5>
 				<p>Sending money to the gateway from your Wallet is simple. You’ll need the specific Ripple address connected to both the gateway and your account. The Deposit section of the gateway should be able to provide you with the information that you need.</p>
 				<p>See Bitstamp’s interface below, as an example:</p>
 				<img alt="Bitstamp’s Interface Example" src="<?php bloginfo('template_url'); ?>/assets/img/bitstamp-screenshot1.png">

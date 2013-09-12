@@ -2,7 +2,7 @@
 $(".guide-nav").affix({
     offset: {
         top: $(".guide-header").outerHeight(true) +1,
-        bottom: $(".site-footer").outerHeight(true) + 177
+        bottom: $(".site-footer").outerHeight(true) + 130
     }
 });
 

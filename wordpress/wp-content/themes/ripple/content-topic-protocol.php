@@ -14,7 +14,7 @@
 				</section>
 				<section class="guide-section">
 					<h5 id="distributed">Distributed</h5>
-					<p>No one owns or controls the Ripple protocol. It runs on computers around the world, all working together to continually maintain a perfect shared record of accounts, balances, and transactions.</p>
+					<p>No one owns or controls the Ripple protocol. It runs on computers around the world, all working together to continually maintain a perfect, shared record of accounts, balances, and transactions.</p>
 				</section>
 
 				<section class="guide-section">
@@ -26,8 +26,7 @@
 
 				<section class="guide-section">
 					<h5 id="consensus">Consensus</h5>
-					<p>Every few seconds, the computers running RTXP come to consensus on the state of The Ledger. Payments process. Balances adjust. Transactions execute. Trade complete. And the process begins again.</p>
-					[VIDEO - consensus]
+					<p>Every few seconds, the computers running RTXP come to consensus on the state of The Ledger. Payments process. Balances adjust. Transactions execute. Trades complete. And the process begins again.</p>
 				</section>
 
 				<section class="guide-section">
@@ -46,7 +45,7 @@
 							<li>No individuals, institutions, or third-parties have special access to the network</lI>
 							<li>A distributed system with no single point of weakness or attack</li>
 							<li>Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/#dynamic-scalability">dynamic scalability</a> protects the network from downtime and lag even during times of extreme load</li>
-							<li>Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>/currency/#xrp-security-system">XRP security system</a> prevents DDoS and other attempts at network interference. </li>
+							<li>Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>/currency/#xrp-security-system">XRP security system</a> prevents DDoS and other attempts at network interference</li>
 						</ul>
 					</div>
  				</section>
@@ -78,7 +77,7 @@
 
 				<section class="guide-section">
 					<h5 id="smart-contracts-coming-soon">Smart Contracts (coming soon)</h5>
-					<p>Ripple smart contracts is a scripting language built into RTXP that allows complex financial instruments to be fully automated. Subscriptions, escrow, auctions, crowd-funding, and more -- the possibilities of smart contracts are limitless.</p>
+					<p>Ripple Smart Contracts is a scripting language built into RTXP that allows complex financial instruments to be fully automated. Subscriptions, escrow, auctions, crowd-funding, and more -- the possibilities of Smart Contracts are limitless.</p>
 						<blockquote>“Contracts makes Ripple extensible. It lets other developers come in and add completely new features to the Ripple network.  It’s every engineer’s dream to work on a component like this.” <br>
 						<cite title="Quote from Stefan Thomas, CTO at OpenCoin"> —Stefan Thomas, CTO at OpenCoin </cite> 
 						</blockquote>

@@ -9,11 +9,11 @@
 			<div class="scrollspy-area col-8 pull-right" data-offset="100">
 				<section class="guide-section">
 					<h5 id="fast">Fast</h5>
-					<p>No more waiting 2-5 business days -- Ripple payments clear in seconds. It’s as fast and easy as sending email.</p> 
+					<p>No more waiting 2-5 business days — Ripple payments clear in seconds. It’s as fast and easy as sending email.</p> 
 				</section>
 				<section class="guide-section">
 					<h5 id="global">Global</h5>
-					<p>Buenos Aires or Berlin, Texas or Taipei—Ripple payments can be sent anywhere in the world.</p>
+					<p>Buenos Aires or Berlin, Texas or Taipei — Ripple payments can be sent anywhere in the world.</p>
 				</section>
 				<section class="guide-section">
 					<h5 id="peer-to-peer">Peer-to-Peer</h5>
@@ -21,7 +21,7 @@
 				</section>
 				<section class="guide-section">
 					<h5 id="cross-currency-payments">Cross-Currency Payments</h5>
-					<p>Thanks to Ripple’s revolutionary distributed currency exchange, cross-currency payments are effortless. Send a payment in dollars, euros, or pounds and it can arrive as yen, rupees, or yuan -- and the exchange automatically happens at the best available rate.</p>
+					<p>Thanks to Ripple’s revolutionary distributed currency exchange, cross-currency payments are effortless. Send a payment in dollars, euros, or pounds and it can arrive as yen, rupees, or yuan — and the exchange automatically happens at the best available rate.</p>
 					<p><blockquote>“I hope we will use the Net to cross barriers and connect cultures.”<cite title="Quote From Tim Berners-Lee">—Tim Berners-Lee</cite></blockquote></p>
 				</section>
 				<section class="guide-section">
@@ -40,7 +40,7 @@
 					<h5 id="what-makes-ripple-so-much-cheaper-than-traditional-payment-systems"></h5>
 					<div class="thumbnail centered">
 						<h6>What makes Ripple so much cheaper than traditional payment systems?</h6>
-						<p>most payment systems are controlled by for-profit organizations that charge buyers and sellers for the privilege of making payments. In contrast, the Ripple payment network is controlled by a free <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/">Internet protocol</a> that can be used by anyone.</p>
+						<p>Most payment systems are controlled by for-profit organizations that charge buyers and sellers for the privilege of making payments. In contrast, the Ripple payment network is controlled by a free <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/">Internet protocol</a> that can be used by anyone.</p>
 					</div>
 				</section>
 				<section class="guide-section">
@@ -62,10 +62,10 @@
 				<section class="guide-section">
 					<h5 id="why-are-gateways-so-important"></h5>
 					<div class="thumbnail centered">
-						<h6>Why are gateways so important?</h6>
+						<h6>Why are Gateways so Important?</h6>
 						<p>Gateways provide a valuable service within the Ripple ecosystem: they facilitate deposits and withdrawals.</p>
 						<ul>
-							<li><strong>Example #1.</strong> Someone sends $100 to your Ripple account. You now have a $100 account balance that you can hold, trade, or send without any third-party assistance. However, if you want to withdraw the $100, you need to create a relationship with a gateway. Once you sign-up with the gateway, you can withdraw the $100 as a bank transfer, check, cash, or whatever other withdrawal methods offered by the gateway.</li>
+							<li><strong>Example #1.</strong> Someone sends $100 to your Ripple account. You now have a $100 account balance that you can hold, trade, or send without any third-party assistance. However, if you want to withdraw the $100, you need to create a relationship with a gateway. Once you sign-up with the gateway, you can withdraw the $100 as a bank transfer, check, cash, or whatever other withdrawals methods offered by the gateway.</li>
 							<li><strong>Example #2.</strong> You want to trade currencies on Ripple’s distributed currency exchange. You find a local gateway and send $100 from your bank account. $100 appears in your Ripple account balance. Now you can begin trading.</li>
 						</ul>
 					</div>
@@ -73,20 +73,21 @@
 				<section class="guide-section">
 					<h5 id="gateway-guides-and-resources"></h5>
 					<div class="thumbnail centered">
-					<h6>Gateway guides and resources</h6>
-					<p>Learn more about gateways in this step-by-step Guide to Finding A Ripple Gateway or by visiting <a href="http://www.xrpga.org/index.html">The International Ripple Business Association</a>. If you’re interested in becoming a gateway or integrating Ripple into your business, please visit our <a href="<?php echo esc_url( home_url( '/' ) ); ?>/partners/">Partners page</a>.</p>
+					<h6>Gateway Guides and Resources</h6>
+					<p>Learn more about gateways in this step-by-step Guide to Finding a Ripple Gateway or by visiting <a href="http://www.xrpga.org/index.html">The International Ripple Business Association</a>. If you’re interested in becoming a gateway or integrating Ripple into your business, please visit our <a href="<?php echo esc_url( home_url( '/' ) ); ?>/partners/">Partners page</a>.</p>
 					</div>
 				</section>
 				<section class="guide-section">
 					<h5 id="pathways">Pathways</h5>
-					<p>Pathways are the connections between Ripple users and business that allow payments to flow easily from one account to another.</p>
-					[http://vimeo.com/63784865]
+					<p>Pathways are the connections between Ripple users and businesses that allow payments to flow easily from one account to another.</p>
+					<iframe src="//player.vimeo.com/video/63784865" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/63784865">How Ripple Works - Gateways and Pathways</a> from <a href="http://vimeo.com/user17625429">ripple video</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 				</section>
 				<section class="guide-section">
 					<h5 id="a-federated-network">A Federated Network</h5>
 					<p>Ripple was invented to help unify the many disconnected parts of the financial system into a single federated system. Because <a href="<?php echo esc_url( home_url( '/' ) ); ?>/protocol/">the Ripple protocol</a> is shared, independent businesses and their customer bases become interconnected on the same payment network. As this federated network expands, its utility and value grows. Friction disappears. Efficiency rises. Payments becomes cheaper and faster. Commerce accelerates. Prosperity grows. This is the promise of a federated payment network.</p>
 					<div class="thumbnail centered">
-						<p>Email is an example of a federated system. Because email providers all use SMTP, Gmail customers can send emails to Yahoo customers simply by specifying the domain “@yahoo.com.” It wasn’t always so easy. In the early days of the internet, a CompuServe customer could only send emails to other CompuServe customers. Fortunately, the adoption of SMTP created a federated email system. Today, the idea of a non-federated email system seems absurd.</p>
+						<p class="text-center"><strong>Example:</strong></p>
+						<p>Email is an example of a federated system. Because email providers all use SMTP, Gmail customers can send emails to Yahoo customers simply by specifying the domain “@yahoo.com.” It wasn’t always so easy. In the early days of the Internet, a CompuServe customer could only send emails to other CompuServe customers. Fortunately, the adoption of SMTP created a federated email system. Today, the idea of a non-federated email system seems absurd.</p>
 					</div>
 				</section>
 				<section class="guide-section">
