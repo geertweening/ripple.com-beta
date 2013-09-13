@@ -3911,6 +3911,9 @@ body {
 .blue:focus {
   color: #4a8cc9;
 }
+.white {
+  color: #ffffff;
+}
 .link-color {
   color: #4a8cc9;
 }
@@ -4435,6 +4438,10 @@ h4.widget-title {
 #quaternary .post-content p {
   margin-bottom: 0px;
 }
+.blog .img-wrap {
+  margin: 0 auto;
+  width: 50%;
+}
 #tertiary.news-post.widget-area,
 #quaternary.news-post.widget-area {
   padding-bottom: 48px;
@@ -4584,10 +4591,16 @@ h2.blog-title {
   width: 124px;
 }
 .footer-wrapper {
-  background: #9f9f9f;
+  background: none repeat scroll 0 0 #707070;
+}
+.footer-links h5 {
+  font-weight: bold;
+  color: #ffffff;
+}
+.footer-links li h5 a {
+  color: #ffffff;
 }
 ul.footer-links {
-  border-bottom: 1px solid #CFCFCF;
   margin: 0 auto 10px;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -4623,7 +4636,7 @@ ul.footer-links:after {
   padding: 0 1%;
 }
 .footer-links > li a {
-  color: #dbdbdb;
+  color: #ffffff;
   text-decoration: none;
 }
 .footer-links li ul li {
@@ -4633,9 +4646,45 @@ ul.footer-links:after {
   line-height: 26px;
   width: 49%;
 }
+.footer-links > li a:hover {
+  text-decoration: underline;
+}
 .site-info > p {
   color: #CFCFCF;
   text-align: center;
+}
+#menu-footer-links-column-one li {
+  margin-bottom: 10px;
+}
+.sub-footer {
+  background: none repeat scroll 0 0 #3F4040;
+  color: #868686;
+  border-top: 1px solid #868686;
+  border-bottom: 1px solid #868686;
+  padding: 29px 0 9px;
+  text-decoration: none;
+}
+.sub-footer a,
+.sub-footer a {
+  text-decoration: none;
+}
+.sub-footer a:hover,
+.sub-footer a:focus {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+.sub-footer ul {
+  margin: 4px 0 0 53px;
+  color: #ffffff;
+}
+.sub-footer li.icon-circle {
+  font-size: 6px;
+  position: relative;
+  top: -2px;
+}
+.sub-footer ul li a:hover,
+.sub-footer ul li a:focus {
+  color: #919191;
 }
 body .guide {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
@@ -5674,6 +5723,9 @@ bottom right of the visualization */
     max-width: 250px;
   }
 }
+.developer-page {
+  position: relative;
+}
 #container {
   height: 360px;
   overflow: hidden;
@@ -5681,6 +5733,7 @@ bottom right of the visualization */
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 .transaction {
   color: white;
@@ -5728,6 +5781,13 @@ bottom right of the visualization */
 }
 h2.callout {
   margin-bottom: 50px;
+}
+#explanation2 {
+  bottom: 11px;
+  color: rgba(220, 220, 220, 0.5);
+  cursor: help;
+  position: absolute;
+  right: 20px;
 }
 .tooltip-inner {
   background-color: rgba(0, 0, 0, 0.5);

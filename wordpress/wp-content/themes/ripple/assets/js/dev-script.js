@@ -129,7 +129,4 @@ ledgerValidationModule.interval = setInterval(function(){
 	}
 }, 2000);
 
-$("#explanation").tooltip({
-	title: "This feed shows the live stream of transactions being received by a Ripple server. When the network has come to consensus on the set of valid transactions, the ledger is closed.",
-	placement: "auto left"
-});
+

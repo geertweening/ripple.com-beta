@@ -15,7 +15,7 @@ get_header('targets'); ?>
 
 		<div id="primary" class="content-area wrapper">
 			<div class="col-sm-2 pull-left">
-				<h6 class="directory-heading">Protocol</h6>
+				<h6 class="directory-heading"><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/">Protocol</a></h6>
 				<ul class="list-unstyled">
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#math-based">Math-Based</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#distributed">Distributed</a></li>
@@ -36,7 +36,7 @@ get_header('targets'); ?>
 				</ul>	
 			</div>
 			<div class="col-sm-2 pull-left">
-				<h6 class="directory-heading">FX</h6>
+				<h6 class="directory-heading"><a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/">FX</a></h6>
 				<ul class="list-unstyled">
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/#direct-fx">Direct FX</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/#no-fees">No Fees</a></li>
@@ -55,7 +55,7 @@ get_header('targets'); ?>
 				</ul>	
 			</div>
 			<div class="col-sm-2 pull-left">
-				<h6 class="directory-heading">Currency</h6>
+				<h6 class="directory-heading"><a href="<?php echo esc_url( home_url( '/' ) ); ?>currency/">Currency</a></h6>
 				<ul class="list-unstyled">
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>currency/#math-based">Math-Based</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>currency/#direct">Direct</a></li>
@@ -73,7 +73,7 @@ get_header('targets'); ?>
 				</ul>	
 			</div>
 			<div class="col-sm-2 pull-left">
-				<h6 class="directory-heading">Payment Network</h6>
+				<h6 class="directory-heading"><a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/">Payment Network</a></h6>
 				<ul class="list-unstyled">
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#fast">Fast</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#global">Global</a></li>

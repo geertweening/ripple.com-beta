@@ -5,7 +5,7 @@
  * @packageRipple
  */
 ?>
-	<div id="tertiary" class="tab-pane secondary-font-family" role="complementary">
+	<div id="tertiary" class="tab-pane" role="complementary">
 		<section>
 			<div class="wrapper">
 				<div class="col-lg-12 centered text-center">
@@ -20,7 +20,7 @@
 		</section>
 	</div><!-- #tertiary -->
 
-	<div id="quaternary" class="widget-area secondary-font-family shaded" role="complementary">
+	<div id="quaternary" class="widget-area shaded" role="complementary">
 		<section>
 			<div class="wrapper">
 				<div class="col-lg-12 centered text-center  shaded">

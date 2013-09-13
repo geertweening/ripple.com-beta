@@ -57,6 +57,9 @@ body {
 .blue:hover, .blue:focus {
     .blue-light;
 }
+.white {
+    color: @white;
+}
 // Link Color 
 .link-color {
     color:  lighten(@blue, 10%);
@@ -532,6 +535,11 @@ h4.widget-title {
 #tertiary .post-content p, #quaternary .post-content p {
     margin-bottom: 0px;
 }
+// Blog Page Styles
+.blog .img-wrap {
+    margin: 0 auto;
+    width: 50%;
+}
 // Post Styles
 #tertiary.news-post.widget-area, #quaternary.news-post.widget-area {
     padding-bottom: 48px;
@@ -660,11 +668,17 @@ h2.blog-title {
 .site-footer {
 }
 .footer-wrapper {
-    background: @gray-light;
+    background: none repeat scroll 0 0 #707070;
+}
+.footer-links h5 {
+    font-weight: bold;
+    color: #ffffff;
+}
+.footer-links li h5 a {
+    color: #ffffff;
 }
 ul.footer-links {
     .clearfix;
-    border-bottom: 1px solid #CFCFCF;
     margin: 0 auto 10px;
     padding-top: 20px;
     padding-bottom: 30px;
@@ -675,7 +689,7 @@ ul.footer-links {
     width: 17%;
     padding: 0 1%;
     a {
-        color: #dbdbdb;
+        color: #ffffff;
         text-decoration: none;
     }
 }
@@ -686,9 +700,49 @@ ul.footer-links {
     line-height: 26px;
     width: 49%;
 }
+.footer-links > li a:hover {
+    text-decoration: underline;
+}
+// Todo add transition
+// .footer-links li ul li:hover:before {
+//     color: #FFFFFF;
+//     content: ">";
+//     margin-right: 6px;
+// }
 .site-info > p {
     color: #CFCFCF;
     text-align: center;
+}
+#menu-footer-links-column-one li {
+    margin-bottom: 10px;
+}
+// Sub Footer
+.sub-footer {
+    background: none repeat scroll 0 0 #3F4040;
+    color: #868686;
+    border-top: 1px solid #868686;
+    border-bottom: 1px solid #868686;
+    padding: 29px 0 9px;
+    text-decoration: none;
+}
+.sub-footer a, .sub-footer a {
+    text-decoration: none;
+}
+.sub-footer a:hover, .sub-footer a:focus {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+.sub-footer ul {
+    margin: 4px 0 0 53px;
+    color: #ffffff;
+}
+.sub-footer li.icon-circle {
+    font-size: 6px;
+    position: relative;
+    top: -2px;
+}
+.sub-footer ul li a:hover, .sub-footer ul li a:focus {
+    color: #919191;
 }
 // Guide Page Styles
 // Guide Content Area

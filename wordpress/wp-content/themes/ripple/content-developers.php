@@ -18,5 +18,5 @@
 	</div>
 	<div id="eventsTable"></div>
 </div>		
-<a href="#" class="pull-right" id="explanation"><span class="glyphicon glyphicon-question-sign"></span></a>
+
 <!-- END NEW STUFF -->

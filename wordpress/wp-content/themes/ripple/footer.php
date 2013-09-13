@@ -45,6 +45,22 @@
 			</div>
 		</div>
 	</footer><!-- #colophon -->
+	<footer id="sub-colophon" class="sub-footer" role="siteinfo">
+		<div class="wrapper">
+			<div class="pull-right">
+				<p class="gray">TM+ 2013 OpenCoin LLC. All Rights Reserved</p>
+			</div>
+			<div class="pull-right">
+				<ul>
+					<li>Terms</li>
+					<li>Privacy</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pull-right">
+			Language: English
+		</div>
+	</footer>
 <?php wp_footer(); ?>
 </body>
 </html>
