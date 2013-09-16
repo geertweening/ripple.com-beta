@@ -4162,13 +4162,6 @@ h1.banner-callout {
   left: 0;
   right: 0;
 }
-.partners .banner {
-  background: url("../img/partners-bg.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 .banner .thumbnail {
   border-color: transparent;
   box-shadow: 0 0 1px rgba(102, 102, 102, 0.99) inset;
@@ -4310,9 +4303,6 @@ h4.widget-title {
 .user-tabs {
   padding-top: 0;
 }
-.devs .banner {
-  background: #383838;
-}
 #home-page-logo {
   width: 14%;
   float: left;
@@ -4332,27 +4322,6 @@ h4.widget-title {
 }
 .video-splash .entry-content {
   margin: 9% auto 14%;
-}
-.nav-bg {
-  background: url("../img/nav.jpg") repeat scroll 0 0 transparent;
-  border-bottom: 14px solid #3372AD;
-  height: 96px;
-}
-.nav-bg .menu-main-container li {
-  float: left;
-  text-align: center;
-  width: 33.33%;
-}
-.nav-bg .menu-main-container li a {
-  float: left;
-  padding: 30px 10px;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-}
-.nav-bg .menu-main-container li a:hover {
-  background-color: rgba(153, 184, 214, 0.5);
-  color: #FFFFFF;
 }
 .play-button-circle {
   background: #ffffff;
@@ -4433,9 +4402,6 @@ h4.widget-title {
   background-color: rgba(153, 184, 214, 0.5);
   color: #ffffff;
 }
-.page article {
-  width: 50%;
-}
 .post-area:before,
 .post-area:after {
   content: " ";
@@ -4512,7 +4478,7 @@ article.post:after {
   clear: both;
 }
 article.post:nth-last-child(1) {
-  margin-bottom: 180px;
+  border-bottom: medium none;
 }
 article.page {
   padding-bottom: 45px;
@@ -4544,8 +4510,7 @@ a.readmore:after {
 .comment-form #submit {
   background: none repeat scroll 0 0 #5D5C5D;
 }
-.comment-form #submit,
-.form-submit > input {
+.comment-form #submit {
   background: none repeat scroll 0 0 #B7B7B7;
   border: medium none;
   border-radius: 4px 4px 4px 4px;
@@ -4563,8 +4528,7 @@ a.readmore:after {
   text-decoration: none;
   transition: all 0.2s ease 0s;
 }
-.blog article,
-.news article {
+.blog article {
   padding-bottom: 72px;
   padding-top: 73px;
   width: 50%;
@@ -4598,11 +4562,10 @@ h2.blog-title {
   width: 90%;
 }
 .featured-quotes p {
-  color: #6B6C6C;
   font-size: 1.2rem;
   font-style: italic;
-  line-height: 15px;
   text-align: center;
+  line-height: 15px;
 }
 .featured-quotes .img-wrap {
   background-repeat: no-repeat;
@@ -5063,9 +5026,6 @@ h1.entry-title {
     right: 0;
     margin-top: 8px;
   }
-  .video-splash .entry-content {
-    margin: 9% auto 21%;
-  }
   h1.logo {
     float: none;
     margin: 0 auto 9px;
@@ -5096,12 +5056,8 @@ h1.entry-title {
     position: relative;
     width: 100%;
   }
-  nav.header-navigation ul li a {
-    width: 100%;
-  }
   .entry-content.callout h1 {
-    font-size: 5rem;
-    margin-bottom: 49px;
+    font-size: 6rem;
   }
   article.post {
     padding: 30px 0;
@@ -5771,7 +5727,7 @@ bottom right of the visualization */
   position: relative;
 }
 #container {
-  height: 300px;
+  height: 360px;
   overflow: hidden;
   width: 100%;
   padding: 5px;
@@ -5792,6 +5748,7 @@ bottom right of the visualization */
   word-break: break-all;
 }
 .trow {
+  font-family: "Courier New", fixed;
   font-size: 12pt;
   line-height: 14pt;
   border-top: 1px solid #666;
@@ -7557,5 +7514,32 @@ td.visible-print {
   th.hidden-print,
   td.hidden-print {
     display: none !important;
+  }
+}
+.site-header {
+  background-color: #7a43b6;
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+  .site-header {
+    background-color: #a4f49f;
+  }
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  .site-header {
+    background-color: #9d261d;
+  }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .site-header {
+    background-color: #ffff97;
+  }
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  .site-header {
+    background-color: #f89406;
   }
 }

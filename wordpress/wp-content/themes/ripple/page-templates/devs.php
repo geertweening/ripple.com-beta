@@ -37,4 +37,3 @@ get_header('targets'); ?>
 <?php get_sidebar('icons-dev'); ?>
 <?php get_sidebar('start-using-dev'); ?>
 <?php get_footer('links'); ?>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/js/dev-script.js"></script>

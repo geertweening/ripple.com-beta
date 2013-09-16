@@ -55,11 +55,11 @@
 					</div>
 
 
-	</div>
+	
 
 
 					
-			</div>
-		</div><!-- .wrapper -->
+		
+		
 	</header><!-- #masthead -->
 	<div id="main" class="site-main">

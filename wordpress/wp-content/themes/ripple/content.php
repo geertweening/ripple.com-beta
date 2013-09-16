@@ -4,12 +4,9 @@
  */
 ?>
 <!-- Begin content.php -->
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( has_post_thumbnail() ) : ?>
-<div class="img-wrap">
-	<?php the_post_thumbnail(); ?>
-</div>
-	<?php endif; ?>
+	
 	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
@@ -29,6 +26,9 @@
 					'after'  => '</div>',
 				) );
 			?>
+		<footer class="entry-meta">
+			<a class="readmore" href="<?php echo get_permalink(); ?>"> Read More</a>
+		</footer>
 		
 	</div><!-- .entry-content -->
 	<?php endif; ?>
