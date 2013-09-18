@@ -5,15 +5,17 @@
 
 get_header('targets'); ?>
 
-<div id="primary" class="content-area">
+	<?php include (TEMPLATEPATH . '/inc/default-header.php' ); ?>
+
+	<div id="primary" class="content-area">
 
 		 <?php
-	  $the_query = new WP_Query(array(
-		'category_name' => 'news',
-		));
-	  
-			while ( $the_query->have_posts() ) :
-		 $the_query->the_post();
+		  $the_query = new WP_Query(array(
+			'category_name' => 'news',
+			));
+		  
+				while ( $the_query->have_posts() ) :
+			 $the_query->the_post();
 		?>
 		 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		 			

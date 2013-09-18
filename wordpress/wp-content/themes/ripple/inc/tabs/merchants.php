@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="merchants">
+			<div class="tab-pane fade" id="merchants">
 				<section class="shaded text-center">
 		    		<div class="wrapper">
 		      			<h3 class="tab-pane-heading">E-commerce, evolved.</h3>
@@ -42,7 +42,7 @@
 
 		   		<section>
 		   			<div class="wrapper">
-		   				<article class="post">
+		   				<article class="post-widget">
 							<div class="col-lg-2 img-wrap">
 								<img alt="Gateways in the Ripple system" src="<?php bloginfo('template_url'); ?>/assets/img/merchants.png">
 							</div>

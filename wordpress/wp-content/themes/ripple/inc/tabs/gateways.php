@@ -42,7 +42,7 @@
 
 					<section>
 						<div class="wrapper">
-							<article class="post">
+							<article class="post-widget">
 								<div class="col-lg-2 img-wrap">
 									<img alt="Gateways in the Ripple system" src="<?php bloginfo('template_url'); ?>/assets/img/gateways.png">
 								</div>

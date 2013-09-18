@@ -4,7 +4,6 @@
  */
 ?>
 <!-- Begin content.php -->
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 	<?php if ( is_search() ) : // Only display Excerpts for Search ?>

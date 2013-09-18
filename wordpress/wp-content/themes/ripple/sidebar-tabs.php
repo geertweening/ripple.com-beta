@@ -6,7 +6,7 @@
  */
 ?>
 	<div id="secondary" class="user-tabs widget-area" role="complementary">
-		<div class="tabs-navigation">
+		<div class="nav-bg tabs-naver">
 			<div class="wrapper">
 				<ul id="tab" class="list-unstyled">
 					<li class="active"><a href="#gateways" data-toggle="tab">Gateways<span class="caret"></span></a></li>

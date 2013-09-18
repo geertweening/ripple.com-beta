@@ -4,8 +4,10 @@
  */
 
 get_header('targets'); ?>
+	
+	<?php include (TEMPLATEPATH . '/inc/default-header.php' ); ?>
 
-<div id="primary" class="content-area">
+	<div id="primary" class="content-area">
 
 		 <?php
 	  $the_query = new WP_Query(array(

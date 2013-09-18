@@ -308,6 +308,10 @@ h1.banner-callout {
     left: 0;
     right: 0;
 }
+// Partners Page
+.partners h2.callout {
+    margin-bottom: 74px;
+}
 // Partners Background Image
 .partners .banner { 
   background: url("../img/partners-bg.jpg") no-repeat center center fixed; 
@@ -480,12 +484,12 @@ h4.widget-title {
     text-align: center;
 }
 .video-splash .entry-content {
-    margin: 9% auto 14%;
+    margin: 9% auto 21%;
 }
 // Nav Bg Styles
 .nav-bg {
     background: url("../img/nav.jpg") repeat scroll 0 0 transparent;
-    border-bottom: 14px solid #3372AD;
+    border-bottom: 22px solid #3372AD;
     height: 96px;
 }
 .nav-bg .menu-main-container li {
@@ -495,7 +499,7 @@ h4.widget-title {
 }
 .nav-bg .menu-main-container li a {
     float: left;
-    padding: 30px 10px;
+    padding: 26px 10px;
     text-align: center;
     text-decoration: none;
     width: 100%;
@@ -503,6 +507,48 @@ h4.widget-title {
 .nav-bg .menu-main-container li a:hover {
     background-color: rgba(153, 184, 214, 0.5);
     color: #FFFFFF;
+}
+// Tabs Navigation
+.tabs-naver  ul {
+    margin: 0 auto;
+    width: 90%;
+}
+.tabs-naver  ul li {
+    float: left;
+    margin-bottom: 0;
+    position: relative;
+    text-align: center;
+    width: 33.33%;
+}
+.tabs-naver ul li a {
+    color: #3372AD;
+    float: left;
+    outline: 0 none;
+    padding: 28px 26px 24px;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+.tabs-naver ul li.active a {
+    font-weight: bold;
+}
+// nav-bg caret
+.tabs-naver li a .caret {
+    display: none;
+} 
+.tabs-naver li.active a .caret, .tabs-naver li a:hover .caret {
+    display: inline;
+    position: absolute;
+}
+.tabs-naver .caret {
+    border-color: -moz-use-text-color transparent #3372AD;
+    border-style: none solid solid;
+    border-width: medium 14px 14px;
+    left: 0;
+    margin: 32px auto 0;
+    position: absolute;
+    right: 0;
+    z-index: 0;
 }
 // Video Play Button Styles
 .play-button-circle {
@@ -520,6 +566,9 @@ h4.widget-title {
     margin: 10px 15px 0;
     position: absolute;
     vertical-align: middle;
+}
+a .icon-play:hover, a .icon-play:focus, a .icon-play:active {
+    color: @blue;
 }
 // Video Splash Navigation Styles
 .diagonal_lines_pattern {
@@ -985,7 +1034,18 @@ h1.entry-title {
 #nav-below {
     display: none;
 }
-// Guide Directory Page Styles
+// Default Page Styles
+.default-header {
+    background: none repeat scroll 0 0 #3372AD;
+}
+.default-header .entry-content {
+    color: #FFFFFF;
+    margin: 42px 30px 27px;
+}
+.default-header h1 {
+    font-size: 44px;
+    font-weight: 700;
+}
 /* Large desktop */
 @media (min-width: 1200px) { 
 // body.custom-background {

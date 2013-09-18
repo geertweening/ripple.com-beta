@@ -20,7 +20,7 @@ get_header('video'); ?>
 
 			</article><!-- #post-## -->
 	</div><!-- #primary -->
-	<nav id="site-navigation" class="video-splash-navigation" role="navigation">
+	<nav id="site-navigation" class="nav-bg" role="navigation">
 		<div class="wrapper">
 			<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 			<?php wp_nav_menu( array( 'theme_location' => 'video-splash' ) ); ?>

@@ -11,6 +11,8 @@
  */
 
 get_header('targets'); ?>
+
+	<?php include (TEMPLATEPATH . '/inc/default-header.php' ); ?>
 <!-- Begin page.php-->	
 	<div id="primary" class="content-area">
 		<main id="main" class="wrapper" role="main">
