@@ -1,0 +1,36 @@
+select.goog-te-combo { 
+  width:143px !important; 
+  box-shadow:none !important; 
+  -moz-box-shadow:none !important; 
+  -webkit-box-shadow:none !important; 
+  padding:3px !important; 
+  height:auto !important; 
+  border:1px solid lightgray !important; 
+  border-radius:0px !important; 
+  -webkit-border-radius:0px; 
+  -moz-border-radius:0px !important; 
+}
+
+select.goog-te-combo:focus { 
+  box-shadow:none !important; 
+  -moz-box-shadow:none !important; 
+  -webkit-box-shadow:none !important; 
+}
+
+.metabox-holder {
+  width:65%;
+  float:left;
+}
+
+.metabox-holder h2 {
+  margin-bottom:18px; 
+}
+
+.submit { 
+  padding:0px;
+}
+
+.form-table th {
+  width:50%; 
+}
+

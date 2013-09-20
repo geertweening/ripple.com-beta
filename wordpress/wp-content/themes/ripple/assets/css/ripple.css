@@ -4590,11 +4590,9 @@ a.readmore:after {
   position: absolute;
   top: 1px;
 }
-.comment-form #submit {
-  background: none repeat scroll 0 0 #5D5C5D;
-}
 .comment-form #submit,
-.form-submit > input {
+.form-submit > input,
+.search-submit {
   background: none repeat scroll 0 0 #B7B7B7;
   border: medium none;
   border-radius: 4px 4px 4px 4px;
@@ -5852,6 +5850,7 @@ bottom right of the visualization */
   word-break: break-all;
 }
 .trow {
+  font-family: monospace;
   font-size: 12pt;
   line-height: 14pt;
   border-top: 1px solid #666;
@@ -5899,6 +5898,126 @@ h2.callout {
   max-width: 600px;
   font-weight: 100;
   letter-spacing: 1px;
+}
+.table-responsive.sharing-is-caring.affix-top {
+  background: none repeat scroll 0 0 grey;
+}
+.table-responsive.sharing-is-caring.affix {
+  background: none repeat scroll 0 0 purple;
+}
+.table-responsive.sharing-is-caring.affix-bottom {
+  background: none repeat scroll 0 0 red;
+}
+.table-responsive.sharing-is-caring td {
+  margin-left: 18px;
+  padding-right: 0px;
+}
+.twitterer {
+  width: 77px;
+}
+.gpluser.pull-left {
+  width: ;
+}
+.table-responsive.sharing-is-caring.affix {
+  top: 123px;
+  position: fixed;
+}
+.table-responsive.sharing-is-caring.affix-bottom {
+  position: absolute;
+  bottom: 100px;
+}
+ul.social-iconer {
+  margin: -5px 17px 0;
+  width: 230px;
+}
+.fber,
+.twer,
+.lker,
+.vmer,
+.yter,
+.gper {
+  background-image: url("../img/social.png");
+  background-repeat: no-repeat;
+  float: right;
+  height: 31px;
+  position: relative;
+  width: 32px;
+}
+.fber {
+  background-position: -114px -33px;
+}
+.twer {
+  background-position: 0 -33px;
+}
+.lker {
+  background-position: -114px -33px;
+}
+.vmer {
+  background-position: -155px -33px;
+}
+.yter {
+  background-position: -44px -33px;
+}
+.gper {
+  background-position: -82px -33px;
+}
+.fber:hover,
+.fber:focus,
+.fber:active {
+  background-position: -114px 0;
+}
+.twer:hover,
+.twer:focus,
+.twer:active {
+  background-position: 0 0;
+}
+.lker:hover,
+.lker:focus,
+.lker:active {
+  background-position: -114px 0;
+}
+.vmer:hover,
+.vmer:focus,
+.vmer:active {
+  background-position: -155px 0;
+}
+.yter:hover,
+.yter:focus,
+.yter:active {
+  background-position: -44px 0;
+}
+.gper:hover,
+.gper:focus,
+.gper:active {
+  background-position: -82px 0;
+}
+.four-o-four .col-sm-4 {
+  min-height: 540px;
+}
+.four-o-four .col-sm-12 {
+  margin-bottom: 26px;
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+  .four-o-four .col-sm-4 {
+    min-height: 490px;
+  }
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  .four-o-four .col-sm-4 {
+    min-height: 800px;
+  }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .four-o-four .col-sm-4 {
+    min-height: 0px;
+  }
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  
 }
 /* FONT PATH
  * -------------------------- */

@@ -52,8 +52,21 @@
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>privacy-policy/">Privacy</a></li>
 				</ul>
 			</div>
+
 			<div class="pull-right white">
-				<p>Language: English</p>
+				<!-- <p>Language: English</p> -->
+				<?php echo do_shortcode('[google-translator]'); ?>
+			</div>
+
+			<div class="pull-right">
+				<ul class="social-iconer list-inline">
+					<li><a class="fber" target="blank" href="https://www.facebook.com/RippleXrp"></a></li>
+					<li><a class="twer" target="blank" href="https://twitter.com/Ripple"></a></li>
+					<!-- <li><a class="lker" target="blank" href="http://www.linkedin.com/company/opencoin?trk=top_nav_home"></a></li> -->
+					<li><a class="vmer" target="blank" href="https://vimeo.com/user17625429"></a></li>
+					<li><a class="yter" target="blank" href="http://www.youtube.com/user/ripplevideo1"></a></li>
+					<li><a class="gper" target="blank" href="https://plus.google.com/116447073339621260069/posts"></a></li>
+				</ul>
 			</div>
 		</div>
 	</footer>

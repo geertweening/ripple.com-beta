@@ -7,18 +7,14 @@
 ?>
 <!-- Begin content-blog.php -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( has_post_thumbnail() ) : ?>
-<div class="img-wrap">
-	<?php the_post_thumbnail(); ?>
-</div>
-	<?php endif; ?>
+	
 
 	<header class="entry-header">
 		<h2 class="blog-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'space_rocket' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<p class="entry-meta">
-			<?php space_rocket_posted_on(); ?>
+			<?php ripple_posted_on(); ?>
 		</p><!-- .entry-meta -->
 		<?php endif; ?>
 		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>

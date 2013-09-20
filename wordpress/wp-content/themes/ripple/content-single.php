@@ -9,10 +9,12 @@
 		<p class="entry-meta">
 			<?php the_date('M j, y'); ?>
 		</p><!-- .entry-meta -->
-		<h2 class="blog-title"><?php the_title(); ?></h2>
+		<h2 class="blog-title"><?php the_title(); ?></h2>	
 	</header><!-- .entry-header -->
 
+
 	<div class="entry-content">
+		<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
@@ -59,4 +61,5 @@
 
 		<?php edit_post_link( __( 'Edit', 'ripple' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
+	<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
 </article><!-- #post-## -->
