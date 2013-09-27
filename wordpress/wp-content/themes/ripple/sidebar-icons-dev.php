@@ -13,7 +13,7 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#powerful-apis">
 						<div class="icons open">	
 						</div>
-						<h4 class="icons-title">Open Source <br> <span class="small">(coming soon)</span></h4>
+						<h4 class="icons-title">Open Source</h4>
 				    	<p>Code open to download, modify, and run.</p>
 					 </a>
 				</aside>
