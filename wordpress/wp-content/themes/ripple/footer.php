@@ -40,7 +40,7 @@
 			</div><!-- .wrapper -->
 			<div class="wrapper site-info">
 				<p>
-					Copyright 2013 Ripple, OpenCoin
+					Copyright 2013 Ripple, Ripple Labs LLC
 				</p>
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 	<footer id="sub-colophon" class="sub-footer" role="siteinfo">
 		<div class="wrapper">
 			<div class="pull-right">
-				<p class="gray">TM+ 2013 OpenCoin LLC. All Rights Reserved</p>
+				<p class="gray">TM+ 2013 Ripple Labs LLC LLC. All Rights Reserved</p>
 			</div>
 			<div class="pull-right">
 				<ul>

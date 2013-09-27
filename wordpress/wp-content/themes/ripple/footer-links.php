@@ -43,7 +43,7 @@
 	<footer id="sub-colophon" class="sub-footer" role="siteinfo">
 		<div class="wrapper">
 			<div class="pull-left">
-				<p>TM+ 2013 <a href="https://opencoin.com/">OpenCoin LLC</a>. All Rights Reserved</p>
+				<p>TM+ 2013 <a href="https://opencoin.com/">Ripple Labs LLC</a>. All Rights Reserved</p>
 			</div>
 			<div class="pull-left">
 				<ul class="list-inline">

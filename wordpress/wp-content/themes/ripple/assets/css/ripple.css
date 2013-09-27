@@ -4962,6 +4962,9 @@ h1.entry-title {
   font-size: 44px;
   font-weight: 700;
 }
+.table-responsive.sharing-is-caring {
+  overflow-y: hidden;
+}
 /* Large desktop */
 @media (min-width: 1200px) {
   .wrapper {
@@ -5028,6 +5031,9 @@ h1.entry-title {
     margin-left: 63px;
     min-height: 660px;
     width: 27%;
+  }
+  nav.header-navigation ul li a {
+    width: 100%;
   }
 }
 /* Landscape phone to portrait tablet */
@@ -5104,6 +5110,19 @@ h1.entry-title {
     min-height: 620px;
     width: auto;
   }
+  .sharing-is-caring table {
+    margin-bottom: 0;
+  }
+  .table-responsive.sharing-is-caring:after {
+    content: "swipe with finger to see more social network sharing options";
+  }
+  article.post.single-post {
+    width: 80%;
+  }
+  .comments-area {
+    padding: 15px 10px;
+    width: 90%;
+  }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
@@ -5163,7 +5182,7 @@ h1.entry-title {
   }
   article.post {
     padding: 30px 0;
-    width: 100%;
+    width: 80%;
   }
   .footer-wrapper {
     padding: 20px;

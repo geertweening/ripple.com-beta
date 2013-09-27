@@ -224,6 +224,7 @@ nav.header-navigation ul li a {
     width: 60%;
     text-decoration: none;
 }
+
 // Header Navigation Hover/Active/Focus States
 nav.header-navigation ul li.current_page_item a, nav.header-navigation ul li a:hover, nav.header-navigation ul li a:focus {
     border-bottom: 7px solid @blue;
@@ -1043,6 +1044,10 @@ h1.entry-title {
     font-size: 44px;
     font-weight: 700;
 }
+// Sharing is Caring
+.table-responsive.sharing-is-caring {
+    overflow-y: hidden;
+}
 /* Large desktop */
 @media (min-width: 1200px) { 
 // body.custom-background {
@@ -1130,6 +1135,9 @@ button.btn-wallet {
     margin-left: 63px;
     min-height: 660px;
     width: 27%;
+}
+nav.header-navigation ul li a {
+    width: 100%;
 }
  }
  
@@ -1223,6 +1231,21 @@ button.btn-wallet {
     min-height: 620px;
     width: auto;
 }
+// Sharing is Caring Mobile Landscape Styles
+.sharing-is-caring table {
+    margin-bottom: 0;
+}
+.table-responsive.sharing-is-caring:after {
+    content: "swipe with finger to see more social network sharing options";
+}
+// Mobile Landscape Article Post Single Styles
+article.post.single-post {
+    width: 80%;
+}
+.comments-area {
+    padding: 15px 10px;
+    width: 90%;
+}
  }
  
 /* Landscape phones and down */
@@ -1285,9 +1308,10 @@ nav.header-navigation ul li a {
     font-size: 5rem;
     margin-bottom: 49px;
 }
+// Mobile Article Post Styles
 article.post {
     padding: 30px 0;
-    width: 100%;
+    width: 80%;
 }
 // Mobile Footer Links
 .footer-wrapper {
