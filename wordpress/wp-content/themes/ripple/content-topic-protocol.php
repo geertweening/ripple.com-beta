@@ -66,7 +66,7 @@
 				</section>
 
 				<section class="guide-section">
-					<h5 id="open-source-coming-soon">Open Source (coming soon)</h5>
+					<h5 id="open-source-coming-soon">Open Source</h5>
 					<p>Ripple is open-source software. It is not owned or controlled by any person or organization.Anyone can use, develop, expand or modify it for free. </p>
 				</section>
 
