@@ -1045,9 +1045,24 @@ h1.entry-title {
     font-weight: 700;
 }
 // Sharing is Caring
-.table-responsive.sharing-is-caring {
-    overflow-y: hidden;
+.sharing-is-caring {
+    height: 21px;
+    overflow: hidden;
+
 }
+.sharing-is-caring li {
+    float: left;
+    margin: 0 6px;
+    overflow: hidden;
+}
+.gpluser {
+    width: 63px;
+}
+// used to make two lines on mobile
+.mobile-linebreak {
+    display: none;
+}
+
 /* Large desktop */
 @media (min-width: 1200px) { 
 // body.custom-background {
@@ -1348,5 +1363,22 @@ article.post {
 .topic-page .post-thumbnail {
     margin: 0 auto 30px;
     width: 290px;
+}
+.sharing-is-caring {
+    height: 64px;
+    overflow: hidden;
+}
+.sharing-is-caring li {
+    float: left;
+    height: 22px;
+    margin: 0 6px;
+    overflow: hidden;
+}
+.linkediner {
+    width: 76px;
+}
+.mobile-linebreak {
+    display: block;
+    margin: 3px;
 }
 }
