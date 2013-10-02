@@ -1,5 +1,5 @@
 // Relative URL of locally-stored historical network data from ripplecharts.com
-var JSON_URL = '../wp-content/themes/ripple/assets/json/rippleChartsApiData.json';
+var JSON_URL = '/Ripple.com/wordpress/wp-content/themes/ripple/assets/json/rippleChartsApiData.json';
 
 var modulesOnThisPage = [];
 
