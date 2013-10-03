@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>rippled WebSocket API tool</title>
+    <link rel='stylesheet' type='text/css' href='css/style.min.css'/>
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300'>
+    <!--[if IE]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <h1>Ripple WebSocket API tool</h1>
+  <div id='wrapper'>
+    <div id='try'>Send request</div>
+    <div id='online_state'>Offline</div>
+    <div style="clear:both;"></div>
+    <div id='command_wrapper'>
+      <ul id='command_list'>
+        <li id='cmd_server_info' class="selected">server_info</li>
+        <li id='cmd_server_state' >server_state</li>
+        <li id='cmd_ping'>ping</li>
+        <br/>
+        <li id='cmd_subscribe'>subscribe</li>
+        <li id='cmd_unsubscribe'>unsubscribe</li>
+        <br/>
+        <li id='cmd_ledger'>ledger</li>
+        <li id='cmd_ledger_entry'>ledger_entry</li>
+        <li id='cmd_ledger_closed'>ledger_closed</li>
+        <li id='cmd_ledger_header'>ledger_header</li>
+        <li id='cmd_ledger_current'>ledger_current</li>
+        <br/>
+        <li id='cmd_account_info'>account_info</li>
+        <li id='cmd_account_lines'>account_lines</li>
+        <li id='cmd_account_offers'>account_offers</li>
+        <li id='cmd_account_tx'>account_tx</li>
+        <br/>
+        <li id='cmd_transaction_entry'>transaction_entry</li>
+        <li id='cmd_tx'>tx</li>
+        <li id='cmd_tx_history'>tx_history</li>
+        <br/>
+        <li id='cmd_ripple_path_find'>ripple_path_find</li>
+        <li id='cmd_path_find'>path_find</li>
+        <li id='cmd_book_offers'>book_offers</li>
+      </ul>
+      <div id='command_table'>
+        <div id='io_wrapper'>
+          <div id='input' class='io'>
+            <h2>Request</h2>
+            <div id='invalid'>Invalid JSON</div>
+            <div id='request'></div>
+          </div>
+          <div id='output' class='io'>
+            <h2>Response</h2>
+            <div id='status'></div>
+            <p id='info'></p>
+            <div id='response' contenteditable="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  <script type='text/javascript' src='js/es5-shim.js'></script>
+  <script type='text/javascript' src='js/ripple.js'></script>
+  <script type='text/javascript' src='js/main.min.js'></script>
+  </body>
+</html>
