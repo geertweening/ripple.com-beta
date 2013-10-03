@@ -4,3 +4,6 @@
 /wordpress/.htaccess
 /wordpress/wp-content/uploads/*
 /wp-content/themes/ripple/assets/json/rippleChartsApiData.json
+/tools/api/app.js
+/tools/api/node_modules
+/tools/api/package.json
