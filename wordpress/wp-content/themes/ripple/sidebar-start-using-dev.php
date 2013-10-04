@@ -9,8 +9,8 @@
 		<section>
 			<div class="wrapper">
 				<div class="col-lg-12 centered text-center">
-					<h3>Git Started</h3>
-					<p>The ripple repository is on git. Currently we have the client code available. Check back for updates</p>
+					<h3>Get Started</h3>
+					<p>The Ripple repository is now open source and available at Github.</p>
 					<img alt="Go to Ripple Gitub" src="<?php bloginfo('template_url'); ?>/assets/img/github.png">
 					<div class="row">
 					<a href="https://github.com/ripple" target="blank"><button type="button" class="btn btn-primary">Go to Github</button></a>
@@ -25,7 +25,7 @@
 			<div class="wrapper">
 				<div class="col-lg-12 centered text-center  shaded">
 					<h3>Find out more at the Ripple Wiki</h3>
-					<p>You can learn more about Ripple and how it work on the Ripple wiki. </p>
+					<p>Learn more about how Ripple works at the Ripple Wiki.</p>
 					<img alt="Ripple Wiki" src="<?php bloginfo('template_url'); ?>/assets/img/wiki.png">
 					<div class="row">
 					<a href="https://ripple.com/wiki/" target="blank"><button type="button" class="btn btn-primary">Go to Wiki</button></a>
