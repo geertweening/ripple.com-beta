@@ -31,13 +31,11 @@
     function obj_to_html(obj) {
       var isArray = Array.isArray(obj);
       var keys    = Object.keys(obj);
-      var open  = ELEMENTS[isArray ? 'open_bracket' : 'open_brace'];
-      var close = ELEMENTS[isArray ? 'close_bracket' : 'close_brace'];
+      var open    = ELEMENTS[isArray ? 'open_bracket' : 'open_brace'];
+      var close   = ELEMENTS[isArray ? 'close_bracket' : 'close_brace'];
+      var res     = open;
 
-      var res = open;
-
-      for (var i=0; i<keys.length; i++) {
-        var key = keys[i];
+      keys.forEach(function(key, i) {
         var val = obj[key];
         var field = '<span class="field'
         + (isArray ? ' hidden">' + key : '">' + JSON.stringify(key) )
@@ -45,23 +43,18 @@
 
         res += '<div class="key">' + field;
         if (!isArray) res += ELEMENTS.colon;
-
         if (typeof val === 'object' && val) {
           res += obj_to_html(val);
         } else {
-          res += value(val, is_editable && key !== 'command');
-          if (i < keys.length -1) {
-            res += ELEMENTS.comma;
-          }
+          res += value(val, is_editable && !/^(command|id)$/.test(key));
+          if (keys[i + 1]) res += ELEMENTS.comma;
         }
-
         res += '</div>';
-      }
+      });
 
       res += close;
-
       return res;
-    }
+    };
 
     return obj_to_html(message);
   };
@@ -93,8 +86,10 @@
   function getRoute(obj, route) {
     var l = route.length;
     while (--l > 0) {
+      console.log('Getting', obj, route[l]);
       obj = obj[route[l]];
     }
+    console.log('Getting', obj, route[l]);
     return obj[route[l]];
   };
 
