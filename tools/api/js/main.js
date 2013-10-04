@@ -93,10 +93,8 @@
   function getRoute(obj, route) {
     var l = route.length;
     while (--l > 0) {
-      console.log('Getting', obj, route[l]);
       obj = obj[route[l]];
     }
-    console.log('Getting', obj, route[l]);
     return obj[route[l]];
   };
 
