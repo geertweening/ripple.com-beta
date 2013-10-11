@@ -1,4 +1,4 @@
-[address]
+[accounts]
 r3kmLJN5D28dHuH8vZNUZpMC43pEHpaocV
 
 [validation_public_key]
