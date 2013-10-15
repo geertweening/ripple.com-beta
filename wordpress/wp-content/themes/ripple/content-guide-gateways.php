@@ -117,7 +117,7 @@
     						</div>
   						</div>
 					</div><!-- .row -->
-					<p>Keep in mind that OpenCoin encourages the growth of Ripple gateways, but is not affiliated with any individual gateway.</p>
+					<p>Keep in mind that Ripple Labs encourages the growth of Ripple gateways, but is not affiliated with any individual gateway.</p>
 				</section>
 
 				<section class="guide-section">

@@ -62,7 +62,7 @@
 					<h5 id="smart-contracts-coming-soon">Smart Contracts (coming soon)</h5>
 					<p>Ripple Smart Contracts is a scripting language built into RTXP that allows complex financial instruments to be fully automated. Subscriptions, escrow, auctions, crowd-funding, and more -- the possibilities of smart contracts are limitless.</p>
 						<blockquote>“Contracts makes Ripple extensible. It lets other developers come in and add completely new features to the Ripple network.  It’s every engineer’s dream to work on a component like this.” <br>
-						<cite title="Quote from Stefan Thomas, CTO at OpenCoin"> —Stefan Thomas, CTO at OpenCoin </cite> 
+						<cite title="Quote from Stefan Thomas, CTO at Ripple Labs"> —Stefan Thomas, CTO at Ripple Labs </cite> 
 						</blockquote>
 				</section>
 

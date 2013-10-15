@@ -21,7 +21,7 @@
 					<h5 id="the-ledger">The Ledger</h5>
 					<p>The Ledger is a distributed database -- a perfect, shared record of accounts, balances and transactions in the Ripple network. It is continually and automatically updated by RTXP so that an identical Ledger exists on thousands of servers around the world.  </p>
 					<p><strong>Transactions happen instantly.</strong> The time it takes to move money within Ripple is the time it takes to update Ripple’s network of servers, usually just a few seconds.</p>
-					<p><strong>XRP is not subject to inflation.</strong>  OpenCoin created 100 billion XRP within the Ripple network, and that amount will never increase.</p>
+					<p><strong>XRP is not subject to inflation.</strong>  Ripple Labs created 100 billion XRP within the Ripple network, and that amount will never increase.</p>
 				</section>
 
 				<section class="guide-section">
@@ -79,7 +79,7 @@
 					<h5 id="smart-contracts-coming-soon">Smart Contracts (coming soon)</h5>
 					<p>Ripple Smart Contracts is a scripting language built into RTXP that allows complex financial instruments to be fully automated. Subscriptions, escrow, auctions, crowd-funding, and more -- the possibilities of Smart Contracts are limitless.</p>
 						<blockquote>“Contracts makes Ripple extensible. It lets other developers come in and add completely new features to the Ripple network.  It’s every engineer’s dream to work on a component like this.” <br>
-						<cite title="Quote from Stefan Thomas, CTO at OpenCoin"> —Stefan Thomas, CTO at OpenCoin </cite> 
+						<cite title="Quote from Stefan Thomas, CTO at Ripple Labs"> —Stefan Thomas, CTO at Ripple Labs </cite> 
 						</blockquote>
 				</section>
 

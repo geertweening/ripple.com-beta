@@ -28,12 +28,12 @@
 					<p>XRP is a math-based digital currency that functions as “digital cash” within the Ripple network.  Like any currency, XRP has real-world value, and all Ripple users can send and receive money in XRP.</p>
 					<p><strong>There’s no third party involved.</strong>  XRP transactions don’t incur any fees or delays from going through a third-party institution like a bank or currency exchange.</p>
 					<p><strong>Transactions happen instantly.</strong> The time it takes to move money within Ripple is the time it takes to update Ripple’s network of servers, usually just a few seconds.</p>
-					<p><strong>XRP is not subject to inflation.</strong>  OpenCoin created 100 billion XRP within the Ripple network, and that amount will never increase.</p>
+					<p><strong>XRP is not subject to inflation.</strong>  Ripple Labs created 100 billion XRP within the Ripple network, and that amount will never increase.</p>
 				</section>
 
 				<section class="guide-section">
 					<h5 id="how-to-get-xrp">How to Get XRP</h5>
-					<p>There are two simple ways to get XRP: you can buy XRP directly from a seller, or you can get XRP for free from OpenCoin in one of their giveaways. </p>
+					<p>There are two simple ways to get XRP: you can buy XRP directly from a seller, or you can get XRP for free from Ripple Labs in one of their giveaways. </p>
 				</section>
 
 				<section class="guide-section">
@@ -43,7 +43,7 @@
 
 				<section class="guide-section">
 					<h5 id="getting-free-xrp">Getting Free XRP</h5>
-					<p>OpenCoin is committed to giving away the majority of the 100 billion XRP in existence to large numbers of people.  They have started distributing XRP to early adopters through a variety of giveaways and promotions, such as distributing XRP to <a href="http://www.coindesk.com/ripple-turns-on-giveaway-faucet/">25,000 new users</a> who signed up for their email list.</p>
+					<p>Ripple Labs is committed to giving away the majority of the 100 billion XRP in existence to large numbers of people.  They have started distributing XRP to early adopters through a variety of giveaways and promotions, such as distributing XRP to <a href="http://www.coindesk.com/ripple-turns-on-giveaway-faucet/">25,000 new users</a> who signed up for their email list.</p>
 					<p><strong>Current giveaways include:</strong></p>
 					<ul>
 						<li>1,500 XRP to every user who <a href="https://ripple.com/blog/snapswap-becomes-first-u-s-ripple-gateway-opencoin-to-send-1000-xrp-to-new-snapswap-users/">verifies a bank account</a> with <a href="https://www.snapswap.us/#/welcome">SnapSwap</a>, the latest Ripple Gateway.</li>
