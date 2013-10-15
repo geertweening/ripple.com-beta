@@ -2,7 +2,7 @@
 <html lang='en'>
   <head>
     <meta charset='UTF-8'/>
-    <title>rippled WebSocket API tool</title>
+    <title>Ripple WebSocket API tool</title>
     <link rel='stylesheet' type='text/css' href='css/style.min.css'/>
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300'>
     <!--[if IE]>
@@ -10,51 +10,66 @@
     <![endif]-->
   </head>
   <body>
-  <h1>Ripple WebSocket API tool</h1>
   <div id='wrapper'>
-    <div id='try'>Send request</div>
+    <h1>Ripple WebSocket API tool</h1>
     <div id='online_state'>Offline</div>
     <div style="clear:both;"></div>
     <div id='command_wrapper'>
       <ul id='command_list'>
-        <li id='cmd_server_info' class="selected">server_info</li>
-        <li id='cmd_server_state' >server_state</li>
-        <li id='cmd_ping'>ping</li>
+        <li class='selected'>server_info</li>
+        <li>server_state</li>
+        <li>ping</li>
         <br/>
-        <li id='cmd_subscribe'>subscribe</li>
-        <li id='cmd_unsubscribe'>unsubscribe</li>
+        <li>subscribe</li>
+        <li>unsubscribe</li>
         <br/>
-        <li id='cmd_ledger'>ledger</li>
-        <li id='cmd_ledger_entry'>ledger_entry</li>
-        <li id='cmd_ledger_closed'>ledger_closed</li>
-        <li id='cmd_ledger_header'>ledger_header</li>
-        <li id='cmd_ledger_current'>ledger_current</li>
+        <li>ledger</li>
+        <li>ledger_entry</li>
+        <li>ledger_closed</li>
+        <li>ledger_current</li>
         <br/>
-        <li id='cmd_account_info'>account_info</li>
-        <li id='cmd_account_lines'>account_lines</li>
-        <li id='cmd_account_offers'>account_offers</li>
-        <li id='cmd_account_tx'>account_tx</li>
+        <li>account_info</li>
+        <li>account_lines</li>
+        <li>account_offers</li>
+        <li>account_tx</li>
         <br/>
-        <li id='cmd_transaction_entry'>transaction_entry</li>
-        <li id='cmd_tx'>tx</li>
-        <li id='cmd_tx_history'>tx_history</li>
+        <li>transaction_entry</li>
+        <li>tx</li>
+        <li>tx_history</li>
         <br/>
-        <li id='cmd_ripple_path_find'>ripple_path_find</li>
-        <li id='cmd_path_find'>path_find</li>
-        <li id='cmd_book_offers'>book_offers</li>
+        <li>submit</li>
+        <br/>
+        <li>ripple_path_find</li>
+        <li>path_find</li>
+        <li>book_offers</li>
       </ul>
       <div id='command_table'>
         <div id='io_wrapper'>
           <div id='input' class='io'>
             <h2>Request</h2>
+            <div id='request_options'>
+              <div id='request_button' class='obscured'>Send request</div>
+              <div id='sign_button'>Sign transaction</div>
+            </div>
+            <div style="clear:both;"></div>
+            <h3 id='selected_command'>server_info</h3>
+            <p id='description'></p>
             <div id='invalid'>Invalid JSON</div>
+            <p>JSON</p>
             <div id='request'></div>
+            <div id='options'></div>
           </div>
           <div id='output' class='io'>
             <h2>Response</h2>
-            <div id='status'></div>
+            <p>Stream output</p>
+            <ul class='toolbar'>
+              <li id='stream_show'>show</li>
+              <li id='stream_pause'>pause</li>
+            </ul>
+            <div id='status' contenteditable="true" spellcheck="false"></div>
             <p id='info'></p>
-            <div id='response' contenteditable="true"></div>
+            <div id='response' contenteditable="true" spellcheck="false"></div>
+            <div id='tooltip'></div>
           </div>
         </div>
       </div>
@@ -62,7 +77,7 @@
   </div>
   <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
   <script type='text/javascript' src='js/es5-shim.js'></script>
-  <script type='text/javascript' src='js/ripple.js'></script>
+  <script type='text/javascript' src='js/ripple.min.js'></script>
   <script type='text/javascript' src='js/main.min.js'></script>
   </body>
 </html>
