@@ -139,7 +139,7 @@
 				</section>
 				<section class="guide-section">
 					<h5 id="who-invented-ripple">Who Invented Ripple</h5>
-					<p>Ripple was invented and developed by a group of programmers at Ripple Labs, Inc. A beta version was released in 2013. After the initial testing is completed will be made open source.</p> 
+					<p>Ripple was invented and developed by a group of programmers at Ripple Labs, Inc. A beta version was released in 2013 made open source.</p> 
 				</section>
 				<section class="guide-section">
 					<h5 id="what-is-open-source">What is Open Source?</h5>
