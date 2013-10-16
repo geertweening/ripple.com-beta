@@ -22,8 +22,8 @@
 				<li><a href="#what-are-the-advantages-of-using-ripple-for-financial-transactions">What are the advantages of using Ripple for financial transactions?</a></li>
 				<li><a href="#ripple-is-like-email">Ripple is like email</a></li>
 				<li><a href="#future-of-ripple">Future of Ripple</a></li>
-				<li><a href="#why-did-opencoin-create-ripple">Why did OpenCoin create Ripple?</a></li>
-				<li><a href="#how-does-opencoin-make-money">How Does OpenCoin Make Money?</a></li>
+				<li><a href="#why-did-opencoin-create-ripple">Why did Ripple Labs create Ripple?</a></li>
+				<li><a href="#how-does-opencoin-make-money">How Does Ripple Labs Make Money?</a></li>
 				<li><a href="#the-future-of-money">The future of money</a></li>
 				<li><a href="#how-do-i-get-involved">How do I get involved?</a></li> -->
        		</ul>

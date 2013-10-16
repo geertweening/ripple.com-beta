@@ -133,7 +133,7 @@
 		</section>
 		<section class="guide-section" id="who-invented-ripple">
 			<h5>Who invented Ripple?</h5>
-			<p>Ripple was invented and developed by a group of programmers at OpenCoin, Inc. A beta version was released in 2013. After the initial testing is completed will be made open source.</p> 
+			<p>Ripple was invented and developed by a group of programmers at Ripple Labs, Inc. A beta version was released in 2013. After the initial testing is completed will be made open source.</p> 
 		</section>
 		<section class="guide-section" id="what-is-open-source">
 			<h5>What is Open Source?</h5>
@@ -184,19 +184,19 @@
 		    </table>
 		</section>
 		<section class="guide-section" id="why-did-opencoin-create-ripple">
-			<h5>Why did OpenCoin create Ripple?</h5>
+			<h5>Why did Ripple Labs create Ripple?</h5>
 			<p>The Internet is a powerful force for good. It allows people to talk to each other across any distance. It brings news from the other side of the world. It lets us share knowledge, images, and ideas.</p>
 			<p>However, the Internet is not very good at transactions. Many of the technologies used to send money were invented before the Internet: checks, bank wires, credit cards, etc. As a result they are slow, expensive, and inefficient.</p> 
-			<p>OpenCoin invented Ripple to bring the principles of the Internet to financial transactions.</p> 
+			<p>Ripple Labs invented Ripple to bring the principles of the Internet to financial transactions.</p> 
 				<table id="how-does-opencoin-make-money" class="table table-bordered">
 		        <thead>
 		          	<tr>
-		            	<th>How Does OpenCoin Make Money?</th>
+		            	<th>How Does Ripple Labs Make Money?</th>
 		          	</tr>
 		        </thead>
 		        <tbody>
 		          	<tr>
-		     			<td><p>Ripple is not owned or controlled by anyone and is free to use by anyone. So how does OpenCoin make a profit? It’s simple. OpenCoin holds many of the XRP currency inside the Ripple network. If Ripple proves useful to the world, then XRP will gain value. The company’s fortune is tied to the utility of Ripple. It is an unconventional profit model, but it has attracted many investors, including Founders Fund, Andreessen Horowitz, IDG Capital, and Google.</p></td>
+		     			<td><p>Ripple is not owned or controlled by anyone and is free to use by anyone. So how does Ripple Labs make a profit? It’s simple. Ripple Labs holds many of the XRP currency inside the Ripple network. If Ripple proves useful to the world, then XRP will gain value. The company’s fortune is tied to the utility of Ripple. It is an unconventional profit model, but it has attracted many investors, including Founders Fund, Andreessen Horowitz, IDG Capital, and Google.</p></td>
 		          	</tr>
 		        </tbody>
 		    </table>   
