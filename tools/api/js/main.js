@@ -50,7 +50,7 @@
 
       keys.forEach(function(key, i) {
         var val = obj[key];
-        var field = '<span class="field'
+        var field = '<span contenteditable="true" class="field editable'
         + (isArray ? ' hidden">' + key : '">' + JSON.stringify(key) )
         + '</span>';
 
@@ -285,7 +285,7 @@
   });
 
 //  Request('submit', {
-//    secret: 'ssgBzVoMSa67TqA9FiFZvg6vXVjJC',
+//    secret: '',
 //    tx_json: {
 //      Flags: 0,
 //      TransactionType: 'AccountSet',
@@ -339,7 +339,13 @@
     var parsed = rewrite_obj(message);
     var result = $('<div class="json">');
 
-    $(result).append(to_html(parsed));
+    //$(result).append(to_html(parsed));
+
+    CodeMirror(result[0], {
+      value: JSON.stringify(parsed),
+      mode: 'javascript',
+      json: true
+    });
 
     if (parsed.id === id._c) {
       var request_header = '<span class="request_name">'
@@ -445,6 +451,16 @@
     }
   };
 
+  $(document.body).delegate('span.editable', 'blur', handle_change);
+
+  $(document.body).delegate('span.editable', 'keydown', function(e) {
+    if (e.which === 13) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).blur();
+    }
+  });
+
   function prepare_request(request) {
     var isArray = Array.isArray(request);
     var result  = isArray ? [ ] : { };
@@ -490,68 +506,6 @@
   } else {
     select_request('server_info');
   }
-
-  function init() {
-    id._c = remote._get_server()._id;
-
-    $(document.body).delegate('span.editable', 'blur', handle_change);
-
-    $(document.body).delegate('span.editable', 'keydown', function(e) {
-      if (e.which === 13) {
-        e.preventDefault();
-        e.stopPropagation();
-        $(this).blur();
-      }
-    });
-
-    remote._get_server().on('message', set_output);
-
-    $(request_button).click(function() {
-      $(this).addClass('depressed');
-      $(response).addClass('obscured');
-
-      var request = remote.request_server_info();
-      request.message = prepare_request(selected_request.message);
-      request.request();
-
-      selected_request.t = Date.now();
-    });
-
-    $(request_button).removeClass('obscured');
-  };
-
-  function set_online_state(state) {
-    var state = state.toLowerCase();
-    $(online_state).removeClass();
-    $(online_state).addClass(state);
-    $(online_state).text(state);
-  };
-
-  var remote = new ripple.Remote({
-    trusted:        true,
-    local_signing:  true,
-    local_fee:      false,
-    servers: [
-      {
-        host:    's1.ripple.com',
-        port:    443,
-        secure:  true
-      }
-    ]
-  });
-
-  remote.on('disconnect', function() {
-    set_online_state('disconnected');
-  });
-
-  remote.on('connect', function() {
-    set_online_state('connected');
-  });
-
-  $(function() {
-    set_online_state('connecting');
-    remote.connect(init);
-  });
 
   function random_fieldname() {
     return 'property_' + Math.random().toString(10).slice(2, 4);
@@ -651,28 +605,81 @@
     });
   });
 
-//  function get_tooltip(field) {
-//    find_route(field);
-//  };
-//
-//  $(document.body).delegate('span.field', 'mouseenter', function() {
-//    if (!mousedown) {
-//
-//      $(tooltip).text(get_tooltip(this));
-//
-//      var position = $(this).position();
-//
-//      $(tooltip).css({
-//        top: position.top - $(tooltip).height() - 40,
-//        left: position.left
-//      });
-//
-//      $(tooltip).show();
-//    }
-//  });
-//
-//  $(document.body).delegate('span.field', 'mouseleave', function() {
-//    $(tooltip).hide();
-//  });
-//
+  //  function get_tooltip(field) {
+  //    find_route(field);
+  //  };
+  //
+  //  $(document.body).delegate('span.field', 'mouseenter', function() {
+  //    if (!mousedown) {
+  //
+  //      $(tooltip).text(get_tooltip(this));
+  //
+  //      var position = $(this).position();
+  //
+  //      $(tooltip).css({
+  //        top: position.top - $(tooltip).height() - 40,
+  //        left: position.left
+  //      });
+  //
+  //      $(tooltip).show();
+  //    }
+  //  });
+  //
+  //  $(document.body).delegate('span.field', 'mouseleave', function() {
+  //    $(tooltip).hide();
+  //  });
+  //
+
+  function set_online_state(state) {
+    var state = state.toLowerCase();
+    $(online_state).removeClass();
+    $(online_state).addClass(state);
+    $(online_state).text(state);
+  };
+
+  var remote = new ripple.Remote({
+    trusted:        true,
+    local_signing:  true,
+    local_fee:      false,
+    servers: [
+      {
+        host:    's1.ripple.com',
+        port:    443,
+        secure:  true
+      }
+    ]
+  });
+
+  remote.on('disconnect', function() {
+    set_online_state('disconnected');
+  });
+
+  remote.on('connect', function() {
+    set_online_state('connected');
+  });
+
+  function init() {
+    id._c = remote._get_server()._id;
+
+    remote._get_server().on('message', set_output);
+
+    $(request_button).click(function() {
+      $(this).addClass('depressed');
+      $(response).addClass('obscured');
+
+      var request = remote.request_server_info();
+      request.message = prepare_request(selected_request.message);
+      request.request();
+
+      selected_request.t = Date.now();
+    });
+
+    $(request_button).removeClass('obscured');
+  };
+
+  $(function() {
+    set_online_state('connecting');
+    remote.connect(init);
+  });
+
 })();
