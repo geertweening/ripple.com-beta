@@ -26,7 +26,7 @@ get_header('targets'); ?>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#powerful-apis">Powerful APIs</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#open-apis">Open APIs</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#easy-integration">Easy Integration</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#open-source-coming-soon">Open Source (coming soon)</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#open-source">Open Source</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#open-client">Open Client</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#smart-contracts-coming-soon">Smart Contracts (coming soon)</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#federation-api">Federation API</a></li>

@@ -16,7 +16,7 @@
 				<li><a href="#powerful-apis">Powerful APIs</a></li>
 				<li><a href="#open-apis">Open APIs</a></li>
 				<li><a href="#easy-integration">Easy Intergration</a></li>
-				<li><a href="#open-source-coming-soon">Open Source (coming soon)</a></li>
+				<li><a href="#open-source">Open Source</a></li>
 				<li><a href="#open-client">Open Client</a></li>
 				<li><a href="#smart-contracts-coming-soon">Smart Contracts (coming soon)</a></li>
 				<li><a href="#federation-api">Federation API</a></li>
