@@ -318,12 +318,7 @@
     var parsed = rewrite_obj(message);
     var is_response = (parsed.type === 'response');
 
-    console.log('Setting output', is_response, parsed.id, id._c);
-
     if (is_response && parsed.id === id._c) {
-
-      console.log('WAITING', WAITING);
-
       if (!WAITING) return;
       else WAITING = false;
 
