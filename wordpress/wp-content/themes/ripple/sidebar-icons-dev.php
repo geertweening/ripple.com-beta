@@ -37,7 +37,7 @@
 				</aside>
 
 				<aside class="col-lg-3">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#open-source-coming-soon">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#open-source">
 						<div class="icons powerful">	
 						</div>
 				    	<h4 class="icons-title">Powerful and open APIs</h4>

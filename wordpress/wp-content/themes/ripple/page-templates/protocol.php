@@ -271,17 +271,17 @@ get_header('targets'); ?>
 		 endwhile;
 		 wp_reset_postdata();
 		?><!-- #easy-integration -->
-		<!-- #open-source-coming-soon --> 	
+		<!-- #open-source -->
       <?php
 	  $the_query = new WP_Query(array(
-		'category_name' => 'open-source-coming-soon',
+		'category_name' => 'open-source',
 		'posts_per_page' => 1,
 		));
 	  
 		while ( $the_query->have_posts() ) :
 		 $the_query->the_post();
 		?>
- 		<section id="open-source-coming-soon" <?php post_class(); ?>>
+ 		<section id="open-source" <?php post_class(); ?>>
  			<div class="wrapper">
 				<div class="post-thumbnail col-sm-5">
 					 <?php the_post_thumbnail('excerpt-thumbnail', 'class=news-thumbnail'); ?>
@@ -296,7 +296,7 @@ get_header('targets'); ?>
 				<?php
 			 endwhile;
 			 wp_reset_postdata();
-			?><!-- #open-source-coming-soon -->
+			?><!-- #open-source -->
 			<!-- #open-client --> 	
 	      <?php
 		  $the_query = new WP_Query(array(
