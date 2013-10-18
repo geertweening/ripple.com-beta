@@ -16,96 +16,33 @@
   var status          = $(command_wrapper).find('#status');
   var info            = $(command_wrapper).find('#info');
 
-  /* ---- ---- ---- ---- ---- */
+  var remote = new ripple.Remote({
+    trusted:        true,
+    local_signing:  true,
+    local_fee:      false,
+    servers: [
+      {
+        host:    's1.ripple.com',
+        port:    443,
+        secure:  true
+      }
+    ]
+  });
 
-    //JS object > editable HTML mapping
-  var ELEMENTS = {
-      open_brace:     '<span class="brace open">{</span>'
-    , close_brace:    '<span class="brace close">}</span>'
-    , open_bracket:   '<span class="bracket open">[</span>'
-    , close_bracket:  '<span class="bracket close">]</span>'
-    , comma:          '<span class="comma">,</span>'
-    , colon:          '<span class="colon">:</span>'
-  }
-
-  function value(e, editable) {
-    return '<span class="val"><span class="'
-    + typeof e + (editable ? ' editable" contenteditable="true"' : '"')
-    + ' spellcheck="false">'
-    + JSON.stringify(e) + '</span></span>';
+  function set_online_state(state) {
+    var state = state.toLowerCase();
+    $(online_state).removeClass();
+    $(online_state).addClass(state);
+    $(online_state).text(state);
   };
 
-  //Generate HTML+JSON representation of JS object
-  function to_html(message, is_editable) {
-    if (typeof is_editable !== 'boolean') {
-      is_editable = true;
-    }
+  remote.on('disconnect', function() {
+    set_online_state('disconnected');
+  });
 
-    function obj_to_html(obj) {
-      var isArray = Array.isArray(obj);
-      var keys    = Object.keys(obj);
-      var open    = ELEMENTS[isArray ? 'open_bracket' : 'open_brace'];
-      var close   = ELEMENTS[isArray ? 'close_bracket' : 'close_brace'];
-      var res     = open;
-
-      keys.forEach(function(key, i) {
-        var val = obj[key];
-        var field = '<span contenteditable="true" class="field editable'
-        + (isArray ? ' hidden">' + key : '">' + JSON.stringify(key) )
-        + '</span>';
-
-        res += '<div class="key">' + field;
-
-        if (!isArray) res += ELEMENTS.colon;
-
-        if (typeof val === 'object' && val) {
-          res += obj_to_html(val);
-        } else {
-          res += value(val, is_editable && key !== 'id');
-        }
-
-        if (keys[i + 1]) res += ELEMENTS.comma;
-
-        res += '</div>';
-      });
-
-      res += close;
-      return res;
-    };
-
-    return obj_to_html(message);
-  };
-
-  //Find the chain of JSON attributes when a nested
-  //field has been modified
-  function find_route(element, p) {
-    var p = p || [];
-    var key = $(element).parent('div.key');
-    if (!key.length) return p;
-    p.push($(key).children('.field').text().replace(/"/g, ''));
-    return find_route(key, p);
-  };
-
-  //Set an attribute on backing JS object based
-  //on the path to that attribute
-  function set_route(obj, route, val) {
-    var l = route.length;
-    while (--l > 0) {
-      obj = obj[route[l]];
-    }
-    obj[route[l]] = val;
-    return obj;
-  };
-
-  //Get an attribute on backing JS object based
-  //on the path to that attribute
-  function get_route(obj, route) {
-    var l = route.length;
-    while (--l > 0) {
-      obj = obj[route[l]];
-    }
-    return obj[route[l]];
-  };
+  remote.on('connect', function() {
+    set_online_state('connected');
+  });
 
   /* ---- ---- ---- ---- ---- */
 
@@ -113,6 +50,10 @@
   function id() { return id._c; };
 
   id._c = 2;
+
+  id.reset = function() {
+    id._c = remote._get_server()._id;
+  };
 
   /* ---- ---- ---- ---- ---- */
 
@@ -150,15 +91,18 @@
   /* ---- ---- */
 
   Request('server_info', {
-    _description: 'Returns information about the state of the server for human consumption. Results are subject to change without notice.'
+    _description: 'Returns information about the state of the server for human consumption. Results are subject to change without notice.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#server_info'
   });
 
   Request('server_state', {
-    _description: 'Returns information about the state of the server for machine consumption.'
+    _description: 'Returns information about the state of the server for machine consumption.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#server_state'
   });
 
   Request('ping', {
-    _description: 'This command is used to check connectivity for clients. Websocket clients can use this to determine turn around time and actively discover loss of connectivity to a server.'
+    _description: 'This command is used to check connectivity for clients. Websocket clients can use this to determine turn around time and actively discover loss of connectivity to a server.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#ping'
   });
 
   /* ---- ---- */
@@ -166,13 +110,15 @@
   Request('subscribe', {
     accounts: [ ],
     streams: [ 'server', 'ledger' ],
-    _description: 'Start receiving selected streams from the server.'
+    _description: 'Start receiving selected streams from the server.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#subscribe'
   });
 
   Request('unsubscribe', {
     accounts: [ ],
     streams: [ 'server', 'ledger' ],
-    _description: 'Stop receiving selected streams from the server.'
+    _description: 'Stop receiving selected streams from the server.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#unsubscribe'
   });
 
   /* ---- ---- */
@@ -184,7 +130,8 @@
     expand:        false,
     transactions:  true,
     accounts:      true,
-    _description: 'Returns ledger information.'
+    _description: 'Returns ledger information.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#ledger'
   });
 
   Request('ledger_entry', {
@@ -192,36 +139,42 @@
     account_root:  sample_address,
     ledger_hash:   'validated',
     ledger_index:  void(0),
-    _description: 'Returns a ledger entry. For untrusted servers, the index option provides raw access to ledger entries and proof.'
+    _description: 'Returns a ledger entry. For untrusted servers, the index option provides raw access to ledger entries and proof.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#ledger_entry'
   });
 
   Request('ledger_closed', {
-    _description: 'Returns the most recent closed ledger index. If a validation list has been provided, then validations should be available.'
+    _description: 'Returns the most recent closed ledger index. If a validation list has been provided, then validations should be available.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#ledger_closed'
   });
 
   Request('ledger_current', {
-    _description: 'Returns the current proposed ledger index. Proof is not possible for the current ledger. This command is primarily useful for testing.'
+    _description: 'Returns the current proposed ledger index. Proof is not possible for the current ledger. This command is primarily useful for testing.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#ledger_current'
   });
 
   /* ---- ---- */
 
   Request('account_info', {
     account: sample_address,
-    _description: 'Returns information about the specified account.'
+    _description: 'Returns information about the specified account.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#account_info'
   });
 
   Request('account_lines', {
     account:        sample_address,
     account_index:  void(0),
     ledger:         'current',
-    _description: 'Returns information about the ripple credit lines for the specified account.'
+    _description: 'Returns information about the ripple credit lines for the specified account.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#account_lines'
   });
 
   Request('account_offers', {
     account:        sample_address,
     account_index:  void(0),
     ledger:         'current',
-    _description: 'Returns the outstanding offers for a specified account.'
+    _description: 'Returns the outstanding offers for a specified account.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#account_offers'
   });
 
   Request('account_tx', {
@@ -235,26 +188,30 @@
     limit:             10,
     forward:           false,
     marker:            void(0),
-    _description: 'Returns a list of transactions that applied to a specified account.'
+    _description: 'Returns a list of transactions that applied to a specified account.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#account_tx'
   });
 
   /* ---- ---- */
 
   Request('transaction_entry', {
     tx_hash:       sample_tx,
-    ledger_index:  2438581,
+    ledger_index:  348734,
     ledger_hash:   void(0),
-    _description: 'Returns information about a specified transaction.'
+    _description: 'Returns information about a specified transaction.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#transaction_entry'
   });
 
   Request('tx', {
     transaction: sample_tx,
-    _description: 'Returns information about a specified transaction.'
+    _description: 'Returns information about a specified transaction.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#tx'
   });
 
   Request('tx_history', {
     start: 10,
-    _description: 'Returns the last N transactions starting from start index, in descending order, by ledger sequence number. Server sets N.'
+    _description: 'Returns the last N transactions starting from start index, in descending order, by ledger sequence number. Server sets N.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#tx_history'
   });
 
   Request('book_offers', {
@@ -263,7 +220,8 @@
     taker: sample_address,
     taker_gets: ripple.Amount.from_json('1/EUR/rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B').to_json(),
     taker_pays: ripple.Amount.from_json('1/USD/rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B').to_json(),
-    _description: 'Returns the offers for an order book as one or more pages.'
+    _description: 'Returns the offers for an order book as one or more pages.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#book_offers'
   });
 
   Request('path_find', {
@@ -271,7 +229,8 @@
     source_account: sample_address,
     destination_account: 'r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59',
     destination_amount: ripple.Amount.from_json('0.001/USD/rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B').to_json(),
-    _description: 'Find or modify a payment pathway between specified accounts.'
+    _description: 'Find or modify a payment pathway between specified accounts.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#path_find'
   });
 
   Request('ripple_path_find', {
@@ -281,21 +240,23 @@
     source_currencies : [ { currency : 'USD' } ],
     destination_account : 'r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59',
     destination_amount : ripple.Amount.from_json('0.001/USD/rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B').to_json(),
-    _description: 'Find a path and estimated costs.For non-interactive use, such as automated payment sending from business integrations, ripple_path_find gives you single response that you can use immediately. However, for uses that need updated paths as new ledgers close, repeated calls becomes expensive. In those cases, when possible, use the RPC path_find in place of this API.'
+    _description: 'Find a path and estimated costs.For non-interactive use, such as automated payment sending from business integrations, ripple_path_find gives you single response that you can use immediately. However, for uses that need updated paths as new ledgers close, repeated calls becomes expensive. In those cases, when possible, use the RPC path_find in place of this API.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#ripple_path_find'
   });
 
-//  Request('submit', {
-//    secret: '',
-//    tx_json: {
-//      Flags: 0,
-//      TransactionType: 'AccountSet',
-//      Account: 'rMUbY1m6kY1AS6grXRYggyFYMKkdh9WSBs',
-//      Sequence: void(0),
-//      Fee: '15',
-//      Flags: 0
-//    },
-//    _description: 'Submits a transaction to the network.'
-//  });
+  Request('submit', {
+    secret: '',
+    tx_json: {
+      Flags: 0,
+      TransactionType: 'AccountSet',
+      Account: '',
+      Sequence: void(0),
+      Fee: '15',
+      Flags: 0
+    },
+    _description: 'Submits a transaction to the network.',
+    _link: 'https://ripple.com/wiki/JSON_Messages#submit'
+  });
 
   /* ---- ---- ---- ---- ---- */
 
@@ -319,6 +280,19 @@
     return rewrite;
   };
 
+  var cm_request = CodeMirror(request.get(0), {
+    mode: 'javascript',
+    json: true,
+    smartIndent: false
+  });
+
+  var cm_response = CodeMirror(response.get(0), {
+    mode: 'javascript',
+    json: true,
+    smartIndent: false,
+    readOnly: true
+  });
+
   function set_input(command) {
     var message = command.message;
 
@@ -328,26 +302,31 @@
       $(description).hide();
     }
 
-    $('#selected_command').text(command.name);
-    var result = $('<div class="json">').html(to_html(message));
-    $(request).html(result);
+    $('#selected_command').html($('<a>')
+                                .attr('href', command._link)
+                                .text(command.name));
+
+    cm_request.setValue(JSON.stringify(message, null, 2));
   };
 
   var STREAM_PAUSED = false;
+  var STREAM_SHOWN  = false;
+  var WAITING       = false;
+  var events = [ ];
 
   function set_output(message) {
     var parsed = rewrite_obj(message);
-    var result = $('<div class="json">');
+    var is_response = (parsed.type === 'response');
 
-    //$(result).append(to_html(parsed));
+    console.log('Setting output', is_response, parsed.id, id._c);
 
-    CodeMirror(result[0], {
-      value: JSON.stringify(parsed),
-      mode: 'javascript',
-      json: true
-    });
+    if (is_response && parsed.id === id._c) {
 
-    if (parsed.id === id._c) {
+      console.log('WAITING', WAITING);
+
+      if (!WAITING) return;
+      else WAITING = false;
+
       var request_header = '<span class="request_name">'
       + selected_request.name;
       + '</span>';
@@ -360,16 +339,26 @@
 
       $(info).html(request_header + timestamp);
 
-      $(result).addClass('result');
-
       $(response).removeClass()
       $(response).addClass(parsed.error ? 'error' : 'success');
-      $(response).html(result);
+
+      cm_response.setValue(JSON.stringify(parsed, null, 2));
 
       ++id._c;
-    } else if (!STREAM_PAUSED && parsed.type !== 'response') {
-      $(result).addClass('status');
-      $(status).prepend(result);
+    } else if (!is_response && !STREAM_PAUSED) {
+      var el = $('<div class="status">').get(0);
+
+      $(status).prepend(el);
+
+      CodeMirror(el, {
+        value:        JSON.stringify(parsed, null, 2),
+        mode:         'javascript',
+        json:         true,
+        smartIndent:  false,
+        readOnly:     true
+      });
+
+      events.unshift(parsed);
     }
   };
 
@@ -379,22 +368,30 @@
     selected_request.message = rewrite_obj(selected_request.message);
     set_input(selected_request);
 
-//    if (selected_request.name === 'submit') {
-//      id._c += 3;
-//
-//      $('#sign_button').show();
-//
-//      var tx_json = selected_request.message.tx_json;
-//
-//      if (ripple.UInt160.is_valid(tx_json.Account)) {
-//        remote.request_account_info(tx_json.Account, function(err, info) {
-//          tx_json.Sequence = info.account_data.Sequence;
-//          set_input(selected_request);
-//        });
-//      }
-//    } else {
-//      $('#sign_button').hide();
-//    }
+    if (selected_request.name !== 'submit') {
+      $('#sign_button').hide();
+      return;
+    }
+
+    if (!remote._connected) {
+      remote.once('connected', function() {
+        select_request(request);
+      });
+      return;
+    }
+
+    $('#sign_button').show();
+
+    var tx_json = selected_request.message.tx_json;
+
+    if (ripple.UInt160.is_valid(tx_json.Account)) {
+      selected_request.message.id = id._c;
+      remote.request_account_info(tx_json.Account, function(err, info) {
+        id.reset();
+        tx_json.Sequence = info.account_data.Sequence;
+        set_input(selected_request);
+      });
+    }
   };
 
   /* ---- ---- ---- ---- ---- */
@@ -425,42 +422,6 @@
 
   /* ---- ---- ---- ---- ---- */
 
-  function is_undefined(str) {
-    return str.length === 0 || /^(undefined|void\(0\)|void 0)$/.test(str);
-  };
-
-  //Change handler for JSON attributes
-  function handle_change() {
-    var trimmed = $(this).text().trim();
-    var valid = true;
-
-    try {
-      var parsed = is_undefined(trimmed) ? void(0) : JSON.parse(trimmed);
-    } catch(e) {
-      valid = false;
-    }
-
-    if (!valid) return $('#invalid').show();
-
-    var route = find_route($(this).parent());
-    var previousValue = get_route(selected_request.message, route);
-    if (parsed !== previousValue) {
-      $(this).text(trimmed);
-      set_route(selected_request.message, route, parsed);
-      select_request(selected_request.name);
-    }
-  };
-
-  $(document.body).delegate('span.editable', 'blur', handle_change);
-
-  $(document.body).delegate('span.editable', 'keydown', function(e) {
-    if (e.which === 13) {
-      e.preventDefault();
-      e.stopPropagation();
-      $(this).blur();
-    }
-  });
-
   function prepare_request(request) {
     var isArray = Array.isArray(request);
     var result  = isArray ? [ ] : { };
@@ -489,55 +450,26 @@
     return empty ? void(0) : result;
   };
 
-  if (window.location.hash) {
-    var cmd   = window.location.hash.slice(1).toLowerCase();
-    var keys  = Object.keys(requests);
-    var index = keys.indexOf(cmd);
-
-    if (index === -1) return;
-
-    var el = $(commands).eq(index);
-
-    select_request(cmd);
-    window.cmd = cmd;
-
-    $(el).siblings().removeClass('selected');
-    $(el).addClass('selected');
-  } else {
-    select_request('server_info');
-  }
-
-  function random_fieldname() {
-    return 'property_' + Math.random().toString(10).slice(2, 4);
-  };
-
-  function add_field() {
-    var route = find_route(this);
-    var val   = get_route(selected_request.message, route);
-
-    if (Array.isArray(val)) {
-      val.push(void(0));
-      set_route(selected_request.message, route, val);
-    } else if (typeof val === 'object') {
-      val[random_fieldname()] = void(0);
-      set_route(selected_request.message, route, val);
-    } else {
-      selected_request.message[random_fieldname()] = void(0);
-    }
-
-    select_request(selected_request.name);
-  };
-
-  $(input).delegate('span.brace', 'click', add_field);
-  $(input).delegate('span.bracket', 'click', add_field);
-
   $('#stream_show').click(function() {
     if ($(status).is(':visible')) {
       $(status).hide();
+      $(status).empty();
       $(this).text('show');
+      STREAM_SHOWN = false;
     } else {
-      $(status).show();
       $(this).text('hide');
+      $(status).show();
+      STREAM_SHOWN = true;
+
+      events.forEach(function(event) {
+        var el = $('<div class="json status">')[0];
+        $(status).append(el);
+        CodeMirror(el, {
+          value: JSON.stringify(event, null, 2),
+          mode: 'javascript',
+          json: true
+        });
+      });
     }
   });
 
@@ -555,6 +487,12 @@
     };
   });
 
+  $(document.body).delegate('a', 'click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open($(this).attr('href'));
+  });
+
   var tooltip = $('#tooltip');
   var mousedown = false;
 
@@ -562,25 +500,34 @@
   $(window).mouseup(function() { mousedown = false; });
 
   $('#sign_button').click(function() {
+    if (selected_request._signed) return;
+
     var self = this;
+    var message = cm_request.getValue();
+
+    try {
+      message = JSON.parse(message);
+    } catch(e) {
+      alert('Invalid JSON');
+      return;
+    }
+
+    var tx_json = message.tx_json;
+
+    if (!ripple.UInt160.is_valid(tx_json.Account)) {
+      alert('Account is invalid');
+      return;
+    }
+
+    if (!message.secret) {
+      alert('Transacting account must have specified secret');
+      return;
+    }
 
     $(this).addClass('depressed');
 
-    function done() {
-      $(self).removeClass('depressed');
-    }
-
-    var message = selected_request.message;
-    var tx_json = message.tx_json;
-
-    if (selected_request._signed) return done();
-
-    if (!selected_request.message.secret) {
-      alert('Transaction account must have specified secret');
-      return done();
-    }
-
     remote.account(tx_json.Account).get_next_sequence(function(e, s) {
+      id.reset();
       tx_json.Sequence = s;
 
       try {
@@ -588,98 +535,77 @@
         tx.tx_json = tx_json;
         tx._secret = message.secret;
         tx.complete();
-        message.tx_blob = tx.serialize().to_hex();
+        tx.sign();
       } catch(e) {
         alert('Unable to sign transaction ' + e.message);
-        return done();
+        $(self).removeClass('depressed');
+        return;
       }
+
+      message.tx_blob = tx.serialize().to_hex();
 
       delete message.secret;
       delete message.tx_json;
 
+      selected_request.message = message;
       selected_request._signed = true;
 
       set_input(selected_request);
 
-      done();
+      $(self).removeClass('depressed');
     });
   });
 
-  //  function get_tooltip(field) {
-  //    find_route(field);
-  //  };
-  //
-  //  $(document.body).delegate('span.field', 'mouseenter', function() {
-  //    if (!mousedown) {
-  //
-  //      $(tooltip).text(get_tooltip(this));
-  //
-  //      var position = $(this).position();
-  //
-  //      $(tooltip).css({
-  //        top: position.top - $(tooltip).height() - 40,
-  //        left: position.left
-  //      });
-  //
-  //      $(tooltip).show();
-  //    }
-  //  });
-  //
-  //  $(document.body).delegate('span.field', 'mouseleave', function() {
-  //    $(tooltip).hide();
-  //  });
-  //
+  function send_request() {
+    var request = remote.request_server_info();
+    var value   = cm_request.getValue();
 
-  function set_online_state(state) {
-    var state = state.toLowerCase();
-    $(online_state).removeClass();
-    $(online_state).addClass(state);
-    $(online_state).text(state);
+    try {
+      var message = JSON.parse(value);
+    } catch(e) {
+      alert('Invalid request JSON');
+      return;
+    }
+
+    $(this).addClass('depressed');
+    $(response).addClass('obscured');
+
+    WAITING                  = true;
+    selected_request.message = message;
+    selected_request.t       = Date.now();
+
+    request.message = prepare_request(message);
+    request.request();
   };
-
-  var remote = new ripple.Remote({
-    trusted:        true,
-    local_signing:  true,
-    local_fee:      false,
-    servers: [
-      {
-        host:    's1.ripple.com',
-        port:    443,
-        secure:  true
-      }
-    ]
-  });
-
-  remote.on('disconnect', function() {
-    set_online_state('disconnected');
-  });
-
-  remote.on('connect', function() {
-    set_online_state('connected');
-  });
 
   function init() {
     id._c = remote._get_server()._id;
-
     remote._get_server().on('message', set_output);
-
-    $(request_button).click(function() {
-      $(this).addClass('depressed');
-      $(response).addClass('obscured');
-
-      var request = remote.request_server_info();
-      request.message = prepare_request(selected_request.message);
-      request.request();
-
-      selected_request.t = Date.now();
-    });
-
-    $(request_button).removeClass('obscured');
+    $(request_button).click(send_request);
   };
 
   $(function() {
     set_online_state('connecting');
+
     remote.connect(init);
+
+    if (window.location.hash) {
+      var cmd   = window.location.hash.slice(1).toLowerCase();
+      var keys  = Object.keys(requests);
+      var index = keys.indexOf(cmd);
+
+      if (index === -1) return;
+
+      var el = $(commands).eq(index);
+
+      select_request(cmd);
+      window.cmd = cmd;
+
+      $(el).siblings().removeClass('selected');
+      $(el).addClass('selected');
+    } else {
+      select_request('server_info');
+    }
   });
 
 })();

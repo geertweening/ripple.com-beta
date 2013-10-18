@@ -4,7 +4,8 @@
     <meta charset='UTF-8'/>
     <title>Ripple WebSocket API tool</title>
     <link rel='stylesheet' type='text/css' href='css/style.min.css'/>
-    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300'>
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300'/>
+    <link rel='stylesheet' type='text/css' href='css/codemirror.css'/>
     <!--[if IE]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -24,9 +25,9 @@
         <li>unsubscribe</li>
         <br/>
         <li>ledger</li>
-        <li>ledger_entry</li>
         <li>ledger_closed</li>
         <li>ledger_current</li>
+        <li>ledger_entry</li>
         <br/>
         <li>account_info</li>
         <li>account_lines</li>
@@ -48,7 +49,7 @@
           <div id='input' class='io'>
             <h2>Request</h2>
             <div id='request_options'>
-              <div id='request_button' class='obscured'>Send request</div>
+              <div id='request_button'>Send request</div>
               <div id='sign_button'>Sign transaction</div>
             </div>
             <div style="clear:both;"></div>
@@ -57,7 +58,6 @@
             <div id='invalid'>Invalid JSON</div>
             <p>JSON</p>
             <div id='request'></div>
-            <div id='options'></div>
           </div>
           <div id='output' class='io'>
             <h2>Response</h2>
@@ -66,17 +66,19 @@
               <li id='stream_show'>show</li>
               <li id='stream_pause'>pause</li>
             </ul>
-            <div id='status' contenteditable="true" spellcheck="false"></div>
+            <div id='status'></div>
             <p id='info'></p>
-            <div id='response' contenteditable="true" spellcheck="false"></div>
+            <div id='response'></div>
             <div id='tooltip'></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js'></script>
   <script type='text/javascript' src='js/es5-shim.js'></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/codemirror/3.16.0/codemirror.min.js'></script>
+  <script type='text/javascript' src='js/cm-javascript.min.js'></script>
   <script type='text/javascript' src='js/ripple.min.js'></script>
   <script type='text/javascript' src='js/main.min.js'></script>
   </body>
