@@ -46,7 +46,7 @@
 					<p>Ripple Labs is committed to giving away the majority of the 100 billion XRP in existence to large numbers of people.  They have started distributing XRP to early adopters through a variety of giveaways and promotions, such as distributing XRP to <a href="http://www.coindesk.com/ripple-turns-on-giveaway-faucet/">25,000 new users</a> who signed up for their email list.</p>
 					<p><strong>Current giveaways include:</strong></p>
 					<ul>
-						<li>1,500 XRP to every user who <a href="https://ripple.com/blog/snapswap-becomes-first-u-s-ripple-gateway-opencoin-to-send-1000-xrp-to-new-snapswap-users/">verifies a bank account</a> with <a href="https://www.snapswap.us/#/welcome">SnapSwap</a>, the latest Ripple Gateway.</li>
+						<li>1,500 XRP to every user who <a href="https://ripple.com/blog/snapswap-becomes-first-u-s-ripple-gateway-ripplelabs-to-send-1000-xrp-to-new-snapswap-users/">verifies a bank account</a> with <a href="https://www.snapswap.us/#/welcome">SnapSwap</a>, the latest Ripple Gateway.</li>
 						<li>A <a href="https://xrptalk.org/topic/79-xrp-talk-giveaway-contribute-and-win-thousands/">drawing for winners</a> out of those who register on the <a href="https://xrptalk.org/">XRP Talk</a> forum before August 31st.</li>
 						<li>A drawing for a winner out of those who sign up for the newsletter at <a href="http://buyxrp.com/">buyXRP.com</a> </li>
 

@@ -183,12 +183,12 @@
 		        </tbody>
 		    </table>
 		</section>
-		<section class="guide-section" id="why-did-opencoin-create-ripple">
+		<section class="guide-section" id="why-did-ripplelabs-create-ripple">
 			<h5>Why did Ripple Labs create Ripple?</h5>
 			<p>The Internet is a powerful force for good. It allows people to talk to each other across any distance. It brings news from the other side of the world. It lets us share knowledge, images, and ideas.</p>
 			<p>However, the Internet is not very good at transactions. Many of the technologies used to send money were invented before the Internet: checks, bank wires, credit cards, etc. As a result they are slow, expensive, and inefficient.</p> 
 			<p>Ripple Labs invented Ripple to bring the principles of the Internet to financial transactions.</p> 
-				<table id="how-does-opencoin-make-money" class="table table-bordered">
+				<table id="how-does-ripplelabs-make-money" class="table table-bordered">
 		        <thead>
 		          	<tr>
 		            	<th>How Does Ripple Labs Make Money?</th>
