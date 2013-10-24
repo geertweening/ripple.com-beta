@@ -131,12 +131,12 @@ wp_enqueue_script( 'ripple Theme-keyboard-image-navigation', get_template_direct
 }
 add_action( 'wp_enqueue_scripts', 'ripple_scripts' );
 
-    function load_fonts() {
-            wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic');
-            wp_enqueue_style( 'googleFonts');
-        }
+    // function load_fonts() {
+    //         wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic');
+    //         wp_enqueue_style( 'googleFonts');
+    //     }
  
-    add_action('wp_print_styles', 'load_fonts');
+    // add_action('wp_print_styles', 'load_fonts');
 /**
  * Implement the Custom Header feature.
  */
