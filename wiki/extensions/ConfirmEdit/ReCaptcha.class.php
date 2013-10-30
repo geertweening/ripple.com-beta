@@ -12,7 +12,8 @@ class ReCaptcha extends SimpleCaptcha {
 	function getForm() {
 		global $wgReCaptchaPublicKey, $wgReCaptchaTheme;
 
-		$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
+		$useHttps = true;
+		#$useHttps = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' );
 		$js = 'var RecaptchaOptions = ' . Xml::encodeJsVar( array( 'theme' => $wgReCaptchaTheme, 'tabindex' => 1  ) );
 
 		return Html::inlineScript( $js ) . recaptcha_get_html( $wgReCaptchaPublicKey, $this->recaptcha_error, $useHttps );
