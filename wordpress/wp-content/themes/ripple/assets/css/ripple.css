@@ -4347,7 +4347,7 @@ h4.widget-title {
   margin-bottom: 45px;
 }
 .users #tertiary .icon-stack {
-  margin-top: 12px;
+  margin: 12px 0 0;
 }
 .users #tertiary .icon-stack .icon-stack-base {
   font-size: 3.5em;

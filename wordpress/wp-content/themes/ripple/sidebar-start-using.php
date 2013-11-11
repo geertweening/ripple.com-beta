@@ -9,10 +9,10 @@
 		<div class="wrapper centered">
 			<h3 class="widget-heading text-center secondary-font">Start Using Ripple Today:</h3>
 			<ul class="col-lg-11 list-unstyled centered">
-				<span class="icon-stack pull-left">
+				<li class="icon-stack pull-left">
 					<i class="icon-circle icon-stack-base blue"></i>
 					<i class="icon-light"><span class="base-font">1</span></i>
-				</span>
+				</li>
 				<li class="list-margin-bottom">
 					<a href="https://ripple.com/client/#/register">
 						<strong>Create A Ripple Wallet.</strong><br>
@@ -20,10 +20,10 @@
 						<span class="link-color">Try it now</span> and see what Ripple is all about.
 					</a>
 				</li>
-				<span class="icon-stack pull-left">
+				<li class="icon-stack pull-left">
 					<i class="icon-circle icon-stack-base blue"></i>
 					<i class="icon-light"><span class="base-font">2</span></i>
-				</span>
+				</li>
 				<li class="list-margin-bottom">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>guide-to-getting-xrp-and-activating-your-ripple-account">
 						<strong>Activate Your Ripple Account.</strong><br>
@@ -31,10 +31,10 @@
 						<span class="link-color">get XRP</span> and activate your account.
 					</a>	
 				</li>
-				<span class="icon-stack pull-left">
+				<li class="icon-stack pull-left">
 					<i class="icon-circle icon-stack-base blue"></i>
 					<i class="icon-light"><span class="base-font">3</span></i>
-				</span>
+				</li>
 				<li class="list-margin-bottom">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>guide-to-ripple-gateways/">
 						<strong>Find a Ripple Gateway.</strong><br>

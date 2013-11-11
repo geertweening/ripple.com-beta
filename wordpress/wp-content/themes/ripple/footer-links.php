@@ -17,8 +17,25 @@
 				<ul class="footer-links list-unstyled">	
 					<li>
 						<h5><a href="<?php echo esc_url( home_url( '/' ) ); ?>blog">From the Blog</a></h5>
-						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
-						<?php wp_nav_menu( array( 'theme_location' => 'footer-links1', 'container' => false ) ); ?>	
+						<?php
+						  $the_query = new WP_Query(array(
+							'category_name' => 'blog',
+							'posts_per_page' => 5,
+							));
+						  
+								while ( $the_query->have_posts() ) :
+							 $the_query->the_post();
+						?>
+					 	<ul>
+					 		<li>
+					 			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'ripple' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+					 		</li>
+					 	</ul>
+							
+						<?php
+					 endwhile;
+					 wp_reset_postdata();
+					?>
 					</li>
 					<li>
 						<h5>Ripple</h5>
@@ -40,7 +57,7 @@
 		</div>
 	</footer><!-- #colophon -->
 
-	<footer id="sub-colophon" class="sub-footer" role="siteinfo">
+	<footer id="sub-colophon" class="sub-footer">
 		<div class="wrapper">
 			<div class="pull-left">
 				<p><a href="https://ripplelabs.com/">Ripple Labs Inc</a>. All Rights Reserved</p>
