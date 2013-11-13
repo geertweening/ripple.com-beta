@@ -18,7 +18,6 @@ get_header('targets'); ?>
 		 $the_query->the_post();
 		?>
 		 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		 			
 					<div class="entry-content">
 						<header class="entry-header">
 							<p class="entry-meta">
@@ -26,6 +25,13 @@ get_header('targets'); ?>
 							</p><!-- .entry-meta -->
 							<h2 class="blog-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'ripple' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 						</header>
+						<?php 
+						if ( has_post_thumbnail() ) { ?>
+						<div class="post-thumbnail col-sm-3">
+					 		<?php the_post_thumbnail('excerpt-thumbnail', 'class=news-thumbnail'); ?>
+						</div>
+					<?php } 
+					?>
 						<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'ripple' ) ); ?>
 							<?php
 								wp_link_pages( array(

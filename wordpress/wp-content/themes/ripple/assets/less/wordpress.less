@@ -56,6 +56,7 @@
 // Page Styles
 // Post Area Styles
 // Blog Page Styles
+// News Page Styles
 // Featured Quotes Styles
 // Footer Links
 // Todo add transition
@@ -772,7 +773,11 @@ article.post:nth-last-child(1) {
 article.page {
     padding-bottom: 45px;
 }
-article.post .entry-content h1, article.post .entry-content h2, article.post .entry-content h3, article.post .entry-content h4, article.post .entry-content h5 {
+article.post .entry-content h1, 
+article.post .entry-content h2, 
+article.post .entry-content h3, 
+article.post .entry-content h4, 
+article.post .entry-content h5 {
     color: #6B6C6C;
     font-weight: bold;
     line-height: 30px;
@@ -827,6 +832,9 @@ a.readmore:after {
     padding-top: 73px;
     width: 50%;
 }
+.blog .post-thumbnail img {
+    margin: 0 auto 60px;
+}
 h2.blog-title {
     font-size: 22px;
     font-weight: bold;
@@ -840,6 +848,10 @@ h2.blog-title {
 }
 .post footer.entry-meta a:hover {
     text-decoration: none;
+}
+// News Page Styles
+.news .post-thumbnail img {
+    margin: 0 auto 60px;
 }
 // Featured Quotes Styles
 .featured-quotes {
@@ -1283,6 +1295,9 @@ button.btn-wallet {
 nav.header-navigation ul li a {
     width: 100%;
 }
+.news .post-thumbnail img {
+    margin: 0 auto;
+}
  }
  
 /* Landscape phone to portrait tablet */
@@ -1388,6 +1403,9 @@ article.post.single-post {
 .comments-area {
     padding: 15px 10px;
     width: 90%;
+}
+.news .post-thumbnail img {
+    margin: 0 auto;
 }
  }
  

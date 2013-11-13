@@ -4707,6 +4707,9 @@ a.readmore:after {
   padding-top: 73px;
   width: 50%;
 }
+.blog .post-thumbnail img {
+  margin: 0 auto 60px;
+}
 h2.blog-title {
   font-size: 22px;
   font-weight: bold;
@@ -4724,6 +4727,9 @@ h2.blog-title {
 }
 .post footer.entry-meta a:hover {
   text-decoration: none;
+}
+.news .post-thumbnail img {
+  margin: 0 auto 60px;
 }
 .featured-quotes {
   background: #ececec;
@@ -5138,6 +5144,9 @@ h1.entry-title {
   nav.header-navigation ul li a {
     width: 100%;
   }
+  .news .post-thumbnail img {
+    margin: 0 auto;
+  }
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
@@ -5225,6 +5234,9 @@ h1.entry-title {
   .comments-area {
     padding: 15px 10px;
     width: 90%;
+  }
+  .news .post-thumbnail img {
+    margin: 0 auto;
   }
 }
 /* Landscape phones and down */
