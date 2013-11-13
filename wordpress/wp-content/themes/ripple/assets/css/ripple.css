@@ -3923,9 +3923,10 @@ a.list-group-item.active > .badge,
     font-size: 63px;
   }
 }
-.post-footer {
-  display: none;
-}
+/* Large desktop */
+/* Portrait tablet to landscape and desktop */
+/* Landscape phone to portrait tablet */
+/* Landscape phones and down */
 body {
   position: relative;
 }
@@ -4580,6 +4581,12 @@ a .icon-play:active {
 .post-area:after {
   clear: both;
 }
+.post h5 {
+  color: #6B6C6C;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 0 0 11px;
+}
 .post-area h3 {
   border-bottom: 1px solid #cccccc;
   padding-bottom: 20px;
@@ -4591,6 +4598,9 @@ a .icon-play:active {
 #tertiary .post-content p,
 #quaternary .post-content p {
   margin-bottom: 0px;
+}
+.post-footer {
+  display: none;
 }
 .blog .img-wrap {
   margin: 0 auto;
@@ -4636,6 +4646,16 @@ article.post:nth-last-child(1) {
 }
 article.page {
   padding-bottom: 45px;
+}
+article.post .entry-content h1,
+article.post .entry-content h2,
+article.post .entry-content h3,
+article.post .entry-content h4,
+article.post .entry-content h5 {
+  color: #6B6C6C;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 0 0 11px;
 }
 article.post footer a {
   color: #3372AD;

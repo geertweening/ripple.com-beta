@@ -1,6 +1,123 @@
-.post-footer {
-    display: none;
-}
+// Table of Contents
+// ======================================================
+// Structral Wraps
+// Wordpress
+// Center a div with this:
+// Colors
+// Accent colors
+// Link Color 
+// Hover/Focus State for Link-Color
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+// Give a div light background color, border bottom and some box shadow
+// Boxed Thumbnail
+// Boxed Icon Styles
+// Strong Color
+// Add border bottom to a div
+// Typography Styles
+// Span Base Font
+// Text Styles
+// used on icon widget titles...
+// Utilities
+// Icon a:hover/focus 
+// Link Color Padding Left 
+// Header Styles
+// Logo 
+// Targets Header Styles
+// ===============================
+// Header Navigation
+// Header Navigation Hover/Active/Focus States
+// Dashboard 
+// Transaction Feed
+// Wallet
+// Wallet Button
+// btn Primary Overides
+// Target Banner
+// Partners Page
+// Partners Background Image
+// Banner Thumbnail
+// Circles
+// Widget Area Styles
+// No padding on tabs 
+// Additional Margins and Padding for #tertiary and #quaternary
+// User Tertiary Styles
+// Users Quinary
+// Sidebar Icon Styles
+// User-tabs Styles
+// Devs Page Styles
+// Home Template Styles
+// ===============================
+// Callout Styles
+// Nav Bg Styles
+// Nav Bg Styles
+// Tabs Navigation
+// nav-bg caret
+// Video Play Button Styles
+// Video Splash Navigation Styles
+// Page Styles
+// Post Area Styles
+// Blog Page Styles
+// Featured Quotes Styles
+// Footer Links
+// Todo add transition
+// Sub Footer
+// Guide Page Styles
+// Guide Content Area
+// Sticky Guide Nav
+// Guide-nav Affix
+// .Nav Styles
+// Guide Section
+// Reposition For Guide-nav
+// Active State
+// Add Margin Bottom before the footer 
+// Guide Page Styles
+// Guide Header 
+// Guide Entry Title
+// Guide Thumbnail
+// Muted
+// Topic Page Styles
+// Directory Page Styles
+// Single Post Styles
+// Comments Area
+// Hide the code area
+// Hide pagination
+// Default Page Styles
+// Sharing is Caring
+// used to make two lines on mobile
+/* Large desktop */
+// Large Desktop Logo 
+// Large Desktop Header Navigation
+// Large Desktop Guide Nav
+// Large Desktop Directory
+/* Portrait tablet to landscape and desktop */
+// Tablet Header Navigation
+// Tablet Footer Links
+// Banner Tablet 
+// Tablet Guide Nav
+// Tablet Directory Page Styles
+/* Landscape phone to portrait tablet */
+// Mobile Landscape Header
+// Mobile Landscape Footer 
+// Landscape Mobile Banner Styles
+// Banner Thumbnail on Mobile
+// Thumbnail Boxed on Mobile
+// Hide tab caret on Mobiles
+// Active State for Tabs on Landscape
+// Landscape Guide Nav
+// Mobile Landscape Directory Pages Styles
+// Sharing is Caring Mobile Landscape Styles
+// Mobile Landscape Article Post Single Styles
+/* Landscape phones and down */
+// Home Page Mobile Style
+// Mobile Header Navigation
+// Mobile Navigation
+// Mobile Entry Content
+// Mobile Article Post Styles
+// Mobile Footer Links
+// Mobile Guide Nav
+// Guide Nav Mobile
+// Override column size on scrollspy-area
+// Center Image on Mobile Topic Pages  
+
 // Wordpress
 // --------------------------------------------------
 // Structral Wraps
@@ -23,7 +140,6 @@ body {
     position: relative;
 }
 // Colors
-// Add an alphatransparency value to any background or border color (via Elyse Holladay)
 // Accent colors
 // -------------------------
 @blue:                  #3372AD;
@@ -613,6 +729,12 @@ a .icon-play:hover, a .icon-play:focus, a .icon-play:active {
 .post-area {
     .clearfix;
 }
+.post h5 {
+    color: #6B6C6C;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 0 0 11px;
+}
 .post-area h3 {
     border-bottom: 1px solid @gray-lighter;
     padding-bottom: 20px;
@@ -623,6 +745,9 @@ a .icon-play:hover, a .icon-play:focus, a .icon-play:active {
 }
 #tertiary .post-content p, #quaternary .post-content p {
     margin-bottom: 0px;
+}
+.post-footer {
+    display: none;
 }
 // Blog Page Styles
 .blog .img-wrap {
@@ -646,6 +771,12 @@ article.post:nth-last-child(1) {
 }
 article.page {
     padding-bottom: 45px;
+}
+article.post .entry-content h1, article.post .entry-content h2, article.post .entry-content h3, article.post .entry-content h4, article.post .entry-content h5 {
+    color: #6B6C6C;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 0 0 11px;
 }
 article.post footer a {
     color: #3372AD;
@@ -892,7 +1023,6 @@ section.guide-section {
 .guide-section ul {
     margin: 0 0 10px 30px;
 }
-
 // Active State
 .nav > li.active, .nav > li > a:hover, .nav > li > a:focus {
     background-color: #EAF1F7;
@@ -922,7 +1052,6 @@ section.guide-section {
     min-height: 230px;
     margin-bottom: 30px;
 }
-
 // Muted
 .entry-title .muted {
     color: @babyBlue;
@@ -1210,7 +1339,6 @@ button.btn-wallet {
     padding: 5.1% 0 9%;
     height: auto;
 }
-
 // Banner Thumbnail on Mobile
 .banner .thumbnail {
     margin-bottom: 30px;
