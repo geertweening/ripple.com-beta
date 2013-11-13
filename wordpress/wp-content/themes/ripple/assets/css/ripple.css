@@ -5147,6 +5147,9 @@ h1.entry-title {
   .news .post-thumbnail img {
     margin: 0 auto;
   }
+  .blog .post-thumbnail img {
+    margin: 0 auto;
+  }
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
@@ -5236,6 +5239,9 @@ h1.entry-title {
     width: 90%;
   }
   .news .post-thumbnail img {
+    margin: 0 auto;
+  }
+  .blog .post-thumbnail img {
     margin: 0 auto;
   }
 }
