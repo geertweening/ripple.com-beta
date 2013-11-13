@@ -43,17 +43,14 @@
 
 				<section class="guide-section">
 					<h5 id="getting-free-xrp">Getting Free XRP</h5>
-					<p>Ripple Labs is committed to giving away the majority of the 100 billion XRP in existence to large numbers of people.  They have started distributing XRP to early adopters through a variety of giveaways and promotions, such as distributing XRP to <a href="http://www.coindesk.com/ripple-turns-on-giveaway-faucet/">25,000 new users</a> who signed up for their email list.</p>
+					<p>Ripple Labs is committed to giving away the majority of the 100 billion XRP in existence to large numbers of people. They have started distributing XRP to early adopters through a variety of giveaways and promotions.</p>
 					<p><strong>Current giveaways include:</strong></p>
 					<ul>
-						<li>1,500 XRP to every user who <a href="https://ripple.com/blog/snapswap-becomes-first-u-s-ripple-gateway-ripplelabs-to-send-1000-xrp-to-new-snapswap-users/">verifies a bank account</a> with <a href="https://www.snapswap.us/#/welcome">SnapSwap</a>, the latest Ripple Gateway.</li>
-						<li>A <a href="https://xrptalk.org/topic/79-xrp-talk-giveaway-contribute-and-win-thousands/">drawing for winners</a> out of those who register on the <a href="https://xrptalk.org/">XRP Talk</a> forum before August 31st.</li>
-						<li>A drawing for a winner out of those who sign up for the newsletter at <a href="http://buyxrp.com/">buyXRP.com</a> </li>
-
-						<p>You can keep track of current and upcoming XRP giveaways at <a href="http://ripplegiveaway.com/">RippleGiveaway.com</a> and at the site for the <a href="http://www.xrpga.org/ripple-giveaways.html">International Ripple Business Association.</a></p>
-
-						<p>So go get some XRP, activate your Ripple account, and enjoy exploring the future of internet-based payment systems!</p>
+						<li>2,020 XRP or 4,040 XRP to <a href="https://ripple.com/blog/git-in-the-game-2020-xrp-giveaway-for-github-users/">qualifying GitHub users.</a></li>
 					</ul>
+					<p>You can exchange currencies for XRP at a number of places. <a href="http://www.xrpga.org/exchangers.html">International Ripple Business Association</a> maintains a list of "Exchangers."</p>
+
+					<p>So go get some XRP, activate your Ripple account, and enjoy exploring the future of Internet-based payment systems!</p>
 
  				</section>
 		</div>
