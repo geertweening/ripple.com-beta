@@ -306,7 +306,7 @@ table {
   img {
     max-width: 100% !important;
   }
-  @page  {
+  @page {
     margin: 2cm .5cm;
   }
   p,
@@ -584,10 +584,8 @@ dd {
 .dl-horizontal dd:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .dl-horizontal dd:after {
   clear: both;
@@ -596,10 +594,8 @@ dd {
 .dl-horizontal dd:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .dl-horizontal dd:after {
   clear: both;
@@ -710,10 +706,8 @@ pre code {
 .container:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .container:after {
   clear: both;
@@ -722,10 +716,8 @@ pre code {
 .container:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .container:after {
   clear: both;
@@ -734,10 +726,8 @@ pre code {
 .row:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .row:after {
   clear: both;
@@ -746,10 +736,8 @@ pre code {
 .row:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .row:after {
   clear: both;
@@ -1252,7 +1240,6 @@ input[type="checkbox"] {
   margin: 4px 0 0;
   margin-top: 1px \9;
   /* IE8-9 */
-
   line-height: normal;
 }
 input[type="file"] {
@@ -1873,10 +1860,8 @@ input[type="button"].btn-block {
 .form-horizontal .form-group:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .form-horizontal .form-group:after {
   clear: both;
@@ -1885,10 +1870,8 @@ input[type="button"].btn-block {
 .form-horizontal .form-group:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .form-horizontal .form-group:after {
   clear: both;
@@ -2229,10 +2212,8 @@ button.close {
 .nav:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .nav:after {
   clear: both;
@@ -2241,10 +2222,8 @@ button.close {
 .nav:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .nav:after {
   clear: both;
@@ -2386,10 +2365,8 @@ button.close {
 .tabbable:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .tabbable:after {
   clear: both;
@@ -2398,10 +2375,8 @@ button.close {
 .tabbable:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .tabbable:after {
   clear: both;
@@ -2440,10 +2415,8 @@ button.close {
 .navbar:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .navbar:after {
   clear: both;
@@ -2452,10 +2425,8 @@ button.close {
 .navbar:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .navbar:after {
   clear: both;
@@ -2749,10 +2720,8 @@ button.close {
 .btn-toolbar:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .btn-toolbar:after {
   clear: both;
@@ -2761,10 +2730,8 @@ button.close {
 .btn-toolbar:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .btn-toolbar:after {
   clear: both;
@@ -2973,10 +2940,8 @@ button.close {
 .pager:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .pager:after {
   clear: both;
@@ -2985,10 +2950,8 @@ button.close {
 .pager:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .pager:after {
   clear: both;
@@ -3114,10 +3077,8 @@ button.close {
 .modal-footer:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .modal-footer:after {
   clear: both;
@@ -3126,10 +3087,8 @@ button.close {
 .modal-footer:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .modal-footer:after {
   clear: both;
@@ -3939,10 +3898,8 @@ body {
 .wrapper:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .wrapper:after {
   clear: both;
@@ -3951,10 +3908,8 @@ body {
 .wrapper:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .wrapper:after {
   clear: both;
@@ -4115,10 +4070,8 @@ h1.logo {
 .navigation-menu:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .navigation-menu:after {
   clear: both;
@@ -4127,10 +4080,8 @@ h1.logo {
 .navigation-menu:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .navigation-menu:after {
   clear: both;
@@ -4514,10 +4465,8 @@ a .icon-play:active {
 .video-splash-navigation:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .video-splash-navigation:after {
   clear: both;
@@ -4526,10 +4475,8 @@ a .icon-play:active {
 .video-splash-navigation:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .video-splash-navigation:after {
   clear: both;
@@ -4561,10 +4508,8 @@ a .icon-play:active {
 .post-area:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .post-area:after {
   clear: both;
@@ -4573,10 +4518,8 @@ a .icon-play:active {
 .post-area:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .post-area:after {
   clear: both;
@@ -4621,10 +4564,8 @@ article.post:before,
 article.post:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 article.post:after {
   clear: both;
@@ -4633,10 +4574,8 @@ article.post:before,
 article.post:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 article.post:after {
   clear: both;
@@ -4791,10 +4730,8 @@ ul.footer-links:before,
 ul.footer-links:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 ul.footer-links:after {
   clear: both;
@@ -4803,10 +4740,8 @@ ul.footer-links:before,
 ul.footer-links:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 ul.footer-links:after {
   clear: both;
@@ -5059,6 +4994,9 @@ h1.entry-title {
   font-size: 44px;
   font-weight: 700;
 }
+.list-unstyled.sharing-is-caring:first-child {
+  display: none;
+}
 .sharing-is-caring {
   height: 21px;
   overflow: hidden;
@@ -5069,7 +5007,13 @@ h1.entry-title {
   overflow: hidden;
 }
 .gpluser {
-  width: 63px;
+  width: 60px;
+}
+.rsser {
+  width: 19px;
+}
+.rsser img {
+  margin: -6px 0 0;
 }
 .mobile-linebreak {
   display: none;
@@ -5755,10 +5699,8 @@ aside:active .secure,
 #tab:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 #tab:after {
   clear: both;
@@ -5767,10 +5709,8 @@ aside:active .secure,
 #tab:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 #tab:after {
   clear: both;
@@ -5790,10 +5730,8 @@ aside:active .secure,
 .tabs-navigation:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .tabs-navigation:after {
   clear: both;
@@ -5802,10 +5740,8 @@ aside:active .secure,
 .tabs-navigation:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .tabs-navigation:after {
   clear: both;
@@ -5910,7 +5846,6 @@ div.visualization {
   -o-background-size: cover;
   background-size: cover;
   /* include the background image here */
-
 }
 div.transactionLabel {
   /*          border:1px solid rgba(255,255,255,0.5);
@@ -5920,7 +5855,6 @@ div.transactionLabel {
   height: 52px;
   text-align: center;
   /*display: table-cell;*/
-
   vertical-align: middle;
   font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
   font-size: 16pt;
@@ -5952,9 +5886,6 @@ bottom right of the visualization */
   letter-spacing: 1px;
 }
 /* Large desktop */
-@media (min-width: 1200px) {
-  
-}
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
   #explanation {
@@ -6021,7 +5952,6 @@ bottom right of the visualization */
 }
 #header {
   /*width:50%;*/
-
   height: 20px;
   border: none;
   color: lightgray;
@@ -6173,9 +6103,6 @@ ul.social-iconer {
   }
 }
 /* Landscape phones and down */
-@media (max-width: 480px) {
-  
-}
 /* FONT PATH
  * -------------------------- */
 @font-face {
@@ -7634,10 +7561,8 @@ a .icon-flip-vertical:before {
 .clearfix:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .clearfix:after {
   clear: both;

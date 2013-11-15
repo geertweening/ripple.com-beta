@@ -28,4 +28,7 @@
 	      })();
 	    </script>
     </li>
+    <li class="rsser">
+    	<a href="<?php bloginfo('rss2_url'); ?>"><img src="<?php bloginfo('template_url'); ?>/assets/img/rss.png" alt="Subscribe to <?php bloginfo('name'); ?>" /></a>
+    </li>
 </ul>

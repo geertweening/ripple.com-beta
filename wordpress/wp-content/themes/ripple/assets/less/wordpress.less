@@ -1186,6 +1186,10 @@ h1.entry-title {
     font-weight: 700;
 }
 // Sharing is Caring
+// Hide Sharing is Caring on top of blog post, commit out to reinstate
+.list-unstyled.sharing-is-caring:first-child {
+    display: none;
+} 
 .sharing-is-caring {
     height: 21px;
     overflow: hidden;
@@ -1197,7 +1201,13 @@ h1.entry-title {
     overflow: hidden;
 }
 .gpluser {
-    width: 63px;
+    width: 60px;
+}
+.rsser {
+    width: 19px;
+}
+.rsser img {
+    margin: -6px 0 0;
 }
 // used to make two lines on mobile
 .mobile-linebreak {
