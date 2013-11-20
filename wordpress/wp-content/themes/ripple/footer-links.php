@@ -60,7 +60,7 @@
 	<footer id="sub-colophon" class="sub-footer">
 		<div class="wrapper">
 			<div class="pull-left">
-				<p><a href="https://ripplelabs.com/">Ripple Labs Inc</a>. All Rights Reserved</p>
+				<p><a href="http://ripplelabs.com/">Ripple Labs Inc</a>. All Rights Reserved</p>
 			</div>
 			<div class="pull-left">
 				<ul class="list-inline">

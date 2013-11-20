@@ -34,7 +34,7 @@
                         <i class="icon-circle icon-light"></i>
                     </span> 
                     <p>   
-                      Total Volume Traded
+                      30 day volume
                     </p>
                  <p class="large">
                     <span class="volume_traded"></span>
