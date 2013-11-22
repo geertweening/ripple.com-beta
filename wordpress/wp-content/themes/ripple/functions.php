@@ -102,7 +102,7 @@ wp_enqueue_script( 'tooltip', get_template_directory_uri() . '/assets/js/tooltip
 // wp_enqueue_script( 'popover', get_template_directory_uri() . '/assets/js/popover.js', array('jquery'), false, true );
 // wp_enqueue_script( 'button', get_template_directory_uri() . '/assets/js/button.js', array('jquery'), false, true );
 // wp_enqueue_script( 'collapse', get_template_directory_uri() . '/assets/js/collapse.js', array('jquery'), false, true );
-// wp_enqueue_script( 'carousel', get_template_directory_uri() . '/assets/js/carousel.js', array('jquery'), false, true );
+wp_enqueue_script( 'carousel', get_template_directory_uri() . '/assets/js/carousel.js', array('jquery'), false, true );
 // wp_enqueue_script( 'typeahead', get_template_directory_uri() . '/assets/js/typeahead.js', array('jquery'), false, true );
 wp_enqueue_script( 'affix', get_template_directory_uri() . '/assets/js/affix.js', array('jquery'), false, true );
 wp_enqueue_script( 'scrollspy', get_template_directory_uri() . '/assets/js/scrollspy.js', array('jquery'), false, true );

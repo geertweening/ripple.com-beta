@@ -4350,14 +4350,88 @@ h4.widget-title {
 #video-area.wrapper {
   padding: 0;
 }
-.entry-content.callout h1 {
+.page .carousel article {
+  width: 100%;
+}
+.page article.video-area {
+  padding: 0 px;
+}
+.entry-content.video {
+  margin: 131px auto 163px;
+}
+.entry-content.text {
+  margin: 131px auto 179px;
+}
+.entry-content.callout.video h1 {
   color: #3372AD;
   font-size: 70px;
   margin-bottom: 100px;
   text-align: center;
 }
-.video-splash .entry-content {
-  margin: 9% auto 21%;
+.entry-content.callout.text h1 {
+  color: #3372AD;
+  font-size: 70px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.entry-content.callout.text > p {
+  color: #58585A;
+  font-size: 19px;
+  margin-bottom: 34px;
+  text-align: center;
+}
+.carousel-indicators .active {
+  height: 10px;
+  width: 10px;
+}
+.carousel-indicators .active {
+  border: none;
+  background-color: #3372ad;
+}
+.carousel-indicators li {
+  border: none;
+  background-color: #d1d1d2;
+}
+.join.btn-primary {
+  -moz-user-select: none;
+  background-color: #3372AD;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 0;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 11px 12px 8px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 260px;
+}
+.join.btn-primary:hover,
+.join.btn-primary:focus,
+.join.btn-primary:active,
+.join.btn-primary.active {
+  background-color: #2D6599;
+  border-color: #759FC7;
+}
+.join.btn:hover,
+.join.btn:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.join.btn-primary > a {
+  text-decoration: none;
+}
+.join.btn-primary > a:hover,
+.join.btn-primary > a:focus,
+.join.btn-primary > a:active {
+  color: white;
 }
 .nav-bg {
   background: url("../img/nav.jpg") repeat scroll 0 0 transparent;
@@ -5069,6 +5143,12 @@ h1.entry-title {
   button.btn-wallet {
     padding: 27px 22px;
   }
+  .page article.video-area {
+    width: 738px;
+  }
+  .text-area.entry-content {
+    margin: 131px auto 172px;
+  }
   .footer-links > li:nth-child(1) {
     line-height: 26px;
     margin-bottom: 20px;
@@ -5130,6 +5210,12 @@ h1.entry-title {
   }
   button.btn-wallet {
     padding: 24px 23px;
+  }
+  .page .carousel article {
+    width: 430px;
+  }
+  .entry-content.text {
+    margin: 131px auto 119px;
   }
   .footer-links > li:nth-child(1) {
     line-height: 26px;
@@ -5205,8 +5291,11 @@ h1.entry-title {
     right: 0;
     margin-top: 8px;
   }
-  .video-splash .entry-content {
-    margin: 9% auto 21%;
+  .page article.video-area {
+    width: 400px;
+  }
+  .text-area.entry-content {
+    margin: 0 auto 142px;
   }
   h1.logo {
     float: none;
@@ -5240,6 +5329,9 @@ h1.entry-title {
   }
   nav.header-navigation ul li a {
     width: 100%;
+  }
+  .page .carousel article {
+    width: 330px;
   }
   .entry-content.callout h1 {
     font-size: 5rem;
