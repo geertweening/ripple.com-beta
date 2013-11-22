@@ -13,10 +13,10 @@ get_header('video'); ?>
 							<div class="item active">
 								<article id="text-area" class="text-area wrapper">
 									<div class="entry-content callout text">
-							        	<h1>Compute for good</h1>
+							        	<h1>Computing for Good</h1>
 							            <p>Donate spare computing time for reasearch. Receive XRP from Ripple Labs.</p>
 								            <div class="join btn-primary">
-									            <a href="http://computingforgood.com/">
+									            <a target="blank" href="http://computingforgood.com/">
 									            	Join
 									        	</a>
 									        </div>
