@@ -39,8 +39,8 @@ get_header('video'); ?>
 							</div>
 				       	</div>
 				        <ol class="carousel-indicators">
-				           <li data-target="#carousel" data-slide-to="0" class="active"><i class="icon-circle"></i></li>
-				           <li data-target="#carousel" data-slide-to="1"><i class="icon-circle"></i></li>
+				           <li data-target="#carousel" data-slide-to="0" class="active"></i></li>
+				           <li data-target="#carousel" data-slide-to="1"></i></li>
 				        </ol>
 				      </div>
 				    
