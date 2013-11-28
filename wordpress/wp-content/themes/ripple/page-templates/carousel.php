@@ -16,7 +16,7 @@ get_header('video'); ?>
 							        	<h1>Computing for Good</h1>
 							            <p>Donate spare computing time for research. Receive XRP from Ripple Labs.</p>
 								            <div class="join">
-									            <a target="blank" href="http://computingforgood.com/">
+									            <a target="blank" href="http://computingforgood.org/">
 									            	Join
 									        	</a>
 									        </div>
