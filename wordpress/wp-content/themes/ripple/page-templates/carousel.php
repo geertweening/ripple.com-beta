@@ -14,7 +14,7 @@ get_header('video'); ?>
 								<article id="text-area" class="text-area wrapper">
 									<div class="entry-content callout text">
 							        	<h1>Computing for Good</h1>
-							            <p>Donate spare computing time for reasearch. Receive XRP from Ripple Labs.</p>
+							            <p>Donate spare computing time for research. Receive XRP from Ripple Labs.</p>
 								            <div class="join">
 									            <a target="blank" href="http://computingforgood.com/">
 									            	Join
