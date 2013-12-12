@@ -8,7 +8,7 @@ public function __construct() {
 parent::__construct(
 'bapi_google_translate', // Base ID
 'Google Language Translator', // Name
-array( 'description' => __( 'Go to Settings >> Google Language Translator to configure this widget.', 'text_domain' ), ) // Args
+array( 'description' => __( 'Go to Settings > Google Language Translator to configure this widget.', 'text_domain' ), ) // Args
 );
 }
 

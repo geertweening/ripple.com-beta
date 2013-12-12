@@ -1,13 +1,13 @@
 === Google Language Translator ===
 Contributors: Rob Myrick
-Donate link: https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=c6aycTLE8Qho4lN9-QgzmJQKxNrRLomhJQ8gEAM2t5EZc5enxqC4Dpii-1C&dispatch=5885d80a13c0db1f8e263663d3faee8d0b7e678a25d883d0fa72c947f193f8fd
+Donate link: http://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=47LFA33AC89S6
 Plugin link: http://www.studio88design.com/plugins/google-language-translator
 Tags: language translator, google translator, language translate, google, google language translator, translation, translate, multi language
 Requires at least: 2.9
-Tested up to: 3.6
-stable tag: 2.6
+Tested up to: 3.6.1
+stable tag: 2.8
 
-Welcome to Google Language Tranlator! This plugin allows you to insert the Google Language Translator tool anywhere on your website using shortcode.
+Welcome to Google Language Translator! This plugin allows you to insert the Google Language Translator tool anywhere on your website using shortcode.
 
 == Description ==
 
@@ -100,6 +100,24 @@ Settings include: inline or vertical layout, show/hide specific languages, hide/
 
 - Added defaults to all options to ensure there are no more issues with the translator displaying upon installation. Again, sorry for any inconvenience.
 
+2.7
+
+- Added Google Analytics tracking capability to the plugin.  
+
+- Added a "CSS Styles" box in the settings panel.
+
+- Changed the Catalonian flag to its correct flag image.
+
+- Fixed coding issues that previously updated options incorrectly, which is why many users experienced display issues.  All options are now initialized upon plugin activation, which should fix this issue permanently.
+
+- Fixed a glitch in our usage of the translate API.  Previously, when the user clicked the default language, it would toggle back and forth between the default language and "Afrikaans" language. Now, users will see the correct language displayed at all times, no matter how many times it is clicked.  
+
+
+2.8
+
+- Added an option to allow users to manage their own translations directly through their Google Translate account (free). When activated, users can hover over the text of their website, and edit the translations from the webpage directly.  Google will remember these translations, and then serve them to users once the edits are made. Users must install the Google Translate Customization meta tag provided through Google Translate here: translate.google.com/manager/website/settings. To obtain this meta tag, users need to configure the Google Translate tool directly from this website (although they will not use this because the plugin provides it), then the user can obtain the meta tag on the "Get Code" screen, which is displayed after configuring the Google Translate tool on this webpage. 
+- Added an option to allow users to turn on/off Google's multilanguagePage option, that when activated, the original website content will be a forced translation, instead of original content (but only after a translation is made.)
+- Added more flexible styles to the settings page, so that left and right panels display nicely to the user.
 
 == Screenshots ==
 

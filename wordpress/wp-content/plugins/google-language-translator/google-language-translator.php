@@ -2,12 +2,33 @@
 /*
 Plugin Name: Google Language Translator
 Plugin URI: http://www.studio88design.com/plugins/google-language-translator
-Version: 2.6
+Version: 2.8
 Description: The MOST SIMPLE Google Translator plugin.  This plugin adds Google Translator to your website by using a single shortcode, [google-translator]. Settings include: layout style, hide/show specific languages, hide/show Google toolbar, and hide/show Google branding. Add the shortcode to pages, posts, and widgets.
 Author: Rob Myrick
 Author URI: http://www.studio88design.com/
 */
-//include_once ( plugins_url() . '/widget.php' );
+
+register_activation_hook( __FILE__, 'glt_activate' );
+
+function glt_activate() {
+    add_option('googlelanguagetranslator_active', 1); 
+    add_option('googlelanguagetranslator_language','en'); 
+    add_option('googlelanguagetranslator_language_option','all'); 
+    add_option('language_display_settings',array ('en' => 1));
+    add_option('googlelanguagetranslator_flags','show_flags');
+    add_option('flag_display_settings',array ('flag-en' => 1)); 
+    add_option('googlelanguagetranslator_translatebox','yes'); 
+    add_option('googlelanguagetranslator_display','Vertical'); 
+    add_option('googlelanguagetranslator_toolbar','Yes'); 
+    add_option('googlelanguagetranslator_showbranding','Yes'); 
+    add_option('googlelanguagetranslator_flags_alignment','flags_left');   
+    add_option('googlelanguagetranslator_analytics',1);
+    add_option('googlelanguagetranslator_analytics_id','');  
+    add_option('googlelanguagetranslator_css','');
+    add_option('googlelanguagetranslator_manage_translations',0);
+    add_option('googlelanguagetranslator_multilanguage',0);
+} 
+
 include( plugin_dir_path( __FILE__ ) . 'widget.php');
 
 function scripts($hook_suffix) {
@@ -27,14 +48,14 @@ function flags() {
 }
 add_action('wp_enqueue_scripts', 'flags');
 
-function page (){
+function page_layout (){
     global $p;
     
     add_action( 'admin_enqueue_scripts', 'scripts');
   
-    $p = add_options_page('Google Language Translator', 'Google Language Translator', 'manage_options', 'google_language_translator', 'page_cb');
+    $p = add_options_page('Google Language Translator', 'Google Language Translator', 'manage_options', 'google_language_translator', 'page_layout_cb');
 }	
-add_action('admin_menu', 'page');
+add_action('admin_menu', 'page_layout');
 
 function google_translator_shortcode() {
     if (get_option('googlelanguagetranslator_display')=='Vertical'){
@@ -44,7 +65,19 @@ function google_translator_shortcode() {
     elseif(get_option('googlelanguagetranslator_display')=='Horizontal'){
     return googlelanguagetranslator_horizontal();
     }
+  
 }
+
+function load_css_overrides() { ?>
+    <style type="text/css">
+    <?php echo get_option("googlelanguagetranslator_css"); ?>
+    </style>
+<?php
+}
+
+add_action('wp_head','load_css_overrides');
+add_action('admin_head','load_css_overrides');
+    
 
     if (get_option('googlelanguagetranslator_toolbar')=='Yes') {
 	add_action ('wp_head','googlelanguagetranslator_toolbar_yes');
@@ -80,22 +113,28 @@ function google_translator_shortcode() {
 	add_action ('wp_head','googlelanguagetranslator_flags_display');
 	add_action ('admin_head','googlelanguagetranslator_flags_display');
 	}
+
+    if (get_option('googlelanguagetranslator_manage_translations') == 0) {
+	add_action ('wp_head','googlelanguagetranslator_manage_translations_no');
+	add_action ('admin_head','googlelanguagetranslator_manage_translations_no');
+	}
 add_shortcode( 'google-translator', 'google_translator_shortcode');
 
 add_filter('widget_text', 'do_shortcode');
 
-function page_cb() { ?>
-        <div class="wrap" style="width:89%">
+function page_layout_cb() { ?>
+        <div class="wrap">
 	      <div id="icon-options-general" class="icon32"></div>
 	        <h2><span class="notranslate">Google Language Translator</span></h2>
+		      <form action="<?php echo admin_url('options.php'); ?>" method="post">
 	          <div class="metabox-holder has-right-sidebar" style="float:left; width:65%">
                 <div class="postbox" style="width: 100%">
                   <h3 class="notranslate">Settings</h3>
-                  <form action="<?php echo admin_url('options.php'); ?>" method="post">
+                  
 			      <?php settings_fields('google_language_translator'); ?>
                     <table style="border-collapse:separate" width="100%" border="0" cellspacing="8" cellpadding="0" class="form-table">
                       <tr>
-				        <td class="notranslate">Plugin Status:</td>
+						<td style="width:60%" class="notranslate">Plugin Status:</td>
 				        <td class="notranslate"><?php googlelanguagetranslator_active_cb(); ?></td>
                       </tr>
 					  
@@ -114,7 +153,7 @@ function page_cb() { ?>
 					  </tr>
 					  
 					  <tr class="notranslate">
-				        <td class="choose_flags_intro">Show flag images?<br/>(Display up to 70 flags above the translator)</td>
+				        <td class="choose_flags_intro">Show flag images?<br/>(Display up to 72 flags above the translator)</td>
 						<td class="choose_flags_intro"><?php googlelanguagetranslator_flags_cb(); ?></td>
 					  </tr>
 					  
@@ -154,12 +193,34 @@ function page_cb() { ?>
 						<td class="flagdisplay"><?php googlelanguagetranslator_flags_alignment_cb(); ?></td>
 					  </tr>
 					  
+					  <tr class="manage_translations notranslate">
+						<td>Turn on translation management?<br/>(Managed directly through your Google account.  Requires <a href="http://translate.google.com/manager/website/settings" target="_blank">Google Translate</a> meta tag installed in header.)</td>
+						<td><?php googlelanguagetranslator_manage_translations_cb(); ?></td>
+					  </tr>
+
+                      <tr class="multilanguage notranslate">
+						<td>Multilanguage Page Option?: (<em>not recommended)</em><br/>(If checked, a "forced" translation of your webpage will be served when returned to the default language, instead of delivering original content.)</td>
+						<td><?php googlelanguagetranslator_multilanguage_cb(); ?></td>
+					  </tr>
+					  
+					  <tr class="notranslate">
+						<td>Google Analytics:</td>
+						<td><?php googlelanguagetranslator_analytics_cb(); ?></td>
+					  </tr>
+					  
+					  <tr class="analytics notranslate">
+						<td>Google Analytics ID (Ex. 'UA-11117410-2')</td>
+						<td><?php googlelanguagetranslator_analytics_id_cb(); ?></td>
+					  </tr>
+					  
 					  <tr class="notranslate">
 						<td>Copy/Paste this shortcode if adding to pages/posts:</td>
                         <td>[google-translator]</td>
                       </tr>
+				  </table>
 					  
-					  <tr class="notranslate">
+				  <table style="border-collapse:separate" width="100%" border="0" cellspacing="8" cellpadding="0" class="form-table">
+                      <tr class="notranslate">
 						<td>Copy/Paste this code if adding to header/footer:</td>
 						<td>&lt?php echo do_shortcode('[google-translator]'); ?&gt</td>
 					  </tr>
@@ -168,12 +229,12 @@ function page_cb() { ?>
 						<td><?php submit_button(); ?></td>
 						<td></td>
 					  </tr>
-			        </table>	  
-            </form>
+			      </table>	  
+            
 		  </div> <!-- .postbox -->
 		  </div> <!-- .metbox-holder -->
 		  
-		  <div class="metabox-holder" style="float:right; clear:right; width:33%; min-width:350px; ">
+		  <div class="metabox-holder" style="float:right; clear:right; width:33%">
 		    <div class="postbox">
 		      <h3 class="notranslate">Preview</h3>
 	            <table style="width:100%">
@@ -183,9 +244,37 @@ function page_cb() { ?>
 		        </table>
 		    </div> <!-- .postbox -->
 	      </div> <!-- .metabox-holder -->
-        
-
-        <div class="metabox-holder notranslate" style="float: right; width: 33%;">
+		  
+				
+	   <div class="metabox-holder notranslate" style="float: right; width: 33%;">
+          <div class="postbox">
+            <h3>Add CSS Styles</h3>
+			<div class="inside">
+			  <p>You can apply any necessary CSS styles below:</p>
+			      <?php googlelanguagetranslator_css_cb(); ?>
+			 </div>
+          </div>
+	   </div>
+	</form>
+		  
+		<div class="metabox-holder notranslate" style="float: right; width: 33%;">
+          <div class="postbox">
+            <h3>GLT Premium is Here! $12</h3>
+			<div class="inside"><a href="http://www.wp-studio.net/" target="_blank"><img style="background:#444; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px" src="<?php echo plugins_url('google-language-translator/images/logo.png'); ?>"></a><br />
+              <ul id="features">
+				<li>Get more design and functionality options</li>
+				<li>Loads directly with page content, not afterward</li>
+	            <li>jQuery-powered "Elegant" theme to engage your visitors</li>
+	            <li>Manage your website's translations</li>
+	            <li>Show or hide any features you want</li>
+	            <li>Full access to our support forum</li>
+	            <li>Full access to future updates, for life of the plugin</li>
+	          </ul>
+             </div>
+          </div>
+	   </div>	  
+		  
+	    <div class="metabox-holder notranslate" style="float: right; width: 33%;">
           <div class="postbox">
             <h3>Please Consider A Donation</h3>
               <div class="inside">If you like this plugin and find it useful, help keep this plugin actively developed by clicking the donate button <br /><br />
@@ -205,7 +294,7 @@ function page_cb() { ?>
                <br />
              </div>
           </div>
-	   </div>
+	   </div>	  
 </div> <!-- .wrap -->
         <?php
 }
@@ -242,6 +331,11 @@ function initialize_settings() {
     add_settings_field( 'googlelanguagetranslator_toolbar', 'Show Toolbar','googlelanguagetranslator_toolbar_cb','google_language_translator','glt_settings');
     add_settings_field( 'googlelanguagetranslator_showbranding', 'Show Google Branding','googlelanguagetranslator_showbranding_cb','google_language_translator','glt_settings');
     add_settings_field( 'googlelanguagetranslator_flags_alignment', 'Align Flags Right or Left', 'googlelanguagetranslator_flags_alignment_cb','google_language_translator','glt_settings');
+    add_settings_field( 'googlelanguagetranslator_analytics','Activate Google Analytics tracking?','googlelanguagetranslator_analytics_cb','google_language_translator','glt_settings');
+    add_settings_field( 'googlelanguagetranslator_analytics_id','Enter your Google Analytics ID','googlelanguagetranslator_analytics_id_cb','google_language_translator','glt_settings');
+    add_settings_field( 'googlelanguagetranslator_css','Custom CSS Overrides','googlelanguagetranslator_css_cb','google_language_translator','glt_settings');
+    add_settings_field( 'googlelanguagetranslator_manage_translations','Turn on translation management?','googlelanguagetranslator_manage_translations_cb','google_language_translator','glt_settings');
+    add_settings_field( 'googlelanguagetranslator_multilanguage','Multilanguage webpages?','googlelanguagetranslator_multilanguage_cb','google_language_translator','glt_settings');
     
   
   
@@ -257,30 +351,44 @@ function initialize_settings() {
     register_setting( 'google_language_translator','googlelanguagetranslator_toolbar');
     register_setting( 'google_language_translator','googlelanguagetranslator_showbranding');
     register_setting( 'google_language_translator','googlelanguagetranslator_flags_alignment');
+    register_setting( 'google_language_translator','googlelanguagetranslator_disable_mootools');
+    register_setting( 'google_language_translator','googlelanguagetranslator_disable_modal');
+    register_setting( 'google_language_translator','googlelanguagetranslator_analytics');
+    register_setting( 'google_language_translator','googlelanguagetranslator_analytics_id');
+    register_setting( 'google_language_translator','googlelanguagetranslator_css');
+    register_setting( 'google_language_translator','googlelanguagetranslator_manage_translations');
+    register_setting( 'google_language_translator','googlelanguagetranslator_multilanguage');
   
     function googlelanguagetranslator_active_cb() {
-	   add_option ('googlelanguagetranslator_active',1);
-
-      if ( get_option( 'googlelanguagetranslator_active' ) !== false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_active', 1);
-	  }
-	   
-	   $options = get_option( 'googlelanguagetranslator_active');
 	  
-	   $html = '<input type="checkbox" name="googlelanguagetranslator_active" id="googlelanguagetranslator_active" value="1" '.checked(1,$options,false).'/> &nbsp; Activate Google Language Translator?';
-      echo $html;
+	  $option_name = 'googlelanguagetranslator_active' ;
+      $new_value = 1;
+
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.'');
+	  		
+	  $html = '<input type="checkbox" name="googlelanguagetranslator_active" id="googlelanguagetranslator_active" value="1" '.checked(1,$options,false).'/> &nbsp; Activate Google Language Translator?';
+	  echo $html;
 	}
   
     function googlelanguagetranslator_language_cb() {
-	   add_option ('googlelanguagetranslator_language','en');
+	  
+	  $option_name = 'googlelanguagetranslator_language';
+      $new_value = 'en';
 
-       if ( get_option( 'googlelanguagetranslator_language' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_language','en');
-	  }
-       $options = get_option( 'googlelanguagetranslator_language' ); ?>
-       	<select name="googlelanguagetranslator_language" id="googlelanguagetranslator_language">
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.''); ?>
+	   <select name="googlelanguagetranslator_language" id="googlelanguagetranslator_language">
 				  <option value="af" <?php if($options=='af'){echo "selected";}?>>Afrikaans</option>
 				  <option value="sq" <?php if($options=='sq'){echo "selected";}?>>Albanian</option>
 				  <option value="ar" <?php if($options=='ar'){echo "selected";}?>>Arabic</option>
@@ -355,16 +463,21 @@ function initialize_settings() {
 				  <option value="yi" <?php if($options=='yi'){echo "selected";}?>>Yiddish</option>		
          </select>
     <?php     
+      
     } 
   
   function googlelanguagetranslator_language_option_cb() {
-	add_option ('googlelanguagetranslator_language_option','all');
+	
+	$option_name = 'googlelanguagetranslator_language_option' ;
+    $new_value = 'all';
 
-    if ( get_option( 'googlelanguagetranslator_language_option' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_flags', 'all' );
-	  }
-	$options = get_option('googlelanguagetranslator_language_option'); ?>
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.''); ?>
 
     <input type="radio" name="googlelanguagetranslator_language_option" id="googlelanguagetranslator_language_option" value="all" <?php if($options=='all'){echo "checked";}?>/> All Languages<br/>
 	<input type="radio" name="googlelanguagetranslator_language_option" id="googlelanguagetranslator_language_option" value="specific" <?php if($options=='specific'){echo "checked";}?>/> Specific Languages
@@ -375,15 +488,307 @@ function initialize_settings() {
   function language_display_settings_cb() {
 	$defaults = array (
 	  'en' => 1
-	  );
-	add_option ('language_display_settings',$defaults);
-
-    if ( get_option( 'language_display_settings' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'language_display_settings', $defaults );
-	  }
+	);
 	
-	$get_language_choices = get_option ('language_display_settings'); ?>
+	$option_name = 'language_display_settings' ;
+    $new_value = $defaults;
+
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $get_language_choices = get_option (''.$option_name.''); 
+
+      if (!isset ( $get_language_choices ['af'] ) ) {
+	    $get_language_choices['af'] = 0;
+	  }
+	  
+	   if (!isset ( $get_language_choices ['sq'] ) ) {
+	    $get_language_choices['sq'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ar'] ) ) {
+	    $get_language_choices['ar'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['hy'] ) ) {
+	    $get_language_choices['hy'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['az'] ) ) {
+	    $get_language_choices['az'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['eu'] ) ) {	
+	    $get_language_choices['eu'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['be'] ) ) {
+	    $get_language_choices['be'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['bn'] ) ) {
+		$get_language_choices['bn'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['bs'] ) ) {
+		 $get_language_choices['bs'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['bg'] ) ) { 
+		 $get_language_choices['bg'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ca'] ) ) { 
+	     $get_language_choices['ca'] = 0;	 
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ceb'] ) ) {
+		 $get_language_choices['ceb'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['zh-CN'] ) ) {
+		 $get_language_choices['zh-CN'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['zh-TW'] ) ) {
+	     $get_language_choices['zh-TW'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['hr'] ) ) {
+	     $get_language_choices['hr'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['cs'] ) ) {
+	     $get_language_choices['cs'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['da'] ) ) {
+	     $get_language_choices['da'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['nl'] ) ) {
+	     $get_language_choices['nl'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['en'] ) ) {
+	   $get_language_choices['en'] = 1; 
+	   }
+	  
+	   if (!isset ( $get_language_choices ['eo'] ) ) {
+	     $get_language_choices['eo'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['et'] ) ) {
+	     $get_language_choices['et'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['tl'] ) ) {
+	     $get_language_choices['tl'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['fi'] ) ) {
+	     $get_language_choices['fi'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['fr'] ) ) {
+	     $get_language_choices['fr'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['gl'] ) ) {
+	     $get_language_choices['gl'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ka'] ) ) {
+	     $get_language_choices['ka'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['de'] ) ) {
+	     $get_language_choices['de'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['el'] ) ) {
+	     $get_language_choices['el'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['gu'] ) ) {
+	     $get_language_choices['gu'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ht'] ) ) {
+	     $get_language_choices['ht'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['iw'] ) ) {
+	     $get_language_choices['iw'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['hi'] ) ) {
+	     $get_language_choices['hi'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['hmn'] ) ) {
+	     $get_language_choices['hmn'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['hu'] ) ) {
+	     $get_language_choices['hu'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['is'] ) ) {
+	     $get_language_choices['is'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['id'] ) ) {
+	     $get_language_choices['id'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ga'] ) ) {
+	     $get_language_choices['ga'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['it'] ) ) {
+	     $get_language_choices['it'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ja'] ) ) {
+	     $get_language_choices['ja'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['jw'] ) ) {
+	     $get_language_choices['jw'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['kn'] ) ) {
+	     $get_language_choices['kn'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['km'] ) ) {
+	     $get_language_choices['km'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ko'] ) ) {
+	     $get_language_choices['ko'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['lo'] ) ) {
+	     $get_language_choices['lo'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['la'] ) ) {
+	     $get_language_choices['la'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['lv'] ) ) {
+	     $get_language_choices['lv'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['lt'] ) ) {
+	     $get_language_choices['lt'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['mk'] ) ) {
+	     $get_language_choices['mk'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ms'] ) ) {
+	     $get_language_choices['ms'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['mt'] ) ) {
+	     $get_language_choices['mt'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['mr'] ) ) {
+	     $get_language_choices['mr'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['no'] ) ) {
+	     $get_language_choices['no'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['fa'] ) ) {
+	     $get_language_choices['fa'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['pl'] ) ) {
+	     $get_language_choices['pl'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['pt'] ) ) {
+	     $get_language_choices['pt'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ro'] ) ) {
+	     $get_language_choices['ro'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ru'] ) ) {
+	     $get_language_choices['ru'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['sr'] ) ) {
+	     $get_language_choices['sr'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['sk'] ) ) {
+	     $get_language_choices['sk'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['sl'] ) ) {
+	     $get_language_choices['sl'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['es'] ) ) {
+	     $get_language_choices['es'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['sw'] ) ) {
+	     $get_language_choices['sw'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['sv'] ) ) {
+	     $get_language_choices['sv'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ta'] ) ) {
+	     $get_language_choices['ta'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['te'] ) ) {
+	     $get_language_choices['te'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['th'] ) ) {
+	     $get_language_choices['th'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['tr'] ) ) {
+	     $get_language_choices['tr'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['uk'] ) ) {
+	     $get_language_choices['uk'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['ur'] ) ) {
+	     $get_language_choices['ur'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['vi'] ) ) {
+	     $get_language_choices['vi'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['cy'] ) ) {
+	     $get_language_choices['cy'] = 0;
+	   }
+	  
+	   if (!isset ( $get_language_choices ['yi'] ) ) {
+	     $get_language_choices['yi'] = 0;
+	   } ?>
+	
 	            <div class="languages" style="width:25%; float:left">
 					<div><input type="checkbox" name="language_display_settings[af]" value="1"<?php if ( 1 == $get_language_choices['af'] ) echo 'checked="checked"'; ?> /> Afrikaans</div>
 				    <div><input type="checkbox" name="language_display_settings[sq]" value="1"<?php if ( 1 == $get_language_choices['sq'] ) echo 'checked="checked"'; ?> /> Albanian</div>
@@ -473,14 +878,16 @@ function initialize_settings() {
   
   function googlelanguagetranslator_flags_cb() { 
 	
-	  add_option ('googlelanguagetranslator_flags','hide_flags');
+	  $option_name = 'googlelanguagetranslator_flags' ;
+      $new_value = 'show_flags';
 
-      if ( get_option( 'googlelanguagetranslator_flags' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_flags', 'hide_flags' );
-	  }
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
 	  
-      $options = get_option('googlelanguagetranslator_flags','hide_flags'); ?>
+	  $options = get_option (''.$option_name.''); ?>
 
       <input type="radio" name="googlelanguagetranslator_flags" id="googlelanguagetranslator_flags" value="show_flags" <?php if($options=='show_flags'){echo "checked";}?>/> Yes, show flag images<br/>
 	  <input type="radio" name="googlelanguagetranslator_flags" id="googlelanguagetranslator_flags" value="hide_flags" <?php if($options=='hide_flags'){echo "checked";}?>/> No, hide flag images
@@ -491,15 +898,17 @@ function initialize_settings() {
 	  $defaults = array(
         'flag-en' => 1
       );
-	  add_option ('flag_display_settings', $defaults);
 	  
+	  $option_name = 'flag_display_settings' ;
+      $new_value = $defaults;
 
-      if ( get_option( 'flag_display_settings' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'flag_display_settings', $defaults );
-	  }
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
 	  
-	  $get_flag_choices = get_option('flag_display_settings');
+	  $get_flag_choices = get_option (''.$option_name.'');
 	  
 	  if (!isset ( $get_flag_choices ['flag-af'] ) ) {
 	    $get_flag_choices['flag-af'] = 0;
@@ -574,7 +983,7 @@ function initialize_settings() {
 	   }
 	  
 	   if (!isset ( $get_flag_choices ['flag-en'] ) ) {
-	   $get_flag_choices['flag-en'] = 0; 
+	   $get_flag_choices['flag-en'] = 1; 
 	   }
 	  
 	   if (!isset ( $get_flag_choices ['flag-eo'] ) ) {
@@ -741,7 +1150,7 @@ function initialize_settings() {
 	     $get_flag_choices['flag-sl'] = 0;
 	   }
 	  
-	   if (!isset ( $get_flag_choices ['flag-sw'] ) ) {
+	   if (!isset ( $get_flag_choices ['flag-es'] ) ) {
 	     $get_flag_choices['flag-es'] = 0;
 	   }
 	  
@@ -875,20 +1284,22 @@ function initialize_settings() {
                     <div><input type="checkbox" name="flag_display_settings[flag-vi]" value="1"<?php checked( 1,$get_flag_choices['flag-vi']); ?> /> Vietnamese</div>          
                     <div><input type="checkbox" name="flag_display_settings[flag-cy]" value="1"<?php checked( 1,$get_flag_choices['flag-cy']); ?> /> Welsh</div>               
                     <div><input type="checkbox" name="flag_display_settings[flag-yi]" value="1"<?php checked( 1,$get_flag_choices['flag-yi']); ?> /> Yiddish</div>                 
-				
-
-</div>
+                 </div>
 			<div style="clear:both"></div>
 <?php }
   
   function googlelanguagetranslator_translatebox_cb() {
-	add_option ('googlelanguagetranslator_translatebox','yes');
+	
+	$option_name = 'googlelanguagetranslator_translatebox' ;
+      $new_value = 'yes';
 
-       if ( get_option( 'googlelanguagetranslator_translatebox' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_translatebox', 'yes' );
-	  }
-	  $options = get_option('googlelanguagetranslator_translatebox'); ?>
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.''); ?>
 
           <select name="googlelanguagetranslator_translatebox" id="googlelanguagetranslator_translatebox" style="width:170px">
 		      <option value="yes" <?php if($options=='yes'){echo "selected";}?>>Yes, show language box</option>
@@ -897,27 +1308,38 @@ function initialize_settings() {
 <?php }
   
   function googlelanguagetranslator_display_cb() {
-	add_option ('googlelanguagetranslator_display','Vertical');
+	
+	$option_name = 'googlelanguagetranslator_display' ;
+    $new_value = 'Vertical';
 
-       if ( get_option( 'googlelanguagetranslator_display' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_display', 'Vertical' );
-	  }
-      $options = get_option('googlelanguagetranslator_display'); ?>
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.''); ?>
+
           <select name="googlelanguagetranslator_display" id="googlelanguagetranslator_display" style="width:170px;">
              <option value="Vertical" <?php if(get_option('googlelanguagetranslator_display')=='Vertical'){echo "selected";}?>>Vertical</option>
              <option value="Horizontal" <?php if(get_option('googlelanguagetranslator_display')=='Horizontal'){echo "selected";}?>>Horizontal</option>
+			 
           </select>  
 <?php }
   
   function googlelanguagetranslator_toolbar_cb() {
-	add_option ('googlelanguagetranslator_toolbar','Yes');
+	
+	$option_name = 'googlelanguagetranslator_toolbar' ;
+      $new_value = 'Yes';
 
-       if ( get_option( 'googlelanguagetranslator_toolbar' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_toolbar', 'Yes' );
-	  }
-	  $options = get_option('googlelanguagetranslator_toolbar'); ?>
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.''); ?>
+
           <select name="googlelanguagetranslator_toolbar" id="googlelanguagetranslator_toolbar" style="width:170px;">
              <option value="Yes" <?php if(get_option('googlelanguagetranslator_toolbar')=='Yes'){echo "selected";}?>>Yes</option>
              <option value="No" <?php if(get_option('googlelanguagetranslator_toolbar')=='No'){echo "selected";}?>>No</option>
@@ -925,13 +1347,18 @@ function initialize_settings() {
 <?php }
   
   function googlelanguagetranslator_showbranding_cb() {
-	add_option ('googlelanguagetranslator_showbranding','Yes');
+	
+	$option_name = 'googlelanguagetranslator_showbranding' ;
+    $new_value = 'Yes';
 
-       if ( get_option( 'googlelanguagetranslator_showbranding' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_showbranding', 'Yes' );
-	  }
-	  $options = get_option('googlelanguagetranslator_showbranding'); ?>
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.''); ?>
+
           <select name="googlelanguagetranslator_showbranding" id="googlelanguagetranslator_showbranding" style="width:170px;">
              <option value="Yes" <?php if(get_option('googlelanguagetranslator_showbranding')=='Yes'){echo "selected";}?>>Yes</option>
              <option value="No" <?php if(get_option('googlelanguagetranslator_showbranding')=='No'){echo "selected";}?>>No</option>
@@ -939,22 +1366,106 @@ function initialize_settings() {
 <?php }
   
   function googlelanguagetranslator_flags_alignment_cb() {
-	add_option ('googlelanguagetranslator_flags_alignment','flags_left');
+	
+	$option_name = 'googlelanguagetranslator_flags_alignment' ;
+    $new_value = 'flags_left';
 
-       if ( get_option( 'googlelanguagetranslator_flags_alignment' ) == false ) {
-        // The option already exists, so we just update it.
-        update_option( 'googlelanguagetranslator_flags_alignment', 'flags_left' );
-	  }
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, 'flags_left' );
+	  } 
 	  
+	  $options = get_option (''.$option_name.''); ?>
+
+      <input type="radio" name="googlelanguagetranslator_flags_alignment" id="flags_left" value="flags_left" <?php if($options=='flags_left'){echo "checked";}?>/> Align Left<br/>
+      <input type="radio" name="googlelanguagetranslator_flags_alignment" id="flags_right" value="flags_right" <?php if($options=='flags_right'){echo "checked";}?>/> Align Right
+  <?php }
+          
+  
+  function googlelanguagetranslator_analytics_cb() {
 	
-	$options = get_option('googlelanguagetranslator_flags_alignment','flags_left');
+	$option_name = 'googlelanguagetranslator_analytics' ;
+    $new_value = 0;
+
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.'');
+
+    $html = '<input type="checkbox" name="googlelanguagetranslator_analytics" id="googlelanguagetranslator_analytics" value="1" '.checked(1,$options,false).'/> &nbsp; Activate Google Analytics tracking?';
+    echo $html;
+  }
+  
+  function googlelanguagetranslator_analytics_id_cb() {
 	
+	$option_name = 'googlelanguagetranslator_analytics_id' ;
+    $new_value = '';
+
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.'');
+
+    $html = '<input type="text" name="googlelanguagetranslator_analytics_id" id="googlelanguagetranslator_analytics_id" value="'.$options.'" />';
+    echo $html;
+  }
+  
+    function googlelanguagetranslator_css_cb() {
+	 
+    $option_name = 'googlelanguagetranslator_css' ;
+    $new_value = '';
+
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.'');
+    
+	  $html = '<textarea style="width:100%; height:200px" name="googlelanguagetranslator_css" id="googlelanguagetranslator_css">'.$options.'</textarea>';
+    echo $html;
+ }
+  
+    function googlelanguagetranslator_manage_translations_cb() { 
+     $option_name = 'googlelanguagetranslator_manage_translations' ;
+     $new_value = 0;
+
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.'');
+
+    $html = '<input type="checkbox" name="googlelanguagetranslator_manage_translations" id="googlelanguagetranslator_manage_translations" value="1" '.checked(1,$options,false).'/> &nbsp; Turn on translation management?';
+    echo $html;
+  }
+  
+   function googlelanguagetranslator_multilanguage_cb() {
 	
-	
-	   ?>
-          <input type="radio" name="googlelanguagetranslator_flags_alignment" id="googlelanguagetranslator_flags_alignment" value="flags_left" <?php if($options=='flags_left'){echo "checked";}?>/> Align Left<br/>
-		  <input type="radio" name="googlelanguagetranslator_flags_alignment" id="googlelanguagetranslator_flags_alignment" value="flags_right" <?php if($options=='flags_right'){echo "checked";}?>/> Align Right
-<?php }
+	$option_name = 'googlelanguagetranslator_multilanguage' ;
+    $new_value = 0;
+
+      if ( get_option( $option_name ) === false ) {
+
+      // The option does not exist, so we update it.
+      update_option( $option_name, $new_value );
+	  } 
+	  
+	  $options = get_option (''.$option_name.''); 
+
+      $html = '<input type="checkbox" name="googlelanguagetranslator_multilanguage" id="googlelanguagetranslator_multilanguage" value="1" '.checked(1,$options,false).'/> &nbsp; Turn on multilanguage mode?';
+      echo $html; 
+  }
 				
   
   
@@ -978,669 +1489,697 @@ function googlelanguagetranslator_included_languages() {
 	     $comma_separated = implode(",",array_values($items));
 	
 	if ( get_option('googlelanguagetranslator_display') == 'Vertical') {
-	     $lang .= 'includedLanguages:\''.$comma_separated.'\',';
+	     $lang = 'includedLanguages:\''.$comma_separated.'\',';
 	     return $lang;
 	} elseif ( get_option('googlelanguagetranslator_display') == 'Horizontal') {
-	     $lang .= 'includedLanguages:\''.$comma_separated.'\',';
+	     $lang = 'includedLanguages:\''.$comma_separated.'\',';
 	     return $lang;
-	}
-  } 
+    } 
+  }
+}
+
+function analytics() {
+  if ( get_option('googlelanguagetranslator_analytics') == 1 ) {
+	$analytics_id = get_option('googlelanguagetranslator_analytics_id');
+	$analytics = 'gaTrack: true, gaId: \''.$analytics_id.'\'';
+	return $analytics;
+  }
 }
   
-function googlelanguagetranslator_vertical(){ 
-    $language_choices = googlelanguagetranslator_included_languages();
-	if(get_option('googlelanguagetranslator_active')==1){
-	  $get_flag_choices = get_option ('flag_display_settings');
+function googlelanguagetranslator_vertical(){    
+  $is_active = get_option ( 'googlelanguagetranslator_active' );
+  $get_flag_choices = get_option ('flag_display_settings');
+  $language_choices = googlelanguagetranslator_included_languages();
+  
+	if( $is_active == 1){
+	  
 	  foreach ($get_flag_choices as $key) {
 		//print_r($key);
 	  }
 	  
-	  
-	  
-      $str='<div id="flags">';
-			 
+	  $str='<div id="flags">';
+	    
+	   
 	  
 		if ($key == '1') {
 		  if ( isset ( $get_flag_choices['flag-af'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|af\'); return false;" title="Afrikaans" class="flag af"></a>';
+			$str.='<a id="Afrikaans" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|af\'); return false;" title="Afrikaans" class="notranslate flag af"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/southafrica.png" height="18" width="18" alt="Afrikaans"/></a>';
 	    }
 		  
 		
 		  if ( isset ( $get_flag_choices['flag-sq'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sq\'); return false;" title="Albanian" class="flag sq"></a>';
+		  $str.='<a id="Albanian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sq\'); return false;" title="Albanian" class="notranslate flag sq"><img class="notranslate flag flag flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/albania.png" height="18" width="18" alt="Albanian"/></a>';
 	    }
 		  
 		   if ( isset ( $get_flag_choices['flag-ar'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ar\'); return false;" title="Arabic" class="flag ar"></a>';
+		  $str.='<a id="Arabic" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ar\'); return false;" title="Arabic" class="notranslate flag ar"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/saudiaarabia.png" height="18" width="18" alt="Arabic"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hy'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hy\'); return false;" title="Armenian" class="flag hy"></a>';
+		  $str.='<a id="Armenian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hy\'); return false;" title="Armenian" class="notranslate flag hy"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/armenia.png" height="18" width="18" alt="Armenian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-az'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|az\'); return false;" title="Azerbaijani" class="flag az"></a>';
+		  $str.='<a id="Azerbaijani" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|az\'); return false;" title="Azerbaijani" class="notranslate flag az"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/azerbaijan.png" height="18" width="18" alt="Azerbaijani"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-eu'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|eu\'); return false;" title="Basque" class="flag eu"></a>';
+		  $str.='<a id="Basque" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|eu\'); return false;" title="Basque" class="notranslate flag eu"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/basque.png" height="18" width="18" alt="Basque"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-be'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|be\'); return false;" title="Belarusian" class="flag be"></a>';
+		  $str.='<a id="Belarusian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|be\'); return false;" title="Belarusian" class="notranslate flag be"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/belarus.png" height="18" width="18" alt="Belarus"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-bn'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bn\'); return false;" title="Bengali" class="flag bn"></a>';
+		  $str.='<a id="Bengali" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bn\'); return false;" title="Bengali" class="notranslate flag bn"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/bangladesh.png" height="18" width="18" alt="Bengali"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-bs'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bs\'); return false;" title="Bosnian" class="flag bs"></a>';
+		  $str.='<a id="Bosnian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bs\'); return false;" title="Bosnian" class="notranslate flag bs"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/bosnia.png" height="18" width="18" alt="Bosnian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-bg'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bg\'); return false;" title="Bulgarian" class="flag bg"></a>';
+		  $str.='<a id="Bulgarian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bg\'); return false;" title="Bulgarian" class="notranslate flag bg"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/bulgaria.png" height="18" width="18" alt="Bulgarian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ca'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ca\'); return false;" title="Catalan" class="flag ca"></a>';
+		  $str.='<a id="Catalan" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ca\'); return false;" title="Catalan" class="notranslate flag ca"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/catalonia.png" height="18" width="18" alt="Catalan"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ceb'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ceb\'); return false;" title="Cebuano" class="flag ceb"></a>';
+		  $str.='<a id="Cebuano" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ceb\'); return false;" title="Cebuano" class="notranslate flag ceb"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/philippines.png" height="18" width="18" alt="Afrikaans"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-zh-CN'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|zh-CN\'); return false;" title="Chinese (Simplified)" class="flag zh-CN"></a>';
+		  $str.='<a id="Chinese (Simplified)" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|zh-CN\'); return false;" title="Chinese (Simplified)" class="notranslate flag zh-CN"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/china.png" height="18" width="18" alt="Chinese (Simplified)"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-zh-TW'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|zh-TW\'); return false;" title="Chinese (Traditional)" class="flag zh-TW"></a>';
+		  $str.='<a id="Chinese (Traditional)" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|zh-TW\'); return false;" title="Chinese (Traditional)" class="notranslate flag zh-TW"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/china.png" height="18" width="18" alt="Chinese (Traditional)"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-cs'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|cs\'); return false;" title="Czech Republic" class="flag cs"></a>';
+		  $str.='<a id="Czech" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|cs\'); return false;" title="Czech" class="notranslate flag cs"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/czechrepublic.png" height="18" width="18" alt="Czech"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hr\'); return false;" title="Croatian" class="flag hr"></a>';
+		  $str.='<a id="Croatian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hr\'); return false;" title="Croatian" class="notranslate flag hr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/croatia.png" height="18" width="18" alt="Croatian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-da'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|da\'); return false;" title="Danish" class="flag da"></a>';
+		  $str.='<a id="Danish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|da\'); return false;" title="Danish" class="notranslate flag da"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/denmark.png" height="18" width="18" alt="Danish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-nl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|nl\'); return false;" title="Netherlands" class="flag nl"></a>';
+		  $str.='<a id="Dutch" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|nl\'); return false;" title="Dutch" class="notranslate flag nl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/netherlands.png" height="18" width="18" alt="Dutch"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-en'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|en\'); return false;" title="English" class="flag en"></a>';
+		  $str.='<a id="English" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|en\'); return false;" title="English" class="notranslate flag en"><img class="flagimg" title="English" src="'.plugins_url().'/google-language-translator/images/flags24/unitedkingdom.png" height="18" width="18" alt="English"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-eo'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|eo\'); return false;" title="Esperanto" class="flag eo"></a>';
+		  $str.='<a id="Esperanto" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|eo\'); return false;" title="Esperanto" class="notranslate flag eo"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/esperanto.png" height="18" width="18" alt="Esperanto"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-et'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|et\'); return false;" title="Estonian" class="flag et"></a>';
+		  $str.='<a id="Estonian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|et\'); return false;" title="Estonian" class="notranslate flag et"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/estonia.png" height="18" width="18" alt="Estonian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-tl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|tl\'); return false;" title="Filipino" class="flag tl"></a>';
+		  $str.='<a id="Filipino" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|tl\'); return false;" title="Filipino" class="notranslate flag tl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/philippines.png" height="18" width="18" alt="Filipino"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-fi'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fi\'); return false;" title="Finnish" class="flag fi"></a>';
+		  $str.='<a id="Finnish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fi\'); return false;" title="Finnish" class="notranslate flag fi"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/finland.png" height="18" width="18" alt="Finnish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-fr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fr\'); return false;" title="French" class="flag fr"></a>';
+		  $str.='<a id="French" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fr\'); return false;" title="French" class="notranslate flag fr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/france.png" height="18" width="18" alt="French"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-gl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|gl\'); return false;" title="Galician" class="flag gl"></a>';
+		  $str.='<a id="Galician" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|gl\'); return false;" title="Galician" class="notranslate flag gl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/galicia.png" height="18" width="18" alt="Galician"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ka'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ka\'); return false;" title="Georgian" class="flag ka"></a>';
+		  $str.='<a id="Georgian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ka\'); return false;" title="Georgian" class="notranslate flag ka"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/georgia.png" height="18" width="18" alt="Georgian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-de'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|de\'); return false;" title="German" class="flag de"></a>';
+		  $str.='<a id="German" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|de\'); return false;" title="German" class="notranslate flag de"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/germany.png" height="18" width="18" alt="German"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-el'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|el\'); return false;" title="Greek" class="flag el"></a>';
+		  $str.='<a id="Greek" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|el\'); return false;" title="Greek" class="notranslate flag el"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/greece.png" height="18" width="18" alt="Greek"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-gu'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|gu\'); return false;" title="Gujarati" class="flag gu"></a>';
+		  $str.='<a id="Gujarati" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|gu\'); return false;" title="Gujarati" class="notranslate flag gu"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/india.png" height="18" width="18" alt="Gujarati"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ht'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ht\'); return false;" title="Haitian" class="flag ht"></a>';
+		  $str.='<a id="Haitian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ht\'); return false;" title="Haitian" class="notranslate flag ht"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/haiti.png" height="18" width="18" alt="Haitian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-iw'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|iw\'); return false;" title="Hebrew" class="flag iw"></a>';
+		  $str.='<a id="Hebrew" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|iw\'); return false;" title="Hebrew" class="notranslate flag iw"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/israel.png" height="18" width="18" alt="Hebrew"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hi'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hi\'); return false;" title="Hindi" class="flag hi"></a>';
+		  $str.='<a id="Hindi" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hi\'); return false;" title="Hindi" class="notranslate flag hi"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/india.png" height="18" width="18" alt="Hindi"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hmn'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hmn\'); return false;" title="Hmong" class="flag hmn"></a>';
+		  $str.='<a id="Hmong" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hmn\'); return false;" title="Hmong" class="notranslate flag hmn"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/hmong.png" height="18" width="18" alt="Hmong"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hu'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hu\'); return false;" title="Hungarian" class="flag hu"></a>';
+		  $str.='<a id="Hungarian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hu\'); return false;" title="Hungarian" class="notranslate flag hu"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/hungary.png" height="18" width="18" alt="Hungarian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-is'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|is\'); return false;" title="Iceland" class="flag is"></a>';
+		  $str.='<a id="Icelandic" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|is\'); return false;" title="Icelandic" class="notranslate flag is"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/iceland.png" height="18" width="18" alt="Icelandic"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-id'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|id\'); return false;" title="Indonesian" class="flag id"></a>';
+		  $str.='<a id="Indonesian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|id\'); return false;" title="Indonesian" class="notranslate flag id"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/indonesia.png" height="18" width="18" alt="Indonesian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ga'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ga\'); return false;" title="Irish" class="flag ga"></a>';
+		  $str.='<a id="Irish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ga\'); return false;" title="Irish" class="notranslate flag ga"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/ireland.png" height="18" width="18" alt="Irish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-it'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|it\'); return false;" title="Italian" class="flag it"></a>';
+		  $str.='<a id="Italian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|it\'); return false;" title="Italian" class="notranslate flag it"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/italy.png" height="18" width="18" alt="Italian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ja'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ja\'); return false;" title="Japanese" class="flag ja"></a>';
+		  $str.='<a id="Japanese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ja\'); return false;" title="Japanese" class="notranslate flag ja"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/japan.png" height="18" width="18" alt="Japanese"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-jw'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|jw\'); return false;" title="Javanese" class="flag jw"></a>';
+		  $str.='<a id="Javanese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|jw\'); return false;" title="Javanese" class="notranslate flag jw"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/indonesia.png" height="18" width="18" alt="Javanese"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-kn'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|kn\'); return false;" title="Kannada" class="flag kn"></a>';
+		  $str.='<a id="Kannada" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|kn\'); return false;" title="Kannada" class="notranslate flag kn"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/kannada.png" height="18" width="18" alt="Kannada"/></a>';
 		}
 		  
 		  if ( isset ( $get_flag_choices['flag-km'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|km\'); return false;" title="Khmer" class="flag km"></a>';
+		  $str.='<a id="Khmer" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|km\'); return false;" title="Khmer" class="notranslate flag km"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/cambodia.png" height="18" width="18" alt="Khmer"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ko'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ko\'); return false;" title="Korean" class="flag ko"></a>';
+		  $str.='<a id="Korean" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ko\'); return false;" title="Korean" class="notranslate flag ko"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/korea.png" height="18" width="18" alt="Korea"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-lo'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lo\'); return false;" title="Lao" class="flag lo"></a>';
+		  $str.='<a id="Lao" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lo\'); return false;" title="Lao" class="notranslate flag lo"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/laos.png" height="18" width="18" alt="Laos"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-la'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|la\'); return false;" title="Latin" class="flag la"></a>';
+		  $str.='<a id="Latin" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|la\'); return false;" title="Latin" class="notranslate flag la"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/latin.png" height="18" width="18" alt="Latin"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-lv'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lv\'); return false;" title="Latvian" class="flag lv"></a>';
+		  $str.='<a id="Latvian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lv\'); return false;" title="Latvian" class="notranslate flag lv"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/latvia.png" height="18" width="18" alt="Latvian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-lt'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lt\'); return false;" title="Lithuanian" class="flag lt"></a>';
+		  $str.='<a id="Lithuanian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lt\'); return false;" title="Lithuanian" class="notranslate flag lt"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/lithuania.png" height="18" width="18" alt="Lithuanian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-mk'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mk\'); return false;" title="Macedonian" class="flag mk"></a>';
+		  $str.='<a id="Macedonian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mk\'); return false;" title="Macedonian" class="notranslate flag mk"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/macedonia.png" height="18" width="18" alt="Macedonian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ms'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ms\'); return false;" title="Malay" class="flag ms"></a>';
+		  $str.='<a id="Malay" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ms\'); return false;" title="Malay" class="notranslate flag ms"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/malaysia.png" height="18" width="18" alt="Malay"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-mt'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mt\'); return false;" title="Maltese" class="flag mt"></a>';
+		  $str.='<a id="Maltese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mt\'); return false;" title="Maltese" class="notranslate flag mt"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/malta.png" height="18" width="18" alt="Malta"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-mr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mr\'); return false;" title="Marathi" class="flag mr"></a>';
+		  $str.='<a id="Marathi" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mr\'); return false;" title="Marathi" class="notranslate flag mr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/marathi.png" height="18" width="18" alt="Marathi"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-no'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|no\'); return false;" title="Norwegian" class="flag no"></a>';
+		  $str.='<a id="Norwegian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|no\'); return false;" title="Norwegian" class="notranslate flag no"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/norway.png" height="18" width="18" alt="Norwegian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-fa'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fa\'); return false;" title="Persian" class="flag fa"></a>';
+		  $str.='<a id="Persian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fa\'); return false;" title="Persian" class="notranslate flag fa"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/iran.png" height="18" width="18" alt="Persian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-pl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|pl\'); return false;" title="Polish" class="flag pl"></a>';
+		  $str.='<a id="Polish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|pl\'); return false;" title="Polish" class="notranslate flag pl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/poland.png" height="18" width="18" alt="Polish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-pt'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|pt\'); return false;" title="Portuguese" class="flag pt"></a>';
+		  $str.='<a id="Portuguese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|pt\'); return false;" title="Portuguese" class="notranslate flag pt"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/portugal.png" height="18" width="18" alt="Portuguese"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ro'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ro\'); return false;" title="Romanian" class="flag ro"></a>';
+		  $str.='<a id="Romanian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ro\'); return false;" title="Romanian" class="notranslate flag ro"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/romania.png" height="18" width="18" alt="Romanian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ru'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ru\'); return false;" title="Russian" class="flag ru"></a>';
+		  $str.='<a id="Russian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ru\'); return false;" title="Russian" class="notranslate flag ru"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/russia.png" height="18" width="18" alt="Russian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sr\'); return false;" title="Serbian" class="flag sr"></a>';
+		  $str.='<a id="Serbian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sr\'); return false;" title="Serbian" class="notranslate flag sr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/serbia.png" height="18" width="18" alt="Serbian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sk'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sk\'); return false;" title="Slovak" class="flag sk"></a>';
+		  $str.='<a id="Slovak" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sk\'); return false;" title="Slovak" class="notranslate flag sk"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/slovakia.png" height="18" width="18" alt="Slovak"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sl\'); return false;" title="Slovenian" class="flag sl"></a>';
+		  $str.='<a id="Slovenian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sl\'); return false;" title="Slovenian" class="notranslate flag sl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/slovenia.png" height="18" width="18" alt="Slovenian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-es'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|es\'); return false;" title="Spanish" class="flag es"></a>';
+		  $str.='<a id="Spanish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|es\'); return false;" title="Spanish" class="notranslate flag es"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/spain.png" height="18" width="18" alt="Spanish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sw'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sw\'); return false;" title="Swahili" class="flag sw"></a>';
+		  $str.='<a id="Swahili" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sw\'); return false;" title="Swahili" class="notranslate flag sw"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/kenya.png" height="18" width="18" alt="Swahili"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sv'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sv\'); return false;" title="Swedish" class="flag sv"></a>';
+		  $str.='<a id="Swedish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sv\'); return false;" title="Swedish" class="notranslate flag sv"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/sweden.png" height="18" width="18" alt="Swedish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ta'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ta\'); return false;" title="Tamil" class="flag ta"></a>';
+		  $str.='<a id="Tamil" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ta\'); return false;" title="Tamil" class="notranslate flag ta"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/tamil.png" height="18" width="18" alt="Tamil"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-te'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|te\'); return false;" title="Telugu" class="flag te"></a>';
+		  $str.='<a id="Telugu" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|te\'); return false;" title="Telugu" class="notranslate flag te"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/telugu.png" height="18" width="18" alt="Telugu"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-th'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|th\'); return false;" title="haiT" class="flag th"></a>';
+		  $str.='<a id="Thai" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|th\'); return false;" title="Thai" class="notranslate flag th"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/thailand.png" height="18" width="18" alt="Thai"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-tr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|tr\'); return false;" title="Turkish" class="flag tr"></a>';
+		  $str.='<a id="Turkish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|tr\'); return false;" title="Turkish" class="notranslate flag tr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/turkey.png" height="18" width="18" alt="Turkish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-uk'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|uk\'); return false;" title="Ukranian" class="flag uk"></a>';
+		  $str.='<a id="Ukranian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|uk\'); return false;" title="Ukranian" class="notranslate flag uk"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/ukraine.png" height="18" width="18" alt="Ukranian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ur'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ur\'); return false;" title="Urdu" class="flag ur"></a>';
+		  $str.='<a id="Urdu" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ur\'); return false;" title="Urdu" class="notranslate flag ur"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/pakistan.png" height="18" width="18" alt="Urdu"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-vi'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|vi\'); return false;" title="Vietnamese" class="flag vi"></a>';
-	    }
-		  
-		  if ( isset ( $get_flag_choices['flag-hy'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hy\'); return false;" title="Armenian" class="flag hy"></a>';
+		  $str.='<a id="Vietnamese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|vi\'); return false;" title="Vietnamese" class="notranslate flag vi"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/vietnam.png" height="18" width="18" alt="vietnamese"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-cy'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|cy\'); return false;" title="Welsh" class="flag cy"></a>';
+		  $str.='<a id="Welsh" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|cy\'); return false;" title="Welsh" class="notranslate flag cy"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/wales.png" height="18" width="18" alt="Welsh"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-yi'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|yi\'); return false;" title="Yiddish (Jewish)" class="flag yi"></a>';
+		  $str.='<a id="Yiddish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|yi\'); return false;" title="Yiddish (Jewish)" class="notranslate flag yi"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/yiddish.png" height="18" width="18" alt="Yiddish"/></a>';
 	    }
 		  
+
+	    $str.='</div>';
 		  
-	  // }
-	  
-      $str.='<div class="glt-clear"></div>';
+		$is_multilanguage = get_option('googlelanguagetranslator_multilanguage');
+
+        if ($is_multilanguage == 1) {
+          $multilanguagePage = 'multilanguagePage:true,';
 		  
-	  $str.='</div>';
-		
-      $str.='<script type="text/javascript">     
+		  $str.='<script type="text/javascript">     
          function GoogleLanguageTranslatorInit() { 
-         new google.translate.TranslateElement({pageLanguage: \''.get_option('googlelanguagetranslator_language').'\', '.$language_choices.'autoDisplay: false }, \'google_language_translator\');}
+         new google.translate.TranslateElement({pageLanguage: \''.get_option('googlelanguagetranslator_language').'\','.$multilanguagePage . $language_choices.'autoDisplay: false, '.analytics().' }, \'google_language_translator\');}
               </script><script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=GoogleLanguageTranslatorInit"></script>
 <div id="google_language_translator"></div>';
 		return $str;
+		} elseif ($is_multilanguage == 0) {		  
+		
+        $str.='<script type="text/javascript">     
+         function GoogleLanguageTranslatorInit() { 
+         new google.translate.TranslateElement({pageLanguage: \''.get_option('googlelanguagetranslator_language').'\','.$language_choices.'autoDisplay: false, '.analytics().' }, \'google_language_translator\');}
+              </script><script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=GoogleLanguageTranslatorInit"></script>
+<div id="google_language_translator"></div>';
+		return $str;
+		}
+		  
 	}
-}
+  }
 }
 
 function googlelanguagetranslator_horizontal(){
+  $is_active = get_option ( 'googlelanguagetranslator_active' );
+  $get_flag_choices = get_option ('flag_display_settings');
   $language_choices = googlelanguagetranslator_included_languages();
-	if(get_option('googlelanguagetranslator_active')==1){
-	  $get_flag_choices = get_option ('flag_display_settings');
+  
+  
+	if( $is_active == 1){
 	  
-      $str = '<div id="flags">';
-			  
 	  foreach ($get_flag_choices as $key) {
 		//print_r($key);
+		
+		
 	  }
+	  
+      $str.='<div id="flags">';
+	    
+	   
+	  
 		if ($key == '1') {
 		  if ( isset ( $get_flag_choices['flag-af'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|af\'); return false;" title="Afrikaans" class="flag af"></a>';
+			$str.='<a id="Afrikaans" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|af\'); return false;" title="Afrikaans" class="notranslate flag af"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/southafrica.png" height="18" width="18" alt="Afrikaans"/></a>';
 	    }
 		  
 		
 		  if ( isset ( $get_flag_choices['flag-sq'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sq\'); return false;" title="Albanian" class="flag sq"></a>';
+		  $str.='<a id="Albanian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sq\'); return false;" title="Albanian" class="notranslate flag sq"><img class="notranslate flag flag flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/albania.png" height="18" width="18" alt="Albanian"/></a>';
 	    }
 		  
 		   if ( isset ( $get_flag_choices['flag-ar'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ar\'); return false;" title="Arabic" class="flag ar"></a>';
+		  $str.='<a id="Arabic" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ar\'); return false;" title="Arabic" class="notranslate flag ar"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/saudiaarabia.png" height="18" width="18" alt="Arabic"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hy'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hy\'); return false;" title="Armenian" class="flag hy"></a>';
+		  $str.='<a id="Armenian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hy\'); return false;" title="Armenian" class="notranslate flag hy"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/armenia.png" height="18" width="18" alt="Armenian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-az'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|az\'); return false;" title="Azerbaijani" class="flag az"></a>';
+		  $str.='<a id="Azerbaijani" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|az\'); return false;" title="Azerbaijani" class="notranslate flag az"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/azerbaijan.png" height="18" width="18" alt="Azerbaijani"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-eu'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|eu\'); return false;" title="Basque" class="flag eu"></a>';
+		  $str.='<a id="Basque" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|eu\'); return false;" title="Basque" class="notranslate flag eu"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/basque.png" height="18" width="18" alt="Basque"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-be'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|be\'); return false;" title="Belarusian" class="flag be"></a>';
+		  $str.='<a id="Belarusian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|be\'); return false;" title="Belarusian" class="notranslate flag be"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/belarus.png" height="18" width="18" alt="Belarus"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-bn'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bn\'); return false;" title="Bengali" class="flag bn"></a>';
+		  $str.='<a id="Bengali" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bn\'); return false;" title="Bengali" class="notranslate flag bn"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/bangladesh.png" height="18" width="18" alt="Bengali"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-bs'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bs\'); return false;" title="Bosnian" class="flag bs"></a>';
+		  $str.='<a id="Bosnian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bs\'); return false;" title="Bosnian" class="notranslate flag bs"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/bosnia.png" height="18" width="18" alt="Bosnian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-bg'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bg\'); return false;" title="Bulgarian" class="flag bg"></a>';
+		  $str.='<a id="Bulgarian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|bg\'); return false;" title="Bulgarian" class="notranslate flag bg"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/bulgaria.png" height="18" width="18" alt="Bulgarian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ca'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ca\'); return false;" title="Catalan" class="flag ca"></a>';
+		  $str.='<a id="Catalan" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ca\'); return false;" title="Catalan" class="notranslate flag ca"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/catalonia.png" height="18" width="18" alt="Catalan"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ceb'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ceb\'); return false;" title="Cebuano" class="flag ceb"></a>';
+		  $str.='<a id="Cebuano" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ceb\'); return false;" title="Cebuano" class="notranslate flag ceb"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/philippines.png" height="18" width="18" alt="Afrikaans"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-zh-CN'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|zh-CN\'); return false;" title="Chinese (Simplified)" class="flag zh-CN"></a>';
+		  $str.='<a id="Chinese (Simplified)" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|zh-CN\'); return false;" title="Chinese (Simplified)" class="notranslate flag zh-CN"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/china.png" height="18" width="18" alt="Chinese (Simplified)"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-zh-TW'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|zh-TW\'); return false;" title="Chinese (Traditional)" class="flag zh-TW"></a>';
+		  $str.='<a id="Chinese (Traditional)" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|zh-TW\'); return false;" title="Chinese (Traditional)" class="notranslate flag zh-TW"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/china.png" height="18" width="18" alt="Chinese (Traditional)"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-cs'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|cs\'); return false;" title="Czech Republic" class="flag cs"></a>';
+		  $str.='<a id="Czech" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|cs\'); return false;" title="Czech" class="notranslate flag cs"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/czechrepublic.png" height="18" width="18" alt="Czech"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hr\'); return false;" title="Croatian" class="flag hr"></a>';
+		  $str.='<a id="Croatian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hr\'); return false;" title="Croatian" class="notranslate flag hr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/croatia.png" height="18" width="18" alt="Croatian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-da'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|da\'); return false;" title="Danish" class="flag da"></a>';
+		  $str.='<a id="Danish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|da\'); return false;" title="Danish" class="notranslate flag da"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/denmark.png" height="18" width="18" alt="Danish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-nl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|nl\'); return false;" title="Netherlands" class="flag nl"></a>';
+		  $str.='<a id="Dutch" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|nl\'); return false;" title="Dutch" class="notranslate flag nl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/netherlands.png" height="18" width="18" alt="Dutch"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-en'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|en\'); return false;" title="English" class="flag en"></a>';
+		  $str.='<a id="English" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|en\'); return false;" title="English" class="notranslate flag en"><img class="flagimg" title="English" src="'.plugins_url().'/google-language-translator/images/flags24/unitedkingdom.png" height="18" width="18" alt="English"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-eo'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|eo\'); return false;" title="Esperanto" class="flag eo"></a>';
+		  $str.='<a id="Esperanto" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|eo\'); return false;" title="Esperanto" class="notranslate flag eo"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/esperanto.png" height="18" width="18" alt="Esperanto"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-et'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|et\'); return false;" title="Estonian" class="flag et"></a>';
+		  $str.='<a id="Estonian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|et\'); return false;" title="Estonian" class="notranslate flag et"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/estonia.png" height="18" width="18" alt="Estonian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-tl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|tl\'); return false;" title="Filipino" class="flag tl"></a>';
+		  $str.='<a id="Filipino" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|tl\'); return false;" title="Filipino" class="notranslate flag tl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/philippines.png" height="18" width="18" alt="Filipino"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-fi'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fi\'); return false;" title="Finnish" class="flag fi"></a>';
-		  }
+		  $str.='<a id="Finnish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fi\'); return false;" title="Finnish" class="notranslate flag fi"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/finland.png" height="18" width="18" alt="Finnish"/></a>';
+	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-fr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fr\'); return false;" title="French" class="flag fr"></a>';
+		  $str.='<a id="French" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fr\'); return false;" title="French" class="notranslate flag fr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/france.png" height="18" width="18" alt="French"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-gl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|gl\'); return false;" title="Galician" class="flag gl"></a>';
+		  $str.='<a id="Galician" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|gl\'); return false;" title="Galician" class="notranslate flag gl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/galicia.png" height="18" width="18" alt="Galician"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ka'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ka\'); return false;" title="Georgian" class="flag ka"></a>';
+		  $str.='<a id="Georgian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ka\'); return false;" title="Georgian" class="notranslate flag ka"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/georgia.png" height="18" width="18" alt="Georgian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-de'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|de\'); return false;" title="German" class="flag de"></a>';
+		  $str.='<a id="German" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|de\'); return false;" title="German" class="notranslate flag de"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/germany.png" height="18" width="18" alt="German"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-el'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|el\'); return false;" title="Greek" class="flag el"></a>';
+		  $str.='<a id="Greek" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|el\'); return false;" title="Greek" class="notranslate flag el"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/greece.png" height="18" width="18" alt="Greek"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-gu'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|gu\'); return false;" title="Gujarati" class="flag gu"></a>';
+		  $str.='<a id="Gujarati" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|gu\'); return false;" title="Gujarati" class="notranslate flag gu"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/india.png" height="18" width="18" alt="Gujarati"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ht'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ht\'); return false;" title="Haitian" class="flag ht"></a>';
+		  $str.='<a id="Haitian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ht\'); return false;" title="Haitian" class="notranslate flag ht"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/haiti.png" height="18" width="18" alt="Haitian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-iw'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|iw\'); return false;" title="Hebrew" class="flag iw"></a>';
+		  $str.='<a id="Hebrew" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|iw\'); return false;" title="Hebrew" class="notranslate flag iw"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/israel.png" height="18" width="18" alt="Hebrew"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hi'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hi\'); return false;" title="Hindi" class="flag hi"></a>';
+		  $str.='<a id="Hindi" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hi\'); return false;" title="Hindi" class="notranslate flag hi"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/india.png" height="18" width="18" alt="Hindi"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hmn'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hmn\'); return false;" title="Hmong" class="flag hmn"></a>';
+		  $str.='<a id="Hmong" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hmn\'); return false;" title="Hmong" class="notranslate flag hmn"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/hmong.png" height="18" width="18" alt="Hmong"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-hu'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hu\'); return false;" title="Hungarian" class="flag hu"></a>';
+		  $str.='<a id="Hungarian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hu\'); return false;" title="Hungarian" class="notranslate flag hu"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/hungary.png" height="18" width="18" alt="Hungarian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-is'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|is\'); return false;" title="Iceland" class="flag is"></a>';
+		  $str.='<a id="Icelandic" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|is\'); return false;" title="Icelandic" class="notranslate flag is"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/iceland.png" height="18" width="18" alt="Icelandic"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-id'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|id\'); return false;" title="Indonesian" class="flag id"></a>';
+		  $str.='<a id="Indonesian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|id\'); return false;" title="Indonesian" class="notranslate flag id"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/indonesia.png" height="18" width="18" alt="Indonesian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ga'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ga\'); return false;" title="Irish" class="flag ga"></a>';
+		  $str.='<a id="Irish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ga\'); return false;" title="Irish" class="notranslate flag ga"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/ireland.png" height="18" width="18" alt="Irish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-it'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|it\'); return false;" title="Italian" class="flag it"></a>';
+		  $str.='<a id="Italian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|it\'); return false;" title="Italian" class="notranslate flag it"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/italy.png" height="18" width="18" alt="Italian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ja'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ja\'); return false;" title="Japanese" class="flag ja"></a>';
+		  $str.='<a id="Japanese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ja\'); return false;" title="Japanese" class="notranslate flag ja"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/japan.png" height="18" width="18" alt="Japanese"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-jw'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|jw\'); return false;" title="Javanese" class="flag jw"></a>';
+		  $str.='<a id="Javanese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|jw\'); return false;" title="Javanese" class="notranslate flag jw"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/indonesia.png" height="18" width="18" alt="Javanese"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-kn'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|kn\'); return false;" title="Kannada" class="flag kn"></a>';
+		  $str.='<a id="Kannada" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|kn\'); return false;" title="Kannada" class="notranslate flag kn"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/kannada.png" height="18" width="18" alt="Kannada"/></a>';
 		}
 		  
 		  if ( isset ( $get_flag_choices['flag-km'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|km\'); return false;" title="Khmer" class="flag km"></a>';
+		  $str.='<a id="Khmer" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|km\'); return false;" title="Khmer" class="notranslate flag km"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/cambodia.png" height="18" width="18" alt="Khmer"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ko'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ko\'); return false;" title="Korean" class="flag ko"></a>';
+		  $str.='<a id="Korean" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ko\'); return false;" title="Korean" class="notranslate flag ko"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/korea.png" height="18" width="18" alt="Korea"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-lo'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lo\'); return false;" title="Lao" class="flag lo"></a>';
+		  $str.='<a id="Lao" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lo\'); return false;" title="Lao" class="notranslate flag lo"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/laos.png" height="18" width="18" alt="Laos"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-la'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|la\'); return false;" title="Latin" class="flag la"></a>';
+		  $str.='<a id="Latin" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|la\'); return false;" title="Latin" class="notranslate flag la"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/latin.png" height="18" width="18" alt="Latin"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-lv'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lv\'); return false;" title="Latvian" class="flag lv"></a>';
+		  $str.='<a id="Latvian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lv\'); return false;" title="Latvian" class="notranslate flag lv"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/latvia.png" height="18" width="18" alt="Latvian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-lt'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lt\'); return false;" title="Lithuanian" class="flag lt"></a>';
+		  $str.='<a id="Lithuanian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|lt\'); return false;" title="Lithuanian" class="notranslate flag lt"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/lithuania.png" height="18" width="18" alt="Lithuanian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-mk'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mk\'); return false;" title="Macedonian" class="flag mk"></a>';
+		  $str.='<a id="Macedonian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mk\'); return false;" title="Macedonian" class="notranslate flag mk"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/macedonia.png" height="18" width="18" alt="Macedonian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ms'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ms\'); return false;" title="Malay" class="flag ms"></a>';
+		  $str.='<a id="Malay" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ms\'); return false;" title="Malay" class="notranslate flag ms"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/malaysia.png" height="18" width="18" alt="Malay"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-mt'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mt\'); return false;" title="Maltese" class="flag mt"></a>';
+		  $str.='<a id="Maltese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mt\'); return false;" title="Maltese" class="notranslate flag mt"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/malta.png" height="18" width="18" alt="Malta"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-mr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mr\'); return false;" title="Marathi" class="flag mr"></a>';
+		  $str.='<a id="Marathi" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|mr\'); return false;" title="Marathi" class="notranslate flag mr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/marathi.png" height="18" width="18" alt="Marathi"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-no'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|no\'); return false;" title="Norwegian" class="flag no"></a>';
+		  $str.='<a id="Norwegian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|no\'); return false;" title="Norwegian" class="notranslate flag no"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/norway.png" height="18" width="18" alt="Norwegian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-fa'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fa\'); return false;" title="Persian" class="flag fa"></a>';
+		  $str.='<a id="Persian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|fa\'); return false;" title="Persian" class="notranslate flag fa"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/iran.png" height="18" width="18" alt="Persian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-pl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|pl\'); return false;" title="Polish" class="flag pl"></a>';
+		  $str.='<a id="Polish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|pl\'); return false;" title="Polish" class="notranslate flag pl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/poland.png" height="18" width="18" alt="Polish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-pt'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|pt\'); return false;" title="Portuguese" class="flag pt"></a>';
+		  $str.='<a id="Portuguese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|pt\'); return false;" title="Portuguese" class="notranslate flag pt"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/portugal.png" height="18" width="18" alt="Portuguese"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ro'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ro\'); return false;" title="Romanian" class="flag ro"></a>';
+		  $str.='<a id="Romanian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ro\'); return false;" title="Romanian" class="notranslate flag ro"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/romania.png" height="18" width="18" alt="Romanian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ru'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ru\'); return false;" title="Russian" class="flag ru"></a>';
+		  $str.='<a id="Russian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ru\'); return false;" title="Russian" class="notranslate flag ru"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/russia.png" height="18" width="18" alt="Russian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sr\'); return false;" title="Serbian" class="flag sr"></a>';
+		  $str.='<a id="Serbian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sr\'); return false;" title="Serbian" class="notranslate flag sr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/serbia.png" height="18" width="18" alt="Serbian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sk'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sk\'); return false;" title="Slovak" class="flag sk"></a>';
+		  $str.='<a id="Slovak" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sk\'); return false;" title="Slovak" class="notranslate flag sk"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/slovakia.png" height="18" width="18" alt="Slovak"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sl'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sl\'); return false;" title="Slovenian" class="flag sl"></a>';
+		  $str.='<a id="Slovenian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sl\'); return false;" title="Slovenian" class="notranslate flag sl"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/slovenia.png" height="18" width="18" alt="Slovenian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-es'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|es\'); return false;" title="Spanish" class="flag es"></a>';
+		  $str.='<a id="Spanish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|es\'); return false;" title="Spanish" class="notranslate flag es"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/spain.png" height="18" width="18" alt="Spanish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sw'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sw\'); return false;" title="Swahili" class="flag sw"></a>';
+		  $str.='<a id="Swahili" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sw\'); return false;" title="Swahili" class="notranslate flag sw"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/kenya.png" height="18" width="18" alt="Swahili"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-sv'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sv\'); return false;" title="Swedish" class="flag sv"></a>';
+		  $str.='<a id="Swedish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|sv\'); return false;" title="Swedish" class="notranslate flag sv"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/sweden.png" height="18" width="18" alt="Swedish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ta'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ta\'); return false;" title="Tamil" class="flag ta"></a>';
+		  $str.='<a id="Tamil" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ta\'); return false;" title="Tamil" class="notranslate flag ta"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/tamil.png" height="18" width="18" alt="Tamil"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-te'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|te\'); return false;" title="Telugu" class="flag te"></a>';
+		  $str.='<a id="Telugu" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|te\'); return false;" title="Telugu" class="notranslate flag te"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/telugu.png" height="18" width="18" alt="Telugu"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-th'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|th\'); return false;" title="haiT" class="flag th"></a>';
+		  $str.='<a id="Thai" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|th\'); return false;" title="Thai" class="notranslate flag th"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/thailand.png" height="18" width="18" alt="Thai"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-tr'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|tr\'); return false;" title="Turkish" class="flag tr"></a>';
+		  $str.='<a id="Turkish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|tr\'); return false;" title="Turkish" class="notranslate flag tr"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/turkey.png" height="18" width="18" alt="Turkish"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-uk'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|uk\'); return false;" title="Ukranian" class="flag uk"></a>';
+		  $str.='<a id="Ukranian" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|uk\'); return false;" title="Ukranian" class="notranslate flag uk"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/ukraine.png" height="18" width="18" alt="Ukranian"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-ur'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ur\'); return false;" title="Urdu" class="flag ur"></a>';
+		  $str.='<a id="Urdu" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|ur\'); return false;" title="Urdu" class="notranslate flag ur"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/pakistan.png" height="18" width="18" alt="Urdu"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-vi'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|vi\'); return false;" title="Vietnamese" class="flag vi"></a>';
-	    }
-		  
-		  if ( isset ( $get_flag_choices['flag-hy'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|hy\'); return false;" title="Armenian" class="flag hy"></a>';
+		  $str.='<a id="Vietnamese" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|vi\'); return false;" title="Vietnamese" class="notranslate flag vi"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/vietnam.png" height="18" width="18" alt="vietnamese"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-cy'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|cy\'); return false;" title="Welsh" class="flag cy"></a>';
+		  $str.='<a id="Welsh" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|cy\'); return false;" title="Welsh" class="notranslate flag cy"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/wales.png" height="18" width="18" alt="Welsh"/></a>';
 	    }
 		  
 		  if ( isset ( $get_flag_choices['flag-yi'] ) ) {
-		  $str.='<a href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|yi\'); return false;" title="Yiddish (Jewish)" class="flag yi"></a>';
+		  $str.='<a id="Yiddish" href="#" onclick="doGoogleLanguageTranslator(\''.get_option('googlelanguagetranslator_language').'|yi\'); return false;" title="Yiddish (Jewish)" class="notranslate flag yi"><img class="flagimg" src="'.plugins_url().'/google-language-translator/images/flags24/yiddish.png" height="18" width="18" alt="Yiddish"/></a>';
 	    }
+	    $str.='</div>';
+		
+		$is_multilanguage = get_option('googlelanguagetranslator_multilanguage');
+
+        if ($is_multilanguage == 1) {
+          $multilanguagePage = 'multilanguagePage:true,';
 		  
-		  
-	  
-      
-	  
-	  $str.='</div>';
-      $str.='<script type="text/javascript">
+		  $str.='<script type="text/javascript">     
          function GoogleLanguageTranslatorInit() { 
-         new google.translate.TranslateElement({pageLanguage: \''.get_option('googlelanguagetranslator_language').'\', '.$language_choices.' layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,autoDisplay: false }, \'google_language_translator\'); }
+         new google.translate.TranslateElement({pageLanguage: \''.get_option('googlelanguagetranslator_language').'\', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,'.$multilanguagePage . $language_choices.'autoDisplay: false, '.analytics().' }, \'google_language_translator\');}
               </script><script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=GoogleLanguageTranslatorInit"></script>
 <div id="google_language_translator"></div>';
 		return $str;
-	}
+		} elseif ($is_multilanguage == 0) {		  
+		
+        $str.='<script type="text/javascript">     
+         function GoogleLanguageTranslatorInit() { 
+         new google.translate.TranslateElement({pageLanguage: \''.get_option('googlelanguagetranslator_language').'\',layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,'.$language_choices.'autoDisplay: false, '.analytics().' }, \'google_language_translator\');}
+              </script><script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=GoogleLanguageTranslatorInit"></script>
+<div id="google_language_translator"></div>';
+		return $str;
+		}
+		
+	  }
 	}
 }
 
-
 function googlelanguagetranslator_toolbar_yes(){
-  if(get_option('googlelanguagetranslator_active')==1) { 
-	$str='<style type="text/css">';
-    $str.='#google_language_translator {color: transparent;}';
-    $str.='.goog-te-gadget .goog-te-combo {margin: 2px 0px !important;}';
-    $str.='.goog-tooltip {display: none !important;}';
-    $str.='.goog-tooltip:hover {display: none !important;}';
-    $str.='.goog-text-highlight {background-color: transparent !important; border: none !important;box-shadow: none !important;}';
-    $str.='</style>';
-return $str;
+  if(get_option('googlelanguagetranslator_active')==1) { ?>
+	<style type="text/css">
+    #google_language_translator {color: transparent;}
+    .goog-te-gadget .goog-te-combo {margin: 2px 0px !important;}
+    </style>
+<?php
   }
 }
 
@@ -1660,9 +2199,6 @@ function googlelanguagetranslator_showbranding_yes() {
 <style type="text/css">
   #google_language_translator { width:auto !important; }
 .goog-te-gadget .goog-te-combo {margin: 4px 0px !important;}
-.goog-tooltip {display: none !important;}
-.goog-tooltip:hover {display: none !important;}
-.goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
 </style>
 <?php
   }
@@ -1691,19 +2227,36 @@ function googlelanguagetranslator_showbranding_no() {
 <style type="text/css">
 #google_language_translator a {display: none !important; }
 .goog-te-gadget {color:transparent !important;}
+  <?php if (get_option('googlelanguagetranslator_theme_style')=='elegant') { ?>
+a.goog-logo-link { display:none; }
+  <?php } ?>
 .goog-te-gadget { font-size:0px !important; }
 .goog-te-gadget .goog-te-combo {margin: 2px 0px !important;}
 .goog-tooltip {display: none !important;}
 .goog-tooltip:hover {display: none !important;}
 .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
-
+.goog-branding { display:none; }
 </style>
 <?php
   }
 }
 
-function googlelanguagetranslator_flags_display() { ?>
+function googlelanguagetranslator_manage_translations_no() {
+  if(get_option('googlelanguagetranslator_active')==1) { ?>
+<style type="text/css">
+  .goog-tooltip {display: none !important;}
+  .goog-tooltip:hover {display: none !important;}
+  .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+</style>
+<?php 
+  }
+}
+
+function googlelanguagetranslator_flags_display() {  
+  $options = get_option ('googlelanguagetranslator_flag_size'); ?>
+ 
   <style type="text/css">
+	
 	<?php if(get_option('googlelanguagetranslator_display')=='Vertical') { ?>
 	  <?php if (get_option('googlelanguagetranslator_language_option')=='specific') { ?>
 		#flags {display:none !important; }
@@ -1723,748 +2276,32 @@ function googlelanguagetranslator_flags_display() { ?>
 	    p.hello { font-size:12px; color:#666; }
 	  <?php } ?>
 	<?php if ( get_option ('googlelanguagetranslator_flags_alignment') == 'flags_right') { ?>
-	  #google_language_translator { clear:both; width:auto !important; text-align:right; }
-	  #flags { text-align:right; width:150px; float:right; clear:right; }
-	  p.hello { text-align:right; float:right; clear:both; color:#666; }
+	  #google_language_translator, #language { clear:both; width:auto !important; text-align:right; }
+	  #language { float:right; }
+	  .switcher { right:0px !important; left:auto; }
+	  #flags { text-align:right; width:165px; float:right; clear:right; }
+	  p.hello { text-align:right; float:right; clear:both; }
 	  .glt-clear { height:0px; clear:both; margin:0px; padding:0px; }
 	<?php } ?>
 	<?php if ( get_option ('googlelanguagetranslator_flags_alignment') == 'flags_left') { ?>
 	  #google_language_translator { clear:both; }
-	  #flags { width:150px; }
-	  #flags a { display:inline-block; width:16px; height:12px; margin-right:2px; }
-		p.hello { font-size:12px; color:#666; }
+	  #flags { width:165px; }
+	  #flags a { display:inline-block; margin-right:2px; }
+		
+	  
+	        
+	  }
 	  <?php } elseif ( get_option ('googlelanguagetranslator_flags_alignment') == 'flags_right') { ?>
-	  #flags { width:150px; }
-	  #flags a { display:inline-block; width:16px; height:12px; margin-left:2px; } ?>
-		<?php } ?>
+	  #flags { width:165px; }
+	  #flags a { display:inline-block; margin-left:2px; } 
+	  <?php } ?>
+	
+	
   </style>
-	<?php 
-       $get_flag_choices = get_option ('flag_display_settings');
-         
-         if ( isset ( $get_flag_choices['flag-zh-CN'] ) ) { ?>
-          <style type="text/css">
-	        #flags a.zh-CN { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/china.png") 0px 0px no-repeat; }
-          </style>
-<?php } else { ?>
-          <style type="text/css">
-			#flags a.zh-CN { display:none; }
-          </style>
-	     <?php } 
-	   
-	     if ( isset ( $get_flag_choices['flag-de'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.de { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/germany.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.de { display:none; }
-          </style>
-	     <?php } 
-  
-         if ( isset ( $get_flag_choices['flag-da'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.da { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/denmark.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.da { display:none; }
-          </style>
-	     <?php } 
-												   
-	     if ( isset ( $get_flag_choices['flag-fr'] ) ) { ?>     
-          <style type="text/css">
-	        #flags a.fr { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/france.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.fr { display:none; }
-          </style>
-	     <?php } 
-												   
-	     if ( isset ( $get_flag_choices['flag-en'] ) ) { ?>    
-          <style type="text/css">
-	        #flags a.en { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/united-kingdom.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.en { display:none; }
-          </style>
-	     <?php } 
-												   
-	     if ( isset ( $get_flag_choices['flag-it'] ) ) { ?> 
-          <style type="text/css">
-	        #flags a.it { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/italy.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.it { display:none; }
-          </style>
-	     <?php } 
-												   
-	     if ( isset ( $get_flag_choices['flag-es'] ) ) { ?>
-          <style type="text/css">
-		    #flags a.es { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/spain.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.es { display:none; }
-          </style>
-	     <?php } 
-												   
-	     
-  
-          if ( isset ( $get_flag_choices['flag-af'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.af { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/southafrica.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.af { display:none; }
-          </style>
-	     <?php } 
-  
-          if ( isset ( $get_flag_choices['flag-sq'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.sq { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/albania.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.sq { display:none; }
-          </style>
-	     <?php } 
-  
-          if ( isset ( $get_flag_choices['flag-ar'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.ar { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/saudiarabia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.ar { display:none; }
-          </style>
-	     <?php } 
-  
-          if ( isset ( $get_flag_choices['flag-hy'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.hy { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/armenia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.hy { display:none; }
-          </style>
-	     <?php } 
-  
-          if ( isset ( $get_flag_choices['flag-az'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.az { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/azerbaijan.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.az { display:none; }
-          </style>
-	     <?php } 
-  
-         if ( isset ( $get_flag_choices['flag-eu'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.eu { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/basque.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.eu { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-be'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.be { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/belarus.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.be { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-bn'] ) ) { ?>
-		  <style type="text/css">
-	        #flags a.bn { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/bangladesh.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-			#flags a.bn { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-bs'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.bs { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/bosnia.png") 0px 0px no-repeat; }
-          </style>
-         <?php } else { ?>
-          <style type="text/css">
-	       #flags a.bs { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-bg'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.bg { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/bulgaria.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.bg { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ca'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.ca { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/spain.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ca { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ceb'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.ceb { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/philippines.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ceb { display:none; }
-          </style>
-	     <?php }
-  
-         
-  
-         if ( isset ( $get_flag_choices['flag-zh-TW'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.zh-TW { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/china.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.zh-TW { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-cs'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.cs { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/croatia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.cs { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-hr'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.hr { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/czechrepublic.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.hr { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-nl'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.nl { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/netherlands.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.nl { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-eo'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.eo { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/esperanto.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.eo { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-et'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.et { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/estonia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.et { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-tl'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.tl { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/philippines.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.tl { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-fi'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.fi { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/finland.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.fi { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-gl'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.gl { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/galicia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.gl { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ka'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.ka { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/georgia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ka { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-el'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.el { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/greece.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.el { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-gu'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.gu { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/india.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.gu { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ht'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.ht { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/haiti.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ht { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-iw'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.iw { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/israel.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.iw { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-hi'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.hi { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/india.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.hi { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-hmn'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.hmn { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/hmong.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.hmn { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-hu'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.hu { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/hungary.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.hu { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-is'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.is { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/iceland.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.is { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-id'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.id { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/indonesia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.id { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ga'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.ga { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/ireland.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ga { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ja'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.ja { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/japan.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ja { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-jw'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.jw { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/indonesia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.jw { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-kn'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.kn { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/kannada.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.kn { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-km'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.km { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/cambodia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.km { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ko'] ) ) { ?>
-		  <style type="text/css">
-	       #flags a.ko { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/korea.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ko { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-lo'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.lo { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/laos.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.lo { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-la'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.la { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/latin.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.la { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-lv'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.lv { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/latvia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.lv { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-lt'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.lt { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/lithuania.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.lt { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-mk'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.mk { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/macedonia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.mk { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ms'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.ms { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/malaysia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ms { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-mt'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.mt { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/malta.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.mt { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-mr'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.mr { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/marathi.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.mr { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-no'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.no { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/norway.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.no { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-fa'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.fa { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/iran.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.fa { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-pl'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.pl { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/poland.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.pl { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-pt'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.pt { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/portugal.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.pt { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ro'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.ro { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/romania.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ro { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ru'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.ru { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/russia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ru { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-sr'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.sr { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/serbia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.sr { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-sk'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.sk { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/slovakia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.sk { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-sv'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.sv { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/sweden.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.sv { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-sw'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.sw { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/kenya.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.sw { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-sl'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.sl { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/slovenia.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.sl { display:none; }
-          </style>
-	     <?php }
-  
-  
-        if ( isset ( $get_flag_choices['flag-ta'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.ta { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/tamil.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ta { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-te'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.te { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/telugu.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.te { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-th'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.th { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/thailand.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.th { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-tr'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.tr { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/turkey.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.tr { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-uk'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.uk { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/ukraine.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.uk { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-ur'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.ur { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/pakistan.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.ur { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-vi'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.vi { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/vietnam.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.vi { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-cy'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.cy { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/wales.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.cy { display:none; }
-          </style>
-	     <?php }
-  
-         if ( isset ( $get_flag_choices['flag-yi'] ) ) { ?>
-		  <style type="text/css">
-			#flags a.yi { background:url("<?php echo plugins_url(); ?>/google-language-translator/images/yiddish.png") 0px 0px no-repeat; }
-          </style>
-	     <?php } else { ?>
-          <style type="text/css">
-	       #flags a.yi { display:none; }
-          </style>
-	     <?php }
+
+
+<?php
+	
      } 
 add_action('wp_head','googlelanguagetranslator_flags_display');
 

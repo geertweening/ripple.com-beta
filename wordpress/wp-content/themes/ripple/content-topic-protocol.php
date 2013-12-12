@@ -61,7 +61,7 @@
 				</section>
 
 				<section class="guide-section">
-					<h5 id="easy-integration">Easy Integration</h5>
+					<h5 id="easy-integration">Easy integration</h5>
 					<p>Ripple integration is fast and easy. Developers can easily add Ripple to their software. Businesses can quickly add Ripple to provide advanced financial services to their customers and generate new revenue streams.</p>
 				</section>
 

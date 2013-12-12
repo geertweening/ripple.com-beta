@@ -1,4 +1,7 @@
 jQuery(document).ready(function(){
+  
+  
+  
   var language_display = jQuery('input[name=googlelanguagetranslator_language_option]:checked').val();
   
       if ( language_display == 'all') {
@@ -57,6 +60,23 @@ jQuery(document).ready(function(){
 	}
   });
   
+    //FadeIn and FadeOut Google Analytics tracking settings
+  jQuery('input[name=googlelanguagetranslator_analytics]').change(function() {
+	if( jQuery(this).is(':checked')) {
+	  jQuery('.analytics').fadeIn("slow");
+	} else if ( jQuery(this).not(':checked')) {
+	  jQuery('.analytics').fadeOut("slow");
+	}
+	  });
+  
+  //Hide or show Google Analytics ID field upon browser refresh  
+  var analytics = jQuery('input[name=googlelanguagetranslator_analytics]');
+  if ( analytics.is(':checked') )  {
+       jQuery ('.analytics').css('display','');
+  } else {
+	   jQuery ('.analytics').css('display','none');
+	}
+  
   
   
   //Prevent the translator preview from translating Dashboard text
@@ -68,10 +88,4 @@ jQuery(document).ready(function(){
 });
 
 
-
-  
-
-  
-
-
-
+ 
