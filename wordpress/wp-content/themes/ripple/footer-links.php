@@ -71,8 +71,7 @@
 			</div>
 
 			<div class="pull-right white">
-				<!-- <p>Language: English</p> -->
-				
+				<?php echo do_shortcode('[google-translator]'); ?>
 			</div>
 
 			<div class="pull-right">

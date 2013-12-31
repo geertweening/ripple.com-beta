@@ -167,6 +167,8 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require( get_template_directory() . '/inc/custom-header.php' );
 
+// Add Class to body
+
 function page_bodyclass() {  // add class to <body> tag
 	global $wp_query;
 	$page = '';
@@ -179,6 +181,7 @@ function page_bodyclass() {  // add class to <body> tag
 		echo 'class= "'. $page. '"';
 }
 
+// Change Comment Styles
 function comment_reform ($arg) {
 $arg['title_reply'] = __('Discussion:');
 return $arg;

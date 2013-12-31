@@ -2,7 +2,7 @@
 /*
 Plugin Name: Google Language Translator
 Plugin URI: http://www.studio88design.com/plugins/google-language-translator
-Version: 2.8
+Version: 3.0
 Description: The MOST SIMPLE Google Translator plugin.  This plugin adds Google Translator to your website by using a single shortcode, [google-translator]. Settings include: layout style, hide/show specific languages, hide/show Google toolbar, and hide/show Google branding. Add the shortcode to pages, posts, and widgets.
 Author: Rob Myrick
 Author URI: http://www.studio88design.com/
@@ -2177,7 +2177,9 @@ function googlelanguagetranslator_toolbar_yes(){
   if(get_option('googlelanguagetranslator_active')==1) { ?>
 	<style type="text/css">
     #google_language_translator {color: transparent;}
-    .goog-te-gadget .goog-te-combo {margin: 2px 0px !important;}
+	.goog-te-gadget .goog-te-combo {margin: 2px 0px !important;}
+	body { top:0px !important; }
+	.goog-te-banner-frame,.skiptranslate { width:100%; height:40px; }
     </style>
 <?php
   }
@@ -2185,9 +2187,10 @@ function googlelanguagetranslator_toolbar_yes(){
 
 function googlelanguagetranslator_toolbar_no(){
   if(get_option('googlelanguagetranslator_active')==1) { ?>
-<style type="text/css">
-.goog-te-banner-frame{visibility:hidden !important;}
-body {top:0px !important;}
+    <style type="text/css">
+    .goog-te-banner-frame{visibility:hidden !important;}
+    body { top:0px !important;}
+	.goog-te-banner-frame,.skiptranslate { width:100%; height:0px; }
 </style>
 <?php
   }

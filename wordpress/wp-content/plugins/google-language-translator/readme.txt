@@ -4,8 +4,8 @@ Donate link: http://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Plugin link: http://www.studio88design.com/plugins/google-language-translator
 Tags: language translator, google translator, language translate, google, google language translator, translation, translate, multi language
 Requires at least: 2.9
-Tested up to: 3.6.1
-stable tag: 2.8
+Tested up to: 3.8
+stable tag: 3.0
 
 Welcome to Google Language Translator! This plugin allows you to insert the Google Language Translator tool anywhere on your website using shortcode.
 
@@ -118,6 +118,19 @@ Settings include: inline or vertical layout, show/hide specific languages, hide/
 - Added an option to allow users to manage their own translations directly through their Google Translate account (free). When activated, users can hover over the text of their website, and edit the translations from the webpage directly.  Google will remember these translations, and then serve them to users once the edits are made. Users must install the Google Translate Customization meta tag provided through Google Translate here: translate.google.com/manager/website/settings. To obtain this meta tag, users need to configure the Google Translate tool directly from this website (although they will not use this because the plugin provides it), then the user can obtain the meta tag on the "Get Code" screen, which is displayed after configuring the Google Translate tool on this webpage. 
 - Added an option to allow users to turn on/off Google's multilanguagePage option, that when activated, the original website content will be a forced translation, instead of original content (but only after a translation is made.)
 - Added more flexible styles to the settings page, so that left and right panels display nicely to the user.
+
+2.9
+
+***IMPORTANT: Google's most recent server update is producing display issues for website translation tool. There are major display issues with the translation toolbar and also the translations editing interface. Version 2.9 temporarily hides the edit translation functionality until Google decides to fix this issue, although you can still edit translations directly through your Google account at translate.google.com. Please direct any support requests through Wordpress.org and we will be happy to assist you.
+
+- Fixed Google Translation toolbar display issue
+- Fixed the Edit Translation interface by hiding it temporarily until Google fixes this
+- Removed some unneeded styles from the style sheet.
+- Fixed some CSS issues for the Google Branding display, which was affected by Google's most recent update
+
+3.0
+
+- Correct a small CSS error that affected the showing/hiding of the Google toolbar. 
 
 == Screenshots ==
 

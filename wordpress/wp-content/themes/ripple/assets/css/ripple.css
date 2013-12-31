@@ -4133,7 +4133,8 @@ nav.header-navigation ul li a:focus {
 }
 .transaction-feed p.underline {
   line-height: 17px;
-  margin-bottom: -1px;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
 }
 .wallet {
   float: left;
@@ -4627,6 +4628,29 @@ a .icon-play:active {
   margin: 0 auto;
   width: 50%;
 }
+.blog h1.entry-title {
+  font-size: 0;
+  margin: 40px 0;
+}
+.mailing-list {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin: -27px auto 0;
+  max-width: 702px;
+  padding: 30px;
+}
+.mailing-list > h1 {
+  text-align: center;
+}
+.ripple-blog-subscribe {
+  margin: 0 auto;
+  width: 50%;
+}
+.ripple-blog-subscribe .form-input {
+  float: left;
+  margin: 5px 20px 5px 0;
+}
 #tertiary.news-post.widget-area,
 #quaternary.news-post.widget-area {
   padding-bottom: 48px;
@@ -4931,6 +4955,9 @@ section.guide-section {
 }
 .guide-section ul {
   margin: 0 0 10px 30px;
+}
+.guide-section .thumbnail {
+  padding: 20px;
 }
 .nav > li.active,
 .nav > li > a:hover,
