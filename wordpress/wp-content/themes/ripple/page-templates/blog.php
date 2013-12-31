@@ -10,14 +10,10 @@ get_header('targets'); ?>
 	<h1>The Ripple Blog</h1>
 	<p><a href="https://ripple.com/">Ripple</a> is an open-source, distributed payment protocol. It enables free and instant payments to merchants, consumers and developers in any currency – including dollars, yen, euros, and even Bitcoin. </p>
 	<div class="ripple-blog-subscribe">
+	<?php do_action( 'before_sidebar' ); ?>
+		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
-		<p class="form-input">
-			<input type="email" id="mc4wp_email" name="EMAIL" placeholder="Get Ripple updates" />
-		</p>
-
-		<p class="form-submit">
-			<input type="submit" value="Subscribe" />
-		</p>
+		<?php endif; // end sidebar widget area ?>
 	</div>
 </div>
 
