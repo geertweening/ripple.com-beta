@@ -105,9 +105,7 @@ function mc4wp_get_subscriber_count( $list_ids ) {
 * @return string current URL
 */
 function mc4wp_get_current_url() {
-	$page_url = 'http';
-
-	if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) { $page_url .= 's'; }
+	$page_url = 'https';
 
 	$page_url .= '://';
 
