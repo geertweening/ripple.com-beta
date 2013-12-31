@@ -5,6 +5,7 @@
 
 get_header('video'); ?>
 
+<<<<<<< HEAD
 <div id="primary" class="content-area secondary-font-family">
 	
 	
@@ -32,12 +33,32 @@ get_header('video'); ?>
 								<i class="icon-play">
 									
 								</i>
+=======
+	<div id="primary" class="content-area secondary-font-family">
+			
+		    
+				      <div id="carousel" class="carousel slide" data-ride="carousel">
+				        <div class="carousel-inner">
+							<div class="item active">
+								<article id="text-area" class="text-area wrapper">
+									<div class="entry-content callout text">
+							        	<h1>Computing for Good</h1>
+							            <p>Donate spare computing time for research. Receive XRP from Ripple Labs.</p>
+								            <div class="join">
+									            <a target="blank" href="http://computingforgood.org/">
+									            	Join
+									        	</a>
+									        </div>
+							        </div><!-- .entry-content -->
+							    </article><!-- #post-## -->
+>>>>>>> 716321dc2844a62121a24124a48e590f656a73dd
 							</div>
 						</a>
 					</div><!-- .entry-content -->
 				</article>
 			</div>
 		</div>
+<<<<<<< HEAD
 		<ol class="carousel-indicators">
 			<li data-target="#carousel" data-slide-to="0" class="active"></i></li>
 			<li data-target="#carousel" data-slide-to="1"></i></li>
@@ -56,3 +77,9 @@ get_header('video'); ?>
 <?php get_sidebar('news-post'); ?>
 <?php get_sidebar('featured-quotes'); ?>
 <?php get_footer('links'); ?>
+=======
+	</nav><!-- #site-navigation -->	
+	<?php get_sidebar('news-post'); ?>
+	<?php get_sidebar('featured-quotes'); ?>
+	<?php get_footer('links'); ?>
+>>>>>>> 716321dc2844a62121a24124a48e590f656a73dd
