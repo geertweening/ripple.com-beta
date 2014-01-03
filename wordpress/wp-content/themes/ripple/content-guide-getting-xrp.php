@@ -46,7 +46,7 @@
 
 	<section class="guide-section">
 		<h5 id="getting-free-xrp">Getting Free XRP</h5>
-		<p>Ripple Labs is committed to giving away the majority of the 100 billion XRP in existence to large numbers of people. They have started distributing XRP to early adopters through a variety of giveaways and promotions. <a href="https://ripplelabs.zendesk.com/hc/en-us/articles/201053397">Go here to learn about what giveaways are currently active.</a></p>
+		<p>Ripple Labs is committed to giving away the majority of the 100 billion XRP in existence to large numbers of people. They have started distributing XRP to early adopters through a variety of giveaways and promotions. <a href="https://support.ripplelabs.com/hc/en-us/articles/201082577-Current-Ripple-Labs-giveaways">Go here to learn about what giveaways are currently active.</a></p>
 
 	</section>
 </div>
