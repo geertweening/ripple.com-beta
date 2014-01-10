@@ -3978,7 +3978,8 @@ li:focus .link-color {
 b,
 strong {
   color: #383838;
-  font-weight: bold;
+  font-weight: normal;
+  font-family: open_sanssemibold, sans-serif;
 }
 a.boxed:hover,
 a.boxed:focus {
