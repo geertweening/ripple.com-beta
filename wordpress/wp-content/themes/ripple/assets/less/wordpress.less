@@ -86,6 +86,7 @@
 // Default Page Styles
 // Sharing is Caring
 // used to make two lines on mobile
+// Post Author Styles
 /* Large desktop */
 // Large Desktop Logo 
 // Large Desktop Header Navigation
@@ -119,7 +120,8 @@
 // Mobile Guide Nav
 // Guide Nav Mobile
 // Override column size on scrollspy-area
-// Center Image on Mobile Topic Pages  
+// Center Image on Mobile Topic Pages
+// Post Author Styles  
 
 // Wordpress
 // --------------------------------------------------
@@ -202,14 +204,14 @@ li:hover .link-color, li:focus .link-color {
 #translucent {
   .background(@color: @white, @alpha: 1) {
     background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-  }
-  .border(@color: @white, @alpha: 1) {
+}
+.border(@color: @white, @alpha: 1) {
     border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
     .background-clip(padding-box);
-  }
-  .color(@color: @white, @alpha: 1) {
+}
+.color(@color: @white, @alpha: 1) {
     color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-  }
+}
 }
 // Give a div light background color, border bottom and some box shadow
 .shaded {
@@ -441,10 +443,10 @@ h1.banner-callout {
   -o-background-size: cover;
   background-size: cover;
 }
- 
+
 // Banner Thumbnail
 .partners .banner.content-area {
-    
+
 }
 .banner .thumbnail {
     border-color: transparent;
@@ -468,9 +470,9 @@ h1.banner-callout {
     border-color: transparent;
     text-decoration: none;
 }
- .banner a,  .banner a:hover,  .banner a:focus,  .banner a:active {
+.banner a,  .banner a:hover,  .banner a:focus,  .banner a:active {
     text-decoration: none;
- }
+}
 .banner .thumbnail [class^="icon-"], .banner .thumbnail [class*=" icon-"] {
     top: -14px;
     position: relative;
@@ -1316,7 +1318,39 @@ h1.entry-title {
 .mobile-linebreak {
     display: none;
 }
-
+// Post Author Styles
+.about-author-wrapper {
+    border-top: 1px solid #BFBFBF;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding-top: 40px;
+}
+.about-author {
+   background: none repeat scroll 0 0 #EFEFEF;
+   border-bottom: 1px solid #B3B3B3;
+   border-left: 1px solid #E5E5E5;
+   border-radius: 4px 5px 5px;
+   border-right: 1px solid #E5E5E5;
+   box-shadow: 0 1px 1px #E5E5E5;
+   padding: 9px;
+}
+.author-img {
+  border: 1px solid #000000;
+  float: left;
+  margin: 0 17px 0 0;
+  width: 90px;
+}
+.author-meta h6 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 0 7px;
+}
+p.author-bio {
+   font-size: 11px;
+   line-height: 16px;
+   margin: 0;
+   overflow: hidden;
+}
 /* Large desktop */
 @media (min-width: 1200px) { 
 // body.custom-background {
@@ -1419,8 +1453,8 @@ nav.header-navigation ul li a {
 .blog .post-thumbnail img {
     margin: 0 auto;
 }
- }
- 
+}
+
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
 // body.custom-background {
@@ -1541,16 +1575,16 @@ article.post.single-post {
 .blog .post-thumbnail img {
     margin: 0 auto;
 }
- }
- 
+}
+
 /* Landscape phones and down */
 @media (max-width: 480px) { 
-body {
-    font-size: 12px;
-}
-.wrapper {
-    width: auto;
-}
+    body {
+        font-size: 12px;
+    }
+    .wrapper {
+        width: auto;
+    }
 // Home Page Mobile Style
 #home-page-logo {
     width: 39%;

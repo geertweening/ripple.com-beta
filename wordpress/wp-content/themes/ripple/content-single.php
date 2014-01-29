@@ -17,15 +17,30 @@
 		<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
 		<?php the_content(); ?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'ripple' ),
-				'after'  => '</div>',
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . __( 'Pages:', 'ripple' ),
+			'after'  => '</div>',
 			) );
-		?>
-	</div><!-- .entry-content -->
+			?>
 
-	<footer class="entry-meta">
-		<?php
+			<div class="about-author-wrapper">
+				<div class="about-author">
+					<div class="author-img">
+						<?php the_author_image($author_id = null); ?>
+					</div>
+					<div class="author-meta">
+						<h6 class="author-title">About <?php the_author(); ?></h6>
+					</div>
+					<p class="author-bio">
+						<?php the_author_meta('description'); ?> 
+					</p>
+				</div>
+			</div>
+
+		</div><!-- .entry-content -->
+
+		<footer class="entry-meta">
+			<?php
 			/* translators: used between list items, there is a space after the comma */
 			$category_list = get_the_category_list( __( ', ', 'ripple' ) );
 
@@ -56,10 +71,10 @@
 				$tag_list,
 				get_permalink(),
 				the_title_attribute( 'echo=0' )
-			);
-		?>
+				);
+				?>
 
-		<?php edit_post_link( __( 'Edit', 'ripple' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
-	<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
-</article><!-- #post-## -->
+				<?php edit_post_link( __( 'Edit', 'ripple' ), '<span class="edit-link">', '</span>' ); ?>
+			</footer><!-- .entry-meta -->
+			<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
+		</article><!-- #post-## -->

@@ -9,7 +9,6 @@
 <div class="scrollspy-area col-8 pull-right" data-offset="100">
 	<section class="guide-section">
 		<h5 id="the-currency-of-the-ripple-network">The Currency of the Ripple Network</h5>
-		<p>With the Ripple network, users can send and receive money in any currency practically for free. Additionally, Ripple has its own native currency, known as XRP. Users need a small amount of XRP to make transactions, and can use XRP to make direct, instantaneous peer-to-peer payments within the Ripple network.</p>
 		<p>With the Ripple network, users can send and receive money in any currency practically for free. Additionally, Ripple has its own native currency, known as XRP. Users need a small amount of XRP to make transactions, and can use XRP to make direct, instantaneous peer-to-peer payments within the Ripple network</p>
 		<p>(If you don’t have an account yet, go <a href="https://ripple.com/client/#/register">here</a> to create a Ripple Wallet.) </p> 
 	</section>
@@ -18,12 +17,12 @@
 		<ol>
 			<li>Users must have a small account reserve of 20 XRP in their Ripple Wallets in order to activate their accounts.</li>
 			<li>Users must have a small action reserve of 5 XRP in their Ripple Wallets for each “charged item” (e.g. a trust line, offer).</li>
-			<li>Each transaction on Ripple costs a tiny fraction of XRP, as a security cost to prevent people from abusing the system.</li>
-			<li>Each transaction on Ripple costs a tiny fraction of XRP as a security cost to prevent people from abusing the system.<br>
-				The purpose of reserve requirements is to prevent ledger spam so they are a nominal amount. These features have a negligible impact on regular users, but their cumulative effect prevents bots or spammers from overloading the network with automatic transaction requests or new accounts.
+			<li>Each transaction on Ripple costs a tiny fraction of XRP as a security cost to prevent people from abusing the system.</li>
+			<li>The purpose of reserve requirements is to prevent ledger spam so they are a nominal amount. These features have a negligible impact on regular users, but their cumulative effect prevents bots or spammers from overloading the network with automatic transaction requests or new accounts.
 			</li>
 		</ol>
-		<p>it takes only a minimal amount of XRP to activate your account and begin using the Ripple network: the required reserves are equivalent to less than a dollar, and the security cost for each transaction is about 1/1000th of a cent.  These features have a negligible impact on regular users, but their cumulative effect prevents bots or spammers from overloading the network with automatic transaction requests or new accounts.</p>
+		<br>
+		<p>It takes only a minimal amount of XRP to activate your account and begin using the Ripple network: the required reserves are equivalent to less than a dollar, and the security cost for each transaction is about 1/1000th of a cent.  These features have a negligible impact on regular users, but their cumulative effect prevents bots or spammers from overloading the network with automatic transaction requests or new accounts.</p>
 	</section>
 
 	<section class="guide-section">

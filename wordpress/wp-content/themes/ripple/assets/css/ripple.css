@@ -5123,6 +5123,38 @@ h1.entry-title {
 .mobile-linebreak {
   display: none;
 }
+.about-author-wrapper {
+  border-top: 1px solid #BFBFBF;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding-top: 40px;
+}
+.about-author {
+  background: none repeat scroll 0 0 #EFEFEF;
+  border-bottom: 1px solid #B3B3B3;
+  border-left: 1px solid #E5E5E5;
+  border-radius: 4px 5px 5px;
+  border-right: 1px solid #E5E5E5;
+  box-shadow: 0 1px 1px #E5E5E5;
+  padding: 9px;
+}
+.author-img {
+  border: 1px solid #000000;
+  float: left;
+  margin: 0 17px 0 0;
+  width: 90px;
+}
+.author-meta h6 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 0 7px;
+}
+p.author-bio {
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0;
+  overflow: hidden;
+}
 /* Large desktop */
 @media (min-width: 1200px) {
   .wrapper {
