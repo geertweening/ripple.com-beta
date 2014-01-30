@@ -75,7 +75,7 @@ jQuery(function ($) {
 
         var currentSection = "", sections = {};
         for (var i = 0, l = txtdata.length; i < l; i++) {
-          var line = txtdata[i];
+          var line = txtdata[i].replace(/^\s+|\s+$/g, '');
           if (!line.length || line[0] === '#') {
             continue;
           } else if (line[0] === '[' && line[line.length-1] === ']') {
