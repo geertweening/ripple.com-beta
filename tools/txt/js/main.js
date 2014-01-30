@@ -4,7 +4,7 @@ jQuery(function ($) {
     this.message = message || "";
     this.tips = tips || "";
   }
-  VerificationError.prototy = Error.prototype;
+  VerificationError.prototype = Error.prototype;
 
   function makeLogEntry(text) {
     var log = $('<li></li>').text(text).appendTo('#log');
