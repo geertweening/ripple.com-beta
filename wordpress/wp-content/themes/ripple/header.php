@@ -47,7 +47,7 @@
 
 			<div id="dashboard" class="dashboard">
 
-				<a href="https://ripplecharts.com/">
+				<a href="https://ripple.com/graph/">
 					<div id="transaction-feed" class="transaction-feed boxed">
 						<p class="underline">live transaction feed</p>
 						<p>

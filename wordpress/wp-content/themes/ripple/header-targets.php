@@ -46,7 +46,7 @@
 
 			<div id="dashboard" class="dashboard">
 
-				<a href="https://ripplecharts.com/">
+				<a href="https://ripple.com/graph/">
 					<div id="transaction-feed" class="transaction-feed">
 						<p class="underline">live transaction feed</p>
 							<div id="transactionFeed" class="light small mediumgray transactionFeed text-center">

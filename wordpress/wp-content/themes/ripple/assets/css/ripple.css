@@ -3978,8 +3978,7 @@ li:focus .link-color {
 b,
 strong {
   color: #383838;
-  font-weight: normal;
-  font-family: open_sanssemibold, sans-serif;
+  font-weight: bold;
 }
 a.boxed:hover,
 a.boxed:focus {
@@ -4960,6 +4959,10 @@ section.guide-section {
 .guide-section .thumbnail {
   padding: 20px;
 }
+.guide-section .col-sm-3 {
+  height: 323px;
+  width: 33%;
+}
 .nav > li.active,
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -5180,6 +5183,9 @@ p.author-bio {
   .guide-nav.affix-bottom {
     width: 358px;
   }
+  .guide-section .col-sm-3 {
+    width: 33%;
+  }
   .directory .col-sm-2 {
     margin-left: 100px;
     min-height: 620px;
@@ -5223,6 +5229,10 @@ p.author-bio {
   }
   .banner h2 {
     margin: 0 auto 7%;
+  }
+  .guide-section .col-sm-3 {
+    height: 276px;
+    width: 50%;
   }
   .directory .col-sm-2 {
     margin-left: 63px;

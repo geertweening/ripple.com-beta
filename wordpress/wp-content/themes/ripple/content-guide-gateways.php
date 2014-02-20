@@ -104,6 +104,21 @@
 
   						<div class="col-sm-3">
     						<div class="thumbnail">
+      							<img alt="The Rock Trading LTD" src="<?php bloginfo('template_url'); ?>/assets/img/the-rock-trading-ltd.png">
+     	 						<div class="caption">
+     	 							<p class="strong"><a href="https://www.therocktrading.com">therocktrading.com</a></p>
+	        						<dl>
+	  									<dt>Location:</dt>
+	  									<dd>Europe</dd>
+	  									<dt>Currencies:</dt>
+	  									<dd>BTC, LTC, XRP, SLL, EUR, USD</dd>
+									</dl>
+								</div>
+    						</div>
+  						</div>
+
+  						<div class="col-sm-3">
+    						<div class="thumbnail">
       							<img alt="justcoin.com" src="<?php bloginfo('template_url'); ?>/assets/img/justcoin.png">
      	 						<div class="caption">
      	 							<p class="strong"><a href="https://justcoin.com/">justcoin.com</a></p>
