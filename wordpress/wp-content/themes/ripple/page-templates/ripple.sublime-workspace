@@ -1,0 +1,908 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"c",
+				"color"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"spac",
+				"space_rocket"
+			],
+			[
+				"widget",
+				"widget-title"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/header-dev-ripple.php",
+			"settings":
+			{
+				"buffer_size": 3192,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/footer-dev-ripple.php",
+			"settings":
+			{
+				"buffer_size": 592,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/assets/css/main.css",
+			"settings":
+			{
+				"buffer_size": 3581,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dev-ripple-blog.php",
+			"settings":
+			{
+				"buffer_size": 2128,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/dev-blog.php",
+			"settings":
+			{
+				"buffer_size": 915,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/ripple-docs/index.html",
+			"settings":
+			{
+				"buffer_size": 2308,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "blog.php",
+			"settings":
+			{
+				"buffer_size": 1968,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dev-ripple-docs.php",
+			"settings":
+			{
+				"buffer_size": 312,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/header-targets.php",
+			"settings":
+			{
+				"buffer_size": 2556,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/functions.php",
+			"settings":
+			{
+				"buffer_size": 8874,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/post-type/wp-content/themes/twentyfourteen/index.php",
+			"settings":
+			{
+				"buffer_size": 1579,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/post-type/wp-content/themes/twentyfourteen/dev-blog.php",
+			"settings":
+			{
+				"buffer_size": 1254,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/single-dev-blog.php",
+			"settings":
+			{
+				"buffer_size": 610,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n/**\n * @packageRipple\n */\n?>\n<!-- Begin content-single.php -->\n<h1>Content Single Dev Blog  Page</h1>\n<article id=\"post-<?php the_ID(); ?>\" <?php post_class('single-post'); ?>>\n	<header class=\"entry-header\">\n		<p class=\"entry-meta\">\n			<?php the_date('M j, y'); ?>\n		</p><!-- .entry-meta -->\n		<h2 class=\"blog-title\"><?php the_title(); ?></h2>	\n	</header><!-- .entry-header -->\n\n\n	<div class=\"entry-content\">\n		<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>\n		<?php the_content(); ?>\n		<?php\n		wp_link_pages( array(\n			'before' => '<div class=\"page-links\">' . __( 'Pages:', 'ripple' ),\n			'after'  => '</div>',\n			) );\n			?>\n\n			<div class=\"about-author-wrapper\">\n				<div class=\"about-author\">\n					<div class=\"author-img\">\n						<?php the_author_image($author_id = null); ?>\n					</div>\n					<div class=\"author-meta\">\n						<h6 class=\"author-title\">About <?php the_author(); ?></h6>\n					</div>\n					<p class=\"author-bio\">\n						<?php the_author_meta('description'); ?> \n					</p>\n				</div>\n			</div>\n\n		</div><!-- .entry-content -->\n\n		<footer class=\"entry-meta\">\n			<?php\n			/* translators: used between list items, there is a space after the comma */\n			$category_list = get_the_category_list( __( ', ', 'ripple' ) );\n\n			/* translators: used between list items, there is a space after the comma */\n			$tag_list = get_the_tag_list( '', __( ', ', 'ripple' ) );\n\n			if ( ! ripple_categorized_blog() ) {\n				// This blog only has 1 category so we just need to worry about tags in the meta text\n				if ( '' != $tag_list ) {\n					$meta_text = __( 'tagged %2$s.' );\n				} else {\n					$meta_text = __( '' );\n				}\n\n			} else {\n				// But this blog has loads of categories so we should probably display them here\n				if ( '' != $tag_list ) {\n					$meta_text = __( 'Tagged %1$s and tagged %2$s.' );\n				} else {\n					$meta_text = __( 'Tagged %1$s.' );\n				}\n\n			} // end check for categories on this blog\n\n			printf(\n				$meta_text,\n				$category_list,\n				$tag_list,\n				get_permalink(),\n				the_title_attribute( 'echo=0' )\n				);\n				?>\n\n				<?php edit_post_link( __( 'Edit', 'ripple' ), '<span class=\"edit-link\">', '</span>' ); ?>\n			</footer><!-- .entry-meta -->\n			<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>\n		</article><!-- #post-## -->\n",
+			"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/content-single-dev-blog.php",
+			"file_size": 2286,
+			"file_write_time": 1393756106000000,
+			"settings":
+			{
+				"buffer_size": 2286,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 272.0,
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"LESS",
+				"Set Syntax: LESS"
+			],
+			[
+				"package control: Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"set",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"",
+				"Set Syntax: CSS"
+			],
+			[
+				"CSS",
+				"Set Syntax: CSS"
+			],
+			[
+				"HT",
+				"HTML: Encode Special Characters"
+			]
+		],
+		"width": 579.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/portfolio-type.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/page-fuzzcats.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/single-dev-blog.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/content-fuzzcats.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/single-fuzzcats.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/single-portfolio.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/content-single-testy.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/page-portfolio.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/assets/less/post-type.less",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/assets/less/ripple.less",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/content-single-fuzzcats.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/page-templates/category-fuzzcats.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/content-sortable.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/single.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-front-page.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/page-templates/devs.php",
+		"/Applications/MAMP/htdocs/MSE/assets/less/mse.less",
+		"/Applications/MAMP/htdocs/MSE/parts/contact-us.php",
+		"/Applications/MAMP/htdocs/MSE/footer.php",
+		"/Applications/MAMP/htdocs/MSE/parts/welcome-block.php",
+		"/Applications/MAMP/htdocs/MSE/assets/less/custom.less",
+		"/Applications/MAMP/htdocs/MSE/assets/less/unify/plugins/horizontal-parallax/css/horizontal-parallax.css",
+		"/Applications/MAMP/htdocs/MSE/parts/recent-works1.php",
+		"/Applications/MAMP/htdocs/MSE/parts/recent-works.php",
+		"/Applications/MAMP/htdocs/MSE/parts/our-clients.php",
+		"/Applications/MAMP/htdocs/MSE/originals/products-WB0412697/HTML/assets/js/pages/index.js",
+		"/Applications/MAMP/htdocs/MSE/originals/products-WB0412697/HTML/page_home4.html",
+		"/Applications/MAMP/htdocs/MSE/index1.php",
+		"/Applications/MAMP/htdocs/MSE/originals/products-WB0412697/HTML/index.html",
+		"/Applications/MAMP/htdocs/MSE/originals/products-WB0412697/HTML/assets/css/themes/headers/header1-blue.css",
+		"/Applications/MAMP/htdocs/MSE/assets/plugins/font-awesome/less/font-awesome.less",
+		"/Applications/MAMP/htdocs/MSE/assets/less/bootstrap.less",
+		"/Applications/MAMP/htdocs/MSE/assets/less/unify/plugins/flexslider/flexslider.less",
+		"/Applications/MAMP/htdocs/MSE/assets/plugins/font-awesome/less/variables.less",
+		"/Applications/MAMP/htdocs/MSE/assets/plugins/font-awesome/less/path.less",
+		"/Applications/MAMP/htdocs/MSE/assets/plugins/font-awesome/less/bootstrap.less",
+		"/Applications/MAMP/htdocs/MSE/assets/plugins/font-awesome/less/extras.less",
+		"/Applications/MAMP/htdocs/MSE/assets/plugins/font-awesome/less/icons.less",
+		"/Applications/MAMP/htdocs/MSE/assets/plugins/font-awesome/less/mixins.less",
+		"/Applications/MAMP/htdocs/MSE/assets/css/app.css",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/assets/js/transition.js",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/inc/contact-modal-desktop.php",
+		"/Users/Mikeemike/Desktop/htdocs/space-rocket21/wp-content/themes/space-rocketx/footer.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/js/plugins.js",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/page-templates/full-screen.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/header-full-screen.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/less/dev.less",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/less/portfolio.less",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-full-screen.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/less/bootstrap.less",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/sidebar-reasons-to-hire-us.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/page-templates/blog.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/single.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/index.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/page-templates/portfolio.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-portfolio.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/header.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-team.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/inc/mike.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-services.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/less/style.less",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/functions.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/less/mixins.less",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-single.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/inc/about-author.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/page-templates/front-page.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-blog.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/inc/get-started.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/js/main.js",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/js/bs-min.js",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/js/application.js",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/less/sprites.less",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/less/space-sprites.less",
+		"/Users/Mikeemike/Downloads/blah.html",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/page-templates/team.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/inc/vivian.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/index.html",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/font-awesome-4.0.3/less/variables.less",
+		"/Users/Mikeemike/Desktop/htdocs/mbernstein/wp-content/themes/marc-bernstein-2013/assets/less/bootstrap.less",
+		"/Users/Mikeemike/Desktop/htdocs/mbernstein/wp-content/themes/marc-bernstein-2013/assets/font-awesome/less/variables.less",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/inc/contact-modal-hire-a-sf-web-designer.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-page.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/footer.php",
+		"/Applications/MAMP/htdocs/space-rocket-sortable/wp-content/themes/space-rocketx/content-sortable.php",
+		"/Applications/MAMP/htdocs/space-rocket-sortable/wp-content/themes/space-rocketx/header.php",
+		"/Users/Mikeemike/Desktop/test2.html",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/fancybox/source/jquery.fancybox.js",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/page-templates/page-portfolio.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/js/fancybox/jquery.fancybox.js",
+		"/Users/Mikeemike/Desktop/test.html",
+		"/Applications/MAMP/htdocs/space-rocket-sortable/wp-content/themes/space-rocketx/assets/less/grid.less",
+		"/Applications/MAMP/htdocs/space-rocket-sortable/wp-content/themes/space-rocketx/assets/less/portfolio.less",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/assets/less/sortable.less",
+		"/Applications/MAMP/htdocs/space-rocket-sortable/wp-content/themes/space-rocketx/assets/less/sortable.less",
+		"/Users/Mikeemike/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Mikeemike/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/page-templates/sortable.php",
+		"/Applications/MAMP/htdocs/space-rocket22/wp-content/themes/space-rocketx/content-sortable.php",
+		"/Applications/MAMP/htdocs/space-rocket-sortable/wp-config.php",
+		"/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/assets/less/thumbnail-img-icons.less",
+		"/Users/Mikeemike/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Mikeemike/Library/Application Support/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/Applications/Sublime Text 2.app/Contents/MacOS/PackageSetup.pyc",
+		"/Applications/Sublime Text 2.app/Contents/MacOS/sublime_plugin.py",
+		"/Applications/Sublime Text 2.app/Contents/MacOS/sublime_plugin.pyc",
+		"/Applications/MAMP/htdocs/ripple.com/wordpress/wp-config.php"
+	],
+	"find":
+	{
+		"height": 193.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"fuzzcats",
+			"Dev Blog",
+			"dev_blog",
+			"h2",
+			"<a href",
+			"content-area",
+			"primary",
+			"nav",
+			".logo",
+			".log",
+			"logo-brand",
+			"-brand",
+			"tile",
+			"navbar",
+			"#defce7",
+			"</li>",
+			"<li>",
+			"</li>",
+			"<li>",
+			"<link rel=\"stylesheet\" href=\"assets",
+			"class=\"\"",
+			"active",
+			"core",
+			"font-awesome/font",
+			"../assets/less/unify/plugins/font-awesome/font",
+			"assets",
+			"css\"",
+			"<link rel=\"stylesheet\" href=",
+			"unify/plugins/",
+			"../img",
+			"background:url(../img/",
+			"url(\"",
+			"url(\"..",
+			"css\";",
+			"css",
+			">",
+			"href=\"assets",
+			" href=\"assets/",
+			" <link rel=\"stylesheet\"",
+			"less;",
+			"css\">",
+			"<link rel=\"stylesheet\" href=\"assets/css/",
+			"#slide-nav-one ",
+			".blog .entry-header.page-title",
+			".nav-collapse .nav > li > a, .nav-collapse .dropdown-menu a ",
+			"design",
+			"182px",
+			"h4 ",
+			"ol",
+			"</h4>",
+			"<h4>",
+			".gform_wrapper",
+			"Full-width",
+			".view",
+			".carousel-inner > .item > img, .carousel-inner > .item > a > img ",
+			"href=\"<?php bloginfo('template",
+			"template",
+			"http://www.space-rocket.com",
+			".fa",
+			"blog",
+			"span",
+			"twentyten",
+			"get_the_date()",
+			"posted_on",
+			"viral",
+			"viral_scripts",
+			" <i class=",
+			"></i>\n			<div>",
+			"<i class=\"fa",
+			"\"></div>",
+			"class=\"fa fa",
+			"i",
+			"hire-a-sf-web-designer",
+			"article",
+			"<divclass",
+			"</h3>",
+			"<div class=\"thumbnail-img\"><i class=\"fa fa-camera-retro\"></i></div>",
+			"<div class=\"thumbnail-img-title\">",
+			"span4",
+			"span3",
+			"span4",
+			"<div class=\"prototype thumbnail-img\"></div>",
+			"widget thumbnails",
+			"button",
+			".portfolio",
+			".btn",
+			"myModal",
+			"main",
+			".guide-section",
+			"btn",
+			"width"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/header-dev-ripple.php",
+					"settings":
+					{
+						"buffer_size": 3192,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2818,
+								2818
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/footer-dev-ripple.php",
+					"settings":
+					{
+						"buffer_size": 592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								148,
+								148
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/assets/css/main.css",
+					"settings":
+					{
+						"buffer_size": 3581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3267,
+								3267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1910.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "dev-ripple-blog.php",
+					"settings":
+					{
+						"buffer_size": 2128,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								342,
+								342
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/dev-blog.php",
+					"settings":
+					{
+						"buffer_size": 915,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								281,
+								237
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 107.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 8,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "/Applications/MAMP/htdocs/ripple-docs/index.html",
+					"settings":
+					{
+						"buffer_size": 2308,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2100,
+								2100
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "blog.php",
+					"settings":
+					{
+						"buffer_size": 1968,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1939,
+								1968
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 697.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "dev-ripple-docs.php",
+					"settings":
+					{
+						"buffer_size": 312,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								275,
+								275
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/header-targets.php",
+					"settings":
+					{
+						"buffer_size": 2556,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1714,
+								1714
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 58.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/functions.php",
+					"settings":
+					{
+						"buffer_size": 8874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8717,
+								8717
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/Applications/MAMP/htdocs/post-type/wp-content/themes/twentyfourteen/index.php",
+					"settings":
+					{
+						"buffer_size": 1579,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 65.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/Applications/MAMP/htdocs/post-type/wp-content/themes/twentyfourteen/dev-blog.php",
+					"settings":
+					{
+						"buffer_size": 1254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								482,
+								482
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 269.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/single-dev-blog.php",
+					"settings":
+					{
+						"buffer_size": 610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								158,
+								158
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 79.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/Applications/MAMP/htdocs/ripple.com-wordpress/wp-content/themes/ripple/content-single-dev-blog.php",
+					"settings":
+					{
+						"buffer_size": 2286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								34,
+								34
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.594520190115,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 326.0,
+	"status_bar_visible": true
+}

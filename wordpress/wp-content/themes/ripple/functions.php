@@ -51,6 +51,7 @@ function ripple_setup() {
 		'footer-links2' => __( 'Footer Links Column Two', 'ripple' ),
 		'footer-links3' => __( 'Footer Links Column Three', 'ripple' ),
 		'footer-links4' => __( 'Footer Links Column Four', 'ripple' ),
+		'dev-ripple-menu' => __( 'Dev Ripple Menu', 'ripple' ),
 	) );
 
 	/**
@@ -81,8 +82,18 @@ function ripple_widgets_init() {
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
 	) );
+	register_sidebar( array(
+		'name'          => __( 'Dev Sidebar', 'ripple' ),
+		'id'            => 'dev-sidebar',
+		'before_widget' => '<ul id="%1$s" class="level-1">',
+		'after_widget'  => '</ul>',
+		'before_title'  => '<ul class="level-1"><li class="level-1"><a class="level-1">',
+		'after_title'   => '</a><ul class="level-2"><li class="level-2">',
+	) );
 }
 add_action( 'widgets_init', 'ripple_widgets_init' );
+
+
 
 /**
 * Enqueue scripts and styles
@@ -187,4 +198,42 @@ $arg['title_reply'] = __('Discussion:');
 return $arg;
 }
 add_filter('comment_form_defaults','comment_reform');
+
+// Creates Dev Blog post type
+// register_post_type('dev-blog', array(
+// 	'label' => 'Dev Blog',
+// 	'public' => true,
+// 	'show_ui' => true,
+// 	'capability_type' => 'post',
+// 	'hierarchical' => false,
+// 	'rewrite' => array('slug' => 'dev-blog'),
+// 	'query_var' => true,
+// 	'supports' => array(
+// 	'title',
+// 	'editor',
+// 	'excerpt',
+// 	'comments',
+// 	'revisions',
+// 	'thumbnail',
+// 	'author',
+// )
+// ) 
+// );
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+register_post_type( 'dev-blog',
+        array(
+            'labels' => array(
+                'name' => __( 'dev-blog' ),
+                'singular_name' => __( 'dev-blog' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'dev-blog'),
+            'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'author' ),
+            'taxonomies' => array( 'post_tag') // this is IMPORTANT
+        )
+    );
+}
 

@@ -1,4 +1,12 @@
 <ul class="list-unstyled sharing-is-caring">
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=477386009022238";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
    <li class="facebooker">
 		<fb:like href="https://ripple.com/"  layout="button_count" show_faces="true" send="false"></fb:like>
 	</li>

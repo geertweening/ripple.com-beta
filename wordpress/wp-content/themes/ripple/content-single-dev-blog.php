@@ -4,18 +4,18 @@
  */
 ?>
 <!-- Begin content-single.php -->
-<article id="post-<?php the_ID(); ?>" <?php post_class('single-post'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('content'); ?>>
 	<header class="entry-header">
+		<h1 class="dev-blog-title"><?php the_title(); ?></h1>
 		<p class="entry-meta">
 			<?php the_date('M j, y'); ?>
-		</p><!-- .entry-meta -->
-		<h2 class="blog-title"><?php the_title(); ?></h2>	
+		</p><!-- .entry-meta -->	
 	</header><!-- .entry-header -->
 
 
 	<div class="entry-content">
-		<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
 		<?php the_content(); ?>
+		<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
 			<?php
 				wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'ripple' ),
@@ -58,7 +58,7 @@
 		} else {
 			// But this blog has loads of categories so we should probably display them here
 			if ( '' != $tag_list ) {
-				$meta_text = __( 'Tagged %1$s and tagged %2$s.' );
+				$meta_text = __( ' tagged %2$s.' );
 			} else {
 				$meta_text = __( 'Tagged %1$s.' );
 			}
@@ -76,5 +76,4 @@
 
 			<?php edit_post_link( __( 'Edit', 'ripple' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
-			<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
 	</article><!-- #post-## -->
