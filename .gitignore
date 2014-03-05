@@ -7,3 +7,4 @@
 /tools/api/app.js
 /tools/api/node_modules
 /tools/api/package.json
+.DS_Store
