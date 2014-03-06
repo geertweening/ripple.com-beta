@@ -8082,6 +8082,9 @@ body:not(.no-literate) .dev-ripple .content h3:before {
   font-family: 'Open Sans', sans-serif;
   text-transform: capitalize;
 }
+ul.level-2 {
+  margin-bottom: 10px;
+}
 .dev-ripple .menu a.level-2 {
   color: #466db2;
   font-size: 13px;
@@ -8210,6 +8213,10 @@ body:not(.no-literate) .dev-ripple .single-dev-blog.content-root {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   box-shadow: none;
 }
+body:not(.no-literate) .dev-ripple.dev-ripple-blog .content-root {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  box-shadow: none;
+}
 .developer-blog .header iframe html {
   display: none;
 }
@@ -8303,4 +8310,24 @@ body:not(.no-literate) .dev-ripple .content h3 {
 .dev-ripple p {
   font-family: "open sans", sans-serif;
   font-size: 13px;
+}
+.dev-ripple .comment-form #submit,
+.dev-ripple .form-submit > input,
+.search-submit {
+  background: none repeat scroll 0 0 #B7B7B7;
+  border: medium none;
+  border-radius: 4px;
+  color: #FFFFFF !important;
+  display: inline-block;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.6875;
+  max-width: 100%;
+  padding: 0.57143em 1.42857em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease 0s;
 }
