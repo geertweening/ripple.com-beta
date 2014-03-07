@@ -23,6 +23,8 @@
 -->
 <html  xmlns:fb="http://ogp.me/ns/fb#"  <?php language_attributes(); ?>>
 <head>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:600italic,400,700,300' rel='stylesheet' type='text/css'>
+	
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
@@ -34,25 +36,20 @@
 	
 
 	<!-- Flatdoc -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src='http://rstacruz.github.io/flatdoc/v/0.8.0/legacy.js'></script>
-	<script src='http://rstacruz.github.io/flatdoc/v/0.8.0/flatdoc.js'></script>
+
+	 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	// <script src='https://rstacruz.github.io/flatdoc/v/0.8.0/legacy.js'></script>
+	// <script src='https://rstacruz.github.io/flatdoc/v/0.8.0/flatdoc.js'></script> -->
 
 	<!-- Flatdoc theme -->
-	<link  href='http://rstacruz.github.io/flatdoc/v/0.8.0/theme-white/style.css' rel='stylesheet'>
-	<script src='http://rstacruz.github.io/flatdoc/v/0.8.0/theme-white/script.js'></script>
+	 <link  href='https://rstacruz.github.io/flatdoc/v/0.8.0/theme-white/style.css' rel='stylesheet'>
 
 
 	<!-- Custom Stylesheet -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,700,300' rel='stylesheet' type='text/css'>
+	
 	
 
-	<!-- Initializer -->
-	<script>
-	Flatdoc.run({
-		fetcher: Flatdoc.github('ripple/ripple-client')
-	});
-	</script>
+
 	<?php wp_head(); ?>
 </head>
 <body role='flatdoc' <?php page_bodyclass(); ?>>

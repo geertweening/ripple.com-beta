@@ -8331,3 +8331,6 @@ body:not(.no-literate) .dev-ripple .content h3 {
   text-decoration: none;
   transition: all 0.2s ease 0s;
 }
+.level-2 .form-input > input {
+  margin-bottom: 10px;
+}
