@@ -42,7 +42,7 @@
 	// <script src='https://rstacruz.github.io/flatdoc/v/0.8.0/flatdoc.js'></script> -->
 
 	<!-- Flatdoc theme -->
-	 <link  href='https://rstacruz.github.io/flatdoc/v/0.8.0/theme-white/style.css' rel='stylesheet'>
+	 <link  href='https://ripple.com/wp-content/themes/ripple/assets/css/ricostacruz-style.css' rel='stylesheet'>
 
 
 	<!-- Custom Stylesheet -->
