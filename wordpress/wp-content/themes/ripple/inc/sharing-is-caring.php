@@ -8,7 +8,7 @@
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
    <li class="facebooker">
-		<fb:like href="https://ripple.com/"  layout="button_count" show_faces="true" send="false"></fb:like>
+		<fb:like href="<?php the_permalink(); ?>"  layout="button_count" show_faces="true" send="false"></fb:like>
 	</li>
 	<li class="twitterer">
 			<a href="https://twitter.com/share" class="twitter-share-button" data-via="ripple">Tweet</a>

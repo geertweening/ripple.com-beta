@@ -1,0 +1,1 @@
+$(.thumbnail-recent-post-widget).wrap('<a href="..." />');

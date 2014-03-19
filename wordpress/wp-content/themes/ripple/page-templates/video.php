@@ -11,7 +11,7 @@ get_header('video'); ?>
 			        	<h1>The Future of Payments</h1>
 			            <a id="start-video" href="#">
 			                <div class="play-button-circle">
-			                    <i class="icon-play">
+			                    <i class="fa fa-play">
 			                    	
 			                    </i>
 			                </div>

@@ -1,30 +1,39 @@
-.site-header {
+.site-main {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+.hfeed.site.dev-ripple.dev-ripple-blog {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+.dev-ripple .content-root article {
+    background: none repeat scroll 0 0 #F5DEB3;
+}
+body, .site-header {
   background-color: @purple;
 }
     /* Large desktop */
     @media (min-width: 1200px) { 
-.site-header {
+body, .site-header {
   background-color: @green;
 }
      }
      
     /* Portrait tablet to landscape and desktop */
     @media (min-width: 768px) and (max-width: 979px) { 
-.site-header {
+body, .site-header {
   background-color: @red;
 }
      }
      
     /* Landscape phone to portrait tablet */
     @media (max-width: 767px) { 
-.site-header {
+body, .site-header {
   background-color: @yellow;
 }
      }
      
     /* Landscape phones and down */
     @media (max-width: 480px) { 
-.site-header {
+body, .site-header {
   background-color: @orange;
 }
      }
