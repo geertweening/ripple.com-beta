@@ -334,7 +334,9 @@ class My_Widget_Recent_Posts extends WP_Widget {
 				<?php 
 				if ( has_post_thumbnail() ) { ?>
 				<div class="post-thumbnail col-sm-3">
-					<?php the_post_thumbnail('excerpt-thumbnail', 'class=news-thumbnail'); ?>
+					<a href="<?php the_permalink() ?>" title="<?php echo esc_attr( get_the_title() ? get_the_title() : get_the_ID() ); ?>">
+						<?php the_post_thumbnail('excerpt-thumbnail', 'class=news-thumbnail'); ?>
+					</a>
 				</div>
 				<?php } ?>
 
