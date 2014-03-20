@@ -33,7 +33,7 @@
 					     	<img data-src="holder.js/100%x120" alt="">
 						</div>
 					    	<h4 class="widget-title">Payment Federation</h4>
-					    	<p>Built on P2P princibles, be part of a growing community.</p>
+					    	<p>Built on P2P principles, be part of a growing community.</p>
 					 </a>
 				</aside>
 

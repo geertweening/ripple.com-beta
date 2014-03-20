@@ -16,7 +16,7 @@
 								<div class="icons payment">
 								</div>
 							    	<h4 class="icons-title">Payment Federation</h4>
-							    	<p>Built on P2P princibles. Be a part of a growing community.</p>
+							    	<p>Built on P2P principles. Be a part of a growing community.</p>
 								 </a>
 							</aside>
 

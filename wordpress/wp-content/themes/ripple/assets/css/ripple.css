@@ -5920,9 +5920,8 @@ p.author-bio {
     width: 400px;
   }
   .entry-content.video {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    margin: 131px 0 0 4%;
+    width: 80%;
   }
   .entry-content.callout.video h1 {
     font-size: 44px;
@@ -5968,9 +5967,6 @@ p.author-bio {
   }
   .page .carousel article {
     width: 330px;
-  }
-  .entry-content.video {
-    margin: 131px auto 172.5px;
   }
   .entry-content.callout h1 {
     font-size: 5rem;
