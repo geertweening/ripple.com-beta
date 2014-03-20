@@ -44,7 +44,7 @@ get_header('blog'); ?>
 					<div class="entry-content">
 						<header class="entry-header">
 							<h2 class="blog-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'ripple' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
-								<?the_title();?>
+								<?php echo $post->post_title; ?>
 							</a></h2>
 							<p class="entry-meta">
 								<span class="author updated">Posted by <?php the_author(); ?></span> <?php the_time(get_option('date_format')); ?> 

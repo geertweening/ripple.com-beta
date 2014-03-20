@@ -10,6 +10,7 @@ get_header('blog'); ?>
 
 <div id="primary" class="content-area with-sidebar">
 	<div class="article-wrap">
+		<?php if( have_posts() ) the_post(); ?>
 		<?php
 		query_posts( array( 'category_name' => 'blog', 'paged' => get_query_var('paged') ) );
 
@@ -19,7 +20,7 @@ get_header('blog'); ?>
 			<div class="entry-content">
 				<header class="entry-header">
 					<h2 class="blog-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'ripple' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
-						<?the_title();?>
+						<?php echo $post->post_title; ?>
 					</a></h2>
 					<p class="entry-meta">
 
@@ -56,7 +57,6 @@ get_header('blog'); ?>
 			<?php wp_reset_query();?>
 		</div>
 		<?php get_sidebar(); ?> 
-	</div>
 </div><!-- #primary -->
 
 <?php get_footer('with-sidebar'); ?>
