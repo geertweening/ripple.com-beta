@@ -5569,6 +5569,15 @@ li.facebooker {
   min-height: 108px;
   padding: 9px;
 }
+.about-author {
+  display: none;
+}
+.about-author-wrapper {
+  margin-bottom: 0;
+}
+.author-img {
+  display: none;
+}
 .author-img {
   border: 1px solid #000000;
   float: left;
