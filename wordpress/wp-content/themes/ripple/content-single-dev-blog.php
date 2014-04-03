@@ -15,7 +15,7 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php include (TEMPLATEPATH . '/inc/sharing-is-caring.php' ); ?>
+		<?php include (TEMPLATEPATH . '/inc/sharing-is-caring-dev-blog.php' ); ?>
 			<?php
 				wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'ripple' ),
