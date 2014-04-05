@@ -206,6 +206,9 @@ a:hover .link-color, a:focus .link-color {
 li:hover .link-color, li:focus .link-color {
     text-decoration: underline;
 }
+em {
+    font-style: italic;
+}
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
 #translucent {
   .background(@color: @white, @alpha: 1) {
@@ -1209,8 +1212,12 @@ article.post .entry-content h3,
 article.post .entry-content h4, 
 article.post .entry-content h5 {
     font-weight: bold;
-    line-height: 30px;
+    line-height: 26px;
     margin: 0 0 0px;
+}
+.entry-content li {
+    list-style: disc outside none;
+    margin-bottom: 20px;
 }
 article.post footer a {
     color: #3372AD;

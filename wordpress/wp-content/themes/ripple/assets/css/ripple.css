@@ -3965,6 +3965,9 @@ li:hover .link-color,
 li:focus .link-color {
   text-decoration: underline;
 }
+em {
+  font-style: italic;
+}
 .shaded {
   background: #F7F7F7;
 }
@@ -5036,8 +5039,12 @@ article.post .entry-content h3,
 article.post .entry-content h4,
 article.post .entry-content h5 {
   font-weight: bold;
-  line-height: 30px;
+  line-height: 26px;
   margin: 0 0 0px;
+}
+.entry-content li {
+  list-style: disc outside none;
+  margin-bottom: 20px;
 }
 article.post footer a {
   color: #3372AD;
