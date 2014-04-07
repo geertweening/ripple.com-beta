@@ -3943,10 +3943,10 @@ body {
   color: #ffffff;
 }
 .link-color {
-  color: #4a8cc9;
+  color: #3372ad;
 }
 h2 {
-  color: #5B5B5B;
+  color: #4D4B4B;
 }
 a {
   text-decoration: underline;
@@ -3954,7 +3954,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #71a5d5;
+  color: #3372ad;
 }
 a:hover .link-color,
 a:focus .link-color {
@@ -4321,10 +4321,6 @@ h4.widget-title {
 #secondary.user-tabs.widget-area {
   padding: 0;
 }
-.devs #tertiary.widget-area,
-.devs #quaternary.widget-area {
-  padding: 47px 0 120px;
-}
 .users #tertiary.widget-area {
   padding: 21px 0 49px;
 }
@@ -4358,6 +4354,9 @@ h4.widget-title {
 }
 #tertiary img,
 #quaternary img {
+  margin: 0 auto 26px;
+}
+.devs .tab-pane img {
   margin: 0 auto 26px;
 }
 #tertiary h3.widget-heading,
@@ -4645,7 +4644,7 @@ a .fa.fa-play:active {
   clear: both;
 }
 .post h5 {
-  color: #6B6C6C;
+  color: #4D4B4B;
   font-weight: bold;
   line-height: 30px;
   margin: 0 0 11px;
@@ -4956,6 +4955,7 @@ fieldset[disabled] .btn-subscribe.active {
   width: 50%;
 }
 .with-sidebar .entry-content > p {
+  color: #565555;
   line-height: 28px;
   overflow: hidden;
 }

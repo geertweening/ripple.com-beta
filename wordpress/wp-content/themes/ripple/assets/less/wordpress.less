@@ -186,17 +186,17 @@ body {
 }
 // Link Color 
 .link-color {
-    color:  lighten(@blue, 10%);
+    color:  @blue;
 }
 h2 {
-    color: #5B5B5B;
+    color: #4D4B4B;
 }
 a {
     text-decoration: underline;
     color: inherit;
 }
 a:hover, a:focus {
-    color: lighten(@link-color, 20%);
+    color: @link-color;
 }
 a:hover .link-color, a:focus .link-color {
     text-decoration: underline;
@@ -567,9 +567,9 @@ h4.widget-title {
     padding: 0;
 }
 // Additional Margins and Padding for #tertiary and #quaternary
-.devs #tertiary.widget-area, .devs #quaternary.widget-area  {
-    padding: 47px 0 120px;// based off dev page
-}
+// .devs .widget-area  {
+//     padding: 47px 0 120px;// based off dev page
+// }
 // User Tertiary Styles
 .users #tertiary.widget-area {
     padding: 21px 0 49px;
@@ -601,6 +601,9 @@ h4.widget-title {
     margin: 0 auto 22px;
 }
 #tertiary img, #quaternary img {
+    margin: 0 auto 26px;
+}
+.devs .tab-pane img {
     margin: 0 auto 26px;
 }
 #tertiary h3.widget-heading, #quaternary h3.widget-heading {
@@ -849,7 +852,7 @@ a .fa .fa-play:hover, a .fa.fa-play:focus, a .fa.fa-play:active {
     .clearfix;
 }
 .post h5 {
-    color: #6B6C6C;
+    color: #4D4B4B;
     font-weight: bold;
     line-height: 30px;
     margin: 0 0 11px;
@@ -1149,6 +1152,7 @@ padding: 0;
     width: 50%;
 }
 .with-sidebar .entry-content > p {
+    color: #565555;
     line-height: 28px;
     overflow: hidden;
 }
