@@ -4753,7 +4753,7 @@ header.entry-header h2.blog-title {
 }
 .with-sidebar b,
 .with-sidebar strong {
-  color: #6B6C6C;
+  color: #4D4B4B;
   font-weight: bold;
 }
 .with-sidebar .widget strong a {
@@ -5043,9 +5043,15 @@ article.post .entry-content h5 {
   line-height: 26px;
   margin: 0;
 }
+article.post .entry-content > ul {
+  margin-left: 40px;
+}
 .entry-content li {
   list-style: disc outside none;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+article.post .entry-content > p {
+  margin-bottom: 15px;
 }
 article.post footer a {
   color: #3372AD;
@@ -5093,6 +5099,9 @@ a.readmore:after {
   text-align: center;
   text-decoration: none;
   transition: all 0.2s ease 0s;
+}
+.dev-ripple .entry-content > ul {
+  margin-left: 80px;
 }
 .blog .logo {
   float: left;
