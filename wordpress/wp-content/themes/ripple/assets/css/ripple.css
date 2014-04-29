@@ -5038,9 +5038,10 @@ article.post .entry-content h2,
 article.post .entry-content h3,
 article.post .entry-content h4,
 article.post .entry-content h5 {
+  color: #4D4B4B;
   font-weight: bold;
   line-height: 26px;
-  margin: 0 0 0px;
+  margin: 0;
 }
 .entry-content li {
   list-style: disc outside none;
@@ -5541,6 +5542,7 @@ h2.comments-title {
 }
 li.facebooker {
   margin-top: -2px;
+  width: 86px;
 }
 .gpluser {
   width: 60px;
@@ -6773,7 +6775,7 @@ h2.callout {
   padding-right: 0px;
 }
 .twitterer {
-  width: 80px;
+  width: 86px;
 }
 .gpluser.pull-left {
   width: ;
