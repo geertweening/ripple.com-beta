@@ -22,4 +22,4 @@ n9KiYM9CgngLvtRCQHZwgC2gjpdaZcCcbt3VboxiNFcKuwFVujzS
 n9LdgEtkmGB9E2h3K4Vp7iGUaKuq23Zr32ehxiU8FWY7xoxbWTSA
 
 [authinfo_url]
-https://ripple.com/login.json
+https://id.ripple.com/v1/authinfo
