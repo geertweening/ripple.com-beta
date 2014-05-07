@@ -4783,28 +4783,28 @@ header.entry-header h2.blog-title {
 .with-sidebar article .entry-meta {
   margin-bottom: 11px;
 }
-.widget.thumbnail-recent-post-widget {
+.widget.widget {
   border-bottom: medium none;
 }
-.with-sidebar .thumbnail-recent-post-widget .widget-title {
+.with-sidebar .widget .widget-title {
   background: none repeat scroll 0 0 rgba(206, 211, 225, 0.5);
   margin: 0 -25px;
   padding: 0 25px;
   text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.75);
 }
-.with-sidebar .thumbnail-recent-post-widget .post-thumbnail.col-sm-3 {
+.with-sidebar .widget .post-thumbnail.col-sm-3 {
   float: none;
   padding: 0 0 10px;
   width: 100%;
 }
-.thumbnail-recent-post-widget .post-title {
+.widget .post-title {
   font-family: open_sansregular;
   font-size: 18px;
 }
-.thumbnail-recent-post-widget hr {
+.widget hr {
   margin: 0;
 }
-.thumbnail-recent-post-widget hr:last-child {
+.widget hr:last-child {
   display: none;
 }
 .list-item {
@@ -5152,6 +5152,7 @@ h2.blog-title {
   text-decoration: underline;
 }
 .entry-meta {
+  display: table;
   position: relative;
 }
 .post footer.entry-meta a:hover {
@@ -5668,11 +5669,11 @@ p.author-bio {
   .with-sidebar .single-post .post-thumbnail.col-sm-3 {
     display: table;
   }
-  .with-sidebar .thumbnail-recent-post-widget .widget-title {
+  .with-sidebar .widget .widget-title {
     margin: 0 -20px 0 -30px;
     padding: 0 20px 0 30px;
   }
-  .thumbnail-recent-post-widget hr {
+  .widget hr {
     margin: 0 -20px 0 -30px;
   }
 }
@@ -5738,7 +5739,7 @@ p.author-bio {
   .with-sidebar .sidebar {
     width: 35%;
   }
-  .with-sidebar .thumbnail-recent-post-widget .widget-title {
+  .with-sidebar .widget .widget-title {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -5895,7 +5896,7 @@ p.author-bio {
     padding: 0 30px;
     width: 95%;
   }
-  .with-sidebar .thumbnail-recent-post-widget .widget-title {
+  .with-sidebar .widget .widget-title {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -6076,7 +6077,7 @@ p.author-bio {
     padding-top: 40px;
     width: 95%;
   }
-  .thumbnail-recent-post-widget hr {
+  .widget hr {
     margin: 0;
   }
 }
