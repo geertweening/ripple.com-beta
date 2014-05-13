@@ -5040,10 +5040,24 @@ article.post .entry-content h3,
 article.post .entry-content h4,
 article.post .entry-content h5 {
   color: #4D4B4B;
-  font-family: 'open_sansbold';
   font-weight: bold;
-  line-height: 26px;
   margin: 0;
+}
+article.post .entry-content h1 {
+  line-height: 42px;
+}
+article.post .entry-content h2 {
+  line-height: 41px;
+}
+article.post .entry-content h3 {
+  line-height: 26px;
+}
+article.post .entry-content h4 {
+  line-height: 26px;
+}
+article.post .entry-content h5 {
+  font-family: 'open_sansbold';
+  line-height: 26px;
 }
 article.post .entry-content > ul,
 article.post .entry-content > ol {
