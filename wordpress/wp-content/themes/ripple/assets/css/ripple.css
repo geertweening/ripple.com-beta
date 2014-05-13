@@ -5040,16 +5040,21 @@ article.post .entry-content h3,
 article.post .entry-content h4,
 article.post .entry-content h5 {
   color: #4D4B4B;
+  font-family: 'open_sansbold';
   font-weight: bold;
   line-height: 26px;
   margin: 0;
 }
-article.post .entry-content > ul {
+article.post .entry-content > ul,
+article.post .entry-content > ol {
   margin-left: 40px;
 }
 .entry-content li {
   list-style: disc outside none;
   margin-bottom: 10px;
+}
+.entry-content ol li {
+  list-style: decimal outside none;
 }
 article.post .entry-content > p {
   margin-bottom: 15px;
