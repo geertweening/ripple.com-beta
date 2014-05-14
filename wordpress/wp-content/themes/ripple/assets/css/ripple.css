@@ -4807,6 +4807,10 @@ header.entry-header h2.blog-title {
 .widget hr:last-child {
   display: none;
 }
+.with-sidebar .widget.widget_text .widget-title,
+.with-sidebar .widget.widget_tag_cloud .widget-title {
+  margin-bottom: 30px;
+}
 .list-item {
   padding: 20px 0 30px;
 }
