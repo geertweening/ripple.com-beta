@@ -8,3 +8,5 @@
 /tools/api/node_modules
 /tools/api/package.json
 .DS_Store
+npm-debug.log
+node_modules/
