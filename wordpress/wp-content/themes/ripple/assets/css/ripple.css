@@ -4125,7 +4125,7 @@ textarea {
   clear: both;
 }
 nav.header-navigation {
-  float: left;
+  float: right;
   margin: 30px 3.65% 0;
   width: 38%;
 }
@@ -4143,11 +4143,9 @@ nav.header-navigation ul li a {
   text-decoration: none;
 }
 nav.header-navigation ul li.current_page_item a,
-nav.header-navigation ul li a:hover,
 nav.header-navigation ul li a:focus {
-  border-bottom: 7px solid #3372ad;
+  border-bottom: 2px solid #3372ad;
   color: #3372ad;
-  font-weight: bold;
 }
 .dashboard {
   float: right;
