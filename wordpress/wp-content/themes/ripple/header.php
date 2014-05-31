@@ -45,30 +45,26 @@
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class'=> 'navigation-menu' ) ); ?>
 				</nav><!-- #site-navigation -->	
 
-			<div id="dashboard" class="dashboard">
+<!--
+				<div id="dashboard" class="dashboard">
 
-				<a href="https://ripple.com/graph/">
-					<div id="transaction-feed" class="transaction-feed boxed">
-						<p class="underline">live transaction feed</p>
-						<p>
-							<div id="transactionFeed" class="light small mediumgray transactionFeed text-center">
+					<a href="https://ripple.com/graph/">
+						<div id="transaction-feed" class="transaction-feed boxed">
+							<p class="underline">live transaction feed</p>
+							<p>
+								<div id="transactionFeed" class="light small mediumgray transactionFeed text-center">
+							</div>
+						</p>
 						</div>
-					</p>
-					</div>
-				</a>
+					</a>
 
 					<div id="wallet" class="wallet">
 						<a href="https://ripple.com/client/" class="btn-wallet">
 							Wallet
 						</a>
 					</div>
-
-
-	</div>
-
-
-					
-			</div>
+				</div>
+-->
 		</div><!-- .wrapper -->
 	</header><!-- #masthead -->
 	<div id="main" class="site-main">
