@@ -9,14 +9,16 @@
         </header><!-- .entry-header -->
 
 
-        <div class="entry-content">
+        <div class="entry-content row">
             <!-- Begin Callout Box -->
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="thumbnail">
+                  <!--
                     <span class="icon-stack">
                         <i class="circle icon-stack-base"></i>
                         <i class="icon-circle icon-light"></i>
                     </span>
+                  -->
                 <p>
                     Total Transactions
                 </p>
@@ -27,12 +29,14 @@
                 </div>
               </div>
               <!-- Begin Callout Box -->
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="thumbnail">
+                  <!--
                     <span class="icon-stack">
                         <i class="circle icon-stack-base"></i>
                         <i class="icon-circle icon-light"></i>
                     </span> 
+                  -->
                     <p>   
                       30 day volume
                     </p>
@@ -41,18 +45,6 @@
                  </p>
                 </div>
               </div>
-              <!-- Begin Callout Box -->
-              <div class="col-sm-4">
-                <div class="thumbnail">
-                    <span class="icon-stack">
-                        <i class="circle icon-stack-base"></i>
-                        <i class="icon-circle icon-light"></i>
-                    </span>    
-                 <p>Active Users</p>
-                 <p class="large">
-                    <span class="num_accounts"></span>
-                 </p>
-                </div>
-              </div>
+
         </div><!-- .entry-content -->
 </article><!-- #post-## -->

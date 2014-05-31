@@ -3,7 +3,7 @@
  * Template Name: Developers
  */
 
-get_header('targets'); ?>
+get_header(); ?>
 
 	<div id="primary" class="banner content-area secondary-font-family developer-page">
 		<div id="content" class="wrapper" role="main">

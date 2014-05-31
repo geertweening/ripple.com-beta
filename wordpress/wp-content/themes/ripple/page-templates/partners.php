@@ -3,7 +3,7 @@
  * Template Name: Partners
  */
 
-get_header('targets'); ?>
+get_header(); ?>
 
 	<div id="primary" class="banner content-area secondary-font-family">
 		<div id="content" class="wrapper" role="main">
@@ -34,5 +34,5 @@ get_header('targets'); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-<?php get_sidebar('tabs'); ?>
+<!-- <?php get_sidebar('tabs'); ?> -->
 <?php get_footer('links'); ?>

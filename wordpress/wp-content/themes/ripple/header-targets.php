@@ -53,11 +53,6 @@
 						</div>
 					</div>
 				</a>
-					<div id="wallet" class="wallet">
-						<a href="https://ripple.com/client/">
-							<button type="button" class="btn-wallet">Wallet</button>
-						</a>
-					</div>
 			</div>
 		</div>
 	</header><!-- #masthead -->

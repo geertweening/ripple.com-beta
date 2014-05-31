@@ -4141,15 +4141,16 @@ nav.header-navigation ul li a {
   text-align: center;
   width: 60%;
   text-decoration: none;
+  color: #3372ad;
+  font-weight: bold;
 }
 nav.header-navigation ul li.current_page_item a,
 nav.header-navigation ul li a:focus {
   border-bottom: 2px solid #3372ad;
-  color: #3372ad;
 }
 .dashboard {
   float: right;
-  width: 34%;
+  width: 30%;
 }
 .dashboard a:hover,
 .dashboard a:focus {
@@ -4238,6 +4239,7 @@ h1.banner-callout {
   text-align: center;
   min-height: 120px;
   background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 20%;
 }
 .banner .thumbnail > p {
   color: #ffff97;
@@ -5648,10 +5650,10 @@ p.author-bio {
     margin: 30px 3.65% 0;
   }
   .dashboard {
-    width: 39%;
+    width: 30%;
   }
   .transaction-feed {
-    width: 77%;
+    width: 83%;
   }
   .guide-nav.affix-top,
   .guide-nav.affix,
@@ -5704,7 +5706,7 @@ p.author-bio {
     width: 755px;
   }
   .dashboard {
-    width: 35%;
+    width: 30%;
   }
   .transaction-feed {
     font-size: 0.94rem;
