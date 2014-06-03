@@ -314,7 +314,6 @@ a:hover [class^="icon-"], a:focus [class*=" icon-"] {
 .site-header {
     background: none repeat scroll 0 0 white;
     border-bottom: 4px solid #CCDAEA;
-    padding-top: 10px;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -366,29 +365,39 @@ input, button, select, textarea {
     height: 29px;
 }
 nav.header-navigation {
-    float: left;
-    margin: 30px 3.65% 0;
-    width: 38%;
+    float: right;
 }
+
 nav.header-navigation ul li {
     display: inline;
     float: left;
-    text-align: center;
-    width: 33.3333%;
 }
-nav.header-navigation ul li a {
-    float: left;
-    font-family: 'open_sansregular', 'HelveticaNeueLTStd-UltLt', Helvetica, Arial, sans-serif;
-    text-align: center;
-    width: 60%;
-    text-decoration: none;
+
+nav.header-navigation ul li {
+    a {
+        float: right;
+        font-family: 'open_sansregular', 'HelveticaNeueLTStd-UltLt', Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        color: @blue;
+        text-align: left;
+        margin-top: 30px;
+        margin-right: 30px;
+        text-decoration: none;
+    }
+    a:hover {
+        border-bottom: 4px solid @blue;
+        color: @blue;
+        font-style: normal;
+    }
 }
 
 // Header Navigation Hover/Active/Focus States
 nav.header-navigation ul li.current_page_item a, nav.header-navigation ul li a:hover, nav.header-navigation ul li a:focus {
-    border-bottom: 7px solid @blue;
+    
+    a:hover {
+    border-bottom: 4px solid @blue;
     color: @blue;
-    font-weight: bold;
+    font-style: normal;
 }
 // Dashboard 
 .dashboard {
@@ -2323,5 +2332,5 @@ article.post {
 .widget hr {
     margin: 0;
 }
-
+}
 }
