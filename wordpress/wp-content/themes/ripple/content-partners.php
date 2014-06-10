@@ -5,7 +5,7 @@
 ?>
 <article>
         <header class="entry-header">
-            <h2 class="callout">A Global Payment Network, Right Out of the Box.</h2>
+            <h2 class="callout">Global Funds Transfer & Exchange Protocol </h2>
         </header><!-- .entry-header -->
 
 
@@ -38,7 +38,7 @@
                     </span> 
                   -->
                     <p>   
-                      30 day volume
+                      30 Day Volume
                     </p>
                  <p class="large">
                     <span class="volume_traded"></span>

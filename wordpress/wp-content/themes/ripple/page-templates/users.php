@@ -6,8 +6,7 @@
 get_header('targets'); ?>
 	
 	<div id="primary" class="content-area secondary-font-family">
-
-		<div id="visualization" class="visualization" role="main">
+		<div id="visualization" class="visualization wrapper" role="main">
 			
 		<?php if ( have_posts() ) : ?>
 

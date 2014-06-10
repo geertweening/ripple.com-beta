@@ -7,72 +7,40 @@
 ?>
 	<div id="tertiary" class="widget-area text-left border-bottom" role="complementary">
 		<div class="wrapper centered">
-			<h3 class="widget-heading text-center secondary-font">Start Using Ripple Today:</h3>
-			<ul class="col-lg-11 list-unstyled centered">
-				<li class="icon-stack pull-left">
-					<i class="icon-circle icon-stack-base blue"></i>
-					<i class="icon-light"><span class="base-font">1</span></i>
-				</li>
-				<li class="list-margin-bottom">
-					<a href="https://ripple.com/client/#/register">
-						<strong>Create A Ripple Wallet.</strong><br>
-						Its free and takes seconds. 
-						<span class="link-color">Try it now</span> and see what Ripple is all about.
-					</a>
-				</li>
-				<li class="icon-stack pull-left">
-					<i class="icon-circle icon-stack-base blue"></i>
-					<i class="icon-light"><span class="base-font">2</span></i>
-				</li>
-				<li class="list-margin-bottom">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>guide-to-getting-xrp-and-activating-your-ripple-account">
-						<strong>Activate Your Ripple Account.</strong><br>
-						Learn how to  
-						<span class="link-color">get XRP</span> and activate your account.
-					</a>	
-				</li>
-				<li class="icon-stack pull-left">
-					<i class="icon-circle icon-stack-base blue"></i>
-					<i class="icon-light"><span class="base-font">3</span></i>
-				</li>
-				<li class="list-margin-bottom">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>guide-to-ripple-gateways/">
-						<strong>Find a Ripple Gateway.</strong><br>
-						Ripple gateways help you deposit/withdraw money to and from your Ripple account. Learn how to  
-						<span class="link-color">find and sign-up with a gateway</span><span class="blue-light">.</span>
-					</a>
-				</li>
-			</ul>
+			<h3 class="widget-heading secondary-font" style="margin-left: 244px; margin-bottom: 5px;">Market Makers on the Ripple Protocol</h3>
+			<p style="margin-right: 30px; text-align: justify; "><img src="https://ripple.com/wp-content/uploads/2014/06/mm.png" 
+			style="height: 150px; margin: -30px 40px 40px 40px; float: left;" />Ripple offers endless opportunities for market 
+			makers. Dollars, shekels, pesos, yuan — payments and currencies of 
+			all kinds move across the Ripple payment network. This creates constant demand for market makers on Ripple’s distributed 
+			currency exchange. So whether you’re a day trader or a dedicated Forex business, explore Ripple’s revolutionary Direct FX, 
+			and see how providing liquidity can produce new profits.</p>
 		</div><!-- .wrapper-->
 	</div><!-- #tertiary -->
 
 	<div id="quinary" class="tab-pane widget-area" role="complementary">
 		<section>
 			<div class="wrapper">
-	        		<h3 class="widget-heading text-center">Start Using Ripple</h3>
-	        	<div class="col-10 centered">
+	        		<h3 class="widget-heading text-center" style="margin-top: -5px;">Start Using Ripple</h3>
+	        	<div class="col-12 centered">
 
 					<div class="col-sm-4">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/" class="thumbnail boxed">
-							<p><strong>Learn about the Ripple Payment Network:</strong><br>
-							   A new standard in transactions.
-							</p>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/" class="thumbnail boxed" style="text-align: center;">
+							<p style="line-height: 1.7em;"><strong>Learn About the Ripple Payment Protocol</strong></p>
+							<p>A new standard in transactions</p>
 						</a>
 					</div>
 	 
 					<div class="col-sm-4">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/" class="thumbnail boxed">
-							<p><strong>Discover Ripple's Distributed Currency Exchange:</strong><br>
-								A universal translator for money.
-							</p>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/" class="thumbnail boxed" style="text-align: center;">
+							<p style="line-height: 1.7em;"><strong>Discover Ripple's Distributed Currency Exchange</strong></p>
+							<p>A universal translator for money</p>
 						</a>
 					</div>
 	 
 					<div class="col-sm-4">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/" class="thumbnail boxed">
-							<p><strong>Explore the Ripple Transaction Protocol (RTXP)</strong><br>
-							   The protocol that makes Ripple possible.
-							</p>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/" class="thumbnail boxed" style="text-align: center;">
+							<p style="line-height: 1.7em;"><strong>Explore the Ripple Transaction Protocol (RTXP)</strong></p>
+							<p>The protocol that makes Ripple possible</p>
 						</a>
 					</div>
 	        	</div>

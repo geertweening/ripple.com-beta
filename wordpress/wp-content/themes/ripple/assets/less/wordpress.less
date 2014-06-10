@@ -192,14 +192,15 @@ h2 {
     color: #4D4B4B;
 }
 a {
-    text-decoration: underline;
+    text-decoration: none;
     color: inherit;
 }
 a:hover, a:focus {
     color: @link-color;
+    text-decoration: none;
 }
 a:hover .link-color, a:focus .link-color {
-    text-decoration: underline;
+    text-decoration: none;
     color:  lighten(@blue, 10%);
 }
 // Hover/Focus State for Link-Color
@@ -269,7 +270,7 @@ dt {
 }
 img {
     height: auto;
-    max-width: 100%;
+    max-width: 80%;
 }
 // Span Base Font
 .base-font {
@@ -380,7 +381,7 @@ nav.header-navigation ul li {
         font-size: 13px;
         color: @blue;
         text-align: left;
-        margin-top: 30px;
+        margin-top: -4px;
         margin-right: 30px;
         text-decoration: none;
     }
@@ -403,7 +404,7 @@ nav.header-navigation ul li.current_page_item a, nav.header-navigation ul li a:h
 // Dashboard 
 .dashboard {
     float: right;
-    width: 34%;
+    width: 30%;
 }
 .dashboard a:hover, .dashboard a:focus {
     color: inherit;
@@ -413,7 +414,7 @@ nav.header-navigation ul li.current_page_item a, nav.header-navigation ul li a:h
     background: none repeat scroll 0 0 #F8F8F8;
     float: left;
     font-size: 1rem;
-    min-height: 66px;
+    min-height: 68px;
     padding: 10px 6% 0;
     text-align: center;
     width: 69%;
@@ -461,24 +462,39 @@ button.btn-wallet:hover {
     height: 490px;
 }
 .banner {
-    #gradient > .horizontal-three-colors(@gray-darker, #56554e, 50%, @gray-darker);
-    border-bottom: 2px solid #807d77;
+    margin-top: -20px;
+    background: url("../img/fin_instit_banner.png") no-repeat center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
 }
+
+.banner.developer-page {
+    margin-top: -20px;
+    background: #383838; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
 .banner h2 {
     color: @gray-white;
     margin: 0 auto 6%;
     text-align: center;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
 }
-h1.banner-callout {
-    color: #e7e7e7;
-    margin: 73px auto 6%;
+h2.banner-callout {
+    color: #ffffff;
+    margin: 50px auto 6%;
     text-align: center;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
     position: absolute;
     left: 0;
     right: 0;
 }
+
 // Partners Page
 .partners h2.callout {
     margin-bottom: 74px;
@@ -497,14 +513,16 @@ h1.banner-callout {
 
 }
 .banner .thumbnail {
-    border-color: transparent;
+    border-color: 1px solid @gray;
     box-shadow: 0 0 1px rgba(102, 102, 102, 0.99) inset;
     text-align: center;
     min-height: 120px;
     #translucent > .background(@white, .1); 
+    margin: 0 20%;
 }
 .banner .thumbnail > p {
     color: @yellow;
+    font-style: bold;
 }
 .thumbnail small {
     #translucent > .color(@yellow, 0.5);
@@ -525,6 +543,32 @@ h1.banner-callout {
     top: -14px;
     position: relative;
 }
+
+// Market Makers Thumbnail
+.thumbnail-mm {
+    text-align: center;
+    min-height: 120px;
+    width: 340px;
+    #translucent > .background(@white, .2); 
+    box-shadow: 0 0 1px rgba(102, 102, 102, 0.99) inset;
+    border: 1px solid #918f8f;
+    border-radius: 4px;
+}
+
+.thumbnail-mm.transactions {
+        margin: 150px 0 0 250px;
+}  
+.thumbnail-mm.volume {
+        margin: 150px 300px 0 100px;
+}
+
+.thumbnail-mm > p {
+    padding-top: 10px;
+    color: @yellow;
+    font-style: bold;
+}
+
+
 // Circles
 .banner .icon-circle.icon-light {
     color: @green;
@@ -1414,6 +1458,7 @@ h2.blog-title {
 .site-footer {
 }
 .footer-wrapper {
+    margin-top: -20px;
     background: none repeat scroll 0 0 #707070;
 }
 .footer-links h5 {
@@ -1432,7 +1477,7 @@ ul.footer-links {
 }
 .footer-links > li {
     float: left;
-    width: 17%;
+    width: 13%;
     padding: 0 1%;
     a {
         color: #ffffff;
@@ -1444,7 +1489,7 @@ ul.footer-links {
 }
 .footer-links > li:nth-child(1) {
     line-height: 26px;
-    width: 49%;
+    width: 45%;
 }
 .footer-links > li a:hover {
     text-decoration: underline;
@@ -1821,7 +1866,7 @@ p.author-bio {
 // Large Desktop Logo 
 .logo {
     float: left;
-    margin: 17px auto;
+    margin: 13px auto;
     width: 160px;
 }
 // Large Desktop Header Navigation
@@ -1829,10 +1874,10 @@ nav.header-navigation {
     margin: 30px 3.65% 0;
 }
 .dashboard {
-    width: 39%;
+    width: 30%;
 }
 .transaction-feed {
-    width: 77%;
+    width: 83%;
 }
 // Large Desktop Guide Nav
 .guide-nav.affix-top, 
@@ -1894,7 +1939,7 @@ nav.header-navigation {
 }
 // Tablet Header Navigation
 .dashboard {
-    width: 35%;
+    width: 30%;
 }
 .transaction-feed {
     font-size: 0.94rem;

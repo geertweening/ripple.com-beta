@@ -1,94 +1,35 @@
 				<div class="tab-pane fade active in text-center" id="gateways">
 					<section class="shaded">
 				  		<div class="wrapper">
-				    		<h3 class="tab-pane-heading">A global payment network, right out of the box</h3>
-							<aside class="col-lg-3">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#easy-integration">
-									<div class="icons easy">	
-									</div>
-							    	<h4 class="icons-title">Simple Setup</h4>
-							    	<p>Code open to download, run and modify.</p>
-								 </a>
-							</aside>
-
-							<aside class="col-lg-3">
+				    		<h3 class="tab-pane-heading">Powering Settlement for Instant, Low-Cost Payment Networks</h3>
+							<aside class="col-lg-3" style="float: left; margin-left: 140px;">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#federation-api">
 								<div class="icons payment">
 								</div>
-							    	<h4 class="icons-title">Payment Federation</h4>
-							    	<p>Built on P2P principles. Be a part of a growing community.</p>
+							    	<h4 class="icons-title">Real-Time Settlement</h4>
+							    	<p>Transfer funds in seconds</p>
 								 </a>
 							</aside>
 
-							<aside class="col-lg-3">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network#cross-currency-payments">
-									<div class="icons choice">	
-									</div>
-								    <h4 class="icons-title">Cross Currency</h4>
-								    <p>Send and recieve any amount with no fees.</p>
-								</a>
-							</aside>
-
-							<aside class="col-lg-3">
+							<aside class="col-lg-3" style="float: left; white-space:nowrap;">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network#no-merchant-fees">
 									<div class="icons free">	
 									</div>
-							    	<h4 class="icons-title">Change what you want</h4>
-							    	<p>Code open to download, run and modify</p>
+							    	<h4 class="icons-title" style="margin-left: -15px;">Straight-Through Processing</h4>
+							    	<p style="text-align: center;">Eliminate risk in settlement process</p>
 								 </a>
 							</aside>
+
+							<aside class="col-lg-3" style="float: left;">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network#cross-currency-payments">
+									<div class="icons choice">	
+									</div>
+								    <h4 class="icons-title">In-Stream FX</h4>
+								    <p>Minimize costs of FX and liquidity</p>
+								</a>
+							</aside>
+
 						</div><!-- .wrapper -->
 					</section>
-
-					<section>
-						<div class="wrapper">
-							<article class="post-widget">
-								<div class="col-lg-2 img-wrap">
-									<img alt="Gateways in the Ripple system" src="<?php bloginfo('template_url'); ?>/assets/img/gateways.png">
-								</div>
-								<div class="col-lg-9">
-									<h3 class="post-title">Gateways in the Ripple system.</h3>
-										<p>A Ripple gateway is any business that provides access to the Ripple network. Gateways can be banks, money service businesses, marketplaces, or any financial institution. Businesses that become gateways create advanced financial functionality for their customers and generate new revenue streams. The gateway service is configurable and free. Applications are diverse. Integration takes days.</p>
-									<footer class="post-footer">
-										<a href="#"><i class="icon-file-text"></i> Read our gateway white paper</a>
-									</footer>
-								</div>
-
-							</article>
-						</div><!-- .wrapper-->
-					</section>
-
-					<section>
-						<div class="wrapper">
-				        	<h3 class="widget-heading text-center">Learn about Ripple.</h3>
-				        	<div class="col-10 centered">
-
-								<div class="col-sm-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/" class="thumbnail boxed">
-									<p><strong>Learn about the Ripple Payment Network.</strong><br>
-										A new standard in transactions.
-									</p>
-								</a>
-							</div>
-
-							<div class="col-sm-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/" class="thumbnail boxed">
-									<p><strong>Discover Ripple’s Distributed Currency Exchange.</strong><br>
-										 A universal translator for money.
-									</p>
-								</a>
-							</div>
-			 
-							<div class="col-sm-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/" class="thumbnail boxed">
-									<p><strong>Explore the Ripple Transaction Protocol (RTXP):</strong><br>
-									   The protocol that makes Ripple possible.
-									</p>
-								</a>
-							</div>
-
-				        	</div>
-				   		</div><!-- wrapper -->
-				   	</section>
 					
 		    	</div><!-- .tap-pane -->

@@ -51,6 +51,7 @@ function ripple_setup() {
 		'footer-links2' => __( 'Footer Links Column Two', 'ripple' ),
 		'footer-links3' => __( 'Footer Links Column Three', 'ripple' ),
 		'footer-links4' => __( 'Footer Links Column Four', 'ripple' ),
+		'footer-links5' => __( 'Footer Links Column Five', 'ripple' ),
 		'dev-ripple-menu' => __( 'Dev Ripple Menu', 'ripple' ),
 		) );
 

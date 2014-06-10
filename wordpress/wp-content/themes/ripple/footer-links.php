@@ -42,15 +42,20 @@
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links2', 'container' => false ) ); ?>	
 					</li>
-					<li>
+					<li style="margin-left: -20px;">
 						<h5>Topics</h5>
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links3', 'container' => false ) ); ?>	
 					</li>
-					<li>
+					<li style="margin-left: 10px;">
 						<h5>Guides</h5>
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links4', 'container' => false ) ); ?>	
+					</li>
+					<li style="margin-left: 15px;">
+						<h5 style="white-space:nowrap;">Ripple Labs</h5>
+						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
+						<?php wp_nav_menu( array( 'theme_location' => 'footer-links5', 'container' => false ) ); ?>	
 					</li>
 				</ul>
 			</div><!-- .wrapper -->

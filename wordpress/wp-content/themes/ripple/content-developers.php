@@ -6,7 +6,7 @@
 <!-- BEGIN NEW STUFF -->		
 <article>
 		<header class="entry-header">
-            <h2 class="callout">Help Build the Future of Payments</h2>
+            <h2 class="callout">Open, Distributed Payment Protocol for Any Store of Value</h2>
         </header><!-- .entry-header -->
 
         <div class="entry-content"></div><!-- .entry-content -->

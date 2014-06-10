@@ -9,88 +9,25 @@
 	<section>
 		<div class="wrapper">
 			<div class="col-lg-12 centered text-center">
-				<h3>Developer tools</h3>
-				<p> Check out API documentation and more at the Ripple Developer Portal.</p>
+				<h3>Developer Tools</h3>
+				<p  style="font-size: 110%; margin-bottom: 10px;"> Check out API documentation and more at the Ripple Developer Portal</p>
 				<img alt="Go to Ripple Gitub" src="<?php bloginfo('template_url'); ?>/assets/img/black_logo.png">
 				<div class="row">
-					<a href="https://dev.ripple.com/" target="blank"><button type="button" class="btn btn-primary">Go to Developer Portal</button></a>
+					<a href="https://dev.ripple.com/" target="blank"><button type="button" class="btn btn-primary" 
+					style="margin-top: 20px; margin-bottom: -10px;">Go to Developer Portal</button></a>
 				</div>
 			</div>
 		</div><!-- .wrapper-->
 	</section>
 </div>
+
 <div class="tab-pane" role="complementary">
 	<section>
 		<div class="wrapper">
 			<div class="col-lg-12 centered text-center">
-				<h3>Get Started</h3>
-				<p>The Ripple repository is now open source and available at Github.</p>
-				<img alt="Go to Ripple Gitub" src="<?php bloginfo('template_url'); ?>/assets/img/github.png">
-				<div class="row">
-					<a href="https://github.com/ripple" target="blank"><button type="button" class="btn btn-primary">Go to Github</button></a>
-				</div>
+				<h3>Ripple for Developers</h3>
+				<p style="font-size: 110%;">The open-source distributed payment protocol for any store of value.</p>
 			</div>
 		</div><!-- .wrapper-->
 	</section>
 </div>
-
-<div class="tab-pane widget-area shaded" role="complementary">
-	<section>
-		<div class="wrapper">
-			<div class="col-lg-12 centered text-center  shaded">
-				<h3>Find out more at the Ripple Wiki</h3>
-				<p>Learn more about how Ripple works at the Ripple Wiki.</p>
-				<img alt="Ripple Wiki" src="<?php bloginfo('template_url'); ?>/assets/img/wiki.png">
-				<div class="row">
-					<a href="https://ripple.com/wiki/" target="blank"><button type="button" class="btn btn-primary">Go to Wiki</button></a>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
-			<!-- <div class="col-lg-8 centered">
-			<h3 class="widget-heading">Start Building Ripple Apps</h3>
-			<div class="col-lg-10 defloat">
-			<ul>
-				<li><strong>Check out our <a href="">Github Repository</a></strong>. A new standard in transactions.</li>
-				<li><strong>Learn about the Ripple <a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/">Payment Network</a>.</strong> A new standard in transactions.</li>
-				<li><strong>Discover Ripple’s <a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/">Distributed Currency Exchange</a>.</strong> A universal translator for money.</li>
-				<li><strong>Explore the <a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/">Ripple Transaction Protocol </a> (RTXP).</strong> The protocol that makes Ripple possible.</li>
-			</ul>
-			</div>
-		</div> -->
-		
-<div class="tab-pane widget-area" role="complementary">
-	<section>
-		<div class="wrapper">
-			<h3 class="widget-heading text-center">Learn more about Ripple.</h3>
-			<div class="col-10 centered">
-
-				<div class="col-sm-4">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/" class="thumbnail boxed">
-						<p><strong>Learn about the Ripple Payment Network:</strong><br>
-							A new standard in transactions.
-						</p>
-					</a>
-				</div>
-
-				<div class="col-sm-4">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/" class="thumbnail boxed">
-						<p><strong>Discover Ripple's Distributed Currency Exchange:</strong><br>
-							A universal translator for money.
-						</p>
-					</a>
-				</div>
-
-				<div class="col-sm-4">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/" class="thumbnail boxed">
-						<p><strong>Explore the Ripple Transaction Protocol (RTXP)</strong><br>
-							The protocol that makes Ripple possible.
-						</p>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
-
