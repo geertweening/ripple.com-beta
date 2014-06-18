@@ -6,11 +6,11 @@
 <!-- *** the visualization span will be replaced by the paymentVisualization.js script with an SVG elementthat takes it's size from the original size of this span *** -->
 <article>
         <header class="entry-header">		
-			<h2 class="banner-callout">An Open, Distributed Exchange</h1>
+			       <h2 class="banner-callout">An Open, Distributed Exchange</h2>
         </header><!-- .entry-header -->
 
 
-		<div class="entry-content row">
+		    <div class="entry-content-mm row">
             <!-- Begin Callout Box -->
              <div class="col-sm-6">
                 <div class="thumbnail-mm transactions">
