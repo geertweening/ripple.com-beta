@@ -10,7 +10,7 @@
 	  		<div class="wrapper">
 	    		<h3>Build Imaginative Apps on Global Payment Infrastructure</h3>
 				<aside class="col-lg-3"  style="float: left; margin-left: 250px;">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#powerful-apis">
+					<a href="https://dev.ripple.com/">
 						<div class="icons open">	
 						</div>
 						<h4 class="icons-title">Open Source</h4>
@@ -19,7 +19,7 @@
 				</aside>
 
 				<aside class="col-lg-3" style="float: left; margin-left: 50px;">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>protocol/#open-source">
+					<a href="https://dev.ripple.com/">
 						<div class="icons powerful">	
 						</div>
 				    	<h4 class="icons-title">Powerful and Open APIs</h4>

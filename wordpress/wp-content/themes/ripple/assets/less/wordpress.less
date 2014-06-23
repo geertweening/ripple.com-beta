@@ -133,6 +133,7 @@ body {
 }
 .wrapper {
     margin: 0 auto;
+    text-align: center;
     width: 960px;
     padding: 0 10px;
     position: relative;
@@ -229,12 +230,38 @@ em {
 }
 // Boxed Thumbnail
 .boxed {
-    background-color: #F8F8F8;
-    border-color: rgba(0, 0, 0, 0);
-    border-radius: 0 0 0 0;
-    min-height: 120px;
-    padding: 16px 20px 6px;
+    background-color: #F7F7F7;
+    border: 1px dashed #8f8f8e;
+    border-radius: 5px;
+    padding: 10px 20px 6px;
 }
+
+.wrapper.fi-thumbnail-wrapper {
+    width: 960px;
+    margin: 20px auto;
+}
+div#gateways .thumbnail.boxed {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 100px;
+    float: left;
+}
+
+.wrapper.mm-thumbnail-wrapper {
+    width: 960px;
+    margin: 20px auto;
+}
+div#market-makers .thumbnail.boxed {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 90px;
+    float: left;
+    margin-bottom: 20px;
+}
+
+
 // Boxed Icon Styles
 .boxed [class^="icon-"], .boxed [class*=" icon-"] {
     padding-right: 9px;
@@ -628,7 +655,7 @@ h4.widget-title {
 // }
 // User Tertiary Styles
 .users #tertiary.widget-area {
-    padding: 21px 0 49px;
+    padding: 20px 0 20px;
 }
 .users #tertiary h3.widget-heading {
     font-family: 'HelveticaNeueLTStd-UltLt',Helvetica,Arial,sans-serif;
@@ -1477,8 +1504,9 @@ ul.footer-links {
     width: 100%;
 }
 .footer-links > li {
+    text-align: left;
     float: left;
-    width: 13%;
+    width: 14%;
     padding: 0 1%;
     a {
         color: #ffffff;
@@ -1490,7 +1518,7 @@ ul.footer-links {
 }
 .footer-links > li:nth-child(1) {
     line-height: 26px;
-    width: 45%;
+    width: 58%;
 }
 .footer-links > li a:hover {
     text-decoration: underline;
@@ -1863,6 +1891,7 @@ p.author-bio {
 // }
 .wrapper {
     width: 1140px;
+    margin: 0 auto;
 }
 // Large Desktop Logo 
 .logo {
