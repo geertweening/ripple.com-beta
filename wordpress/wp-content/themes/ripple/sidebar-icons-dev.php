@@ -9,16 +9,16 @@
   		<section>
 	  		<div class="wrapper">
 	    		<h3>Build Imaginative Apps on Global Payment Infrastructure</h3>
-				<aside class="col-lg-3"  style="float: left; margin-left: 250px;">
+				<aside class="col-lg-4">
 					<a href="https://dev.ripple.com/">
 						<div class="icons open">	
 						</div>
 						<h4 class="icons-title">Open Source</h4>
-				    	<p>Code open to download, modify, and run</p>
+				    	<p>Code is open to download, modify, and run</p>
 					 </a>
 				</aside>
 
-				<aside class="col-lg-3" style="float: left; margin-left: 50px;">
+				<aside class="col-lg-4">
 					<a href="https://dev.ripple.com/">
 						<div class="icons powerful">	
 						</div>
@@ -26,6 +26,16 @@
 				    	<p>Tap into a global payment infrastructure for free</p>
 					 </a>
 				</aside>
+
+				<aside class="col-lg-4">
+					<a href="https://dev.ripple.com/">
+						<div class="icons p2p">	
+						</div>
+						<h4 class="icons-title">Interoperable</h4>
+				    	<p>Instantly compatible with other payment apps built on Ripple</p>
+					 </a>
+				</aside>
+
 			</div><!-- .wrapper -->	
 		</section>
 	</div><!-- #secondary -->

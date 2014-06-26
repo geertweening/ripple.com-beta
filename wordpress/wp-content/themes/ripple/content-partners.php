@@ -5,7 +5,7 @@
 ?>
 <article>
         <header class="entry-header">
-            <h2 class="callout">Global Funds Transfer and Exchange Protocol </h2>
+            <h2 class="callout">Global Funds Settlement Protocol</h2>
         </header><!-- .entry-header -->
 
 

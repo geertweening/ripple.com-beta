@@ -9,40 +9,31 @@
 		<div class="tab-pane fade active in">
 			<section class="shaded">
 		  		<div class="wrapper">
-		    		<h3 class="widget-heading" style="margin: 0 auto;">Provide Liquidity for Payments Globally</h3>
-					<aside class="col-sm-3">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#fast">
+		    		<h3 class="widget-heading mm-icons-topheading">Provide Liquidity for Payments Globally</h3>
+					<aside class="col-sm-4">
+						<a href="https://ripple.com/ripple-mm.pdf">
 							<div class="icons choice">	
 							</div>
-					    	<h4 class="icons-title">Asset-Agnostic</h4>
-					    	<p>Trade any asset on Ripple's distributed exchange</p>
+					    	<h4 class="icons-title">Any Currency</h4>
+					    	<p>Trade any asset on Ripple’s distributed exchange</p>
 						 </a>
 					</aside>
 
-					<aside class="col-sm-3">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#secure">
-							<div class="icons payment">	
-							</div>
-						    <h4 class="icons-title">Fair</h4>
-						    <p>Distributed architecture means no unfair speed advantages</p>
-						</a>
-					</aside>
-
-					<aside class="col-sm-3">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>payment-network/#global">
+					<aside class="col-sm-4">
+						<a href="https://ripple.com/ripple-mm.pdf">
 							<div class="icons free">	
 							</div>
-						    <h4 class="icons-title">Free</h4>
-						    <p>No exchange fees, no co-location fees, no data fees</p>
+						    <h4 class="icons-title">No Fees</h4>
+						    <p>No exchange fees, no data fees, no co-location fees</p>
 						</a>
 					</aside>
 
-					<aside class="col-sm-3">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>distributed-fx/#currency-choice">
+					<aside class="col-sm-4">
+						<a href="https://ripple.com/ripple-mm.pdf">
 							<div class="icons global">	
 							</div>
-					    	<h4 class="icons-title">Democratic</h4>
-					    	<p>Help reduce the cost of moving money and earn bid/ask spread</p>
+					    	<h4 class="icons-title">Open Markets</h4>
+					    	<p>Direct access to corporate and retail FX flows</p>
 						 </a>
 					</aside>
 				</div><!-- .wrapper -->	

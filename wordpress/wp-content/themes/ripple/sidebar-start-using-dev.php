@@ -5,19 +5,27 @@
  * @packageRipple
  */
 ?>
-<div class="tab-pane" role="complementary">
+<div class="tab-pane" role="complementary" id="devs-main">
+	
 	<section>
-		<div class="wrapper">
-			<div class="col-lg-12 centered text-center">
-				<h3>Developer Tools</h3>
-				<p  style="font-size: 110%; margin-bottom: 10px;"> Check out API documentation and more at the Ripple Developer Portal</p>
-				<img alt="Go to Ripple Gitub" src="<?php bloginfo('template_url'); ?>/assets/img/black_logo.png">
+		<div class="wrapper dev-info-wrapper">
+			<img class="dev_img" alt="Go to Ripple Gitub" src="<?php bloginfo('template_url'); ?>/assets/img/black_logo.png" />
+			<h3 class="widget-heading secondary-font mm_header">Ripple for Developers</h3>
+			<p class="dev_p">Ripple is an open-source, distributed payments protocol. It enables the instant and free exchange of any store of value - including dollars, euros, yen, 
+			bitcoins, gold, even loyalty points. Businesses of any size can easily build payment solutions, like banking or remittance applications, by tapping into a global payment 
+			infrastructure with Ripple’s simple APIs.</p>
+		</div><!-- .wrapper-->
+	</section>
+
+	<section>
+		<div class="wrapper dev-portal-wrapper">
+				<h3>Visit the Developer Portal</h3>
+				<p> Check out API documentation and more at the Ripple Developer Portal</p>
 				<div class="row">
-					<a href="https://dev.ripple.com/" target="blank"><button type="button" class="btn btn-primary" 
-					style="margin-top: 20px; margin-bottom: 30px;">Go to Developer Portal</button></a>
-				</div>
+					<a href="https://dev.ripple.com/" target="blank"><button type="button" class="btn btn-primary">Go to Developer Portal</button></a>
 			</div>
 		</div><!-- .wrapper-->
 	</section>
+
 </div>
 
