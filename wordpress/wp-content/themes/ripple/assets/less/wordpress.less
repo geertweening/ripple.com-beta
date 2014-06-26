@@ -1958,11 +1958,23 @@ nav.header-navigation {
     margin: 0 -20px 0 -30px;
 }
 }
+
+/* small desktop */
+@media  (min-width: 768px) and (max-width: 1199px){
+
+nav.header-navigation {
+    margin: 30px 3.65% 0;
+}
+
+}
+
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
 // body.custom-background {
 //     background-color: @blue !important;
 // }
+
+
 .wrapper {
     width: 755px;
 }
@@ -2059,13 +2071,14 @@ body {
     margin: 5px 5px 40px 0;
     width: 100px;
 }
+
 nav.header-navigation {
     bottom: 0;
     float: left;
     height: 28px;
     margin: 0;
     position: absolute;
-    width: 100%;
+    width: 480px;
 }
 .dashboard {
     float: right;
@@ -2261,8 +2274,8 @@ header.search-results {
     width: 400px;
 }
 .entry-content.video {
-    margin: 131px 0 0 4%;
-    width: 80%;
+   // margin: 131px 0 0 4%;
+    width: 100%;
 }
 .entry-content.callout.video h1 {
     font-size: 44px;
@@ -2304,10 +2317,18 @@ nav.header-navigation {
     float: none;
     height: 30px;
     position: relative;
-    width: 100%;
+    //width: 100%;
+    max-width: 316px;
+	margin: 0 auto;
+	padding-left: 8px;
+}
+nav.header-navigation ul li {
+	//float: none;
 }
 nav.header-navigation ul li a {
-    width: 100%;
+  //  width: 100%;
+  margin-right:5px;
+  font-size: .8em;
 }
 .page .carousel article {
     width: 330px;
@@ -2407,4 +2428,5 @@ article.post {
 .widget hr {
     margin: 0;
 }
+
 }
