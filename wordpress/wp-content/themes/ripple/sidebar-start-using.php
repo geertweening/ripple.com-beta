@@ -18,22 +18,24 @@
 		</div><!-- .wrapper-->
 	</section>
 
+
 	<section>
-        	<h3 class="tab-pane-heading">Learn More About Market Making on Ripple</h3>
+        	<h3 class="tab-pane-heading mm-thumbnail-wrapper">Learn More About Market-Making on Ripple</h3>
         	
         	<div class="wrapper mm-thumbnail-wrapper">
-				<div>
-					<a href="https://ripple.com/ripple-mm.pdf" class="thumbnail boxed">
-						<p><strong>White Paper for Market Makers</strong></p>
-						<p style="line-height: 1em;">Discover Ripple's distributed currency exchange</p>
-					</a>
+				<div class="thumbnail-info">
+					<p>White Paper</p>
+					<div class="row">
+						<a href="https://ripple.com/ripple-mm.pdf" target="blank"><button type="button" class="btn btn-primary">Download</button></a>
+					</div>	
 				</div>
 
-				<div>
-					<a href="https://docs.google.com/a/ripple.com/forms/d/1MbLFFa1_Jt20wc-KUJXKOBnAJq8NX_q5_FJcUIkLfos/viewform?edit_requested=true" class="thumbnail boxed">
-						<p><strong>Get in Touch</strong></p>
-						<p style="line-height: 1em;">Contact Us</p> 
-					</a>
+				<div class="thumbnail-info">
+					<p>Get in Touch</p>
+					<div class="row">
+						<a href="https://docs.google.com/a/ripple.com/forms/d/1MbLFFa1_Jt20wc-KUJXKOBnAJq8NX_q5_FJcUIkLfos/viewform?edit_requested=true" target="blank">
+						<button type="button" class="btn btn-primary">Contact Us</button></a>
+					</div>
 				</div>
 
         	</div>

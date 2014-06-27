@@ -230,6 +230,11 @@ em {
 }
 
 
+.wrapper.fi-thumbnail-wrapper {
+    max-width: 600px;
+}
+
+
 .wrapper.fi-info-wrapper {
     max-width: 1040px;
 }
@@ -298,19 +303,10 @@ div#devs-main .dev_p {
     padding: 10px 20px 6px;
 }
 
-div#gateways .thumbnail.boxed {
-    width: 40%;
-    margin-left: 5%;
-    margin-right: 5%;
-    height: 100px;
-    float: left;
-}
-
 .wrapper.mm-thumbnail-wrapper {
-    width: 960px;
-    margin: 20px auto;
+    max-width: 600px;
 }
-div#market-makers .thumbnail.boxed {
+div#market-makers .thumbnail-info {
     width: 40%;
     margin-left: 5%;
     margin-right: 5%;
@@ -319,6 +315,16 @@ div#market-makers .thumbnail.boxed {
     margin-bottom: 20px;
 }
 
+
+
+div#gateways .thumbnail-info {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 100px;
+    float: left;
+    padding: 10px 20px 6px;
+}
 
 // Boxed Icon Styles
 .boxed [class^="icon-"], .boxed [class*=" icon-"] {
@@ -330,6 +336,13 @@ b, strong {
     font-family: 'open_sansbold';
     font-weight: bold;
 }
+
+.thumbnail-info p {
+    font-weight: normal;
+    font-size: 16px;
+
+}
+
 a.boxed:hover, a.boxed:focus {
     border-color: lightgray;
 }
