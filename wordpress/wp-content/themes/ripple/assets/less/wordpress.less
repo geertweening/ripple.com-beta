@@ -241,7 +241,7 @@ em {
 div#gateways .gateways_img {
     height: 150px;
     margin-top: 15px;
-    padding-right: 40px;
+    padding:0 20px;
     float: left;
 }
 div#gateways h3.widget-heading {
@@ -251,6 +251,7 @@ div#gateways h3.widget-heading {
 div#gateways .gateways_p {
     margin-left: 20px;
     text-align: left;
+    padding-right: 10px;
 }
 
 .wrapper.mm-info-wrapper {
@@ -259,7 +260,7 @@ div#gateways .gateways_p {
 div#market-makers .mm_img {
     height: 150px;
     margin-top: 2px;
-    padding-right: 40px;
+    padding: 0 20px;
     float: left;
 }
 div#market-makers h3.widget-heading {
@@ -277,7 +278,7 @@ div#market-makers .mm_p {
 div#devs-main .dev_img {
     height: 120px;
     margin-top: 35px;
-    padding-right: 40px;
+    padding: 0 20px;
     float: left;
 }
 div#devs-main h3.widget-heading {
@@ -659,7 +660,7 @@ h2.banner-callout {
 .thumbnail-mm {
     text-align: center;
     min-height: 120px;
-    width: 340px;
+    max-width: 340px;
     #translucent > .background(@white, .2); 
     box-shadow: 0 0 1px rgba(102, 102, 102, 0.99) inset;
     border: 1px solid #918f8f;
@@ -2511,6 +2512,15 @@ article.post {
 }
 .widget hr {
     margin: 0;
+}
+
+.thumbnail-info {
+margin: auto !important;
+width: 100% !important;
+}
+
+#devs-main .dev_img {
+height: 90px !important;
 }
 
 }
