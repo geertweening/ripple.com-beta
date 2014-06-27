@@ -42,7 +42,7 @@
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links2', 'container' => false ) ); ?>	
 					</li>
-					<li style="margin-left: -20px;">
+					<li>
 						<h5>White Papers</h5>
 						<div class="screen-reader-text skip-link"><a href="#content" style="text-wrap: none;" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links3', 'container' => false ) ); ?>	
@@ -54,7 +54,7 @@
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links4', 'container' => false ) ); ?>	
 					</li>
 					-->
-					<li style="margin-left: 15px;">
+					<li>
 						<h5 style="white-space:nowrap;">Ripple Labs</h5>
 						<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-links5', 'container' => false ) ); ?>	
