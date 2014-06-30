@@ -43,9 +43,9 @@ function setupModules() {
         modulesOnThisPage.push(transactionFeedModule);
     }
 
-    if ($("#visualization").length > 0) {
-        modulesOnThisPage.push(paymentVisualizationModule);
-    }
+    //if ($("#visualization").length > 0) {
+    //    modulesOnThisPage.push(paymentVisualizationModule);
+    //}
 
     if ($(".num_transactions").length > 0 &&
         $(".volume_traded").length > 0 &&

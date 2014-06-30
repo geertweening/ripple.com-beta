@@ -132,17 +132,17 @@ function ripple_scripts() {
 	wp_enqueue_script( 'transactionFeed-js', get_template_directory_uri() . '/assets/js/transactionFeed.js', array('jquery'), false, true );
 	wp_enqueue_script( 'homepage-js', get_template_directory_uri() . '/assets/js/homepage.js', array('jquery'), false, true );
 	wp_enqueue_script( 'thumbnail-recent-post-widget-js', get_template_directory_uri() . '/assets/js/thumbnail-recent-post-widget.js', array('jquery'), false, true );
-	if (is_page('users')) {
-		wp_enqueue_script( 'd3-js', get_template_directory_uri() . '/assets/js/d3.v3.min.js', array(), false, false );
-		wp_enqueue_script( 'paymentVisualization-js', get_template_directory_uri() . '/assets/js/paymentVisualization.js', array('jquery'), false, true );	
-	}
+	//if (is_page('users')) {
+	//	wp_enqueue_script( 'd3-js', get_template_directory_uri() . '/assets/js/d3.v3.min.js', array(), false, false );
+	//	wp_enqueue_script( 'paymentVisualization-js', get_template_directory_uri() . '/assets/js/paymentVisualization.js', array('jquery'), false, true );	
+	//}
 	if (is_page('partners')) {
 		wp_enqueue_script( 'partnerPageStatistics-js', get_template_directory_uri() . '/assets/js/partnerPageStatistics.js', array('jquery'), false, true );	
 	}
 	if (is_page('devs')) {
 		wp_enqueue_script( 'dev-script', get_template_directory_uri() . '/assets/js/dev-script.js', array('jquery'), false, true );	
 	}
-	wp_enqueue_script( 'paymentVisualization', get_template_directory_uri() . '/assets/js/paymentVisualization.js', array('jquery'), false, true);
+	//wp_enqueue_script( 'paymentVisualization', get_template_directory_uri() . '/assets/js/paymentVisualization.js', array('jquery'), false, true);
 	wp_enqueue_script( 'rippleVisualizationSetup', get_template_directory_uri() . '/assets/js/rippleVisualizationSetup.js', array('jquery'), false, true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );}
