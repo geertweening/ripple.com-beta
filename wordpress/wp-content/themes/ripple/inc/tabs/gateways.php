@@ -41,23 +41,26 @@
 							<p class="gateways_p">Financial institutions integrate Ripple into their existing settlement infrastructure 
 							to enable the real-time transfer and exchange of funds across any types of value, including fiat currencies 
 							and loyalty points. Real-time settlement significantly reduces costs in the form of fees, time delays and risk 
-							associated with legacy correspondent banking networks.</p>
+							associated with legacy correspondent banking networks.
+							<br/>&#187; <a href="https://ripple.com/ripple-FIs.pdf" target="blank">Learn How to Integrate Ripple</a></p>
 						</div><!-- .wrapper-->
 					</section>
 
 					<section>
 					        <div class="wrapper fi-thumbnail-wrapper">
 
-				  			<h3 class="tab-pane-heading fi-thumbnail-wrapper">Learn How to Integrate Ripple</h3>
+				  			<h3 class="tab-pane-heading fi-thumbnail-wrapper">Get in Touch</h3>
 							
-							<div class="thumbnail-info">
+						<!-- 
+	<div class="thumbnail-info">
 									<p>Executive Summary</p>
 									<div class="row">
 										<a href="https://ripple.com/ripple-FIs.pdf" target="blank"><button type="button" class="btn btn-primary">Download</button></a>
 									</div>
 							</div>
-							<div class="thumbnail-info">
-								<p>Get in Touch</p>
+ -->
+							<div class="get_in_touch">
+								
 									<div class="row">
 										<a href="https://docs.google.com/a/ripple.com/forms/d/1MbLFFa1_Jt20wc-KUJXKOBnAJq8NX_q5_FJcUIkLfos/viewform?edit_requested=true" target="blank">
 										<button type="button" class="btn btn-primary">Contact Us</button></a>
