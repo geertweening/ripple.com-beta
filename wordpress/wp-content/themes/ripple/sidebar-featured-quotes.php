@@ -9,20 +9,29 @@
 		<div class="wrapper">
 			<ul class="featured-quotes-columns list-unstyled">
 				<li class="col-sm-3">
-						<div class="img-wrap bloomberg"></div>
-						<p>"A potentially world-changing concept.”</p>
+					<a href="http://dealbook.nytimes.com/2013/11/11/the-rush-to-coin-virtual-money-with-real-value/?_r=0">
+						<div class="img-wrap nytimes"></div>
+						<p>"Ripple is being heralded in some quarters as a more significant innovation than its competitors."</p>
+					</a>
 				</li>
 				<li class="col-sm-3">
-						<div class="img-wrap salon"></div>
-						<p>"A frictionless, transparent method for instantly transferring money anywhere in the world, in any currency."</p>
+					<a href="http://fortune.com/2014/03/21/adios-3-to-5-day-money-transfers/">
+						<div class="img-wrap fortune"></div>
+						<p>"Ripple is building a fast, global money transfer and exchange infrastructure."</p>
+					</a>
 				</li>
 				<li class="col-sm-3">
-						<div class="img-wrap gigaom"></div>
-						<p>"Backed by well known investors like Google Ventures, Andressen Horowitz and Founders Fund."</p>
+					<a href="http://www.businessinsider.com.au/10-financial-innovations-more-exciting-than-bitcoin-2014-1">
+						<div class="img-wrap bizinsider"></div>
+						<p>"Ripple [Labs] is ... creating a new and cheaper payment “rail” that would replace how all bank 
+						transfers are currently executed."</p>
+					</a>
 				</li>
 				<li class="col-sm-3">
-						<div class="img-wrap reuters"></div>
-						<p>"A universal payments system with no friction interchange costs."</p>
+					<a href="http://www.stlouisfed.org/dialogue-with-the-fed/assets/Bitcoin-3-31-14.pdf">
+						<div class="img-wrap thefed"></div>
+						<p>"Ripple is the winner. It processes anything."</p>
+					</a>
 				</li>
 			</ul>
 		</div><!-- .wrapper-->	
