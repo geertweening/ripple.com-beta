@@ -1070,7 +1070,7 @@ header.entry-header h2.blog-title {
     line-height: 21px;
 }
 .blog .with-sidebar article {
-    border-bottom: 1px solid #E3E4E4;
+    border:none;
     float: right;
     margin: 64px 3% 0;
     padding: 0 30px 45px;
@@ -1122,6 +1122,7 @@ header.entry-header h2.blog-title {
     font-weight: bold;
     line-height: 30px;
     margin-bottom: 0;
+    text-align: center;
 }
 .with-sidebar .widget-area h2 a:hover {
     background: none repeat scroll 0 0 #3372AD;
@@ -1208,8 +1209,8 @@ header.entry-header h2.blog-title {
 // Sidebar Social Links
 .with-sidebar .sidebar ul.social-iconer {
     display: table;
-    margin: 0 -17px;
-    width: 231px;
+    margin: auto;
+    width: inherit;
 }
 .with-sidebar .social-iconer.list-inline > li {
     padding: 0 1px;
@@ -2570,4 +2571,13 @@ font-size: 2.4rem;
 font-weight: 300;
 }
 
+//Additional Blog Adjustments
 .blog .transaction-feed {display:none;}
+
+.blog .entry-content a {
+	color: @blue;
+}
+
+.blog .entry-content img {
+max-width: 100%;
+}
