@@ -47,7 +47,7 @@ function setupModules() {
     //    modulesOnThisPage.push(paymentVisualizationModule);
     //}
 
-    if (partnerPageStatisticsModule) {
+    if ("object" === typeof partnerPageStatisticsModule) {
         modulesOnThisPage.push(partnerPageStatisticsModule);
     }
 
