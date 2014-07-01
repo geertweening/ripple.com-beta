@@ -28,9 +28,12 @@
 					<?php $header_image = get_header_image();
 						if ( ! empty( $header_image ) ) { ?>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
+							<img src="https://ripple.com/wp-content/uploads/2014/07/Ripple-Blog_logo.png" width="238" height="67" alt="Ripple Blog">
+					<!--		<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt=""> -->
 						</a>
+<!-- 
 						<h1 class="page-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>blog">blog</a></h1>
+ -->
 					<?php } // if ( ! empty( $header_image ) ) ?>
 				</div>
 				<nav class="header-navigation" role="navigation">
