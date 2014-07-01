@@ -33,6 +33,10 @@
 						<h1 class="page-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>blog">blog</a></h1>
 					<?php } // if ( ! empty( $header_image ) ) ?>
 				</div>
+				<nav class="header-navigation" role="navigation">
+					<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class'=> 'navigation-menu' ) ); ?>
+				</nav><!-- #site-navigation -->	
 
 			<div id="dashboard" class="dashboard">
 
@@ -43,11 +47,13 @@
 						</div>
 					</div>
 				</a>
-					<div id="wallet" class="wallet">
+					<!-- 
+<div id="wallet" class="wallet">
 						<a href="https://ripple.com/client/">
 							<button type="button" class="btn-wallet">Wallet</button>
 						</a>
 					</div>
+ -->
 			</div>
 		</div>
 	</header><!-- #masthead -->
