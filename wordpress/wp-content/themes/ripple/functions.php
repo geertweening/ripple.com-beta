@@ -136,10 +136,10 @@ function ripple_scripts() {
 	//	wp_enqueue_script( 'd3-js', get_template_directory_uri() . '/assets/js/d3.v3.min.js', array(), false, false );
 	//	wp_enqueue_script( 'paymentVisualization-js', get_template_directory_uri() . '/assets/js/paymentVisualization.js', array('jquery'), false, true );	
 	//}
-	if (is_page('partners') || is_page('users')) {
+	if (is_page( 2581 ) || is_page( 2579 )) {
 		wp_enqueue_script( 'partnerPageStatistics-js', get_template_directory_uri() . '/assets/js/partnerPageStatistics.js', array('jquery'), false, true );	
 	}
-	if (is_page('devs')) {
+	if (is_page( 828 )) {
 		wp_enqueue_script( 'dev-script', get_template_directory_uri() . '/assets/js/dev-script.js', array('jquery'), false, true );	
 	}
 	//wp_enqueue_script( 'paymentVisualization', get_template_directory_uri() . '/assets/js/paymentVisualization.js', array('jquery'), false, true);
