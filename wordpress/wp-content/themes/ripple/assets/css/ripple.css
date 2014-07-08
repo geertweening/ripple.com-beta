@@ -6283,7 +6283,7 @@ span.volume_traded {
   font-weight: 300;
 }
 ul li ul li {
-  list-style: square outside none !important;
+  list-style: circle outside none !important;
   margin-left: 18px;
 }
 .blog .transaction-feed {
