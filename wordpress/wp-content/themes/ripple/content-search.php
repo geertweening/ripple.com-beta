@@ -12,7 +12,7 @@
 			</a></h2>
 			<p class="entry-meta">
 
-				<span class="author updated">Posted by <?php the_author(); ?></span> <?php the_time(get_option('date_format')); ?> 
+				<span class="author updated">By<?php the_author(); ?></span> <?php the_time(get_option('date_format')); ?> 
 
 			</p><!-- .entry-meta -->
 		</header>
