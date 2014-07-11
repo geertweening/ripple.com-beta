@@ -56,7 +56,7 @@
 	
 	<div id="page" class="hfeed site dev-ripple dev-ripple-blog">
 		<?php do_action( 'before' ); ?>
-		<div class='header'>
+		<div class="dev-header-blog-wrapper"><div class='header'>
 
 			<div class='left' role="navigation">
 				<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
@@ -65,5 +65,5 @@
 			</div>
 
 			
-		</div><!-- Header -->
+		</div></div><!-- Header -->
 		<div id="main" class="site-main">
