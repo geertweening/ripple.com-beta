@@ -28,7 +28,7 @@
 					</a>
 				</li>
 				<li class="col-sm-3">
-					<a href="http://www.stlouisfed.org/dialogue-with-the-fed/assets/Bitcoin-3-31-14.pdf">
+					<a href="http://www.stlouisfed.org/newsroom/multimedia/video/20140331-dialogue-with-the-fed.cfm">
 						<div class="img-wrap thefed"></div>
 						<p>"Ripple is the winner. It processes anything."</p>
 					</a>
