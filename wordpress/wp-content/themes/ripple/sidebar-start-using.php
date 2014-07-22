@@ -48,7 +48,7 @@
 								  link += (key.charAt(ltr))
 								}
 							  }
-							document.write("<a href='mailto:"+link+"?subject=Contact%20Ripple%20Labs%20Business%20Development'>Contact Us</button></a>")
+							document.write("<a href='mailto:"+link+"'>Contact Us</button></a>")
 							}
 							//-->
 							</script><noscript>Sorry, you need Javascript on to email me.</noscript>	
