@@ -15,7 +15,7 @@
 			<p class="mm_p">On Ripple, market makers uniquely have access to constant, global demand for cross-currency trades - from dollars to 
 			shekels to pesos to yuan to alternative currencies like gold. Whether you’re a day trader or a dedicated forex business, explore the 
 			world’s only distributed currency exchange, and see how providing liquidity can yield new profits.<br/> 
-			 <a class="learn_more" href="https://ripple.com/ripple-mm.pdf" target="blank">&#187; Learn more about market-making on Ripple.</a></p>
+			 <a class="learn_more" href="https://ripple.com/ripple-mm.pdf" target="blank"><i class="fa fa-download"></i>  Download the executive summary for market makers</a></p>
 		</div><!-- .wrapper-->
 	</section>
 

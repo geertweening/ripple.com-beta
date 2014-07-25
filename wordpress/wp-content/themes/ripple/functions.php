@@ -108,6 +108,7 @@ add_action( 'widgets_init', 'ripple_widgets_init' );
 * Enqueue scripts and styles
 */
 function ripple_scripts() {
+	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'ripple-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'jqueryer', get_template_directory_uri() . '/assets/js/jquery.js', array(), false, true );
 // wp_enqueue_script( 'ripple-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
