@@ -47,7 +47,7 @@ get_header('blog'); ?>
 								<?php echo $post->post_title; ?>
 							</a></h2>
 							<p class="entry-meta">
-								<span class="author updated">By <?php the_author(); ?></span> <?php the_time(get_option('date_format')); ?> 
+								<span class="author updated">By <?php the_author(); ?></span> <span class="the_date"><?php the_time(get_option('date_format')); ?> </span>
 							</p><!-- .entry-meta -->
 						</header>
 						<?php 
