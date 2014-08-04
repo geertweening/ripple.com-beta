@@ -63,7 +63,10 @@
 				<h1>{<i class="icon-ripple-logo"></i>}</h1>
 				<?php wp_nav_menu( array( 'theme_location' => 'dev-ripple-menu', 'container' => false, 'menu_class'=> 'navigation-menu' ) ); ?>
 			</div>
-
+		<div class="right">
+			  <!-- GitHub buttons: ghbtn.html -->
+			  <iframe src="https://dev.ripple.com/vendor/ghbtn.html?user=ripple&amp;repo=ripple-dev-portal&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+		</div>
 			
 		</div></div><!-- Header -->
 		<div id="main" class="site-main">

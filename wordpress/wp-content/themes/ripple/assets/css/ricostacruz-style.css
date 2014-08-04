@@ -558,7 +558,9 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   clear: both;
 }
 .header .left {
-  float: left;
+  float: none;
+  max-width: 1024px;
+  margin: auto;
 }
 .header .right {
   text-align: right;
