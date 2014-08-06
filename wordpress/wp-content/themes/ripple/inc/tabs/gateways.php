@@ -42,7 +42,7 @@
 							to enable the real-time transfer and exchange of funds across any types of value, including fiat currencies 
 							and loyalty points. Real-time settlement significantly reduces costs in the form of fees, time delays and risk 
 							associated with legacy correspondent banking networks.
-							<br/> <a class="learn_more" href="https://ripple.com/ripple-FIs.pdf" target="blank"> <i class="fa fa-download"></i>  Download the executive summary for financial institutions</a></p>
+							<br/> <a class="learn_more" href="https://ripple.com/wp-content/uploads/2014/08/Ripple-_FI_Executive-Summary_v1_21.pdf" target="blank"> <i class="fa fa-download"></i>  Download the executive summary for financial institutions</a></p>
 						</div><!-- .wrapper-->
 					</section>
 
