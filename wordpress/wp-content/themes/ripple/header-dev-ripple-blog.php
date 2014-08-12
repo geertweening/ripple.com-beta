@@ -44,9 +44,73 @@
 	<!-- Flatdoc theme -->
 	 <link  href='https://ripple.com/wp-content/themes/ripple/assets/css/ricostacruz-style.css' rel='stylesheet'>
 
-
-	<!-- Custom Stylesheet -->
+	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	
+	 <!-- Bootstrap -->
+	<link href="https://dev.ripple.com/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://dev.ripple.com/js/bootstrap.min.js"></script>
+	
+	<!-- Custom Styles -->
+	<style>
+	
+		.navbar-nav {
+			margin: 9.5px -5px !important;
+		}
+		
+		img.small_logo {
+			max-width: 100%;
+		}		
+		
+		.navbar-inverse {
+			background-color: #346AA9 !important;
+			border-color: #346AA9 !important;
+		}
+
+		.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+			border-color: #346AA9 !important;
+		}
+
+		.navbar-collapse {
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+		.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+			color: #fff !important;
+		}
+
+		.navbar-brand {
+			padding: 8px 10px 10px 10px !important;
+		}
+
+		.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+			background-color: #4a7ab3 !important;
+		}
+
+		.navbar-inverse .navbar-toggle {
+			border-color: #346AA9 !important;
+		}
+
+		.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+			background-color: #4a7ab3 !important;
+		}
+
+		.right {
+			float: right !important;
+			margin-top: 15px !important;
+		}
+
+		@media (max-width: 768px) {
+
+			.right {
+				float: left !important;
+				margin-top: 0px !important;
+			}
+
+		}
+ 
+	</style>
 	
 
 
@@ -56,17 +120,47 @@
 	
 	<div id="page" class="hfeed site dev-ripple dev-ripple-blog">
 		<?php do_action( 'before' ); ?>
-		<div class="dev-header-blog-wrapper"><div class='header'>
+	<!-- 
+	<div class='header'>
 
 			<div class='left' role="navigation">
 				<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'ripple' ); ?>"><?php _e( 'Skip to content', 'ripple' ); ?></a></div>
-				<h1>{<i class="icon-ripple-logo"></i>}</h1>
+				<h1><img class="small_logo" src="https://dev.ripple.com/assets/img/ripple_logo_small.png"></h1>
 				<?php wp_nav_menu( array( 'theme_location' => 'dev-ripple-menu', 'container' => false, 'menu_class'=> 'navigation-menu' ) ); ?>
 			</div>
 		<div class="right">
-			  <!-- GitHub buttons: ghbtn.html -->
+			  <!~~ GitHub buttons: ghbtn.html ~~>
 			  <iframe src="https://dev.ripple.com/vendor/ghbtn.html?user=ripple&amp;repo=ripple-dev-portal&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
 		</div>
 			
-		</div></div><!-- Header -->
+		</div>
+ -->
+		<!-- Header -->
+			<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://dev.ripple.com/"><img class="small_logo" src="https://dev.ripple.com/assets/img/ripple_logo_small.png"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+			<li><a href="https://dev.ripple.com">Resources</a></li>
+            <li><a href="https://www.bountysource.com/teams/ripple/bounties">Bounties</a></li>
+            <li><a href="https://ripplelabs.atlassian.net/">Bug Tracking</a></li>
+            <li><a href="https://ripple.com/dev/blog/">Dev Blog</a></li>
+            <li><a href="https://ripple.com/forum/viewforum.php?f=2&sid=c016bc6b934120b7117c0e136e74de98">Forums</a></li>
+          </ul>
+          	<div class='right'>
+		 	 <!-- GitHub buttons -->
+		 		 <iframe src="https://dev.ripple.com/vendor/ghbtn.html?user=ripple&repo=ripple-dev-portal&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+			</div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
 		<div id="main" class="site-main">
