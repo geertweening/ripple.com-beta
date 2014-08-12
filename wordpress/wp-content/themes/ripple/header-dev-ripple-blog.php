@@ -65,10 +65,17 @@
 		.navbar-inverse {
 			background-color: #346AA9 !important;
 			border-color: #346AA9 !important;
+			height: 51px;
 		}
 
 		.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
 			border-color: #346AA9 !important;
+			background: #346AA9 !important;
+			margin: -30px;
+		}
+		
+		button.navbar-toggle {
+			top: 0 !important;
 		}
 
 		.navbar-collapse {
@@ -86,6 +93,8 @@
 
 		.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
 			background-color: #4a7ab3 !important;
+			border-radius: 0;
+			
 		}
 
 		.navbar-inverse .navbar-toggle {
@@ -99,6 +108,7 @@
 		.right {
 			float: right !important;
 			margin-top: 15px !important;
+			margin-right: 30px;
 		}
 
 		@media (max-width: 768px) {
@@ -106,6 +116,20 @@
 			.right {
 				float: left !important;
 				margin-top: 0px !important;
+			}
+
+		}
+		
+		@media (min-width: 768px) {
+
+			.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form  {
+				height: 50px !important;
+				
+			}
+			
+			.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+				padding: 15px;
+				margin-top: -10px;
 			}
 
 		}
@@ -152,7 +176,7 @@
 			<li><a href="https://dev.ripple.com">Resources</a></li>
             <li><a href="https://www.bountysource.com/teams/ripple/bounties">Bounties</a></li>
             <li><a href="https://ripplelabs.atlassian.net/">Bug Tracking</a></li>
-            <li><a href="https://ripple.com/dev/blog/">Dev Blog</a></li>
+            <li class="active"><a href="https://ripple.com/dev/blog/">Dev Blog</a></li>
             <li><a href="https://ripple.com/forum/viewforum.php?f=2&sid=c016bc6b934120b7117c0e136e74de98">Forums</a></li>
           </ul>
           	<div class='right'>
