@@ -12,7 +12,22 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width">
-<title><?php wp_title( '|', true, 'right' ); ?></title>
+<title><?php if ( is_page('market-makers') ) {
+       echo 'Ripple for Market Makers - Open, Distributed Currency Exchange | Ripple';
+    } else if ( is_page('financial-institutions') ){
+       echo 'Ripple for Financial Institutions - Global Funds Settlement Protocol | Ripple';
+     } else {
+        wp_title( '|', true, 'right' );
+    }
+    ?></title>
+<meta name="description" content="<?php if ( is_page('market-makers') ) {
+       echo 'Ripple is the world’s first distributed foreign currency exchange, enabling market makers to exchange any type of asset instantly and for free.';
+    } else if ( is_page ('financial-institutions') ) {
+       echo 'Ripple is technology infrastructure that powers settlement for instant, low-cost payment networks.';
+     } else {
+        bloginfo('name'); echo " - "; bloginfo('description');
+    }
+    ?>" />
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
