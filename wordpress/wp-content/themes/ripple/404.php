@@ -10,15 +10,25 @@ get_header('targets'); ?>
 <!-- 	<?php include (TEMPLATEPATH . '/inc/404-header.php' ); ?> -->
 
 	<div id="primary" class="content-area">
-		<main id="main404" class="site-main wrapper four-o-four 404" role="main">
+		<main id="main404" class="site-main wrapper four-o-four" role="main">
 
 				<div class="entry-content">
 
 					<div class="col-sm-12 404">
-						<p><?php echo "<h3>Well, this is embarrasing. Check out our <a href=https://ripple.com/forum/>forums</a> or head back to <a href=https://ripple.com/>home</a>. Perhaps search Ripple below ?</h3>" ?></p>
-						<p><img src="https://ripple.com/wp-content/uploads/2014/08/404_2.png"></p>
-						<p>Search Ripple:</p>
-						<?php get_search_form(); ?>
+						<div class="four-o-four">
+							<h1>404</h1>
+							<h3>Page can not be found.</h3>
+							<br/>
+							<hr>
+							
+							<p>You can visit our <a href="https://www.ripple.com">home page</a> or try one of the links below.</p>
+							<ul>
+								<li><a href="https://ripple.com/forum/">Forums</a></li>
+								<li><a href="https://ripple.com/blog/">Blog</a></li>
+								<li><a href="https://ripple.com/currency/">Currency</a></li>
+						</div>
+						
+						
 					</div>
 
 				</div><!-- .entry-content -->
