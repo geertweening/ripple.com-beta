@@ -521,7 +521,7 @@ nav.header-navigation ul li.current_page_item a, nav.header-navigation ul li a:h
     text-align: center;
     width: 69%;
     overflow: hidden;
-    max-width: 239px;
+    height: 65px;
 }
 .transaction-feed:hover, .transaction-feed:focus {
     // border: 1px  #D3D3D3;
@@ -1998,9 +1998,12 @@ p.author-bio {
 }
 /* Large desktop */
 @media (min-width: 1200px) { 
-// body.custom-background {
-//     background-color: @purple !important;
-// }
+
+
+.transaction-feed {
+    max-width: 239px;
+}
+
 .wrapper {
     width: 1140px;
     margin: 0 auto;
