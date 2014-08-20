@@ -520,6 +520,7 @@ nav.header-navigation ul li.current_page_item a, nav.header-navigation ul li a:h
     padding: 10px 6% 0;
     text-align: center;
     width: 69%;
+    overflow: hidden;
 }
 .transaction-feed:hover, .transaction-feed:focus {
     // border: 1px  #D3D3D3;
@@ -2677,6 +2678,24 @@ margin-left: 18px;
 //Ripple Deep Dive
 .ss-response-footer {
 	display: none;
+}
+
+.ss-form-heading {
+	visibility: hidden;
+}
+
+.ss-form-question {
+	width: 100px;
+	margin-bottom: 10px;
+}
+
+.ss-form-entry>input {
+	background: #fff !important;
+	width: 200px;
+}
+
+input#ss-submit {
+border: 1px solid @blue;
 }
 
 //404 adjustments
