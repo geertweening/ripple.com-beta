@@ -1,5 +1,0 @@
-[submodule "client"]
-	path = client
-	url = https://github.com/rippleFoundation/ripple-client.git
-
-
